@@ -12,9 +12,32 @@ namespace PBL3
 {
     public partial class AdminForm : Form
     {
+        private Form activeForm;
         public AdminForm()
         {
             InitializeComponent();
+            AdminChildForms.Overview overviewForm = new AdminChildForms.Overview();
+            overviewForm.TopLevel = false;
+            overviewForm.FormBorderStyle = FormBorderStyle.None;
+            overviewForm.Dock = DockStyle.Fill;
+            this.pnRight.Controls.Add(overviewForm);
+            overviewForm.BringToFront();
+            overviewForm.Show();
+        }
+
+        private void openChildForm(Form childForm, object btnSender)
+        {
+            if(activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.pnRight.Controls.Add(childForm);
+            childForm.BringToFront();
+            childForm.Show();
         }
     }
 }

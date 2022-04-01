@@ -18,11 +18,6 @@ namespace PBL3
             
         }
 
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
-        {
-            transition2.ShowSync(lbIntro);
-        }
-
         private void pbShowPass_Click(object sender, EventArgs e)
         {
             if(tbPassword.Text != "")
@@ -37,6 +32,20 @@ namespace PBL3
                     pbShowPass.Image = global::PBL3.Properties.Resources.showPassword;
                     tbPassword.PasswordChar = '*';
                 }
+            }
+        }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            if(tbUsername.Text == "admin" && tbPassword.Text == "admin")
+            {
+                this.Close();
+                new AdminForm().ShowDialog();
+            }
+            if(tbUsername.Text == "user" && tbPassword.Text == "user")
+            {
+                this.Close();
+                new StaffForm().ShowDialog();
             }
         }
     }
