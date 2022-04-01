@@ -50,6 +50,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminChildForms\Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminChildForms\Account.Designer.cs">
+      <DependentUpon>Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminChildForms\Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminChildForms\Bill.Designer.cs">
+      <DependentUpon>Bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminChildForms\Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminChildForms\Customer.Designer.cs">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminChildForms\Discount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminChildForms\Discount.Designer.cs">
+      <DependentUpon>Discount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminChildForms\Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminChildForms\Product.Designer.cs">
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminChildForms\Overview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +91,35 @@
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="AdminChildForms\Revenue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminChildForms\Revenue.Designer.cs">
+      <DependentUpon>Revenue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminChildForms\Stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminChildForms\Stock.Designer.cs">
+      <DependentUpon>Stock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffChildForms\ManagerOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffChildForms\ManagerOrder.Designer.cs">
+      <DependentUpon>ManagerOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffChildForms\ManagerProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffChildForms\ManagerProduct.Designer.cs">
+      <DependentUpon>ManagerProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffChildForms\NewProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffChildForms\NewProduct.Designer.cs">
+      <DependentUpon>NewProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="StaffChildForms\Overview.cs">
       <SubType>Form</SubType>
@@ -82,11 +141,31 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminChildForms\Account.resx">
+      <DependentUpon>Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminChildForms\Bill.resx">
+      <DependentUpon>Bill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminChildForms\Customer.resx">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminChildForms\Discount.resx">
+      <DependentUpon>Discount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminChildForms\Product.resx">
+      <DependentUpon>Product.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminChildForms\Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="AdminChildForms\Revenue.resx">
+      <DependentUpon>Revenue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminChildForms\Stock.resx">
+      <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffChildForms\Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>

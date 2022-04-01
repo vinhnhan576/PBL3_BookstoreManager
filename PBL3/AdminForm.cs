@@ -39,5 +39,15 @@ namespace PBL3
             childForm.BringToFront();
             childForm.Show();
         }
+
+        private void guna2GradientPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2GradientPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
