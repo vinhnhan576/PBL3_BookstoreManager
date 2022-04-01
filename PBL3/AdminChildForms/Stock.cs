@@ -8,23 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PBL3
+namespace PBL3.AdminChildForms
 {
-    public partial class AdminForm : Form
+    public partial class Stock : Form
     {
-        public AdminForm()
+        public Stock()
         {
             InitializeComponent();
-        }
-
-        private void guna2GradientPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2GradientPanel5_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
