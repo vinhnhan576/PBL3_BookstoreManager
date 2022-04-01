@@ -8,21 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PBL3
+namespace PBL3.AdminChildForms
 {
-    public partial class AdminForm : Form
+    public partial class Discount : Form
     {
-        public AdminForm()
+        public Discount()
         {
             InitializeComponent();
         }
 
-        private void guna2GradientPanel3_Paint(object sender, PaintEventArgs e)
+        private void Discount_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void guna2GradientPanel5_Paint(object sender, PaintEventArgs e)
+        private void guna2HtmlLabel11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel4_Click(object sender, EventArgs e)
         {
 
         }

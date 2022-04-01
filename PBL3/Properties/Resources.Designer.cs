@@ -123,6 +123,16 @@ namespace PBL3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_search_60 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_search_60", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_ver_2 {
             get {
                 object obj = ResourceManager.GetObject("logo ver 2", resourceCulture);
