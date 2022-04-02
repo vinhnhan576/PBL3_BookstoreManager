@@ -39,13 +39,15 @@ namespace PBL3
         {
             if(tbUsername.Text == "admin" && tbPassword.Text == "admin")
             {
-                this.Close();
+                this.Visible = false;
                 new AdminForm().ShowDialog();
+                this.Visible = true;
             }
             if(tbUsername.Text == "user" && tbPassword.Text == "user")
             {
-                this.Close();
+                this.Visible = false;
                 new StaffForm().ShowDialog();
+                this.Visible = true;
             }
         }
     }

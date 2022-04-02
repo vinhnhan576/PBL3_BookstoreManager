@@ -98,13 +98,13 @@
             // pn3
             // 
             this.pn3.AutoRoundedCorners = true;
-            this.pn3.BorderRadius = 79;
             this.pn3.Controls.Add(this.label7);
             this.pn3.Controls.Add(this.label6);
             this.pn3.FillColor = System.Drawing.Color.White;
             this.pn3.Location = new System.Drawing.Point(26, 190);
             this.pn3.Name = "pn3";
             this.pn3.Size = new System.Drawing.Size(160, 258);
+            this.pn3.BorderRadius = 20;
             this.pn3.TabIndex = 8;
             // 
             // label7
@@ -134,12 +134,12 @@
             // pn4
             // 
             this.pn4.AutoRoundedCorners = true;
-            this.pn4.BorderRadius = 49;
             this.pn4.Controls.Add(this.label8);
             this.pn4.FillColor = System.Drawing.Color.White;
             this.pn4.Location = new System.Drawing.Point(205, 347);
             this.pn4.Name = "pn4";
             this.pn4.Size = new System.Drawing.Size(540, 101);
+            this.pn4.BorderRadius = 20;
             this.pn4.TabIndex = 9;
             // 
             // label8
@@ -158,7 +158,6 @@
             // 
             this.pnProfile.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnProfile.AutoRoundedCorners = true;
-            this.pnProfile.BorderRadius = 78;
             this.pnProfile.Controls.Add(this.label5);
             this.pnProfile.Controls.Add(this.label4);
             this.pnProfile.Controls.Add(this.guna2GradientPanel1);
@@ -167,6 +166,7 @@
             this.pnProfile.Location = new System.Drawing.Point(26, 16);
             this.pnProfile.Name = "pnProfile";
             this.pnProfile.Size = new System.Drawing.Size(238, 158);
+            this.pnProfile.BorderRadius = 20;
             this.pnProfile.TabIndex = 7;
             // 
             // label5
@@ -200,13 +200,13 @@
             this.guna2GradientPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2GradientPanel1.AutoRoundedCorners = true;
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.White;
-            this.guna2GradientPanel1.BorderRadius = 31;
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.Cyan;
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(86, 10);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(65, 65);
+            this.guna2GradientPanel1.BorderRadius = 20;
             this.guna2GradientPanel1.TabIndex = 0;
             // 
             // label2
@@ -319,7 +319,6 @@
             // pnRate
             // 
             this.pnRate.AutoRoundedCorners = true;
-            this.pnRate.BorderRadius = 25;
             this.pnRate.Controls.Add(this.label11);
             this.pnRate.Controls.Add(this.label3);
             this.pnRate.Controls.Add(this.guna2PictureBox2);
@@ -329,6 +328,7 @@
             this.pnRate.Location = new System.Drawing.Point(590, 16);
             this.pnRate.Name = "pnRate";
             this.pnRate.Size = new System.Drawing.Size(155, 116);
+            this.pnRate.BorderRadius = 20;
             this.pnRate.TabIndex = 18;
             // 
             // label11

@@ -89,9 +89,9 @@
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="LoginForm.Designer.cs">
-		  <DependentUpon>LoginForm.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminChildForms\Revenue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,14 +160,23 @@
     <EmbeddedResource Include="AdminChildForms\Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
     </EmbeddedResource>
-	  <EmbeddedResource Include="LoginForm.resx">
-		  <DependentUpon>LoginForm.cs</DependentUpon>
-	  </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminChildForms\Revenue.resx">
       <DependentUpon>Revenue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminChildForms\Stock.resx">
       <DependentUpon>Stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffChildForms\ManagerOrder.resx">
+      <DependentUpon>ManagerOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffChildForms\ManagerProduct.resx">
+      <DependentUpon>ManagerProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffChildForms\NewProduct.resx">
+      <DependentUpon>NewProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffChildForms\Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
