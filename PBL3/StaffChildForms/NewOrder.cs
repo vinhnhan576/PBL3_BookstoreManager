@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PBL3.StaffChildForms
 {
-    public partial class NewProduct : Form
+    public partial class NewOrder : Form
     {
-        public NewProduct()
+        public NewOrder()
         {
             InitializeComponent();
         }

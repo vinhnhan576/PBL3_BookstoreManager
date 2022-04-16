@@ -73,11 +73,6 @@ namespace PBL3
 
         }
 
-        private void guna2GradientPanel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             openChildForm(new AdminChildForms.Product(), sender);
