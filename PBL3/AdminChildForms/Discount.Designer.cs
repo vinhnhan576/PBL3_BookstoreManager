@@ -239,7 +239,7 @@
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel6);
             this.guna2Panel1.Location = new System.Drawing.Point(18, 76);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(624, 163);
+            this.guna2Panel1.Size = new System.Drawing.Size(634, 166);
             this.guna2Panel1.TabIndex = 15;
             // 
             // guna2Button5

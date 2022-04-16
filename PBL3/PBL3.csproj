@@ -104,23 +104,17 @@
     <Compile Include="AdminChildForms\Stock.Designer.cs">
       <DependentUpon>Stock.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaffChildForms\ManagerOrder.cs">
+    <Compile Include="StaffChildForms\ManageOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StaffChildForms\ManagerOrder.Designer.cs">
-      <DependentUpon>ManagerOrder.cs</DependentUpon>
+    <Compile Include="StaffChildForms\ManageOrder.Designer.cs">
+      <DependentUpon>ManageOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaffChildForms\ManagerProduct.cs">
+    <Compile Include="StaffChildForms\NewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StaffChildForms\ManagerProduct.Designer.cs">
-      <DependentUpon>ManagerProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="StaffChildForms\NewProduct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StaffChildForms\NewProduct.Designer.cs">
-      <DependentUpon>NewProduct.cs</DependentUpon>
+    <Compile Include="StaffChildForms\NewOrder.Designer.cs">
+      <DependentUpon>NewOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="StaffChildForms\Overview.cs">
       <SubType>Form</SubType>
@@ -128,11 +122,11 @@
     <Compile Include="StaffChildForms\Overview.Designer.cs">
       <DependentUpon>Overview.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaffForm.cs">
+    <Compile Include="CashierForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StaffForm.Designer.cs">
-      <DependentUpon>StaffForm.cs</DependentUpon>
+    <Compile Include="CashierForm.Designer.cs">
+      <DependentUpon>CashierForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminForm.cs">
       <SubType>Form</SubType>
@@ -142,6 +136,42 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StockkeeperChildForms\ManageProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockkeeperChildForms\ManageProduct.Designer.cs">
+      <DependentUpon>ManageProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockkeeperChildForms\ManageStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockkeeperChildForms\ManageStock.Designer.cs">
+      <DependentUpon>ManageStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockkeeperChildForms\NewProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockkeeperChildForms\NewProduct.Designer.cs">
+      <DependentUpon>NewProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockkeeperChildForms\NewStockItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockkeeperChildForms\NewStockItem.Designer.cs">
+      <DependentUpon>NewStockItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockkeeperChildForms\Overview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockkeeperChildForms\Overview.Designer.cs">
+      <DependentUpon>Overview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockkeeperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockkeeperForm.Designer.cs">
+      <DependentUpon>StockkeeperForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminChildForms\Account.resx">
       <DependentUpon>Account.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,20 +199,17 @@
     <EmbeddedResource Include="AdminChildForms\Stock.resx">
       <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffChildForms\ManagerOrder.resx">
-      <DependentUpon>ManagerOrder.cs</DependentUpon>
+    <EmbeddedResource Include="StaffChildForms\ManageOrder.resx">
+      <DependentUpon>ManageOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffChildForms\ManagerProduct.resx">
-      <DependentUpon>ManagerProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StaffChildForms\NewProduct.resx">
-      <DependentUpon>NewProduct.cs</DependentUpon>
+    <EmbeddedResource Include="StaffChildForms\NewOrder.resx">
+      <DependentUpon>NewOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffChildForms\Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffForm.resx">
-      <DependentUpon>StaffForm.cs</DependentUpon>
+    <EmbeddedResource Include="CashierForm.resx">
+      <DependentUpon>CashierForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
@@ -197,6 +224,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StockkeeperChildForms\ManageProduct.resx">
+      <DependentUpon>ManageProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockkeeperChildForms\ManageStock.resx">
+      <DependentUpon>ManageStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockkeeperChildForms\NewProduct.resx">
+      <DependentUpon>NewProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockkeeperChildForms\NewStockItem.resx">
+      <DependentUpon>NewStockItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockkeeperChildForms\Overview.resx">
+      <DependentUpon>Overview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockkeeperForm.resx">
+      <DependentUpon>StockkeeperForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

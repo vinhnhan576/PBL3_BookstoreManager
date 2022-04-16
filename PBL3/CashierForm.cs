@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace PBL3
 {
-    public partial class StaffForm : Form
+    public partial class CashierForm : Form
     {
         private Form activeForm;
         private Guna.UI2.WinForms.Guna2Button currentButton, prevButton;
 
-        public StaffForm()
+        public CashierForm()
         {
             InitializeComponent();
             StaffChildForms.Overview overviewForm = new StaffChildForms.Overview();
@@ -67,17 +67,7 @@ namespace PBL3
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            openChildForm(new StaffChildForms.ManagerOrder(), sender);
-        }
-
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-            openChildForm(new StaffChildForms.NewProduct(), sender);
-        }
-
-        private void guna2Button5_Click(object sender, EventArgs e)
-        {
-            openChildForm(new StaffChildForms.ManagerProduct(), sender);
+            openChildForm(new StaffChildForms.ManageOrder(), sender);
         }
 
         private void guna2ImageButton2_Click(object sender, EventArgs e)
@@ -87,6 +77,41 @@ namespace PBL3
             {
                 this.Close();
             }
+        }
+
+        private void pnLeft_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbDate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2GradientPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void disableButton()

@@ -43,10 +43,16 @@ namespace PBL3
                 new AdminForm().ShowDialog();
                 this.Visible = true;
             }
-            if(tbUsername.Text == "user" && tbPassword.Text == "user")
+            if(tbUsername.Text == "user1" && tbPassword.Text == "user1")
             {
                 this.Visible = false;
-                new StaffForm().ShowDialog();
+                new CashierForm().ShowDialog();
+                this.Visible = true;
+            }
+            if (tbUsername.Text == "user2" && tbPassword.Text == "user2")
+            {
+                this.Visible = false;
+                new StockkeeperForm().ShowDialog();
                 this.Visible = true;
             }
         }

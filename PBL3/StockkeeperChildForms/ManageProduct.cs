@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PBL3.StaffChildForms
+namespace PBL3.StockkeeperChildForms
 {
-    public partial class ManagerOrder : Form
+    public partial class ManageProduct : Form
     {
-        public ManagerOrder()
+        public ManageProduct()
         {
             InitializeComponent();
         }
