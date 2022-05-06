@@ -56,5 +56,12 @@ namespace PBL3
                 this.Visible = true;
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            new ForgotPasswordForm().ShowDialog();
+            this.Visible = true;
+        }
     }
 }
