@@ -39,11 +39,11 @@
             this.guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.pnMenu = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.pnRight = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.pnLeft.SuspendLayout();
@@ -188,28 +188,6 @@
             this.guna2Button5.TextOffset = new System.Drawing.Point(2, 0);
             this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
             // 
-            // guna2Button4
-            // 
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Image = global::PBL3.Properties.Resources.bookIcon1;
-            this.guna2Button4.ImageOffset = new System.Drawing.Point(-7, 0);
-            this.guna2Button4.Location = new System.Drawing.Point(0, 138);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.PressedColor = System.Drawing.Color.White;
-            this.guna2Button4.PressedDepth = 20;
-            this.guna2Button4.Size = new System.Drawing.Size(170, 46);
-            this.guna2Button4.TabIndex = 3;
-            this.guna2Button4.Text = "New Product";
-            this.guna2Button4.TextOffset = new System.Drawing.Point(-5, 0);
-            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
-            // 
             // guna2Button3
             // 
             this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -283,6 +261,28 @@
             this.pnRight.Size = new System.Drawing.Size(745, 469);
             this.pnRight.TabIndex = 4;
             // 
+            // guna2Button4
+            // 
+            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button4.ForeColor = System.Drawing.Color.White;
+            this.guna2Button4.Image = global::PBL3.Properties.Resources.bookIcon1;
+            this.guna2Button4.ImageOffset = new System.Drawing.Point(-7, 0);
+            this.guna2Button4.Location = new System.Drawing.Point(0, 138);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.PressedColor = System.Drawing.Color.White;
+            this.guna2Button4.PressedDepth = 20;
+            this.guna2Button4.Size = new System.Drawing.Size(170, 46);
+            this.guna2Button4.TabIndex = 3;
+            this.guna2Button4.Text = "New Product";
+            this.guna2Button4.TextOffset = new System.Drawing.Point(-5, 0);
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
+            // 
             // StockkeeperForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,10 +316,10 @@
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel5;
         private Guna.UI2.WinForms.Guna2Panel pnMenu;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2GradientPanel pnRight;
+        private Guna.UI2.WinForms.Guna2Button guna2Button4;
     }
 }

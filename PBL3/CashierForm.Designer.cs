@@ -34,21 +34,22 @@ namespace PBL3
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.lbDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.pnRight = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.pnMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnLeft = new System.Windows.Forms.Panel();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pnRight = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.pnMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.pnLeft = new System.Windows.Forms.Panel();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2GradientPanel5.SuspendLayout();
             this.pnMenu.SuspendLayout();
             this.pnLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2GradientPanel1
@@ -87,6 +88,56 @@ namespace PBL3
             this.guna2HtmlLabel1.Text = "Welcome, Y/N";
             this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
             // 
+            // guna2ImageButton2
+            // 
+            this.guna2ImageButton2.CheckedState.Image = global::PBL3.Properties.Resources.logout;
+            this.guna2ImageButton2.HoverState.Image = global::PBL3.Properties.Resources.logout;
+            this.guna2ImageButton2.Image = global::PBL3.Properties.Resources.logout;
+            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton2.ImageRotate = 0F;
+            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(858, 12);
+            this.guna2ImageButton2.Name = "guna2ImageButton2";
+            this.guna2ImageButton2.PressedState.Image = global::PBL3.Properties.Resources.logout;
+            this.guna2ImageButton2.ShadowDecoration.BorderRadius = 8;
+            this.guna2ImageButton2.ShadowDecoration.Depth = 5;
+            this.guna2ImageButton2.ShadowDecoration.Enabled = true;
+            this.guna2ImageButton2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 10);
+            this.guna2ImageButton2.Size = new System.Drawing.Size(30, 30);
+            this.guna2ImageButton2.TabIndex = 5;
+            this.guna2ImageButton2.Click += new System.EventHandler(this.guna2ImageButton2_Click);
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.CheckedState.Image = global::PBL3.Properties.Resources.settingsIcon;
+            this.guna2ImageButton1.HoverState.Image = global::PBL3.Properties.Resources.settingsIcon;
+            this.guna2ImageButton1.Image = global::PBL3.Properties.Resources.settingsIcon;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(806, 12);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.ShadowDecoration.BorderRadius = 8;
+            this.guna2ImageButton1.ShadowDecoration.Depth = 5;
+            this.guna2ImageButton1.ShadowDecoration.Enabled = true;
+            this.guna2ImageButton1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 10);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(30, 30);
+            this.guna2ImageButton1.TabIndex = 4;
+            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::PBL3.Properties.Resources.logo_ver_2;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
+            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 6);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(115, 56);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
+            // 
             // pnRight
             // 
             this.pnRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
@@ -113,6 +164,7 @@ namespace PBL3
             // pnMenu
             // 
             this.pnMenu.BackColor = System.Drawing.Color.Transparent;
+            this.pnMenu.Controls.Add(this.guna2Button4);
             this.pnMenu.Controls.Add(this.guna2Button3);
             this.pnMenu.Controls.Add(this.guna2Button2);
             this.pnMenu.Controls.Add(this.guna2Button1);
@@ -120,17 +172,6 @@ namespace PBL3
             this.pnMenu.Name = "pnMenu";
             this.pnMenu.Size = new System.Drawing.Size(170, 447);
             this.pnMenu.TabIndex = 0;
-            // 
-            // pnLeft
-            // 
-            this.pnLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
-            this.pnLeft.Controls.Add(this.guna2GradientPanel5);
-            this.pnLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnLeft.Location = new System.Drawing.Point(0, 62);
-            this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(170, 469);
-            this.pnLeft.TabIndex = 2;
-            this.pnLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.pnLeft_Paint);
             // 
             // guna2Button3
             // 
@@ -197,55 +238,36 @@ namespace PBL3
             this.guna2Button1.TextOffset = new System.Drawing.Point(-10, 0);
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // guna2ImageButton2
+            // pnLeft
             // 
-            this.guna2ImageButton2.CheckedState.Image = global::PBL3.Properties.Resources.logout;
-            this.guna2ImageButton2.HoverState.Image = global::PBL3.Properties.Resources.logout;
-            this.guna2ImageButton2.Image = global::PBL3.Properties.Resources.logout;
-            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(858, 12);
-            this.guna2ImageButton2.Name = "guna2ImageButton2";
-            this.guna2ImageButton2.PressedState.Image = global::PBL3.Properties.Resources.logout;
-            this.guna2ImageButton2.ShadowDecoration.BorderRadius = 8;
-            this.guna2ImageButton2.ShadowDecoration.Depth = 5;
-            this.guna2ImageButton2.ShadowDecoration.Enabled = true;
-            this.guna2ImageButton2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 10);
-            this.guna2ImageButton2.Size = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton2.TabIndex = 5;
-            this.guna2ImageButton2.Click += new System.EventHandler(this.guna2ImageButton2_Click);
+            this.pnLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.pnLeft.Controls.Add(this.guna2GradientPanel5);
+            this.pnLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeft.Location = new System.Drawing.Point(0, 62);
+            this.pnLeft.Name = "pnLeft";
+            this.pnLeft.Size = new System.Drawing.Size(170, 469);
+            this.pnLeft.TabIndex = 2;
+            this.pnLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.pnLeft_Paint);
             // 
-            // guna2ImageButton1
+            // guna2Button4
             // 
-            this.guna2ImageButton1.CheckedState.Image = global::PBL3.Properties.Resources.settingsIcon;
-            this.guna2ImageButton1.HoverState.Image = global::PBL3.Properties.Resources.settingsIcon;
-            this.guna2ImageButton1.Image = global::PBL3.Properties.Resources.settingsIcon;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(806, 12);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.ShadowDecoration.BorderRadius = 8;
-            this.guna2ImageButton1.ShadowDecoration.Depth = 5;
-            this.guna2ImageButton1.ShadowDecoration.Enabled = true;
-            this.guna2ImageButton1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 10);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton1.TabIndex = 4;
-            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = global::PBL3.Properties.Resources.logo_ver_2;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 6);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(115, 56);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
+            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button4.ForeColor = System.Drawing.Color.White;
+            this.guna2Button4.Image = global::PBL3.Properties.Resources.customer1;
+            this.guna2Button4.ImageOffset = new System.Drawing.Point(-3, 0);
+            this.guna2Button4.Location = new System.Drawing.Point(0, 138);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.PressedColor = System.Drawing.Color.White;
+            this.guna2Button4.PressedDepth = 20;
+            this.guna2Button4.Size = new System.Drawing.Size(170, 46);
+            this.guna2Button4.TabIndex = 3;
+            this.guna2Button4.Text = "New Customer";
             // 
             // CashierForm
             // 
@@ -260,10 +282,10 @@ namespace PBL3
             this.Text = "Form1";
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2GradientPanel5.ResumeLayout(false);
             this.pnMenu.ResumeLayout(false);
             this.pnLeft.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -283,6 +305,7 @@ namespace PBL3
         private Guna.UI2.WinForms.Guna2HtmlLabel lbDate;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private System.Windows.Forms.Panel pnLeft;
+        private Guna.UI2.WinForms.Guna2Button guna2Button4;
     }
 }
 
