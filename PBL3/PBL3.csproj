@@ -34,11 +34,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.3.2, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.3.2\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,165 +60,213 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminChildForms\Account.cs">
+    <Compile Include="Account.cs">
+      <DependentUpon>Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Discount.cs">
+      <DependentUpon>Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Management.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Management.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Management.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Management.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Management.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs">
+      <DependentUpon>Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rank.cs">
+      <DependentUpon>Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Receipt.cs">
+      <DependentUpon>Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Receipt_Detail.cs">
+      <DependentUpon>Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Restock.cs">
+      <DependentUpon>Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Revenue.cs">
+      <DependentUpon>Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Store_Import.cs">
+      <DependentUpon>Management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\Account.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminChildForms\Account.Designer.cs">
+    <Compile Include="View\AdminChildForms\Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminChildForms\Bill.cs">
+    <Compile Include="View\AdminChildForms\Bill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminChildForms\Bill.Designer.cs">
+    <Compile Include="View\AdminChildForms\Bill.Designer.cs">
       <DependentUpon>Bill.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminChildForms\Customer.cs">
+    <Compile Include="View\AdminChildForms\Customer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminChildForms\Customer.Designer.cs">
+    <Compile Include="View\AdminChildForms\Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminChildForms\Discount.cs">
+    <Compile Include="View\AdminChildForms\Discount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminChildForms\Discount.Designer.cs">
+    <Compile Include="View\AdminChildForms\Discount.Designer.cs">
       <DependentUpon>Discount.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminChildForms\Product.cs">
+    <Compile Include="View\AdminChildForms\Product.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminChildForms\Product.Designer.cs">
+    <Compile Include="View\AdminChildForms\Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminChildForms\Overview.cs">
+    <Compile Include="View\AdminChildForms\Overview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminChildForms\Overview.Designer.cs">
+    <Compile Include="View\AdminChildForms\Overview.Designer.cs">
       <DependentUpon>Overview.cs</DependentUpon>
     </Compile>
-    <Compile Include="ForgotPasswordForm.cs">
+    <Compile Include="View\ForgotPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ForgotPasswordForm.Designer.cs">
+    <Compile Include="View\ForgotPasswordForm.Designer.cs">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminChildForms\Revenue.cs">
+    <Compile Include="View\AdminChildForms\Revenue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminChildForms\Revenue.Designer.cs">
+    <Compile Include="View\AdminChildForms\Revenue.Designer.cs">
       <DependentUpon>Revenue.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminChildForms\Stock.cs">
+    <Compile Include="View\AdminChildForms\Stock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminChildForms\Stock.Designer.cs">
+    <Compile Include="View\AdminChildForms\Stock.Designer.cs">
       <DependentUpon>Stock.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaffChildForms\ManageOrder.cs">
+    <Compile Include="View\StaffChildForms\ManageOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StaffChildForms\ManageOrder.Designer.cs">
+    <Compile Include="View\StaffChildForms\ManageOrder.Designer.cs">
       <DependentUpon>ManageOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaffChildForms\NewOrder.cs">
+    <Compile Include="View\StaffChildForms\NewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StaffChildForms\NewOrder.Designer.cs">
+    <Compile Include="View\StaffChildForms\NewOrder.Designer.cs">
       <DependentUpon>NewOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaffChildForms\Overview.cs">
+    <Compile Include="View\StaffChildForms\Overview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StaffChildForms\Overview.Designer.cs">
+    <Compile Include="View\StaffChildForms\Overview.Designer.cs">
       <DependentUpon>Overview.cs</DependentUpon>
     </Compile>
-    <Compile Include="CashierForm.cs">
+    <Compile Include="View\CashierForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CashierForm.Designer.cs">
+    <Compile Include="View\CashierForm.Designer.cs">
       <DependentUpon>CashierForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminForm.cs">
+    <Compile Include="View\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminForm.Designer.cs">
+    <Compile Include="View\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StockkeeperChildForms\ManageStock.cs">
+    <Compile Include="View\StockkeeperChildForms\ManageStock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockkeeperChildForms\ManageStock.Designer.cs">
+    <Compile Include="View\StockkeeperChildForms\ManageStock.Designer.cs">
       <DependentUpon>ManageStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockkeeperChildForms\NewStockItem.cs">
+    <Compile Include="View\StockkeeperChildForms\NewStockItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockkeeperChildForms\NewStockItem.Designer.cs">
+    <Compile Include="View\StockkeeperChildForms\NewStockItem.Designer.cs">
       <DependentUpon>NewStockItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockkeeperChildForms\Overview.cs">
+    <Compile Include="View\StockkeeperChildForms\Overview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockkeeperChildForms\Overview.Designer.cs">
+    <Compile Include="View\StockkeeperChildForms\Overview.Designer.cs">
       <DependentUpon>Overview.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockkeeperForm.cs">
+    <Compile Include="View\StockkeeperForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockkeeperForm.Designer.cs">
+    <Compile Include="View\StockkeeperForm.Designer.cs">
       <DependentUpon>StockkeeperForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminChildForms\Account.resx">
+    <EmbeddedResource Include="View\AdminChildForms\Account.resx">
       <DependentUpon>Account.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminChildForms\Bill.resx">
+    <EmbeddedResource Include="View\AdminChildForms\Bill.resx">
       <DependentUpon>Bill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminChildForms\Customer.resx">
+    <EmbeddedResource Include="View\AdminChildForms\Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminChildForms\Discount.resx">
+    <EmbeddedResource Include="View\AdminChildForms\Discount.resx">
       <DependentUpon>Discount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminChildForms\Product.resx">
+    <EmbeddedResource Include="View\AdminChildForms\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminChildForms\Overview.resx">
+    <EmbeddedResource Include="View\AdminChildForms\Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ForgotPasswordForm.resx">
+    <EmbeddedResource Include="View\ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminChildForms\Revenue.resx">
+    <EmbeddedResource Include="View\AdminChildForms\Revenue.resx">
       <DependentUpon>Revenue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminChildForms\Stock.resx">
+    <EmbeddedResource Include="View\AdminChildForms\Stock.resx">
       <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffChildForms\ManageOrder.resx">
+    <EmbeddedResource Include="View\StaffChildForms\ManageOrder.resx">
       <DependentUpon>ManageOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffChildForms\NewOrder.resx">
+    <EmbeddedResource Include="View\StaffChildForms\NewOrder.resx">
       <DependentUpon>NewOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffChildForms\Overview.resx">
+    <EmbeddedResource Include="View\StaffChildForms\Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CashierForm.resx">
+    <EmbeddedResource Include="View\CashierForm.resx">
       <DependentUpon>CashierForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminForm.resx">
+    <EmbeddedResource Include="View\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -222,18 +279,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="StockkeeperChildForms\ManageStock.resx">
+    <EmbeddedResource Include="View\StockkeeperChildForms\ManageStock.resx">
       <DependentUpon>ManageStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockkeeperChildForms\NewStockItem.resx">
+    <EmbeddedResource Include="View\StockkeeperChildForms\NewStockItem.resx">
       <DependentUpon>NewStockItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockkeeperChildForms\Overview.resx">
+    <EmbeddedResource Include="View\StockkeeperChildForms\Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockkeeperForm.resx">
+    <EmbeddedResource Include="View\StockkeeperForm.resx">
       <DependentUpon>StockkeeperForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Management.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Management.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Management.edmx.diagram">
+      <DependentUpon>Management.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <EmbeddedResource Include="Custom Fonts\Poppins-Black.ttf" />
     <EmbeddedResource Include="Custom Fonts\Poppins-BlackItalic.ttf" />
@@ -355,6 +419,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\return.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Management.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Management.Context.cs</LastGenOutput>
+      <DependentUpon>Management.edmx</DependentUpon>
+    </Content>
+    <Content Include="Management.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Management.edmx</DependentUpon>
+      <LastGenOutput>Management.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BLL\" />
+    <Folder Include="DTO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
