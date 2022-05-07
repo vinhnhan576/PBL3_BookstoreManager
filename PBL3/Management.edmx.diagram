@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c54302e12d84df6b3244bd17cc3ce59" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLySanPhamModel.Account" Width="1.5" PointX="7.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.Customer" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.Discount" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.Person" Width="1.5" PointX="5.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.Product" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.Rank" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.Receipt" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.Receipt_Detail" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.Restock" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.Revenue" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.Store_Import" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_Account_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_Customer_Rank" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_Receipt_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_Product_Discount" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_Receipt_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_Receipt_Detail_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_Restock_Product1" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_Store_Import_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_Receipt_Receipt_Detail" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_Revenue_Receipt_Detail" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
