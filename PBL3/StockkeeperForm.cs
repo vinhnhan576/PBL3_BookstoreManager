@@ -57,16 +57,6 @@ namespace PBL3
             openChildForm(new StockkeeperChildForms.ManageStock(), sender);
         }
 
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-            openChildForm(new StockkeeperChildForms.NewProduct(), sender);
-        }
-
-        private void guna2Button5_Click(object sender, EventArgs e)
-        {
-            openChildForm(new StockkeeperChildForms.ManageProduct(), sender);
-        }
-
         private void activateButton(object sender)
         {
             if (sender != null)
