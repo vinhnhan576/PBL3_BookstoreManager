@@ -12,23 +12,19 @@ namespace PBL3
     using System;
     using System.Collections.Generic;
     
-    public partial class Receipt
+    public partial class Store
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Receipt()
+        public Store()
         {
-            this.Receipt_Detail = new HashSet<Receipt_Detail>();
+            this.Store_Import = new HashSet<Store_Import>();
         }
     
-        public string ReceiptID { get; set; }
-        public System.DateTime Date { get; set; }
-        public Nullable<double> Total { get; set; }
-        public string PersonID { get; set; }
-        public string CustomerID { get; set; }
+        public string ProductID { get; set; }
+        public int StoreQuantity { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual Person Person { get; set; }
+        public virtual Product Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Receipt_Detail> Receipt_Detail { get; set; }
+        public virtual ICollection<Store_Import> Store_Import { get; set; }
     }
 }

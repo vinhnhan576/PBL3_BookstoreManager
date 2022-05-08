@@ -12,15 +12,12 @@ namespace PBL3
     using System;
     using System.Collections.Generic;
     
-    public partial class Restock
+    public partial class sysdiagram
     {
-        public string RestockID { get; set; }
-        public string ProductID { get; set; }
-        public int ImportQuantity { get; set; }
-        public System.DateTime ImportDate { get; set; }
-        public double ImportPrice { get; set; }
-    
-        public virtual Product Product { get; set; }
-        public virtual Stock Stock { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace PBL3
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ManagementEntities : DbContext
+    public partial class QLSPEntities : DbContext
     {
-        public ManagementEntities()
-            : base("name=ManagementEntities")
+        public QLSPEntities()
+            : base("name=QLSPEntities")
         {
         }
     
@@ -35,6 +35,9 @@ namespace PBL3
         public virtual DbSet<Receipt_Detail> Receipt_Details { get; set; }
         public virtual DbSet<Restock> Restocks { get; set; }
         public virtual DbSet<Revenue> Revenues { get; set; }
+        public virtual DbSet<Stock> Stocks { get; set; }
+        public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<Store_Import> Store_Imports { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
