@@ -63,12 +63,20 @@
     <Compile Include="Account.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="BLL\BLLAccountManagement.cs" />
+    <Compile Include="BLL\BLLCustomerManagement.cs" />
+    <Compile Include="BLL\BLLDiscountManagement.cs" />
+    <Compile Include="BLL\BLLPersonManagement.cs" />
+    <Compile Include="BLL\BLLProductManagement.cs" />
+    <Compile Include="BLL\BLLRankManagement.cs" />
+    <Compile Include="BLL\BLLReceiptManagement.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Discount.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\CBBItem.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,16 +114,7 @@
     <Compile Include="Revenue.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Stock.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Store.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Store_Import.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="View\AdminChildForms\Account.cs">
@@ -309,24 +308,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Black.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-BlackItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Bold.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-BoldItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-ExtraBold.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-ExtraBoldItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-ExtraLight.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-ExtraLightItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Italic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Light.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-LightItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Medium.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-MediumItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Regular.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-SemiBold.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-SemiBoldItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Thin.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-ThinItalic.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -433,10 +414,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

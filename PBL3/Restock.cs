@@ -21,6 +21,5 @@ namespace PBL3
         public double ImportPrice { get; set; }
     
         public virtual Product Product { get; set; }
-        public virtual Stock Stock { get; set; }
     }
 }

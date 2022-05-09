@@ -21,6 +21,5 @@ namespace PBL3
         public double SellingPrice { get; set; }
     
         public virtual Product Product { get; set; }
-        public virtual Store Store { get; set; }
     }
 }

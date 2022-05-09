@@ -35,9 +35,6 @@ namespace PBL3
         public virtual DbSet<Receipt_Detail> Receipt_Details { get; set; }
         public virtual DbSet<Restock> Restocks { get; set; }
         public virtual DbSet<Revenue> Revenues { get; set; }
-        public virtual DbSet<Stock> Stocks { get; set; }
-        public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<Store_Import> Store_Imports { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

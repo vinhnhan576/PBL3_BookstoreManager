@@ -63,7 +63,7 @@ namespace PBL3
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            openChildForm(new Overview(), sender);
+            openChildForm(new NewOrder(), sender);
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)

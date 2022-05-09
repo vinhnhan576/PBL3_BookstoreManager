@@ -39,9 +39,7 @@ namespace PBL3
         public virtual ICollection<Receipt_Detail> Receipt_Detail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Restock> Restocks { get; set; }
-        public virtual Stock Stock { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Store_Import> Store_Import { get; set; }
-        public virtual Store Store { get; set; }
     }
 }

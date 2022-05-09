@@ -34,20 +34,20 @@ namespace PBL3.View
             this.pnTop = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.lbDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnLogout = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnSettings = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnRight = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.pnMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRevenue = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDiscount = new Guna.UI2.WinForms.Guna2Button();
+            this.btnStock = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBill = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCustomer = new Guna.UI2.WinForms.Guna2Button();
+            this.btnProduct = new Guna.UI2.WinForms.Guna2Button();
+            this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
             this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -60,8 +60,8 @@ namespace PBL3.View
             // 
             this.pnTop.Controls.Add(this.lbDate);
             this.pnTop.Controls.Add(this.guna2HtmlLabel1);
-            this.pnTop.Controls.Add(this.guna2ImageButton2);
-            this.pnTop.Controls.Add(this.guna2ImageButton1);
+            this.pnTop.Controls.Add(this.btnLogout);
+            this.pnTop.Controls.Add(this.btnSettings);
             this.pnTop.Controls.Add(this.guna2PictureBox1);
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTop.Location = new System.Drawing.Point(0, 0);
@@ -89,41 +89,41 @@ namespace PBL3.View
             this.guna2HtmlLabel1.TabIndex = 6;
             this.guna2HtmlLabel1.Text = "Welcome, Y/N";
             // 
-            // guna2ImageButton2
+            // btnLogout
             // 
-            this.guna2ImageButton2.CheckedState.Image = global::PBL3.Properties.Resources.logout;
-            this.guna2ImageButton2.HoverState.Image = global::PBL3.Properties.Resources.logout;
-            this.guna2ImageButton2.Image = global::PBL3.Properties.Resources.logout;
-            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(858, 12);
-            this.guna2ImageButton2.Name = "guna2ImageButton2";
-            this.guna2ImageButton2.PressedState.Image = global::PBL3.Properties.Resources.logout;
-            this.guna2ImageButton2.ShadowDecoration.BorderRadius = 8;
-            this.guna2ImageButton2.ShadowDecoration.Depth = 5;
-            this.guna2ImageButton2.ShadowDecoration.Enabled = true;
-            this.guna2ImageButton2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 10);
-            this.guna2ImageButton2.Size = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton2.TabIndex = 5;
-            this.guna2ImageButton2.Click += new System.EventHandler(this.guna2ImageButton2_Click);
+            this.btnLogout.CheckedState.Image = global::PBL3.Properties.Resources.logout;
+            this.btnLogout.HoverState.Image = global::PBL3.Properties.Resources.logout;
+            this.btnLogout.Image = global::PBL3.Properties.Resources.logout;
+            this.btnLogout.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnLogout.ImageRotate = 0F;
+            this.btnLogout.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnLogout.Location = new System.Drawing.Point(858, 12);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.PressedState.Image = global::PBL3.Properties.Resources.logout;
+            this.btnLogout.ShadowDecoration.BorderRadius = 8;
+            this.btnLogout.ShadowDecoration.Depth = 5;
+            this.btnLogout.ShadowDecoration.Enabled = true;
+            this.btnLogout.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 10);
+            this.btnLogout.Size = new System.Drawing.Size(30, 30);
+            this.btnLogout.TabIndex = 5;
+            this.btnLogout.Click += new System.EventHandler(this.guna2ImageButton2_Click);
             // 
-            // guna2ImageButton1
+            // btnSettings
             // 
-            this.guna2ImageButton1.CheckedState.Image = global::PBL3.Properties.Resources.settingsIcon;
-            this.guna2ImageButton1.HoverState.Image = global::PBL3.Properties.Resources.settingsIcon;
-            this.guna2ImageButton1.Image = global::PBL3.Properties.Resources.settingsIcon;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(806, 12);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.ShadowDecoration.BorderRadius = 8;
-            this.guna2ImageButton1.ShadowDecoration.Depth = 5;
-            this.guna2ImageButton1.ShadowDecoration.Enabled = true;
-            this.guna2ImageButton1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 10);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton1.TabIndex = 4;
+            this.btnSettings.CheckedState.Image = global::PBL3.Properties.Resources.settingsIcon;
+            this.btnSettings.HoverState.Image = global::PBL3.Properties.Resources.settingsIcon;
+            this.btnSettings.Image = global::PBL3.Properties.Resources.settingsIcon;
+            this.btnSettings.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnSettings.ImageRotate = 0F;
+            this.btnSettings.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnSettings.Location = new System.Drawing.Point(806, 12);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.ShadowDecoration.BorderRadius = 8;
+            this.btnSettings.ShadowDecoration.Depth = 5;
+            this.btnSettings.ShadowDecoration.Enabled = true;
+            this.btnSettings.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 10);
+            this.btnSettings.Size = new System.Drawing.Size(30, 30);
+            this.btnSettings.TabIndex = 4;
             // 
             // guna2PictureBox1
             // 
@@ -162,192 +162,192 @@ namespace PBL3.View
             // pnMenu
             // 
             this.pnMenu.BackColor = System.Drawing.Color.Transparent;
-            this.pnMenu.Controls.Add(this.guna2Button8);
-            this.pnMenu.Controls.Add(this.guna2Button7);
-            this.pnMenu.Controls.Add(this.guna2Button6);
-            this.pnMenu.Controls.Add(this.guna2Button5);
-            this.pnMenu.Controls.Add(this.guna2Button4);
-            this.pnMenu.Controls.Add(this.guna2Button3);
-            this.pnMenu.Controls.Add(this.guna2Button2);
-            this.pnMenu.Controls.Add(this.guna2Button1);
+            this.pnMenu.Controls.Add(this.btnRevenue);
+            this.pnMenu.Controls.Add(this.btnAccount);
+            this.pnMenu.Controls.Add(this.btnDiscount);
+            this.pnMenu.Controls.Add(this.btnStock);
+            this.pnMenu.Controls.Add(this.btnBill);
+            this.pnMenu.Controls.Add(this.btnCustomer);
+            this.pnMenu.Controls.Add(this.btnProduct);
+            this.pnMenu.Controls.Add(this.btnOverview);
             this.pnMenu.Location = new System.Drawing.Point(80, 22);
             this.pnMenu.Name = "pnMenu";
             this.pnMenu.Size = new System.Drawing.Size(140, 447);
             this.pnMenu.TabIndex = 0;
             // 
-            // guna2Button8
+            // btnRevenue
             // 
-            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button8.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button8.ForeColor = System.Drawing.Color.White;
-            this.guna2Button8.Image = global::PBL3.Properties.Resources.revenue;
-            this.guna2Button8.ImageOffset = new System.Drawing.Point(-4, 0);
-            this.guna2Button8.Location = new System.Drawing.Point(0, 322);
-            this.guna2Button8.Name = "guna2Button8";
-            this.guna2Button8.PressedColor = System.Drawing.Color.White;
-            this.guna2Button8.PressedDepth = 20;
-            this.guna2Button8.Size = new System.Drawing.Size(140, 46);
-            this.guna2Button8.TabIndex = 7;
-            this.guna2Button8.Text = "Revenue";
-            this.guna2Button8.TextOffset = new System.Drawing.Point(-2, 0);
-            this.guna2Button8.Click += new System.EventHandler(this.guna2Button8_Click);
+            this.btnRevenue.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRevenue.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRevenue.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRevenue.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRevenue.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRevenue.FillColor = System.Drawing.Color.Transparent;
+            this.btnRevenue.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRevenue.ForeColor = System.Drawing.Color.White;
+            this.btnRevenue.Image = global::PBL3.Properties.Resources.revenue;
+            this.btnRevenue.ImageOffset = new System.Drawing.Point(-4, 0);
+            this.btnRevenue.Location = new System.Drawing.Point(0, 322);
+            this.btnRevenue.Name = "btnRevenue";
+            this.btnRevenue.PressedColor = System.Drawing.Color.White;
+            this.btnRevenue.PressedDepth = 20;
+            this.btnRevenue.Size = new System.Drawing.Size(140, 46);
+            this.btnRevenue.TabIndex = 7;
+            this.btnRevenue.Text = "Revenue";
+            this.btnRevenue.TextOffset = new System.Drawing.Point(-2, 0);
+            this.btnRevenue.Click += new System.EventHandler(this.guna2Button8_Click);
             // 
-            // guna2Button7
+            // btnAccount
             // 
-            this.guna2Button7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button7.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button7.ForeColor = System.Drawing.Color.White;
-            this.guna2Button7.Image = global::PBL3.Properties.Resources.account;
-            this.guna2Button7.ImageOffset = new System.Drawing.Point(-5, 0);
-            this.guna2Button7.Location = new System.Drawing.Point(0, 276);
-            this.guna2Button7.Name = "guna2Button7";
-            this.guna2Button7.PressedColor = System.Drawing.Color.White;
-            this.guna2Button7.PressedDepth = 20;
-            this.guna2Button7.Size = new System.Drawing.Size(140, 46);
-            this.guna2Button7.TabIndex = 6;
-            this.guna2Button7.Text = "Account";
-            this.guna2Button7.TextOffset = new System.Drawing.Point(-2, 0);
-            this.guna2Button7.Click += new System.EventHandler(this.guna2Button7_Click);
+            this.btnAccount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAccount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAccount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAccount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAccount.FillColor = System.Drawing.Color.Transparent;
+            this.btnAccount.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccount.ForeColor = System.Drawing.Color.White;
+            this.btnAccount.Image = global::PBL3.Properties.Resources.account;
+            this.btnAccount.ImageOffset = new System.Drawing.Point(-5, 0);
+            this.btnAccount.Location = new System.Drawing.Point(0, 276);
+            this.btnAccount.Name = "btnAccount";
+            this.btnAccount.PressedColor = System.Drawing.Color.White;
+            this.btnAccount.PressedDepth = 20;
+            this.btnAccount.Size = new System.Drawing.Size(140, 46);
+            this.btnAccount.TabIndex = 6;
+            this.btnAccount.Text = "Account";
+            this.btnAccount.TextOffset = new System.Drawing.Point(-2, 0);
+            this.btnAccount.Click += new System.EventHandler(this.guna2Button7_Click);
             // 
-            // guna2Button6
+            // btnDiscount
             // 
-            this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button6.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button6.ForeColor = System.Drawing.Color.White;
-            this.guna2Button6.Image = global::PBL3.Properties.Resources.discount;
-            this.guna2Button6.ImageOffset = new System.Drawing.Point(-5, 0);
-            this.guna2Button6.Location = new System.Drawing.Point(0, 230);
-            this.guna2Button6.Name = "guna2Button6";
-            this.guna2Button6.PressedColor = System.Drawing.Color.White;
-            this.guna2Button6.PressedDepth = 20;
-            this.guna2Button6.Size = new System.Drawing.Size(140, 46);
-            this.guna2Button6.TabIndex = 5;
-            this.guna2Button6.Text = "Discount";
-            this.guna2Button6.TextOffset = new System.Drawing.Point(-2, 0);
-            this.guna2Button6.Click += new System.EventHandler(this.guna2Button6_Click);
+            this.btnDiscount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDiscount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDiscount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDiscount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDiscount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDiscount.FillColor = System.Drawing.Color.Transparent;
+            this.btnDiscount.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiscount.ForeColor = System.Drawing.Color.White;
+            this.btnDiscount.Image = global::PBL3.Properties.Resources.discount;
+            this.btnDiscount.ImageOffset = new System.Drawing.Point(-5, 0);
+            this.btnDiscount.Location = new System.Drawing.Point(0, 230);
+            this.btnDiscount.Name = "btnDiscount";
+            this.btnDiscount.PressedColor = System.Drawing.Color.White;
+            this.btnDiscount.PressedDepth = 20;
+            this.btnDiscount.Size = new System.Drawing.Size(140, 46);
+            this.btnDiscount.TabIndex = 5;
+            this.btnDiscount.Text = "Discount";
+            this.btnDiscount.TextOffset = new System.Drawing.Point(-2, 0);
+            this.btnDiscount.Click += new System.EventHandler(this.guna2Button6_Click);
             // 
-            // guna2Button5
+            // btnStock
             // 
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button5.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.Image = global::PBL3.Properties.Resources.stock;
-            this.guna2Button5.ImageOffset = new System.Drawing.Point(-10, 0);
-            this.guna2Button5.Location = new System.Drawing.Point(0, 184);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.PressedColor = System.Drawing.Color.White;
-            this.guna2Button5.PressedDepth = 20;
-            this.guna2Button5.Size = new System.Drawing.Size(140, 46);
-            this.guna2Button5.TabIndex = 4;
-            this.guna2Button5.Text = "Stock";
-            this.guna2Button5.TextOffset = new System.Drawing.Point(-8, 0);
-            this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
+            this.btnStock.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStock.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStock.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStock.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStock.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStock.FillColor = System.Drawing.Color.Transparent;
+            this.btnStock.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStock.ForeColor = System.Drawing.Color.White;
+            this.btnStock.Image = global::PBL3.Properties.Resources.stock;
+            this.btnStock.ImageOffset = new System.Drawing.Point(-10, 0);
+            this.btnStock.Location = new System.Drawing.Point(0, 184);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.PressedColor = System.Drawing.Color.White;
+            this.btnStock.PressedDepth = 20;
+            this.btnStock.Size = new System.Drawing.Size(140, 46);
+            this.btnStock.TabIndex = 4;
+            this.btnStock.Text = "Stock";
+            this.btnStock.TextOffset = new System.Drawing.Point(-8, 0);
+            this.btnStock.Click += new System.EventHandler(this.guna2Button5_Click);
             // 
-            // guna2Button4
+            // btnBill
             // 
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Image = global::PBL3.Properties.Resources.bill;
-            this.guna2Button4.ImageOffset = new System.Drawing.Point(-15, 0);
-            this.guna2Button4.Location = new System.Drawing.Point(0, 138);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.PressedColor = System.Drawing.Color.White;
-            this.guna2Button4.PressedDepth = 20;
-            this.guna2Button4.Size = new System.Drawing.Size(140, 46);
-            this.guna2Button4.TabIndex = 3;
-            this.guna2Button4.Text = "Bill";
-            this.guna2Button4.TextOffset = new System.Drawing.Point(-12, 0);
-            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
+            this.btnBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBill.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBill.FillColor = System.Drawing.Color.Transparent;
+            this.btnBill.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBill.ForeColor = System.Drawing.Color.White;
+            this.btnBill.Image = global::PBL3.Properties.Resources.bill;
+            this.btnBill.ImageOffset = new System.Drawing.Point(-15, 0);
+            this.btnBill.Location = new System.Drawing.Point(0, 138);
+            this.btnBill.Name = "btnBill";
+            this.btnBill.PressedColor = System.Drawing.Color.White;
+            this.btnBill.PressedDepth = 20;
+            this.btnBill.Size = new System.Drawing.Size(140, 46);
+            this.btnBill.TabIndex = 3;
+            this.btnBill.Text = "Bill";
+            this.btnBill.TextOffset = new System.Drawing.Point(-12, 0);
+            this.btnBill.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
-            // guna2Button3
+            // btnCustomer
             // 
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Image = global::PBL3.Properties.Resources.customer;
-            this.guna2Button3.ImageOffset = new System.Drawing.Point(-2, 0);
-            this.guna2Button3.Location = new System.Drawing.Point(0, 92);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.PressedColor = System.Drawing.Color.White;
-            this.guna2Button3.PressedDepth = 20;
-            this.guna2Button3.Size = new System.Drawing.Size(140, 46);
-            this.guna2Button3.TabIndex = 2;
-            this.guna2Button3.Text = "Customer";
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            this.btnCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCustomer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCustomer.FillColor = System.Drawing.Color.Transparent;
+            this.btnCustomer.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomer.ForeColor = System.Drawing.Color.White;
+            this.btnCustomer.Image = global::PBL3.Properties.Resources.customer;
+            this.btnCustomer.ImageOffset = new System.Drawing.Point(-2, 0);
+            this.btnCustomer.Location = new System.Drawing.Point(0, 92);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.PressedColor = System.Drawing.Color.White;
+            this.btnCustomer.PressedDepth = 20;
+            this.btnCustomer.Size = new System.Drawing.Size(140, 46);
+            this.btnCustomer.TabIndex = 2;
+            this.btnCustomer.Text = "Customer";
+            this.btnCustomer.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
-            // guna2Button2
+            // btnProduct
             // 
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Image = global::PBL3.Properties.Resources.bookIcon;
-            this.guna2Button2.ImageOffset = new System.Drawing.Point(-5, 0);
-            this.guna2Button2.Location = new System.Drawing.Point(0, 46);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.PressedColor = System.Drawing.Color.White;
-            this.guna2Button2.PressedDepth = 20;
-            this.guna2Button2.Size = new System.Drawing.Size(140, 46);
-            this.guna2Button2.TabIndex = 1;
-            this.guna2Button2.Text = "Product";
-            this.guna2Button2.TextOffset = new System.Drawing.Point(-3, 0);
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.btnProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnProduct.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProduct.FillColor = System.Drawing.Color.Transparent;
+            this.btnProduct.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProduct.ForeColor = System.Drawing.Color.White;
+            this.btnProduct.Image = global::PBL3.Properties.Resources.bookIcon;
+            this.btnProduct.ImageOffset = new System.Drawing.Point(-5, 0);
+            this.btnProduct.Location = new System.Drawing.Point(0, 46);
+            this.btnProduct.Name = "btnProduct";
+            this.btnProduct.PressedColor = System.Drawing.Color.White;
+            this.btnProduct.PressedDepth = 20;
+            this.btnProduct.Size = new System.Drawing.Size(140, 46);
+            this.btnProduct.TabIndex = 1;
+            this.btnProduct.Text = "Product";
+            this.btnProduct.TextOffset = new System.Drawing.Point(-3, 0);
+            this.btnProduct.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
-            // guna2Button1
+            // btnOverview
             // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = global::PBL3.Properties.Resources.overview;
-            this.guna2Button1.ImageOffset = new System.Drawing.Point(-2, 0);
-            this.guna2Button1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.PressedColor = System.Drawing.Color.White;
-            this.guna2Button1.PressedDepth = 20;
-            this.guna2Button1.Size = new System.Drawing.Size(140, 46);
-            this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Text = "Overview";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnOverview.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOverview.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOverview.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOverview.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOverview.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOverview.FillColor = System.Drawing.Color.Transparent;
+            this.btnOverview.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOverview.ForeColor = System.Drawing.Color.White;
+            this.btnOverview.Image = global::PBL3.Properties.Resources.overview;
+            this.btnOverview.ImageOffset = new System.Drawing.Point(-2, 0);
+            this.btnOverview.Location = new System.Drawing.Point(0, 0);
+            this.btnOverview.Name = "btnOverview";
+            this.btnOverview.PressedColor = System.Drawing.Color.White;
+            this.btnOverview.PressedDepth = 20;
+            this.btnOverview.Size = new System.Drawing.Size(140, 46);
+            this.btnOverview.TabIndex = 0;
+            this.btnOverview.Text = "Overview";
+            this.btnOverview.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // pnLeft
             // 
@@ -385,21 +385,21 @@ namespace PBL3.View
         private Guna.UI2.WinForms.Guna2GradientPanel pnTop;
         private Guna.UI2.WinForms.Guna2GradientPanel pnRight;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
+        private Guna.UI2.WinForms.Guna2ImageButton btnSettings;
+        private Guna.UI2.WinForms.Guna2ImageButton btnLogout;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel5;
         private Guna.UI2.WinForms.Guna2Panel pnMenu;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbDate;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Panel pnLeft;
-        private Guna.UI2.WinForms.Guna2Button guna2Button8;
-        private Guna.UI2.WinForms.Guna2Button guna2Button7;
-        private Guna.UI2.WinForms.Guna2Button guna2Button6;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnRevenue;
+        private Guna.UI2.WinForms.Guna2Button btnAccount;
+        private Guna.UI2.WinForms.Guna2Button btnDiscount;
+        private Guna.UI2.WinForms.Guna2Button btnStock;
+        private Guna.UI2.WinForms.Guna2Button btnBill;
+        private Guna.UI2.WinForms.Guna2Button btnCustomer;
+        private Guna.UI2.WinForms.Guna2Button btnOverview;
+        private Guna.UI2.WinForms.Guna2Button btnProduct;
     }
 }
 

@@ -23,9 +23,9 @@ namespace PBL3.View.StaffChildForms
         private void guna2Button2_Click(object sender, EventArgs e)
         {
   
-            Receipt_Detail re = new Receipt_Detail() { ReceipDetailtID="re110",ProductID="r0001",SellingQuantity=2,ReceiptID="r005"};
+            Receipt_Detail re = new Receipt_Detail() { ReceipDetailtID="re1110",ProductID="r0001",SellingQuantity=2,ReceiptID="r005"};
             bll.AddNewReceiptDetail(re);
-            Receipt_Detail re1 = new Receipt_Detail() { ReceipDetailtID = "re111", ProductID = "r0002", SellingQuantity = 1, ReceiptID ="r005" };
+            Receipt_Detail re1 = new Receipt_Detail() { ReceipDetailtID = "re1111", ProductID = "r0002", SellingQuantity = 1, ReceiptID ="r005" };
             bll.AddNewReceiptDetail(re1);
             MessageBox.Show("Add Successfully");
 

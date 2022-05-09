@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PBL3.View.StaffChildForms;
+using PBL3.View;
 
 
 namespace PBL3
@@ -17,16 +17,9 @@ namespace PBL3
 
         static void Main()
         {
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            Application.Run(new NewOrder());
-
-
-
-
-
+            Application.Run(new LoginForm());
         }
 
     }
