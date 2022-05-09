@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.View.StaffChildForms;
 
 namespace PBL3
 {
@@ -18,7 +19,7 @@ namespace PBL3
         public CashierForm()
         {
             InitializeComponent();
-            StaffChildForms.Overview overviewForm = new StaffChildForms.Overview();
+           Overview overviewForm = new Overview();
             overviewForm.TopLevel = false;
             overviewForm.FormBorderStyle = FormBorderStyle.None;
             overviewForm.Dock = DockStyle.Fill;
@@ -57,17 +58,17 @@ namespace PBL3
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            openChildForm(new StaffChildForms.Overview(), sender);
+            openChildForm(new Overview(), sender);
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            openChildForm(new StaffChildForms.Overview(), sender);
+            openChildForm(new NewOrder(), sender);
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            openChildForm(new StaffChildForms.ManageOrder(), sender);
+            openChildForm(new ManageOrder(), sender);
         }
 
         private void guna2ImageButton2_Click(object sender, EventArgs e)

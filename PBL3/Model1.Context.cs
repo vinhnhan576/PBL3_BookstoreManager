@@ -13,10 +13,10 @@ namespace PBL3
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ManagementEntities : DbContext
+    public partial class QLSPEntities : DbContext
     {
-        public ManagementEntities()
-            : base("name=ManagementEntities")
+        public QLSPEntities()
+            : base("name=QLSPEntities")
         {
         }
     

@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lbAccount = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lbIntro = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnSignIn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbForgotPassword = new System.Windows.Forms.Label();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pic = new System.Windows.Forms.PictureBox();
             this.pbShowPass = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tbPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowPass)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2HtmlLabel1
+            // lbAccount
             // 
-            this.guna2HtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(194)))), ((int)(((byte)(185)))));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(47, 201);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(64, 23);
-            this.guna2HtmlLabel1.TabIndex = 2;
-            this.guna2HtmlLabel1.Text = "Account";
+            this.lbAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbAccount.BackColor = System.Drawing.Color.Transparent;
+            this.lbAccount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(194)))), ((int)(((byte)(185)))));
+            this.lbAccount.Location = new System.Drawing.Point(47, 201);
+            this.lbAccount.Name = "lbAccount";
+            this.lbAccount.Size = new System.Drawing.Size(64, 23);
+            this.lbAccount.TabIndex = 2;
+            this.lbAccount.Text = "Account";
             // 
             // lbIntro
             // 
@@ -94,18 +94,30 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1.Controls.Add(this.label1);
+            this.guna2Panel1.Controls.Add(this.lbForgotPassword);
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel3);
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel4);
             this.guna2Panel1.Controls.Add(this.btnSignIn);
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel2);
             this.guna2Panel1.Controls.Add(this.lbIntro);
-            this.guna2Panel1.Controls.Add(this.guna2HtmlLabel1);
+            this.guna2Panel1.Controls.Add(this.lbAccount);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.guna2Panel1.Location = new System.Drawing.Point(565, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(349, 531);
             this.guna2Panel1.TabIndex = 8;
+            // 
+            // lbForgotPassword
+            // 
+            this.lbForgotPassword.AutoSize = true;
+            this.lbForgotPassword.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbForgotPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(194)))), ((int)(((byte)(185)))));
+            this.lbForgotPassword.Location = new System.Drawing.Point(63, 413);
+            this.lbForgotPassword.Name = "lbForgotPassword";
+            this.lbForgotPassword.Size = new System.Drawing.Size(225, 28);
+            this.lbForgotPassword.TabIndex = 9;
+            this.lbForgotPassword.Text = "forgot your password?";
+            this.lbForgotPassword.Click += new System.EventHandler(this.label1_Click);
             // 
             // guna2HtmlLabel3
             // 
@@ -145,18 +157,6 @@
             this.guna2HtmlLabel2.TabIndex = 6;
             this.guna2HtmlLabel2.Text = "BOOKSTORE";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(194)))), ((int)(((byte)(185)))));
-            this.label1.Location = new System.Drawing.Point(63, 413);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 28);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "forgot your password?";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -170,15 +170,15 @@
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // pictureBox1
+            // pic
             // 
-            this.pictureBox1.Image = global::PBL3.Properties.Resources.Reading_book_rafiki__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(547, 548);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.pic.Image = global::PBL3.Properties.Resources.Reading_book_rafiki__1_;
+            this.pic.Location = new System.Drawing.Point(12, 0);
+            this.pic.Name = "pic";
+            this.pic.Size = new System.Drawing.Size(547, 548);
+            this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic.TabIndex = 9;
+            this.pic.TabStop = false;
             // 
             // pbShowPass
             // 
@@ -261,7 +261,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(194)))), ((int)(((byte)(185)))));
             this.ClientSize = new System.Drawing.Size(914, 531);
             this.Controls.Add(this.guna2PictureBox1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pic);
             this.Controls.Add(this.pbShowPass);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
@@ -273,7 +273,7 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowPass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -284,7 +284,7 @@
 
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2TextBox tbUsername;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lbAccount;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbIntro;
         private Guna.UI2.WinForms.Guna2TextBox tbPassword;
         private Guna.UI2.WinForms.Guna2GradientButton btnSignIn;
@@ -293,7 +293,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pic;
+        private System.Windows.Forms.Label lbForgotPassword;
     }
 }
