@@ -14,15 +14,21 @@ namespace PBL3
     
     public partial class Receipt
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Receipt()
+        {
+            this.Receipt_Detail = new HashSet<Receipt_Detail>();
+        }
+    
         public string ReceiptID { get; set; }
         public System.DateTime Date { get; set; }
         public Nullable<double> Total { get; set; }
         public string PersonID { get; set; }
         public string CustomerID { get; set; }
-        public string ReceiptDetailID { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Person Person { get; set; }
-        public virtual Receipt_Detail Receipt_Detail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Receipt_Detail> Receipt_Detail { get; set; }
     }
 }

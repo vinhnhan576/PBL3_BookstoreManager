@@ -17,7 +17,6 @@ namespace PBL3
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Receipt_Detail()
         {
-            this.Receipts = new HashSet<Receipt>();
             this.Revenues = new HashSet<Revenue>();
         }
     
@@ -25,10 +24,10 @@ namespace PBL3
         public string ProductID { get; set; }
         public int SellingQuantity { get; set; }
         public Nullable<double> Total { get; set; }
+        public string ReceiptID { get; set; }
     
         public virtual Product Product { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Receipt> Receipts { get; set; }
+        public virtual Receipt Receipt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Revenue> Revenues { get; set; }
     }
