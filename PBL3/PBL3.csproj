@@ -68,6 +68,7 @@
     <Compile Include="BLL\BLLDiscountManagement.cs" />
     <Compile Include="BLL\BLLPersonManagement.cs" />
     <Compile Include="BLL\BLLProductManagement.cs" />
+    <Compile Include="BLL\BLLQLSV.cs" />
     <Compile Include="BLL\BLLRankManagement.cs" />
     <Compile Include="BLL\BLLReceiptManagement.cs" />
     <Compile Include="Customer.cs">
