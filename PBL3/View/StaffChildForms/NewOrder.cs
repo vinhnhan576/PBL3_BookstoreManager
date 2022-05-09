@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.BLL;
 
 
 namespace PBL3.View.StaffChildForms
@@ -18,6 +19,7 @@ namespace PBL3.View.StaffChildForms
 
         {
             InitializeComponent();
+            ProductDataGridView.DataSource = BLLProductManagement.Instance.GetAllProduct_Order_View();
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
