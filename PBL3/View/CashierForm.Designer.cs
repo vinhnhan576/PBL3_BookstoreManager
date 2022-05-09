@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PBL3.View
+namespace PBL3
 {
     partial class CashierForm
     {
