@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.View.StaffChildForms;
 
-namespace PBL3
+namespace PBL3.View
 {
     public partial class CashierForm : Form
     {
