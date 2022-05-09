@@ -45,7 +45,11 @@ namespace PBL3.View.StaffChildForms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            if (ProductDataGridView.SelectedRows.Count == 1)
+            {
+                string ProductID = ProductDataGridView.SelectedRows[0].Cells["ProductID"].Value.ToString(); 
 
+            }
         }
     }
 }
