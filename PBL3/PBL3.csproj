@@ -61,52 +61,61 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs">
-      <DependentUpon>Management.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="BLL\BLLAccountManagement.cs" />
+    <Compile Include="BLL\BLLCustomerManagement.cs" />
+    <Compile Include="BLL\BLLDiscountManagement.cs" />
+    <Compile Include="BLL\BLLPersonManagement.cs" />
+    <Compile Include="BLL\BLLProductManagement.cs" />
+    <Compile Include="BLL\BLLRankManagement.cs" />
+    <Compile Include="BLL\BLLReceiptManagement.cs" />
     <Compile Include="Customer.cs">
-      <DependentUpon>Management.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Discount.cs">
-      <DependentUpon>Management.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Management.Context.cs">
+    <Compile Include="DTO\CBBItem.cs" />
+    <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Management.Context.tt</DependentUpon>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Management.cs">
+    <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Management.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Management.Designer.cs">
+    <Compile Include="Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Management.edmx</DependentUpon>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Person.cs">
-      <DependentUpon>Management.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>Management.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Rank.cs">
-      <DependentUpon>Management.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Receipt.cs">
-      <DependentUpon>Management.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ReceiptManagement.cs" />
     <Compile Include="Receipt_Detail.cs">
-      <DependentUpon>Management.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Restock.cs">
-      <DependentUpon>Management.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Revenue.cs">
-      <DependentUpon>Management.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Store_Import.cs">
-      <DependentUpon>Management.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="View\AdminChildForms\Account.cs">
       <SubType>Form</SubType>
@@ -291,32 +300,14 @@
     <EmbeddedResource Include="View\StockkeeperForm.resx">
       <DependentUpon>StockkeeperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Management.edmx">
+    <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Management.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Management.edmx.diagram">
-      <DependentUpon>Management.edmx</DependentUpon>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Black.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-BlackItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Bold.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-BoldItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-ExtraBold.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-ExtraBoldItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-ExtraLight.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-ExtraLightItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Italic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Light.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-LightItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Medium.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-MediumItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Regular.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-SemiBold.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-SemiBoldItalic.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-Thin.ttf" />
-    <EmbeddedResource Include="Custom Fonts\Poppins-ThinItalic.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -421,23 +412,20 @@
     <None Include="Resources\return.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Management.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Management.Context.cs</LastGenOutput>
-      <DependentUpon>Management.edmx</DependentUpon>
-    </Content>
-    <Content Include="Management.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Management.edmx</DependentUpon>
-      <LastGenOutput>Management.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="DTO\" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
