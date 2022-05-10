@@ -71,6 +71,8 @@
     <Compile Include="BLL\BLLQLSV.cs" />
     <Compile Include="BLL\BLLRankManagement.cs" />
     <Compile Include="BLL\BLLReceiptManagement.cs" />
+    <Compile Include="BLL\BLLRestockManagement.cs" />
+    <Compile Include="BLL\BLLStoreImportManagement.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -78,6 +80,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\CBBItem.cs" />
+    <Compile Include="DTO\Product_Price_View.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -142,10 +145,16 @@
     <Compile Include="View\AdminChildForms\Discount.Designer.cs">
       <DependentUpon>Discount.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\Product.cs">
+    <Compile Include="View\AdminChildForms\Product\ImportHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\Product.Designer.cs">
+    <Compile Include="View\AdminChildForms\Product\ImportHistory.Designer.cs">
+      <DependentUpon>ImportHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\Product\Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\Product\Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminChildForms\Overview.cs">
@@ -153,6 +162,12 @@
     </Compile>
     <Compile Include="View\AdminChildForms\Overview.Designer.cs">
       <DependentUpon>Overview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\Product\UpdatePrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\Product\UpdatePrice.Designer.cs">
+      <DependentUpon>UpdatePrice.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ForgotPasswordForm.cs">
       <SubType>Form</SubType>
@@ -246,11 +261,17 @@
     <EmbeddedResource Include="View\AdminChildForms\Discount.resx">
       <DependentUpon>Discount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\Product.resx">
+    <EmbeddedResource Include="View\AdminChildForms\Product\ImportHistory.resx">
+      <DependentUpon>ImportHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\Product\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminChildForms\Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\Product\UpdatePrice.resx">
+      <DependentUpon>UpdatePrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
