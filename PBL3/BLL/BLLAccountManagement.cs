@@ -8,7 +8,6 @@ namespace PBL3.BLL
 {
     internal class BLLAccountManagement
     {
-        Account demo = new Account();
         private static BLLAccountManagement _instance;
         public static BLLAccountManagement Instance
         {
@@ -28,15 +27,18 @@ namespace PBL3.BLL
         public dynamic GetAllAccount()
         {
             QLSPEntities qLSPEntities = new QLSPEntities();
-            var account = (qLSPEntities.Accounts.Select(p => new { p.PersonID, p.Account1, p.Password, p.Person})).ToList();
+            var account = (qLSPEntities.Accounts.Select(p => new { p.PersonID, p.Account1, p.Password, p.Person.PersonName,p.Person.Address})).ToList();
             return account;
         }
-        public void DelAccount(string ID)
+        public void DelAccount(List<string> ID)
         {
             QLSPEntities qLSPEntities = new QLSPEntities();
-            Account temp = qLSPEntities.Accounts.Find(ID);
-            qLSPEntities.Accounts.Remove(temp);
-            qLSPEntities.SaveChanges();
+            foreach (string i in ID)
+            {
+                Account ac = qLSPEntities.Accounts.Find(i);
+                qLSPEntities.Accounts.Remove(ac);
+                qLSPEntities.SaveChanges();
+            }
         }
         public bool Check(string ID)
         {
@@ -51,6 +53,12 @@ namespace PBL3.BLL
             }
             return Add;
 
+        }
+        public void AddNewAccount(Account ac)
+        {
+            QLSPEntities qLSPEntities = new QLSPEntities();
+            qLSPEntities.Accounts.Add(ac);
+            qLSPEntities.SaveChanges();
         }
         public void Execute(Account ac)
         {
@@ -75,7 +83,7 @@ namespace PBL3.BLL
         {
             QLSPEntities qLSPEntities = new QLSPEntities();
             List<Account> data = new List<Account>();
-            foreach(Account ac in GetAllAccount())
+            foreach (Account ac in qLSPEntities.Accounts.Select(p => p).ToList())
             {
                 if (ac.PersonID.Contains(value) == true )
                 {
@@ -83,8 +91,33 @@ namespace PBL3.BLL
                 }
             }
             var account = data.Select(p => new{ p.PersonID, p.Account1, p.Password, p.Person }) ; 
-            return account;
-
+            return account.ToList();
+        }
+        public dynamic SortAcount(string sortCategory, bool ascending)
+        {
+            QLSPEntities qLSPEntities = new QLSPEntities();
+            List<Account> data = new List<Account>();
+            if (sortCategory == "ID")
+            {
+                if (ascending)
+                    data = qLSPEntities.Accounts.OrderBy(p => p.PersonID).ToList();
+                else
+                    data = qLSPEntities.Accounts.OrderByDescending(p => p.PersonID).ToList();
+            }
+            if (sortCategory == "Name")
+            {
+                if (ascending)
+                    data = qLSPEntities.Accounts.OrderBy(p => p.Person.PersonName).ToList();
+                else
+                    data = qLSPEntities.Accounts.OrderByDescending(p => p.Person.PersonName).ToList();
+            }
+            return data;
+        }
+        public Account GetAccountByPersonID(string ID)
+        {
+            QLSPEntities qLSPEntities = new QLSPEntities();
+            Account ac = qLSPEntities.Accounts.Find(ID);
+            return ac;
         }
     }
  }
