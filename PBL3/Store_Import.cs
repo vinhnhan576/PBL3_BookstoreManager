@@ -18,7 +18,6 @@ namespace PBL3
         public string ProductID { get; set; }
         public int ImportQuantity { get; set; }
         public System.DateTime ImportDate { get; set; }
-        public double SellingPrice { get; set; }
     
         public virtual Product Product { get; set; }
     }

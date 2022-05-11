@@ -12,37 +12,31 @@ namespace PBL3
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class QLSPEntities : DbContext
     {
-
-        private static QLSPEntities _instance;
-
+        private static QLSPEntities instance;
         public static QLSPEntities Instance
         {
             get
             {
-                if (_instance == null)
-                {
-                    _instance = new QLSPEntities();
-                }
-                return _instance;
+                if (instance == null)
+                    instance = new QLSPEntities();
+                return instance;
             }
-            private set
-            {
-
-            }
+            private set { }
         }
+
         public QLSPEntities()
             : base("name=QLSPEntities")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Discount> Discounts { get; set; }
