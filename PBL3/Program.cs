@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.View.StaffChildForms;
+using PBL3.View;
+
 
 namespace PBL3
 {
@@ -17,7 +20,8 @@ namespace PBL3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new View.AdminChildForms.Product.Product());
+            //Application.Run(new View.AdminChildForms.Product.Product());
+            Application.Run(new PBL3.View.AdminChildForms.Product.Product());
         }
 
     }
