@@ -35,7 +35,7 @@ namespace PBL3.View.StaffChildForms
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            guna2DataGridView1.DataSource = bll.GetProductInReceiptByID("r005");
+            ProductDataGridView.DataSource = bll.GetProductInReceiptByID("r005");
         }
 
         private void guna2TextBox5_TextChanged(object sender, EventArgs e)
