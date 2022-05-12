@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PBL3.DTO
 {
-    public class Product_Price_View
+    internal class Product_Price_View
     {
         public string ProductID { get; set; }
         public string ProductName { get; set; }
