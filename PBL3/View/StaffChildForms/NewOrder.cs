@@ -19,6 +19,7 @@ namespace PBL3.View.StaffChildForms
         {
             InitializeComponent();
             ProductDataGridView.DataSource = BLLProductManagement.Instance.GetAllProduct_Order_View();
+
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -39,9 +40,10 @@ namespace PBL3.View.StaffChildForms
         {
             if (ProductDataGridView.SelectedRows.Count == 1)
             {
-                string ProductID = ProductDataGridView.SelectedRows[0].Cells["ProductID"].Value.ToString(); 
+                string ProductID = ProductDataGridView.SelectedRows[0].Cells["ProductID"].Value.ToString();
 
             }
+
         }
     }
 }

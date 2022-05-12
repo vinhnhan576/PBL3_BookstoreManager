@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.BLL;
 
 namespace PBL3.View.AdminChildForms
 {
@@ -15,6 +16,12 @@ namespace PBL3.View.AdminChildForms
         public Discount()
         {
             InitializeComponent();
+            InitializeData();
+        }
+
+        private void InitializeData()
+        {
+            dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
         }
 
         private void Discount_Load(object sender, EventArgs e)
