@@ -108,8 +108,8 @@ namespace PBL3.View.StaffChildForms
             if (e.KeyChar == (char)13)
             {
                 ProductDataGridView.DataSource = BLLProductManagement.Instance.SearchProduct_Order(productSearchtxt.Text); 
-             
             }
+
         }
     }
 }
