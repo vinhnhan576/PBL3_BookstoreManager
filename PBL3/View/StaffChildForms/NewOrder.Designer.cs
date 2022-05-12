@@ -1,4 +1,4 @@
-﻿namespace PBL3.View.StaffChildForms
+namespace PBL3.View.StaffChildForms
 {
     partial class NewOrder
     {
