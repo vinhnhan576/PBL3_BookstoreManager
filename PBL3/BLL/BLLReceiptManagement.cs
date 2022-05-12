@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PBL3.DTO;
 
 namespace PBL3.BLL
 {
@@ -41,26 +42,47 @@ namespace PBL3.BLL
             QLSPEntities.Instance.SaveChanges();
 
         }
-        public void TotalCalculate(Receipt_Detail temp)
-        {
-
-            temp.Total = temp.SellingQuantity * (temp.Product.SellingPrice);
-            QLSPEntities.Instance.SaveChanges();
-
-
-        }
-
+     
         public dynamic GetProductInReceiptByID(string ID_Receipt)
         {
 
-            foreach (Receipt_Detail i in QLSPEntities.Instance.Receipts.Find(ID_Receipt).Receipt_Detail)
-            {
-                TotalCalculate(i);
-            }
+            //foreach (Receipt_Detail temp in QLSPEntities.Instance.Receipts.Find(ID_Receipt).Receipt_Detail)
+            //{
+            //    temp.Total = temp.SellingQuantity * (temp.Product.SellingPrice);
+            //    QLSPEntities.Instance.SaveChanges();
+            //}
             var product = QLSPEntities.Instance.Receipt_Details.Where(p => p.ReceiptID == ID_Receipt).Select(p => new { p.Product.ProductName, p.SellingQuantity, p.Product.SellingPrice, p.Total }).ToList();
             return product;
         }
 
+        public ReceiptDetailView CreateReceiptDetailView(string productid, int quantity)
+        {
+            ReceiptDetailView temp = new ReceiptDetailView();
+            var Product = QLSPEntities.Instance.Products.Find(productid);
+            temp.ProductID = productid;
+            temp.ProductName = Product.ProductName;
+            temp.SellingPrice = Product.SellingPrice;
+            temp.Quantity = quantity;
+            temp.Total = temp.SellingPrice * quantity;
+            return temp;
+
+        }
+        public void AddNewReceiptDetail(List<ReceiptDetailView> list, string receipt_id)
+        {
+            
+            var random = new RandomGenerator();
+            for(int i=0;i<list.Count;i++)
+            {
+                Receipt_Detail r = new Receipt_Detail();
+                r.ReceipDetailtID = "rpd" + random.RandomNumber(100, 99999);
+                r.ProductID= list[i].ProductID;
+                r.SellingQuantity = list[i].Quantity;
+                r.Total=list[i].Total;
+                r.ReceiptID = receipt_id;
+                BLLReceiptManagement.Instance.AddNewReceiptDetail(r);
+            }
+           
+        }
         public List<Receipt_Detail> getReceiptDetailByReceiptID(string ID_Receipt)
         {
 
@@ -69,6 +91,39 @@ namespace PBL3.BLL
             else
                 return QLSPEntities.Instance.Receipt_Details.Where(p => p.ReceiptID == ID_Receipt).ToList();
         }
+
+        public double CalculateReceiptToTal(List<ReceiptDetailView> list)
+        {
+            double total = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                total+=list[i].Total;
+            }
+            return total;
+
+        }
+
+        public int ReceiptDetailView_Check(List<ReceiptDetailView> list, string product_id)
+        {
+            for(int i=0;i< list.Count; i++)
+            {
+                if (list[i].ProductID == product_id)
+                {
+                    return 1;
+                }
+
+            }
+            return 0;
+        }
+
+       
+        
+
+
+
+
+
+
 
 
 

@@ -21,6 +21,7 @@ namespace PBL3.BLL
             private set { }
         }
 
+
         private BLLProductManagement()
         {
 
@@ -39,8 +40,27 @@ namespace PBL3.BLL
 
         public dynamic GetAllProduct_View()
         {
+ 
+            QLSPEntities db = new QLSPEntities();
+            var product = db.Products.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
+            return product.ToList();
+        }
+        public List<Product> GetAllProduct()
+        {
+            var products = QLSPEntities.Instance.Products.Select(p => p).ToList();
+            return products.ToList();
+        }
+
+        public Product GetProductbyID(string ProductID)
+        {
+
+            QLSPEntities db = new QLSPEntities();
+            Product temp = db.Products.Find(ProductID);
+            return temp;
+
             var product = QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
             return product.ToList();
+
         }
 
         public Product GetProductByID(string ID)
@@ -114,6 +134,24 @@ namespace PBL3.BLL
                 }
             }
             return data;
+        }
+
+        public dynamic SearchProduct_Order(string searchValue)
+        {
+            List<Product> data = new List<Product>();
+            foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
+            {
+                bool containName = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                bool containStatus = i.Status.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                bool containCategory = i.Category.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                if (containName || containStatus || containCategory)
+                {
+                    data.Add(i);
+                }
+            }
+            var prodList = data.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
+            return prodList.ToList();
+
         }
 
         public dynamic SortProduct(string sortCategory, bool ascending)
@@ -210,5 +248,17 @@ namespace PBL3.BLL
             }
             return prodStatusList;
         }
+
+        public void DecreaseStoreQuantity(string productid,int num)
+        {
+    
+            var product = QLSPEntities.Instance.Products.Find(productid);
+            product.StoreQuantity = (Convert.ToInt32(product.StoreQuantity) - num).ToString();
+            QLSPEntities.Instance.SaveChanges();
+           
+        }
+
+
+
     }
 }
