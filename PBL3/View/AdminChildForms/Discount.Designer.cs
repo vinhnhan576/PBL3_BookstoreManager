@@ -1,4 +1,4 @@
-﻿namespace PBL3.View.AdminChildForms
+namespace PBL3.View.AdminChildForms
 {
     partial class Discount
     {

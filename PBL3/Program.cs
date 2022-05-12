@@ -4,7 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.View.StaffChildForms;
-using PBL3.View;
+//using PBL3.DTO;
+using PBL3.View.AdminChildForms;
 
 
 namespace PBL3
@@ -18,10 +19,10 @@ namespace PBL3
 
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new View.AdminChildForms.Product.Product());
-            Application.Run(new PBL3.View.AdminChildForms.Product.Product());
+            Application.Run(new NewOrder());
         }
 
     }
