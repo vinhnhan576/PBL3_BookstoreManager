@@ -30,15 +30,5 @@ namespace PBL3.BLL
             qLSPEntities.People.Add(ps);
             qLSPEntities.SaveChanges();
         }
-        public void DelPerson(List<string> ID)
-        {
-            QLSPEntities qLSPEntities = new QLSPEntities();
-            foreach (string i in ID)
-            {
-                Account ac = qLSPEntities.Accounts.Find(i);
-                qLSPEntities.Accounts.Remove(ac);
-                qLSPEntities.SaveChanges();
-            }
-        }
     }
 }

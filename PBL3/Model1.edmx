@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLSPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QLSPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="PersonID" />
@@ -38,10 +38,11 @@
             <PropertyRef Name="PersonID" />
           </Key>
           <Property Name="PersonID" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="PersonName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PersonName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="50" />
           <Property Name="PhoneNumber" Type="nchar" MaxLength="11" />
-          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="bit" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -290,9 +291,8 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Store Import" EntitySet="Store Import" />
           </AssociationSet>
-          </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLSPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -333,12 +333,13 @@
             <PropertyRef Name="PersonID" />
           </Key>
           <Property Name="PersonID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
-          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Account" Relationship="Self.FK_Account_Person" FromRole="Person" ToRole="Account" />
           <NavigationProperty Name="Receipts" Relationship="Self.FK_Receipt_Person" FromRole="Person" ToRole="Receipt" />
+          <Property Name="Gender" Type="Boolean" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -642,6 +643,7 @@
           <EntitySetMapping Name="People">
             <EntityTypeMapping TypeName="QLSPModel.Person">
               <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="PersonID" ColumnName="PersonID" />
                 <ScalarProperty Name="PersonName" ColumnName="PersonName" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
