@@ -8,48 +8,108 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
+using PBL3.DTO;
 
 
 namespace PBL3.View.StaffChildForms
 {
     public partial class NewOrder : Form
     {
-        ReceiptManagement bll = new ReceiptManagement();
+        private List<ReceiptDetailView> rd_list;
         public NewOrder()
 
         {
             InitializeComponent();
-            ProductDataGridView.DataSource = BLLProductManagement.Instance.GetAllProduct_Order_View();
+            ProductDataGridView.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
+            rd_list = new List<ReceiptDetailView>();
+            var random = new RandomGenerator();
+            OrderIDtxt.Text = "rpt" + random.RandomNumber(100, 9999);
+            OrderIDtxt.Enabled = false;
+            SalesmanIDtxt.Text = "sm001";
+            SalesmanIDtxt.Enabled=false;
+            Totaltxt.Enabled = false;
+            OrderDateTimePicker.Value = DateTime.Now;
+        
+        }
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            Receipt receipt = new Receipt();
+            receipt.ReceiptID = OrderIDtxt.Text;
+            receipt.PersonID=SalesmanIDtxt.Text;
+            receipt.Date=DateTime.Now;
+            receipt.Total = Convert.ToInt32(Totaltxt.Text);
+            BLLReceiptManagement.Instance.AddNewReceipt(receipt);
+            BLLReceiptManagement.Instance.AddNewReceiptDetail(rd_list, OrderIDtxt.Text);
+            for(int i = 0; i < rd_list.Count; i++)
+            {
+                string id_temp = rd_list[i].ProductID;
+                int quantity = rd_list[i].Quantity;
+                BLLProductManagement.Instance.DecreaseStoreQuantity(id_temp, quantity);
+            }
+            rd_list.Clear();
+            rdDataGridView.DataSource = rd_list.ToList();
+            OrderIDtxt.Text = "";
+            SalesmanIDtxt.Text = "";
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void AddButton_Click_1(object sender, EventArgs e)
         {
-  
-            Receipt_Detail re = new Receipt_Detail() { ReceipDetailtID="re1110",ProductID="r0001",SellingQuantity=2,ReceiptID="r005"};
-            bll.AddNewReceiptDetail(re);
-            Receipt_Detail re1 = new Receipt_Detail() { ReceipDetailtID = "re1111", ProductID = "r0002", SellingQuantity = 1, ReceiptID ="r005" };
-            bll.AddNewReceiptDetail(re1);
-            MessageBox.Show("Add Successfully");
+            ReceiptDetailView rd_temp = new ReceiptDetailView();
+            string product_temp;
 
-        }
 
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-            ProductDataGridView.DataSource = bll.GetProductInReceiptByID("r005");
-        }
-
-        private void guna2TextBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddButton_Click(object sender, EventArgs e)
-        {
             if (ProductDataGridView.SelectedRows.Count == 1)
             {
-                string ProductID = ProductDataGridView.SelectedRows[0].Cells["ProductID"].Value.ToString(); 
 
+                product_temp = ProductDataGridView.SelectedRows[0].Cells["ProductID"].Value.ToString();
+   
+                rd_temp = BLLReceiptManagement.Instance.CreateReceiptDetailView(product_temp, Convert.ToInt32(Quantitytxt.Text.ToString()));
+               
+                this.rd_list.Add(rd_temp);
+                
             }
+            rdDataGridView.DataSource = this.rd_list.ToList();
+            Totaltxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            //List<string> del = new List<string>();
+            if (rdDataGridView.SelectedRows.Count > 0)
+            {
+                for (int i=0; i<rdDataGridView.SelectedRows.Count;i++)
+                {
+                    rd_list.RemoveAt(i);
+                    
+                }
+            }
+            rdDataGridView.DataSource=rd_list.ToList();
+            Totaltxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            rd_list.Clear();
+            rdDataGridView.DataSource = rd_list.ToList();
+            Totaltxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
+        }
+
+        private void NewOrderButton_Click(object sender, EventArgs e)
+        {
+            var random = new RandomGenerator();
+            OrderIDtxt.Text = "rpt" + random.RandomNumber(100, 9999);
+            SalesmanIDtxt.Text = "sm001";
+            OrderDateTimePicker.Value = DateTime.Now;
+
+        }
+
+        private void productSearchtxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                ProductDataGridView.DataSource = BLLProductManagement.Instance.SearchProduct_Order(productSearchtxt.Text); 
+            }
+
         }
     }
 }

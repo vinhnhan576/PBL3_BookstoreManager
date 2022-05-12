@@ -27,11 +27,10 @@ namespace PBL3
                 }
                 return instance;
             }
-            private set
-            {
 
-            }
+            private set { }
         }
+
         public QLSPEntities()
             : base("name=QLSPEntities")
         {

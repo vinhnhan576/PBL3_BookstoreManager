@@ -56,14 +56,14 @@ namespace PBL3.View.AdminChildForms.Product
         {
             tbSearch.Text = "";
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            bool sortOrder = cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false;
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
             dgvProduct.DataSource = BLLProductManagement.Instance.SortProduct(sortCategory, sortOrder);
         }
 
         private void btnShowHistory_Click(object sender, EventArgs e)
         {
-            string productName = dgvProduct.SelectedRows[0].Cells["ProductName"].Value.ToString();
-            ImportHistory importHistory = new ImportHistory(productName);
+            string productID = dgvProduct.SelectedRows[0].Cells["ProductID"].Value.ToString();
+            ImportHistory importHistory = new ImportHistory(productID);
             importHistory.Show();
         }
 
@@ -92,5 +92,6 @@ namespace PBL3.View.AdminChildForms.Product
         {
             dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct(cbbFilterValue.SelectedItem.ToString());
         }
+
     }
 }

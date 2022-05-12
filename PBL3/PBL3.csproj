@@ -81,6 +81,8 @@
     </Compile>
     <Compile Include="DTO\CBBItem.cs" />
     <Compile Include="DTO\Product_Price_View.cs" />
+    <Compile Include="DTO\RandomGenerator.cs" />
+    <Compile Include="DTO\ReceiptDetailView.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,7 +110,6 @@
     <Compile Include="Receipt.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ReceiptManagement.cs" />
     <Compile Include="Receipt_Detail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -448,6 +449,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\filterIcon.png" />
+    <None Include="Resources\filter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

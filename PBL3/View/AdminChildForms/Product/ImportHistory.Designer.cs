@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbProduct = new Guna.UI2.WinForms.Guna2TextBox();
@@ -39,6 +39,10 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cbbSortOrder = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbbSortCategory = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnFilter = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tbDay = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbMonth = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbYear = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,30 +99,30 @@
             // 
             this.dgvProduct.AllowUserToResizeColumns = false;
             this.dgvProduct.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProduct.BackgroundColor = System.Drawing.Color.White;
             this.dgvProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProduct.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProduct.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProduct.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProduct.EnableHeadersVisualStyles = false;
             this.dgvProduct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvProduct.Location = new System.Drawing.Point(30, 170);
@@ -201,11 +205,12 @@
             this.cbbSortOrder.Items.AddRange(new object[] {
             "Ascending",
             "Descending"});
-            this.cbbSortOrder.Location = new System.Drawing.Point(463, 85);
+            this.cbbSortOrder.Location = new System.Drawing.Point(468, 85);
             this.cbbSortOrder.Margin = new System.Windows.Forms.Padding(2);
             this.cbbSortOrder.Name = "cbbSortOrder";
-            this.cbbSortOrder.Size = new System.Drawing.Size(114, 29);
-            this.cbbSortOrder.TabIndex = 48;
+            this.cbbSortOrder.Size = new System.Drawing.Size(125, 29);
+            this.cbbSortOrder.TabIndex = 1;
+            this.cbbSortOrder.TextOffset = new System.Drawing.Point(25, 0);
             // 
             // cbbSortCategory
             // 
@@ -222,13 +227,114 @@
             this.cbbSortCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbSortCategory.ItemHeight = 23;
             this.cbbSortCategory.Items.AddRange(new object[] {
-            "Date",
+            "ImportDate",
+            "ImportQuantity",
             "StoreQuantity"});
             this.cbbSortCategory.Location = new System.Drawing.Point(336, 85);
             this.cbbSortCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
             this.cbbSortCategory.Name = "cbbSortCategory";
-            this.cbbSortCategory.Size = new System.Drawing.Size(128, 29);
-            this.cbbSortCategory.TabIndex = 47;
+            this.cbbSortCategory.Size = new System.Drawing.Size(148, 29);
+            this.cbbSortCategory.TabIndex = 0;
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.BackColor = System.Drawing.Color.Transparent;
+            this.btnFilter.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
+            this.btnFilter.Location = new System.Drawing.Point(53, 60);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(38, 21);
+            this.btnFilter.TabIndex = 47;
+            this.btnFilter.Text = "Filter";
+            // 
+            // tbDay
+            // 
+            this.tbDay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.tbDay.BorderRadius = 9;
+            this.tbDay.BorderThickness = 0;
+            this.tbDay.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbDay.CustomizableEdges.BottomLeft = false;
+            this.tbDay.CustomizableEdges.BottomRight = false;
+            this.tbDay.CustomizableEdges.TopLeft = false;
+            this.tbDay.CustomizableEdges.TopRight = false;
+            this.tbDay.DefaultText = "";
+            this.tbDay.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbDay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbDay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbDay.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbDay.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbDay.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDay.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbDay.IconLeftSize = new System.Drawing.Size(0, 0);
+            this.tbDay.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.tbDay.IconRightSize = new System.Drawing.Size(23, 23);
+            this.tbDay.Location = new System.Drawing.Point(130, 85);
+            this.tbDay.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.tbDay.Name = "tbDay";
+            this.tbDay.PasswordChar = '\0';
+            this.tbDay.PlaceholderText = "DD";
+            this.tbDay.SelectedText = "";
+            this.tbDay.Size = new System.Drawing.Size(80, 29);
+            this.tbDay.TabIndex = 48;
+            // 
+            // tbMonth
+            // 
+            this.tbMonth.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.tbMonth.BorderRadius = 9;
+            this.tbMonth.BorderThickness = 0;
+            this.tbMonth.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbMonth.CustomizableEdges.BottomRight = false;
+            this.tbMonth.CustomizableEdges.TopRight = false;
+            this.tbMonth.DefaultText = "";
+            this.tbMonth.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbMonth.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbMonth.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbMonth.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbMonth.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbMonth.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMonth.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbMonth.IconLeftSize = new System.Drawing.Size(0, 0);
+            this.tbMonth.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.tbMonth.IconRightSize = new System.Drawing.Size(23, 23);
+            this.tbMonth.Location = new System.Drawing.Point(48, 85);
+            this.tbMonth.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.tbMonth.Name = "tbMonth";
+            this.tbMonth.PasswordChar = '\0';
+            this.tbMonth.PlaceholderText = "MM";
+            this.tbMonth.SelectedText = "";
+            this.tbMonth.Size = new System.Drawing.Size(80, 29);
+            this.tbMonth.TabIndex = 49;
+            // 
+            // tbYear
+            // 
+            this.tbYear.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.tbYear.BorderRadius = 9;
+            this.tbYear.BorderThickness = 0;
+            this.tbYear.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbYear.CustomizableEdges.BottomLeft = false;
+            this.tbYear.CustomizableEdges.TopLeft = false;
+            this.tbYear.DefaultText = "";
+            this.tbYear.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbYear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbYear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbYear.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbYear.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbYear.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbYear.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbYear.IconLeftSize = new System.Drawing.Size(0, 0);
+            this.tbYear.IconRight = global::PBL3.Properties.Resources.filterIcon;
+            this.tbYear.IconRightCursor = System.Windows.Forms.Cursors.Hand;
+            this.tbYear.IconRightOffset = new System.Drawing.Point(3, 1);
+            this.tbYear.Location = new System.Drawing.Point(212, 85);
+            this.tbYear.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.tbYear.Name = "tbYear";
+            this.tbYear.PasswordChar = '\0';
+            this.tbYear.PlaceholderText = "YYYY";
+            this.tbYear.SelectedText = "";
+            this.tbYear.Size = new System.Drawing.Size(102, 29);
+            this.tbYear.TabIndex = 50;
+            this.tbYear.IconRightClick += new System.EventHandler(this.tbYear_IconRightClick);
             // 
             // ImportHistory
             // 
@@ -236,9 +342,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(623, 482);
+            this.Controls.Add(this.tbYear);
+            this.Controls.Add(this.tbMonth);
+            this.Controls.Add(this.tbDay);
+            this.Controls.Add(this.btnFilter);
+            this.Controls.Add(this.cbbSortCategory);
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.cbbSortOrder);
-            this.Controls.Add(this.cbbSortCategory);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.dgvProduct);
             this.Controls.Add(this.label3);
@@ -262,5 +372,9 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2ComboBox cbbSortOrder;
         private Guna.UI2.WinForms.Guna2ComboBox cbbSortCategory;
+        private Guna.UI2.WinForms.Guna2HtmlLabel btnFilter;
+        private Guna.UI2.WinForms.Guna2TextBox tbDay;
+        private Guna.UI2.WinForms.Guna2TextBox tbMonth;
+        private Guna.UI2.WinForms.Guna2TextBox tbYear;
     }
 }
