@@ -27,7 +27,7 @@ namespace PBL3.BLL
         public dynamic GetAllAccount()
         {
             QLSPEntities qLSPEntities = new QLSPEntities();
-            var account = (qLSPEntities.Accounts.Select(p => new { p.PersonID, p.Account1, p.Password, p.Person.PersonName,p.Person.Address})).ToList();
+            var account = (qLSPEntities.Accounts.Select(p => new { p.PersonID, p.Person.PersonName,p.Person.Role, p.Account1, p.Password,p.Person.Address})).ToList();
             return account;
         }
         public void DelAccount(List<string> ID)
@@ -36,14 +36,16 @@ namespace PBL3.BLL
             foreach (string i in ID)
             {
                 Account ac = qLSPEntities.Accounts.Find(i);
+                qLSPEntities.People.Remove(ac.Person);
                 qLSPEntities.Accounts.Remove(ac);
                 qLSPEntities.SaveChanges();
             }
         }
         public bool Check(string ID)
         {
+            QLSPEntities qLSPEntities = new QLSPEntities();
             bool Add = false;
-            foreach (Account ac in GetAllAccount())
+            foreach (Account ac in qLSPEntities.Accounts.Select(p=>p).ToList())
             {
                 if (ac.PersonID == ID)
                 {
@@ -69,7 +71,11 @@ namespace PBL3.BLL
                 temp.PersonID = ac.PersonID;
                 temp.Account1 = ac.Account1;
                 temp.Password = ac.Password;
-                temp.Person = ac.Person;
+                temp.Person.Address = ac.Person.Address;
+                temp.Person.PersonName = ac.Person.PersonName;
+                temp.Person.Gender = ac.Person.Gender;
+                temp.Person.Role = ac.Person.Role;
+                temp.Person.PhoneNumber = ac.Person.PhoneNumber;
                 qLSPEntities.SaveChanges();
             }
             else
@@ -85,12 +91,12 @@ namespace PBL3.BLL
             List<Account> data = new List<Account>();
             foreach (Account ac in qLSPEntities.Accounts.Select(p => p).ToList())
             {
-                if (ac.PersonID.Contains(value) == true )
+                if (ac.PersonID.Contains(value) == true|| ac.Person.Role.Contains(value) == true|| ac.Person.Address.Contains(value) == true || ac.Person.PersonName.Contains(value) == true)
                 {
                     data.Add(ac);
                 }
             }
-            var account = data.Select(p => new{ p.PersonID, p.Account1, p.Password, p.Person }) ; 
+            var account = data.Select(p => new{ p.PersonID,p.Person.PersonName,p.Person.Role,p.Account1, p.Password,  p.Person.Address }) ; 
             return account.ToList();
         }
         public dynamic SortAcount(string sortCategory, bool ascending)
@@ -111,13 +117,72 @@ namespace PBL3.BLL
                 else
                     data = qLSPEntities.Accounts.OrderByDescending(p => p.Person.PersonName).ToList();
             }
-            return data;
+            if (sortCategory == "Address")
+            {
+                if (ascending)
+                    data = qLSPEntities.Accounts.OrderBy(p => p.Person.Address).ToList();
+                else
+                    data = qLSPEntities.Accounts.OrderByDescending(p => p.Person.Address).ToList();
+            }
+            if (sortCategory == "Role")
+            {
+                if (ascending)
+                    data = qLSPEntities.Accounts.OrderBy(p => p.Person.Role).ToList();
+                else
+                    data = qLSPEntities.Accounts.OrderByDescending(p => p.Person.Role).ToList();
+            }
+            var account = (data.Select(p => new { p.PersonID, p.Person.PersonName, p.Person.Role, p.Account1, p.Password, p.Person.Address })).ToList();
+            return account;
+        }
+
+        public dynamic FilterProduct(string filterCategory, string filterValue)
+        {
+            QLSPEntities qLSPEntities = new QLSPEntities();
+            List<Account> data = new List<Account>();
+            foreach (Account i in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
+            {
+                if (filterCategory == "Role")
+                {
+                    if (i.Person.Role == filterValue)
+                    {
+                        data.Add(i);
+                    }
+                }
+                if (filterCategory == "Address")
+                {
+                    if (i.Person.Address == filterValue)
+                    {
+                        data.Add(i);
+                    }
+                }
+            }
+            var prodViewList = data.Select(p => new { p.PersonID,p.Person.PersonName,p.Person.Role, p.Account1, p.Password,  p.Person.Address });
+            return prodViewList;
         }
         public Account GetAccountByPersonID(string ID)
         {
             QLSPEntities qLSPEntities = new QLSPEntities();
             Account ac = qLSPEntities.Accounts.Find(ID);
             return ac;
+        }
+        public List<string> GetAllRole()
+        {
+            List<string> data = new List<string>();
+            foreach (Account a in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
+            {
+                data.Add(a.Person.Role);
+            }
+            return data;
+        }
+
+        public List<string> GetAllAddress()
+        {
+            List<string> data = new List<string>();
+            foreach (Account i in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
+            {
+                data.Add(i.Person.Address);
+            }
+            return data;
         }
     }
  }

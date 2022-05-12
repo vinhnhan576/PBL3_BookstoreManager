@@ -301,7 +301,7 @@
             this.tbSearch.SelectedText = "";
             this.tbSearch.Size = new System.Drawing.Size(230, 29);
             this.tbSearch.TabIndex = 1;
-            this.tbSearch.IconRightClick += new System.EventHandler(this.tbSearch_IconRightClick);
+            this.tbSearch.IconRightClick += new System.EventHandler(this.tbSearch_IconLeftClick);
             // 
             // Product
             // 
