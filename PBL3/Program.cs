@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.View.StaffChildForms;
-using PBL3.DTO;
-using PBL3.View;
+//using PBL3.DTO;
+using PBL3.View.AdminChildForms;
 
 
 namespace PBL3

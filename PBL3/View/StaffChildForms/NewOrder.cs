@@ -64,7 +64,9 @@ namespace PBL3.View.StaffChildForms
                 product_temp = ProductDataGridView.SelectedRows[0].Cells["ProductID"].Value.ToString();
    
                 rd_temp = BLLReceiptManagement.Instance.CreateReceiptDetailView(product_temp, Convert.ToInt32(Quantitytxt.Text.ToString()));
+               
                 this.rd_list.Add(rd_temp);
+                
             }
             rdDataGridView.DataSource = this.rd_list.ToList();
             Totaltxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
