@@ -12,18 +12,14 @@ namespace PBL3
     using System;
     using System.Collections.Generic;
     
-    public partial class Store_Import
+    public partial class StoreImportDetail
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Store_Import()
-        {
-            this.StoreImportDetails = new HashSet<StoreImportDetail>();
-        }
-    
+        public string StoreImportDetailID { get; set; }
         public string StoreImportID { get; set; }
-        public System.DateTime ImportDate { get; set; }
+        public string ProductID { get; set; }
+        public Nullable<int> ImportQuantity { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StoreImportDetail> StoreImportDetails { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Store_Import Store_Import { get; set; }
     }
 }
