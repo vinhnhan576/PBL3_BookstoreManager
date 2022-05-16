@@ -84,6 +84,7 @@
     <Compile Include="DTO\Product_Price_View.cs" />
     <Compile Include="DTO\RandomGenerator.cs" />
     <Compile Include="DTO\ReceiptDetailView.cs" />
+    <Compile Include="DTO\ReStockView.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -153,6 +154,13 @@
     <Compile Include="View\AdminChildForms\ProductForms\ImportHistory.Designer.cs">
       <DependentUpon>ImportHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AdminChildForms\Product\ImportHistory.cs">
+    <Compile Include="View\AdminChildForms\ProductForms\Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\ProductForms\ImportHistory.Designer.cs">
+      <DependentUpon>ImportHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminChildForms\ProductForms\Product.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +172,24 @@
     </Compile>
     <Compile Include="View\AdminChildForms\OverviewForm.Designer.cs">
       <DependentUpon>OverviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\ProductForms\UpdatePrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\ProductForms\UpdatePrice.Designer.cs">
+      <DependentUpon>UpdatePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminChildForms\ProductForms\UpdatePrice.cs">
       <SubType>Form</SubType>
@@ -278,11 +304,23 @@
     <EmbeddedResource Include="View\AdminChildForms\ProductForms\ImportHistory.resx">
       <DependentUpon>ImportHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\ProductForms\ImportHistory.resx">
+      <DependentUpon>ImportHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdminChildForms\ProductForms\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminChildForms\OverviewForm.resx">
       <DependentUpon>OverviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\ProductForms\UpdatePrice.resx">
+      <DependentUpon>UpdatePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminChildForms\ProductForms\UpdatePrice.resx">
       <DependentUpon>UpdatePrice.cs</DependentUpon>
