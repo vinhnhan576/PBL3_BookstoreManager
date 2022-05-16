@@ -8,5 +8,6 @@ namespace PBL3.BLL
 {
     internal class BLLCustomerManagement
     {
+
     }
 }

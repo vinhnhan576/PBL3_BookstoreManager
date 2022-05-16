@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace PBL3.View.AdminChildForms
 {
-    public partial class Revenue : Form
+    public partial class CustomerForm : Form
     {
-        public Revenue()
+        public CustomerForm()
         {
             InitializeComponent();
-        }
-
-        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

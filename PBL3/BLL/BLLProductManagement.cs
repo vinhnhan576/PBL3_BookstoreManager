@@ -23,15 +23,12 @@ namespace PBL3.BLL
             private set { }
         }
 
-
-
         private BLLProductManagement()
         {
-
+            
 
 
         }
-
 
 
         public List<Product> GetAllProduct()
@@ -44,32 +41,25 @@ namespace PBL3.BLL
             }
             return data;
         }
-
-
+        public dynamic GetAllProduct_Stock_View()
+        {
+            var product = QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StockQuantity });
+            return product.ToList();
+        }
 
         public dynamic GetAllProduct_View()
         {
-            var product = QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
+            QLSPEntities db = new QLSPEntities();
+            var product = db.Products.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
             return product.ToList();
         }
-
-
-
-        public Product GetProductByID(string ID)
-        {
-            Product product = QLSPEntities.Instance.Products.Find(ID);
-            return product;
-        }
-
-
 
         public dynamic GetAllProduct_Order_View()
         {
-            var product = QLSPEntities.Instance.Products.Select(p => new { p.Discount, p.ProductName, p.StoreQuantity, p.SellingPrice });
-            return product.ToList();
+           
+            var product = (QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.SellingPrice })).ToList();
+            return product;
         }
-
-
 
         public dynamic GetAllProduct_Price_View()
         {
@@ -87,7 +77,12 @@ namespace PBL3.BLL
             return products;
         }
 
-
+        public dynamic GetAllProduct_Import_View()
+        {
+            QLSPEntities db = new QLSPEntities();
+            var productImport = db.Store_Imports.Select(p => new { p.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
+            return productImport;
+        }
 
         public void UpdatePrice(List<string> ID, List<double> newPrice)
         {
@@ -100,6 +95,14 @@ namespace PBL3.BLL
                     p.SellingPrice = newPrice[ID.IndexOf(i)];
                 }
             }
+            db.SaveChanges();
+        }
+
+        public void Execute(string ID, double newPrice)
+        {
+            QLSPEntities db = new QLSPEntities();
+            Product p = db.Products.Find(ID);
+            p.SellingPrice = newPrice;
             db.SaveChanges();
         }
 
@@ -137,7 +140,6 @@ namespace PBL3.BLL
             }
             return data;
         }
-
 
 
         public dynamic SortProduct(string sortCategory, bool ascending)
@@ -266,6 +268,11 @@ namespace PBL3.BLL
             product.StoreQuantity = (Convert.ToInt32(product.StoreQuantity) - num).ToString();
             QLSPEntities.Instance.SaveChanges();
 
+        }
+
+        public Product GetProductByID(string productID)
+        {
+            return QLSPEntities.Instance.Products.Find(productID);
         }
     }
 }

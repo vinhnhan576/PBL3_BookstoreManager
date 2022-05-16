@@ -1,4 +1,4 @@
-﻿namespace PBL3.View.AdminChildForms.Product
+﻿namespace PBL3.View.AdminChildForms.ProductForms
 {
     partial class Product
     {
@@ -143,7 +143,7 @@
             this.dgvProduct.RowTemplate.Height = 28;
             this.dgvProduct.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduct.Size = new System.Drawing.Size(732, 315);
+            this.dgvProduct.Size = new System.Drawing.Size(732, 319);
             this.dgvProduct.TabIndex = 10;
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -301,7 +301,7 @@
             this.tbSearch.SelectedText = "";
             this.tbSearch.Size = new System.Drawing.Size(230, 29);
             this.tbSearch.TabIndex = 1;
-            this.tbSearch.IconRightClick += new System.EventHandler(this.tbSearch_IconRightClick);
+            this.tbSearch.IconRightClick += new System.EventHandler(this.tbSearch_IconLeftClick);
             // 
             // Product
             // 

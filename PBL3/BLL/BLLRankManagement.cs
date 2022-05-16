@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PBL3.BLL
 {
-    internal class BLLRankManagement
+    public class BLLRankManagement
     {
     }
 }

@@ -15,7 +15,7 @@ namespace PBL3.View
         private Form activeForm;
         private Guna.UI2.WinForms.Guna2Button currentButton, prevButton;
 
-        public StockkeeperForm()
+        public StockkeeperForm(Account acc)
         {
             InitializeComponent();
             StaffChildForms.Overview overviewForm = new StaffChildForms.Overview();

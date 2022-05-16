@@ -14,11 +14,13 @@ namespace PBL3.View
     {
         private Form activeForm;
         private Guna.UI2.WinForms.Guna2Button currentButton, prevButton;
+        Account account;
 
-        public AdminForm()
+        public AdminForm(Account acc)
         {
             InitializeComponent();
-            AdminChildForms.Overview overviewForm = new AdminChildForms.Overview();
+            account = acc;
+            AdminChildForms.OverviewForm overviewForm = new AdminChildForms.OverviewForm();
             overviewForm.TopLevel = false;
             overviewForm.FormBorderStyle = FormBorderStyle.None;
             overviewForm.Dock = DockStyle.Fill;
@@ -75,37 +77,37 @@ namespace PBL3.View
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            openChildForm(new AdminChildForms.Product.Product(), sender);
+            openChildForm(new AdminChildForms.ProductForms.Product(), sender);
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            openChildForm(new AdminChildForms.Customer(), sender);
+            openChildForm(new AdminChildForms.CustomerForm(), sender);
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            openChildForm(new AdminChildForms.Bill(), sender);
+            openChildForm(new AdminChildForms.BillForm(), sender);
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            openChildForm(new AdminChildForms.Stock(), sender);
+            openChildForm(new AdminChildForms.StockForm(), sender);
         }
 
         private void guna2Button6_Click(object sender, EventArgs e)
         {
-            openChildForm(new AdminChildForms.Discount(), sender);
+            openChildForm(new AdminChildForms.DiscountForm(), sender);
         }
 
         private void guna2Button7_Click(object sender, EventArgs e)
         {
-            openChildForm(new AdminChildForms.Account(), sender);
+            openChildForm(new AdminChildForms.AccountForm(), sender);
         }
 
         private void guna2Button8_Click(object sender, EventArgs e)
         {
-            openChildForm(new AdminChildForms.Revenue(), sender);
+            openChildForm(new AdminChildForms.RevenueForm(), sender);
         }
 
         private void guna2ImageButton2_Click(object sender, EventArgs e)
@@ -117,9 +119,25 @@ namespace PBL3.View
             }
         }
 
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            AdminChildForms.SettingsForms.SettingsForm childForm = new AdminChildForms.SettingsForms.SettingsForm(account);
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.pnRight.Controls.Add(childForm);
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            openChildForm(new AdminChildForms.Overview(), sender);
+            openChildForm(new AdminChildForms.OverviewForm(), sender);
         }
     }
 }
