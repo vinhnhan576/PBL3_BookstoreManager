@@ -158,10 +158,10 @@
     <Compile Include="View\AdminChildForms\ProductForms\Product.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\Product\ImportHistory.Designer.cs">
+    <Compile Include="View\AdminChildForms\ProductForms\ImportHistory.Designer.cs">
       <DependentUpon>ImportHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\Product\Product.cs">
+    <Compile Include="View\AdminChildForms\ProductForms\Product.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\AdminChildForms\ProductForms\Product.Designer.cs">
@@ -191,11 +191,23 @@
     <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\Product\UpdatePrice.cs">
+    <Compile Include="View\AdminChildForms\ProductForms\UpdatePrice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\Product\UpdatePrice.Designer.cs">
+    <Compile Include="View\AdminChildForms\ProductForms\UpdatePrice.Designer.cs">
       <DependentUpon>UpdatePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ForgotPasswordForm.cs">
       <SubType>Form</SubType>
@@ -292,7 +304,7 @@
     <EmbeddedResource Include="View\AdminChildForms\ProductForms\ImportHistory.resx">
       <DependentUpon>ImportHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\Product\ImportHistory.resx">
+    <EmbeddedResource Include="View\AdminChildForms\ProductForms\ImportHistory.resx">
       <DependentUpon>ImportHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminChildForms\ProductForms\Product.resx">
@@ -310,8 +322,14 @@
     <EmbeddedResource Include="View\AdminChildForms\SettingsForms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\Product\UpdatePrice.resx">
+    <EmbeddedResource Include="View\AdminChildForms\ProductForms\UpdatePrice.resx">
       <DependentUpon>UpdatePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>

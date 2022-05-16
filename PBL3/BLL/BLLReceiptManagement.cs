@@ -114,7 +114,6 @@ namespace PBL3.BLL
             }
         }
 
-        }
         public List<Receipt_Detail> getReceiptDetailByReceiptID(string ID_Receipt)
         {
 
