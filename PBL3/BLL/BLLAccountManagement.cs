@@ -24,7 +24,16 @@ namespace PBL3.BLL
 
             }
         }
-        public dynamic GetAllAccount()
+
+        public List<Account> GetAllAccount()
+        {
+            List<Account> accountList = new List<Account>();
+            foreach(Account i in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
+                accountList.Add(i);
+            return accountList;
+        }
+
+        public dynamic GetAllAccount_View()
         {
             QLSPEntities qLSPEntities = new QLSPEntities();
             var account = (qLSPEntities.Accounts.Select(p => new { p.PersonID, p.Account1, p.Password, p.Person.PersonName,p.Person.Address})).ToList();
@@ -43,7 +52,7 @@ namespace PBL3.BLL
         public bool Check(string ID)
         {
             bool Add = false;
-            foreach (Account ac in GetAllAccount())
+            foreach (Account ac in GetAllAccount_View())
             {
                 if (ac.PersonID == ID)
                 {
@@ -118,6 +127,29 @@ namespace PBL3.BLL
             QLSPEntities qLSPEntities = new QLSPEntities();
             Account ac = qLSPEntities.Accounts.Find(ID);
             return ac;
+        }
+
+        public List<string> GetAllUsername()
+        {
+            List<string> usernameList = new List<string>();
+            foreach(Account i in GetAllAccount())
+            {
+                usernameList.Add(i.Account1);
+            }
+            return usernameList;
+        }
+
+        public string GetPasswordByUsername(string username)
+        {
+            string password = QLSPEntities.Instance.Accounts.Find(username).Password;
+            return password;
+        }
+
+        public void ChangePassword(string username, string newPassword)
+        {
+            Account acc = QLSPEntities.Instance.Accounts.Find(username);
+            acc.Password = newPassword;
+            QLSPEntities.Instance.SaveChanges();
         }
     }
  }

@@ -1,4 +1,4 @@
-﻿namespace PBL3.View.AdminChildForms.Product
+﻿namespace PBL3.View.AdminChildForms.ProductForms
 {
     partial class ImportHistory
     {
@@ -94,6 +94,7 @@
             this.tbProduct.SelectedText = "";
             this.tbProduct.Size = new System.Drawing.Size(310, 24);
             this.tbProduct.TabIndex = 33;
+            this.tbProduct.TextChanged += new System.EventHandler(this.tbProduct_TextChanged);
             // 
             // dgvProduct
             // 

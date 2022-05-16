@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
 
-namespace PBL3.View.AdminChildForms.Product
+namespace PBL3.View.AdminChildForms.ProductForms
 {
     public partial class ImportHistory : Form
     {
@@ -54,6 +54,11 @@ namespace PBL3.View.AdminChildForms.Product
             string month = tbMonth.Text;
             string year = tbYear.Text;
             dgvProduct.DataSource = BLLStoreImportManagement.Instance.FilterStoreImportByDate(day, month, year);
+        }
+
+        private void tbProduct_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

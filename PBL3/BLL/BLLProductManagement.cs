@@ -23,15 +23,12 @@ namespace PBL3.BLL
             private set { }
         }
 
-
-
         private BLLProductManagement()
         {
 
 
 
         }
-
 
 
         public List<Product> GetAllProduct()

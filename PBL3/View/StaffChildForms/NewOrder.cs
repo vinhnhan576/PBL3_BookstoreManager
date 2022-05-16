@@ -17,35 +17,46 @@ namespace PBL3.View.StaffChildForms
     {
         private List<ReceiptDetailView> rd_list;
         public NewOrder()
-
         {
             InitializeComponent();
+            InitializeGUI();
+        }
+
+        private void InitializeGUI()
+        {
             ProductDataGridView.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
             rd_list = new List<ReceiptDetailView>();
             var random = new RandomGenerator();
             OrderIDtxt.Text = "rpt" + random.RandomNumber(100, 9999);
             OrderIDtxt.Enabled = false;
             SalesmanIDtxt.Text = "sm001";
-            SalesmanIDtxt.Enabled=false;
+            SalesmanIDtxt.Enabled = false;
             Totaltxt.Enabled = false;
             OrderDateTimePicker.Value = DateTime.Now;
-        
         }
+
         private void SaveButton_Click(object sender, EventArgs e)
         {
             Receipt receipt = new Receipt();
             receipt.ReceiptID = OrderIDtxt.Text;
-            receipt.PersonID=SalesmanIDtxt.Text;
+            receipt.PersonID = SalesmanIDtxt.Text;
             receipt.Date=DateTime.Now;
             receipt.Total = Convert.ToInt32(Totaltxt.Text);
             BLLReceiptManagement.Instance.AddNewReceipt(receipt);
             BLLReceiptManagement.Instance.AddNewReceiptDetail(rd_list, OrderIDtxt.Text);
             for(int i = 0; i < rd_list.Count; i++)
             {
-                string id_temp = rd_list[i].ProductID;
-                int quantity = rd_list[i].Quantity;
-                BLLProductManagement.Instance.DecreaseStoreQuantity(id_temp, quantity);
+                string productID = rd_list[i].ProductID;
+                int prodQuantity = rd_list[i].Quantity;
+                BLLProductManagement.Instance.DecreaseStoreQuantity(productID, prodQuantity);
+
+                double expenses = BLLProductManagement.Instance.GetProductByID(productID).Restocks.Last().ImportPrice * prodQuantity;
+                double grossRevenue = rd_list[i].Total;
+                double profit = (grossRevenue / expenses - 1) * 100;
+                profit = (double)Math.Round(profit * 100f) / 100f;
+                BLLRevenueManagement.Instance.AddRevenue(rd_list[i].ReceiptDetailID, expenses, grossRevenue, profit);
             }
+
             rd_list.Clear();
             rdDataGridView.DataSource = rd_list.ToList();
             OrderIDtxt.Text = "";
@@ -56,20 +67,18 @@ namespace PBL3.View.StaffChildForms
         {
             ReceiptDetailView rd_temp = new ReceiptDetailView();
             string product_temp;
-
+            int count = 1;
 
             if (ProductDataGridView.SelectedRows.Count == 1)
             {
-
                 product_temp = ProductDataGridView.SelectedRows[0].Cells["ProductID"].Value.ToString();
-   
-                rd_temp = BLLReceiptManagement.Instance.CreateReceiptDetailView(product_temp, Convert.ToInt32(Quantitytxt.Text.ToString()));
-               
+                rd_temp = BLLReceiptManagement.Instance.CreateReceiptDetailView(
+                    product_temp, Convert.ToInt32(Quantitytxt.Text.ToString()), count++);
                 this.rd_list.Add(rd_temp);
-                
             }
             rdDataGridView.DataSource = this.rd_list.ToList();
             Totaltxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
+            Quantitytxt.Text = "";
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -83,7 +92,7 @@ namespace PBL3.View.StaffChildForms
                     
                 }
             }
-            rdDataGridView.DataSource=rd_list.ToList();
+            rdDataGridView.DataSource = rd_list.ToList();
             Totaltxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
         }
 

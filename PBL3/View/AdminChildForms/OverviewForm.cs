@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PBL3.View.AdminChildForms
 {
-    public partial class Overview : Form
+    public partial class OverviewForm : Form
     {
-        public Overview()
+        public OverviewForm()
         {
             InitializeComponent();
         }

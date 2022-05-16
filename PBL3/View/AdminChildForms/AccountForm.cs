@@ -12,18 +12,18 @@ using PBL3.BLL;
 
 namespace PBL3.View.AdminChildForms
 {
-    public partial class Account : Form
+    public partial class AccountForm : Form
     {
-        public Account()
+        public AccountForm()
         {
             InitializeComponent();
-            dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount();
+            dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
             cbbGender.Items.Add("Nam");
             cbbGender.Items.Add("Nữ");
         }
         public void Reload()
         {
-            dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount();
+            dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {

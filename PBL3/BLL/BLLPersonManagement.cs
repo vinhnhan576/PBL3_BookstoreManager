@@ -40,5 +40,10 @@ namespace PBL3.BLL
                 qLSPEntities.SaveChanges();
             }
         }
+
+        public Person GetPersonByPersonID(string personID)
+        {
+            return QLSPEntities.Instance.People.Find(personID);
+        }
     }
 }

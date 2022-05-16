@@ -124,6 +124,7 @@ namespace PBL3.View
             this.btnSettings.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 10);
             this.btnSettings.Size = new System.Drawing.Size(30, 30);
             this.btnSettings.TabIndex = 4;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // guna2PictureBox1
             // 

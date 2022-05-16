@@ -8,7 +8,7 @@ namespace PBL3.DTO
 {
     internal class ReceiptDetailView
     {
-       
+        public string ReceiptDetailID { get; set; }
         public string ProductID { get; set; }
         public string ProductName { get; set; }
         public int Quantity { get; set; }
