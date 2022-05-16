@@ -41,12 +41,6 @@ namespace PBL3.BLL
             return accountList;
         }
 
-        public dynamic GetAllAccount_View()
-        {
-            QLSPEntities qLSPEntities = new QLSPEntities();
-            var account = (qLSPEntities.Accounts.Select(p => new { p.PersonID, p.Person.PersonName,p.Person.Role, p.Account1, p.Password,p.Person.Address})).ToList();
-            return account;
-        }
         public void DelAccount(List<string> ID)
         {
             QLSPEntities qLSPEntities = new QLSPEntities();
