@@ -22,7 +22,7 @@ namespace PBL3
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new View.AdminChildForms.Account());
+            Application.Run(new PBL3.View.AdminChildForms.Product.Product());
         }
 
     }

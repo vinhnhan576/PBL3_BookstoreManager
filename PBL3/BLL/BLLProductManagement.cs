@@ -44,7 +44,11 @@ namespace PBL3.BLL
             }
             return data;
         }
-
+        public dynamic GetAllProduct_Stock_View()
+        {
+            var product = QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StockQuantity });
+            return product.ToList();
+        }
 
 
         public dynamic GetAllProduct_View()
