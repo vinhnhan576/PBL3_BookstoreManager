@@ -14,12 +14,17 @@ namespace PBL3
     
     public partial class Restock
     {
-        public string RestockID { get; set; }
-        public string ProductID { get; set; }
-        public int ImportQuantity { get; set; }
-        public System.DateTime ImportDate { get; set; }
-        public double ImportPrice { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Restock()
+        {
+            this.RestockDetails = new HashSet<RestockDetail>();
+        }
     
-        public virtual Product Product { get; set; }
+        public string RestockID { get; set; }
+        public System.DateTime ImportDate { get; set; }
+        public Nullable<double> TotalExpense { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RestockDetail> RestockDetails { get; set; }
     }
 }

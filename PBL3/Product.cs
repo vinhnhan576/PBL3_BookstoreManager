@@ -18,8 +18,8 @@ namespace PBL3
         public Product()
         {
             this.Receipt_Detail = new HashSet<Receipt_Detail>();
-            this.Restocks = new HashSet<Restock>();
-            this.Store_Import = new HashSet<Store_Import>();
+            this.RestockDetails = new HashSet<RestockDetail>();
+            this.StoreImportDetails = new HashSet<StoreImportDetail>();
         }
     
         public string ProductID { get; set; }
@@ -38,8 +38,8 @@ namespace PBL3
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Receipt_Detail> Receipt_Detail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Restock> Restocks { get; set; }
+        public virtual ICollection<RestockDetail> RestockDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Store_Import> Store_Import { get; set; }
+        public virtual ICollection<StoreImportDetail> StoreImportDetails { get; set; }
     }
 }

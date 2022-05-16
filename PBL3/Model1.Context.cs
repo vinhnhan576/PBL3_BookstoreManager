@@ -15,16 +15,22 @@ namespace PBL3
     
     public partial class QLSPEntities : DbContext
     {
+
         private static QLSPEntities instance;
         public static QLSPEntities Instance
         {
             get
             {
                 if (instance == null)
+                {
                     instance = new QLSPEntities();
+                }
                 return instance;
             }
-            private set { }
+            private set
+            {
+
+            }
         }
 
         public QLSPEntities()
@@ -45,8 +51,10 @@ namespace PBL3
         public virtual DbSet<Rank> Ranks { get; set; }
         public virtual DbSet<Receipt> Receipts { get; set; }
         public virtual DbSet<Receipt_Detail> Receipt_Details { get; set; }
-        public virtual DbSet<Restock> Restocks { get; set; }
         public virtual DbSet<Revenue> Revenues { get; set; }
+        public virtual DbSet<RestockDetail> RestockDetails { get; set; }
+        public virtual DbSet<StoreImportDetail> StoreImportDetails { get; set; }
+        public virtual DbSet<Restock> Restocks { get; set; }
         public virtual DbSet<Store_Import> Store_Imports { get; set; }
     }
 }
