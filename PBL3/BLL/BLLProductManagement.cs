@@ -23,9 +23,11 @@ namespace PBL3.BLL
             private set { }
         }
 
+
+
         private BLLProductManagement()
         {
-
+            
 
 
         }
@@ -41,32 +43,25 @@ namespace PBL3.BLL
             }
             return data;
         }
-
-
+        public dynamic GetAllProduct_Stock_View()
+        {
+            var product = QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StockQuantity });
+            return product.ToList();
+        }
 
         public dynamic GetAllProduct_View()
         {
-            var product = QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
-            return product.ToList();
-        }
-
-
-
-        public Product GetProductByID(string ID)
-        {
-            Product product = QLSPEntities.Instance.Products.Find(ID);
+            QLSPEntities db = new QLSPEntities();
+            var product = db.Products.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
             return product;
         }
 
-
-
         public dynamic GetAllProduct_Order_View()
         {
-            var product = QLSPEntities.Instance.Products.Select(p => new { p.Discount, p.ProductName, p.StoreQuantity, p.SellingPrice });
-            return product.ToList();
+           
+            var product = (QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.SellingPrice })).ToList();
+            return product;
         }
-
-
 
         public dynamic GetAllProduct_Price_View()
         {
@@ -84,19 +79,18 @@ namespace PBL3.BLL
             return products;
         }
 
-
-
-        public void UpdatePrice(List<string> ID, List<double> newPrice)
+        public dynamic GetAllProduct_Import_View()
         {
             QLSPEntities db = new QLSPEntities();
-            foreach (string i in ID)
-            {
-                Product p = db.Products.Find(i);
-                if (p != null)
-                {
-                    p.SellingPrice = newPrice[ID.IndexOf(i)];
-                }
-            }
+            var productImport = db.Store_Imports.Select(p => new { p.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
+            return productImport;
+        }
+
+        public void Execute(string ID, double newPrice)
+        {
+            QLSPEntities db = new QLSPEntities();
+            Product p = db.Products.Find(ID);
+            p.SellingPrice = newPrice;
             db.SaveChanges();
         }
 
@@ -183,86 +177,7 @@ namespace PBL3.BLL
                 else
                     data = db.Products.OrderByDescending(p => p.StoreQuantity).ToList();
             }
-            var newList = data.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status }).ToList();
-            return newList;
-        }
-
-
-
-        public dynamic FilterProduct(string filterCategory, string filterValue)
-        {
-            QLSPEntities db = new QLSPEntities();
-            List<Product> data = new List<Product>();
-            foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
-            {
-                if (filterCategory == "ProductName")
-                {
-                    if (i.ProductName == filterValue)
-                    {
-                        data.Add(i);
-                    }
-                }
-                if (filterCategory == "Status")
-                {
-                    if (i.Status == filterValue)
-                    {
-                        data.Add(i);
-                    }
-                }
-            }
-            var prodViewList = data.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
-            return prodViewList;
-        }
-
-
-
-        public List<string> GetAllProductCategory()
-        {
-            List<string> prodCategoryList = new List<string>();
-            foreach (Product i in GetAllProduct())
-            {
-                prodCategoryList.Add(i.Category);
-            }
-            return prodCategoryList;
-        }
-
-
-
-        public List<string> GetAllProductStatus()
-        {
-            List<string> prodStatusList = new List<string>();
-            foreach (Product i in GetAllProduct())
-            {
-                prodStatusList.Add(i.Status);
-            }
-            return prodStatusList;
-        }
-        public dynamic SearchProduct_Order(string searchValue)
-        {
-            List<Product> data = new List<Product>();
-            foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
-            {
-                bool containName = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool containStatus = i.Status.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool containCategory = i.Category.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                if (containName || containStatus || containCategory)
-                {
-                    data.Add(i);
-                }
-            }
-            var prodList = data.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
-            return prodList.ToList();
-
-
-
-        }
-        public void DecreaseStoreQuantity(string productid, int num)
-        {
-
-            var product = QLSPEntities.Instance.Products.Find(productid);
-            product.StoreQuantity = (Convert.ToInt32(product.StoreQuantity) - num).ToString();
-            QLSPEntities.Instance.SaveChanges();
-
+            return data;
         }
     }
 }

@@ -5,12 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using PBL3.DTO;
 
+
+
 namespace PBL3.BLL
 {
     internal class BLLReceiptManagement
     {
 
+
+
         private static BLLReceiptManagement _instance;
+
+
 
         public static BLLReceiptManagement Instance
         {
@@ -25,8 +31,12 @@ namespace PBL3.BLL
             private set
             {
 
+
+
             }
         }
+
+
 
         public void AddNewReceipt(Receipt r)
         {
@@ -34,12 +44,16 @@ namespace PBL3.BLL
             QLSPEntities.Instance.Receipts.Add(r);
             QLSPEntities.Instance.SaveChanges();
 
+
+
         }
         public void AddNewReceiptDetail(Receipt_Detail r)
         {
 
             QLSPEntities.Instance.Receipt_Details.Add(r);
             QLSPEntities.Instance.SaveChanges();
+
+
 
         }
      
@@ -100,6 +114,7 @@ namespace PBL3.BLL
             }
         }
 
+        }
         public List<Receipt_Detail> getReceiptDetailByReceiptID(string ID_Receipt)
         {
 
@@ -109,20 +124,25 @@ namespace PBL3.BLL
                 return QLSPEntities.Instance.Receipt_Details.Where(p => p.ReceiptID == ID_Receipt).ToList();
         }
 
+       
+        
+
+
         public double CalculateReceiptToTal(List<ReceiptDetailView> list)
         {
             double total = 0;
             for (int i = 0; i < list.Count; i++)
             {
-                total+=list[i].Total;
+                total += list[i].Total;
             }
             return total;
 
-        }
 
+
+        }
         public int ReceiptDetailView_Check(List<ReceiptDetailView> list, string product_id)
         {
-            for(int i=0;i< list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].ProductID == product_id)
                 {
@@ -132,20 +152,5 @@ namespace PBL3.BLL
             }
             return 0;
         }
-
-       
-        
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
