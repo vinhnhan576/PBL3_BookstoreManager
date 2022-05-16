@@ -16,7 +16,7 @@ namespace PBL3.View
         private Form activeForm;
         private Guna.UI2.WinForms.Guna2Button currentButton, prevButton;
 
-        public CashierForm()
+        public CashierForm(Account acc)
         {
             InitializeComponent();
            Overview overviewForm = new Overview();

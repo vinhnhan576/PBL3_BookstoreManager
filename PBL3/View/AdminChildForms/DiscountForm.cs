@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.BLL;
 
 namespace PBL3.View.AdminChildForms
 {
-    public partial class Discount : Form
+    public partial class DiscountForm : Form
     {
-        public Discount()
+        public DiscountForm()
         {
             InitializeComponent();
+            InitializeData();
+        }
+
+        private void InitializeData()
+        {
+            dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
         }
 
         private void Discount_Load(object sender, EventArgs e)

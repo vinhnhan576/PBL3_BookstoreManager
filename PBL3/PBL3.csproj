@@ -71,6 +71,9 @@
     <Compile Include="BLL\BLLQLSV.cs" />
     <Compile Include="BLL\BLLRankManagement.cs" />
     <Compile Include="BLL\BLLReceiptManagement.cs" />
+    <Compile Include="BLL\BLLRestockManagement.cs" />
+    <Compile Include="BLL\BLLRevenueManagement.cs" />
+    <Compile Include="BLL\BLLStoreImportManagement.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -78,6 +81,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\CBBItem.cs" />
+    <Compile Include="DTO\Product_Price_View.cs" />
+    <Compile Include="DTO\RandomGenerator.cs" />
+    <Compile Include="DTO\ReceiptDetailView.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -105,7 +111,6 @@
     <Compile Include="Receipt.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ReceiptManagement.cs" />
     <Compile Include="Receipt_Detail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -118,41 +123,65 @@
     <Compile Include="Store_Import.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\Account.cs">
+    <Compile Include="View\AdminChildForms\AccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\Account.Designer.cs">
-      <DependentUpon>Account.cs</DependentUpon>
+    <Compile Include="View\AdminChildForms\AccountForm.Designer.cs">
+      <DependentUpon>AccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\Bill.cs">
+    <Compile Include="View\AdminChildForms\BillForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\Bill.Designer.cs">
-      <DependentUpon>Bill.cs</DependentUpon>
+    <Compile Include="View\AdminChildForms\BillForm.Designer.cs">
+      <DependentUpon>BillForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\Customer.cs">
+    <Compile Include="View\AdminChildForms\CustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\Customer.Designer.cs">
-      <DependentUpon>Customer.cs</DependentUpon>
+    <Compile Include="View\AdminChildForms\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\Discount.cs">
+    <Compile Include="View\AdminChildForms\DiscountForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\Discount.Designer.cs">
-      <DependentUpon>Discount.cs</DependentUpon>
+    <Compile Include="View\AdminChildForms\DiscountForm.Designer.cs">
+      <DependentUpon>DiscountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\Product.cs">
+    <Compile Include="View\AdminChildForms\ProductForms\ImportHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\Product.Designer.cs">
+    <Compile Include="View\AdminChildForms\ProductForms\ImportHistory.Designer.cs">
+      <DependentUpon>ImportHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\ProductForms\Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\ProductForms\Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\Overview.cs">
+    <Compile Include="View\AdminChildForms\OverviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\Overview.Designer.cs">
-      <DependentUpon>Overview.cs</DependentUpon>
+    <Compile Include="View\AdminChildForms\OverviewForm.Designer.cs">
+      <DependentUpon>OverviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\ProductForms\UpdatePrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\ProductForms\UpdatePrice.Designer.cs">
+      <DependentUpon>UpdatePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ForgotPasswordForm.cs">
       <SubType>Form</SubType>
@@ -166,17 +195,17 @@
     <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\Revenue.cs">
+    <Compile Include="View\AdminChildForms\RevenueForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\Revenue.Designer.cs">
-      <DependentUpon>Revenue.cs</DependentUpon>
+    <Compile Include="View\AdminChildForms\RevenueForm.Designer.cs">
+      <DependentUpon>RevenueForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\Stock.cs">
+    <Compile Include="View\AdminChildForms\StockForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\Stock.Designer.cs">
-      <DependentUpon>Stock.cs</DependentUpon>
+    <Compile Include="View\AdminChildForms\StockForm.Designer.cs">
+      <DependentUpon>StockForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StaffChildForms\ManageOrder.cs">
       <SubType>Form</SubType>
@@ -234,23 +263,35 @@
     <Compile Include="View\StockkeeperForm.Designer.cs">
       <DependentUpon>StockkeeperForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\AdminChildForms\Account.resx">
-      <DependentUpon>Account.cs</DependentUpon>
+    <EmbeddedResource Include="View\AdminChildForms\AccountForm.resx">
+      <DependentUpon>AccountForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\Bill.resx">
-      <DependentUpon>Bill.cs</DependentUpon>
+    <EmbeddedResource Include="View\AdminChildForms\BillForm.resx">
+      <DependentUpon>BillForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\Customer.resx">
-      <DependentUpon>Customer.cs</DependentUpon>
+    <EmbeddedResource Include="View\AdminChildForms\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\Discount.resx">
-      <DependentUpon>Discount.cs</DependentUpon>
+    <EmbeddedResource Include="View\AdminChildForms\DiscountForm.resx">
+      <DependentUpon>DiscountForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\Product.resx">
+    <EmbeddedResource Include="View\AdminChildForms\ProductForms\ImportHistory.resx">
+      <DependentUpon>ImportHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\ProductForms\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\Overview.resx">
-      <DependentUpon>Overview.cs</DependentUpon>
+    <EmbeddedResource Include="View\AdminChildForms\OverviewForm.resx">
+      <DependentUpon>OverviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\ProductForms\UpdatePrice.resx">
+      <DependentUpon>UpdatePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
@@ -258,11 +299,11 @@
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\Revenue.resx">
-      <DependentUpon>Revenue.cs</DependentUpon>
+    <EmbeddedResource Include="View\AdminChildForms\RevenueForm.resx">
+      <DependentUpon>RevenueForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\Stock.resx">
-      <DependentUpon>Stock.cs</DependentUpon>
+    <EmbeddedResource Include="View\AdminChildForms\StockForm.resx">
+      <DependentUpon>StockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StaffChildForms\ManageOrder.resx">
       <DependentUpon>ManageOrder.cs</DependentUpon>
@@ -427,6 +468,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\filterIcon.png" />
+    <None Include="Resources\filter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

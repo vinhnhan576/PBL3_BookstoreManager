@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLSPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QLSPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="PersonID" />
@@ -116,7 +116,6 @@
           <Property Name="ProductID" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="ImportQuantity" Type="int" Nullable="false" />
           <Property Name="ImportDate" Type="date" Nullable="false" />
-          <Property Name="SellingPrice" Type="float" Nullable="false" />
         </EntityType>
         <Association Name="FK_Account_Person">
           <End Role="Person" Type="Self.Person" Multiplicity="1" />
@@ -290,9 +289,8 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Store Import" EntitySet="Store Import" />
           </AssociationSet>
-          </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLSPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -426,7 +424,6 @@
           <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="ImportQuantity" Type="Int32" Nullable="false" />
           <Property Name="ImportDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="SellingPrice" Type="Double" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Store_Import_Product" FromRole="Store_Import" ToRole="Product" />
         </EntityType>
         <Association Name="FK_Account_Person">
@@ -728,7 +725,6 @@
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ImportQuantity" ColumnName="ImportQuantity" />
                 <ScalarProperty Name="ImportDate" ColumnName="ImportDate" />
-                <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

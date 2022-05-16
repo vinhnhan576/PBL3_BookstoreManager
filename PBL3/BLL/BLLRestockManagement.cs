@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace PBL3.BLL
 {
-    internal class BLLCustomerManagement
+    internal class BLLRestockManagement
     {
-
     }
 }
