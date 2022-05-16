@@ -12,18 +12,18 @@ using PBL3.BLL;
 
 namespace PBL3.View.AdminChildForms
 {
-    public partial class Account : Form
+    public partial class OverviewForm : Form
     {
-        public Account()
+        public OverviewForm()
         {
             InitializeComponent();
-            dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount();
+            /*dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount();
             cbbSortOrder.SelectedIndex = 0;
             cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;
-            cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
+            cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);*/
         }
-        public void Reload()
+        /*public void Reload()
         {
             dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount();
         }
@@ -204,6 +204,6 @@ namespace PBL3.View.AdminChildForms
             a.Person = p;
             BLLAccountManagement.Instance.Execute(a);
             Reload();
-        }
+        }*/
     }
 }

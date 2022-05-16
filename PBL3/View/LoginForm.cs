@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.BLL;
 
 namespace PBL3.View
 {
@@ -37,27 +39,61 @@ namespace PBL3.View
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            if(tbUsername.Text == "admin" && tbPassword.Text == "admin")
+            bool usernameExist = false;
+            foreach(Account i in BLLAccountManagement.Instance.GetAllAccount())
             {
-                this.Visible = false;
-                new AdminForm().ShowDialog();
-                this.Visible = true;
+                if (tbUsername.Text == i.Account1.Trim())
+                {
+                    usernameExist = true;
+                    if(tbPassword.Text == i.Password.Trim())
+                    {
+                        if(i.Person.Role.Trim() == "Admin")
+                        {
+                            this.Visible = false;
+                            new AdminForm(i).ShowDialog();
+                            ClearTextboxes();
+                            this.Visible = true;
+                            break;
+                        }
+                        if (i.Person.Role.Trim() == "Salesman")
+                        {
+                            this.Visible = false;
+                            new CashierForm(i).ShowDialog();
+                            ClearTextboxes();
+                            this.Visible = true;
+                            break;
+                        }
+                        if (i.Person.Role.Trim() == "Stockkeeper")
+                        {
+                            this.Visible = false;
+                            new StockkeeperForm(i).ShowDialog();
+                            ClearTextboxes();
+                            this.Visible = true;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong password");
+                        tbPassword.Text = "";
+                        break;
+                    }
+                }
             }
-            if(tbUsername.Text == "user1" && tbPassword.Text == "user1")
+            if(!usernameExist)
             {
-                this.Visible = false;
-                new CashierForm().ShowDialog();
-                this.Visible = true;
-            }
-            if (tbUsername.Text == "user2" && tbPassword.Text == "user2")
-            {
-                this.Visible = false;
-                new StockkeeperForm().ShowDialog();
-                this.Visible = true;
+                tbPassword.Text = "";
+                MessageBox.Show("Account username doesn't exist");
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void ClearTextboxes()
+        {
+            tbUsername.Text = "";
+            tbPassword.Text = "";
+        }
+
+        private void lbForgotPassword_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             new ForgotPasswordForm().ShowDialog();

@@ -1,4 +1,4 @@
-﻿namespace PBL3.View.AdminChildForms.Product
+﻿namespace PBL3.View.AdminChildForms.ProductForms
 {
     partial class UpdatePrice
     {

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using PBL3.BLL;
 using PBL3.DTO;
 
-namespace PBL3.View.AdminChildForms.Product
+namespace PBL3.View.AdminChildForms.ProductForms
 {
     public partial class Product : Form
     {

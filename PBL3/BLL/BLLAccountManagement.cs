@@ -24,12 +24,23 @@ namespace PBL3.BLL
 
             }
         }
-        public dynamic GetAllAccount()
+
+        public List<Account> GetAllAccount()
         {
-            QLSPEntities qLSPEntities = new QLSPEntities();
-            var account = (qLSPEntities.Accounts.Select(p => new { p.PersonID, p.Person.PersonName,p.Person.Role, p.Account1, p.Password,p.Person.Address})).ToList();
-            return account;
+            List<Account> accountList = new List<Account>();
+            foreach(Account i in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
+                accountList.Add(i);
+            return accountList;
         }
+
+        public dynamic GetAllAccount_View()
+        {
+            List<Account> accountList = new List<Account>();
+            foreach (Account i in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
+                accountList.Add(i);
+            return accountList;
+        }
+
         public void DelAccount(List<string> ID)
         {
             QLSPEntities qLSPEntities = new QLSPEntities();
@@ -183,6 +194,13 @@ namespace PBL3.BLL
                 data.Add(i.Person.Address);
             }
             return data;
+        }
+
+        public void ChangePassword(string username, string newPassword)
+        {
+            Account acc = QLSPEntities.Instance.Accounts.Find(username);
+            acc.Password = newPassword;
+            QLSPEntities.Instance.SaveChanges();
         }
     }
  }

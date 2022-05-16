@@ -11,19 +11,19 @@ using PBL3.BLL;
 using PBL3.DTO;
 
 
-
-
 namespace PBL3.View.StaffChildForms
 {
     public partial class NewOrder : Form
     {
         private List<ReceiptDetailView> rd_list;
         public NewOrder()
-
-
-
         {
             InitializeComponent();
+            InitializeGUI();
+        }
+
+        private void InitializeGUI()
+        {
             ProductDataGridView.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
             rd_list = new List<ReceiptDetailView>();
             var random = new RandomGenerator();
@@ -33,8 +33,8 @@ namespace PBL3.View.StaffChildForms
             SalesmanIDtxt.Enabled = false;
             Totaltxt.Enabled = false;
             OrderDateTimePicker.Value = DateTime.Now;
-
         }
+
         private void SaveButton_Click(object sender, EventArgs e)
         {
             Receipt receipt = new Receipt();
@@ -46,40 +46,40 @@ namespace PBL3.View.StaffChildForms
             BLLReceiptManagement.Instance.AddNewReceiptDetail(rd_list, OrderIDtxt.Text);
             for (int i = 0; i < rd_list.Count; i++)
             {
-                string id_temp = rd_list[i].ProductID;
-                int quantity = rd_list[i].Quantity;
-                BLLProductManagement.Instance.DecreaseStoreQuantity(id_temp, quantity);
+                string productID = rd_list[i].ProductID;
+                int prodQuantity = rd_list[i].Quantity;
+                BLLProductManagement.Instance.DecreaseStoreQuantity(productID, prodQuantity);
+
+                double expenses = BLLProductManagement.Instance.GetProductByID(productID).Restocks.Last().ImportPrice * prodQuantity;
+                double grossRevenue = rd_list[i].Total;
+                double profit = (grossRevenue / expenses - 1) * 100;
+                profit = (double)Math.Round(profit * 100f) / 100f;
+                BLLRevenueManagement.Instance.AddRevenue(rd_list[i].ReceiptDetailID, expenses, grossRevenue, profit);
             }
+
             rd_list.Clear();
             rdDataGridView.DataSource = rd_list.ToList();
             OrderIDtxt.Text = "";
             SalesmanIDtxt.Text = "";
-            ProductDataGridView.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
         }
-
-
 
         private void AddButton_Click_1(object sender, EventArgs e)
         {
             ReceiptDetailView rd_temp = new ReceiptDetailView();
-            string product_temp = "";
-
-
-
+            string product_temp;
+            int count = 1;
 
             if (ProductDataGridView.SelectedRows.Count == 1)
             {
-
-
-
                 product_temp = ProductDataGridView.SelectedRows[0].Cells["ProductID"].Value.ToString();
+                rd_temp = BLLReceiptManagement.Instance.CreateReceiptDetailView(
+                    product_temp, Convert.ToInt32(Quantitytxt.Text.ToString()), count++);
+                this.rd_list.Add(rd_temp);
             }
-            rd_list = BLLReceiptManagement.Instance.CreateReceiptDetailView(rd_list, product_temp, Convert.ToInt32(Quantitytxt.Text.ToString()));
-            rdDataGridView.DataSource = rd_list.ToList();
+            rdDataGridView.DataSource = this.rd_list.ToList();
             Totaltxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
+            Quantitytxt.Text = "";
         }
-
-
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
@@ -96,16 +96,12 @@ namespace PBL3.View.StaffChildForms
             Totaltxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
         }
 
-
-
         private void ClearButton_Click(object sender, EventArgs e)
         {
             rd_list.Clear();
             rdDataGridView.DataSource = rd_list.ToList();
             Totaltxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
         }
-
-
 
         private void NewOrderButton_Click(object sender, EventArgs e)
         {
@@ -114,20 +110,15 @@ namespace PBL3.View.StaffChildForms
             SalesmanIDtxt.Text = "sm001";
             OrderDateTimePicker.Value = DateTime.Now;
 
-
-
         }
-
-
 
         private void productSearchtxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
                 ProductDataGridView.DataSource = BLLProductManagement.Instance.SearchProduct_Order(productSearchtxt.Text);
-
             }
+
         }
     }
 }
-

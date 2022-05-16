@@ -1,6 +1,6 @@
 ﻿namespace PBL3.View.AdminChildForms
 {
-    partial class Stock
+    partial class StockForm
     {
         /// <summary>
         /// Required designer variable.

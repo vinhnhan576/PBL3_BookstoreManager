@@ -1,6 +1,6 @@
-﻿namespace PBL3.View.StaffChildForms
+﻿namespace PBL3.View.AdminChildForms.SettingsForms
 {
-    partial class Overview
+    partial class SettingsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tbEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnChangePassword = new Guna.UI2.WinForms.Guna2Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,12 +45,37 @@
             this.tbStaffID = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnChangePassword = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.tbEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.tbEmail.BorderRadius = 9;
+            this.tbEmail.BorderThickness = 0;
+            this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbEmail.DefaultText = "";
+            this.tbEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbEmail.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.tbEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbEmail.IconLeftSize = new System.Drawing.Size(0, 0);
+            this.tbEmail.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.tbEmail.IconRightSize = new System.Drawing.Size(23, 23);
+            this.tbEmail.Location = new System.Drawing.Point(450, 61);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.PasswordChar = '\0';
+            this.tbEmail.PlaceholderText = "";
+            this.tbEmail.ReadOnly = true;
+            this.tbEmail.SelectedText = "";
+            this.tbEmail.Size = new System.Drawing.Size(203, 22);
+            this.tbEmail.TabIndex = 53;
             // 
             // label12
             // 
@@ -61,16 +88,34 @@
             this.label12.TabIndex = 52;
             this.label12.Text = "Password";
             // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnChangePassword.BorderRadius = 9;
+            this.btnChangePassword.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangePassword.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangePassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnChangePassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChangePassword.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.btnChangePassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePassword.ForeColor = System.Drawing.Color.White;
+            this.btnChangePassword.Location = new System.Drawing.Point(436, 151);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(193, 33);
+            this.btnChangePassword.TabIndex = 41;
+            this.btnChangePassword.Text = "Change password";
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label9.Location = new System.Drawing.Point(52, 25);
+            this.label9.Location = new System.Drawing.Point(72, 25);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 19);
+            this.label9.Size = new System.Drawing.Size(59, 19);
             this.label9.TabIndex = 49;
-            this.label9.Text = "Admin ID";
+            this.label9.Text = "Staff ID";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
@@ -111,11 +156,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(74, 59);
+            this.label7.Location = new System.Drawing.Point(39, 59);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 19);
+            this.label7.Size = new System.Drawing.Size(93, 19);
             this.label7.TabIndex = 47;
-            this.label7.Text = "Name";
+            this.label7.Text = "Staff Name";
             // 
             // label10
             // 
@@ -150,6 +195,7 @@
             this.tbStaffName.Name = "tbStaffName";
             this.tbStaffName.PasswordChar = '\0';
             this.tbStaffName.PlaceholderText = "";
+            this.tbStaffName.ReadOnly = true;
             this.tbStaffName.SelectedText = "";
             this.tbStaffName.Size = new System.Drawing.Size(167, 22);
             this.tbStaffName.TabIndex = 31;
@@ -175,6 +221,7 @@
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.PasswordChar = '\0';
             this.tbAddress.PlaceholderText = "";
+            this.tbAddress.ReadOnly = true;
             this.tbAddress.SelectedText = "";
             this.tbAddress.Size = new System.Drawing.Size(167, 22);
             this.tbAddress.TabIndex = 30;
@@ -201,6 +248,7 @@
             this.tbRole.Name = "tbRole";
             this.tbRole.PasswordChar = '\0';
             this.tbRole.PlaceholderText = "";
+            this.tbRole.ReadOnly = true;
             this.tbRole.SelectedText = "";
             this.tbRole.Size = new System.Drawing.Size(167, 22);
             this.tbRole.TabIndex = 29;
@@ -227,6 +275,7 @@
             this.tbTel.Name = "tbTel";
             this.tbTel.PasswordChar = '\0';
             this.tbTel.PlaceholderText = "";
+            this.tbTel.ReadOnly = true;
             this.tbTel.SelectedText = "";
             this.tbTel.Size = new System.Drawing.Size(203, 22);
             this.tbTel.TabIndex = 28;
@@ -253,6 +302,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '\0';
             this.tbPassword.PlaceholderText = "";
+            this.tbPassword.ReadOnly = true;
             this.tbPassword.SelectedText = "";
             this.tbPassword.Size = new System.Drawing.Size(203, 22);
             this.tbPassword.TabIndex = 27;
@@ -279,6 +329,7 @@
             this.tbStaffID.Name = "tbStaffID";
             this.tbStaffID.PasswordChar = '\0';
             this.tbStaffID.PlaceholderText = "";
+            this.tbStaffID.ReadOnly = true;
             this.tbStaffID.SelectedText = "";
             this.tbStaffID.Size = new System.Drawing.Size(167, 22);
             this.tbStaffID.TabIndex = 23;
@@ -287,10 +338,10 @@
             // 
             this.guna2Panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel2.Controls.Add(this.label8);
-            this.guna2Panel2.Location = new System.Drawing.Point(43, 21);
+            this.guna2Panel2.Location = new System.Drawing.Point(52, 24);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(77, 33);
-            this.guna2Panel2.TabIndex = 42;
+            this.guna2Panel2.Size = new System.Drawing.Size(78, 33);
+            this.guna2Panel2.TabIndex = 44;
             // 
             // label8
             // 
@@ -302,23 +353,6 @@
             this.label8.Size = new System.Drawing.Size(66, 19);
             this.label8.TabIndex = 48;
             this.label8.Text = "Settings";
-            // 
-            // btnChangePassword
-            // 
-            this.btnChangePassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnChangePassword.BorderRadius = 9;
-            this.btnChangePassword.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnChangePassword.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnChangePassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnChangePassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnChangePassword.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.btnChangePassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePassword.ForeColor = System.Drawing.Color.White;
-            this.btnChangePassword.Location = new System.Drawing.Point(436, 148);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(193, 33);
-            this.btnChangePassword.TabIndex = 41;
-            this.btnChangePassword.Text = "Change password";
             // 
             // guna2Panel1
             // 
@@ -341,47 +375,21 @@
             this.guna2Panel1.Controls.Add(this.tbTel);
             this.guna2Panel1.Controls.Add(this.tbPassword);
             this.guna2Panel1.Controls.Add(this.tbStaffID);
-            this.guna2Panel1.Location = new System.Drawing.Point(25, 34);
+            this.guna2Panel1.Location = new System.Drawing.Point(34, 37);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(687, 210);
-            this.guna2Panel1.TabIndex = 40;
+            this.guna2Panel1.Size = new System.Drawing.Size(687, 213);
+            this.guna2Panel1.TabIndex = 43;
             // 
-            // tbEmail
-            // 
-            this.tbEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
-            this.tbEmail.BorderRadius = 9;
-            this.tbEmail.BorderThickness = 0;
-            this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbEmail.DefaultText = "";
-            this.tbEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbEmail.Font = new System.Drawing.Font("Arial Narrow", 9F);
-            this.tbEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbEmail.IconLeftSize = new System.Drawing.Size(0, 0);
-            this.tbEmail.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.tbEmail.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbEmail.Location = new System.Drawing.Point(450, 61);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.PasswordChar = '\0';
-            this.tbEmail.PlaceholderText = "";
-            this.tbEmail.SelectedText = "";
-            this.tbEmail.Size = new System.Drawing.Size(203, 22);
-            this.tbEmail.TabIndex = 53;
-            // 
-            // Overview
+            // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(744, 471);
+            this.ClientSize = new System.Drawing.Size(774, 456);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
-            this.Name = "Overview";
-            this.Text = "Overview";
+            this.Name = "SettingsForm";
+            this.Text = "SettingsForm";
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
@@ -392,11 +400,14 @@
 
         #endregion
 
+        private Guna.UI2.WinForms.Guna2TextBox tbEmail;
         private System.Windows.Forms.Label label12;
+        private Guna.UI2.WinForms.Guna2Button btnChangePassword;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox tbStaffName;
         private Guna.UI2.WinForms.Guna2TextBox tbAddress;
@@ -406,9 +417,6 @@
         private Guna.UI2.WinForms.Guna2TextBox tbStaffID;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2Button btnChangePassword;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2TextBox tbEmail;
     }
 }

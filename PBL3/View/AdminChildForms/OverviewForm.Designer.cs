@@ -1,6 +1,6 @@
 ﻿namespace PBL3.View.AdminChildForms
 {
-    partial class Overview
+    partial class OverviewForm
     {
         /// <summary>
         /// Required designer variable.
@@ -83,7 +83,7 @@
             chartArea1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Location = new System.Drawing.Point(251, 138);
+            this.chart1.Location = new System.Drawing.Point(248, 138);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
@@ -98,7 +98,7 @@
             // pn3
             // 
             this.pn3.AutoRoundedCorners = true;
-
+            this.pn3.BorderRadius = 20;
             this.pn3.Controls.Add(this.label7);
             this.pn3.Controls.Add(this.label6);
             this.pn3.FillColor = System.Drawing.Color.White;
@@ -106,7 +106,6 @@
             this.pn3.Name = "pn3";
             this.pn3.Size = new System.Drawing.Size(160, 258);
             this.pn3.TabIndex = 8;
-            this.pn3.BorderRadius = 20;
             // 
             // label7
             // 
@@ -135,14 +134,13 @@
             // pn4
             // 
             this.pn4.AutoRoundedCorners = true;
-
+            this.pn4.BorderRadius = 20;
             this.pn4.Controls.Add(this.label8);
             this.pn4.FillColor = System.Drawing.Color.White;
             this.pn4.Location = new System.Drawing.Point(205, 347);
             this.pn4.Name = "pn4";
             this.pn4.Size = new System.Drawing.Size(540, 101);
             this.pn4.TabIndex = 9;
-            this.pn4.BorderRadius = 20;
             // 
             // label8
             // 
@@ -160,6 +158,7 @@
             // 
             this.pnProfile.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnProfile.AutoRoundedCorners = true;
+            this.pnProfile.BorderRadius = 20;
             this.pnProfile.Controls.Add(this.label5);
             this.pnProfile.Controls.Add(this.label4);
             this.pnProfile.Controls.Add(this.guna2GradientPanel1);
@@ -168,7 +167,6 @@
             this.pnProfile.Location = new System.Drawing.Point(26, 16);
             this.pnProfile.Name = "pnProfile";
             this.pnProfile.Size = new System.Drawing.Size(238, 158);
-            this.pnProfile.BorderRadius = 20;
             this.pnProfile.TabIndex = 7;
             // 
             // label5
@@ -202,7 +200,7 @@
             this.guna2GradientPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2GradientPanel1.AutoRoundedCorners = true;
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.White;
-            this.guna2GradientPanel1.BorderRadius = 20;
+            this.guna2GradientPanel1.BorderRadius = 31;
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.Cyan;
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
@@ -236,6 +234,7 @@
             // pnVisitors
             // 
             this.pnVisitors.AutoRoundedCorners = true;
+            this.pnVisitors.BorderRadius = 25;
             this.pnVisitors.Controls.Add(this.label9);
             this.pnVisitors.Controls.Add(this.pbVisitors);
             this.pnVisitors.Controls.Add(this.label1);
@@ -245,7 +244,6 @@
             this.pnVisitors.Location = new System.Drawing.Point(283, 16);
             this.pnVisitors.Name = "pnVisitors";
             this.pnVisitors.Size = new System.Drawing.Size(155, 116);
-            this.pnVisitors.BorderRadius = 25;
             this.pnVisitors.TabIndex = 16;
             // 
             // label9
@@ -321,6 +319,7 @@
             // pnRate
             // 
             this.pnRate.AutoRoundedCorners = true;
+            this.pnRate.BorderRadius = 20;
             this.pnRate.Controls.Add(this.label11);
             this.pnRate.Controls.Add(this.label3);
             this.pnRate.Controls.Add(this.guna2PictureBox2);
@@ -330,7 +329,6 @@
             this.pnRate.Location = new System.Drawing.Point(590, 16);
             this.pnRate.Name = "pnRate";
             this.pnRate.Size = new System.Drawing.Size(155, 116);
-            this.pnRate.BorderRadius = 20;
             this.pnRate.TabIndex = 18;
             // 
             // label11
@@ -357,20 +355,20 @@
             this.guna2PictureBox2.TabIndex = 15;
             this.guna2PictureBox2.TabStop = false;
             // 
-            // Overview
+            // OverviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(774, 471);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.pnRate);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.pnVisitors);
             this.Controls.Add(this.pnProfile);
             this.Controls.Add(this.pn4);
             this.Controls.Add(this.pn3);
-            this.Controls.Add(this.chart1);
-            this.Name = "Overview";
+            this.Name = "OverviewForm";
             this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.pn3.ResumeLayout(false);

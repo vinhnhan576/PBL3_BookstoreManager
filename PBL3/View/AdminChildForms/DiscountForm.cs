@@ -11,9 +11,9 @@ using PBL3.BLL;
 
 namespace PBL3.View.AdminChildForms
 {
-    public partial class Discount : Form
+    public partial class DiscountForm : Form
     {
-        public Discount()
+        public DiscountForm()
         {
             InitializeComponent();
             InitializeData();

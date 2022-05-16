@@ -110,6 +110,7 @@
             // lbForgotPassword
             // 
             this.lbForgotPassword.AutoSize = true;
+            this.lbForgotPassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbForgotPassword.Font = new System.Drawing.Font("Segoe UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbForgotPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(194)))), ((int)(((byte)(185)))));
             this.lbForgotPassword.Location = new System.Drawing.Point(63, 413);
@@ -117,7 +118,7 @@
             this.lbForgotPassword.Size = new System.Drawing.Size(225, 28);
             this.lbForgotPassword.TabIndex = 9;
             this.lbForgotPassword.Text = "forgot your password?";
-            this.lbForgotPassword.Click += new System.EventHandler(this.label1_Click);
+            this.lbForgotPassword.Click += new System.EventHandler(this.lbForgotPassword_Click);
             // 
             // guna2HtmlLabel3
             // 
