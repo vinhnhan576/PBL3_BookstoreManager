@@ -28,6 +28,14 @@ namespace PBL3.BLL
         public List<Account> GetAllAccount()
         {
             List<Account> accountList = new List<Account>();
+            foreach(Account i in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
+                accountList.Add(i);
+            return accountList;
+        }
+
+        public dynamic GetAllAccount_View()
+        {
+            List<Account> accountList = new List<Account>();
             foreach (Account i in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
                 accountList.Add(i);
             return accountList;

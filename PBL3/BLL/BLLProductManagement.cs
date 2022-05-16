@@ -23,8 +23,6 @@ namespace PBL3.BLL
             private set { }
         }
 
-
-
         private BLLProductManagement()
         {
             
