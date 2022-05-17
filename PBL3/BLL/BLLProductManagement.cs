@@ -77,12 +77,12 @@ namespace PBL3.BLL
             return products;
         }
 
-        public dynamic GetAllProduct_Import_View()
+        /*public dynamic GetAllProduct_Import_View()
         {
             QLSPEntities db = new QLSPEntities();
             var productImport = db.Store_Imports.Select(p => new { p.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
             return productImport;
-        }
+        }*/
 
         public void UpdatePrice(List<string> ID, List<double> newPrice)
         {

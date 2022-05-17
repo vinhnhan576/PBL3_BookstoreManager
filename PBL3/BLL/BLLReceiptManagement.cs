@@ -11,22 +11,16 @@ namespace PBL3.BLL
 {
     internal class BLLReceiptManagement
     {
-
-
-
-        private static BLLReceiptManagement _instance;
-
-
-
+        private static BLLReceiptManagement instance;
         public static BLLReceiptManagement Instance
         {
             get
             {
-                if (_instance == null)
+                if (instance == null)
                 {
-                    _instance = new BLLReceiptManagement();
+                    instance = new BLLReceiptManagement();
                 }
-                return _instance;
+                return instance;
             }
             private set
             {
