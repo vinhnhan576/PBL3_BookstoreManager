@@ -17,7 +17,7 @@ namespace PBL3
         public string RestockDetailID { get; set; }
         public string RestockID { get; set; }
         public string ProductID { get; set; }
-        public Nullable<int> ImportQuantity { get; set; }
+        public int ImportQuantity { get; set; }
         public Nullable<double> ImportPrice { get; set; }
         public Nullable<double> Total { get; set; }
     

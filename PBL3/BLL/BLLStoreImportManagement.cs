@@ -24,67 +24,66 @@ namespace PBL3.BLL
         {
 
         }
-
-        public dynamic GetAllStoreImport()
+        public dynamic GetAllStoreImportDetail()
         {
-            List<Store_Import> storeImportList = new List<Store_Import>();
-            foreach(Store_Import i in QLSPEntities.Instance.Store_Imports.Select(p => p).ToList())
+            List<StoreImportDetail> storeImportDetailList = new List<StoreImportDetail>();
+            foreach(StoreImportDetail i in QLSPEntities.Instance.StoreImportDetails.Select(p => p).ToList())
             {
-                storeImportList.Add(i);
+                storeImportDetailList.Add(i);
             }
-            return storeImportList;
+            return storeImportDetailList;
         }
 
-        public dynamic GetAllStoreImport_View()
+        public dynamic GetAllStoreImportDetail_View()
         {
-            var productImport = QLSPEntities.Instance.Store_Imports.Select(p => new { p.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
+            var productImport = QLSPEntities.Instance.StoreImportDetails.Select(p => new { p.Store_Import.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
             return productImport.ToList();
         }
 
-        public dynamic GetStoreImport_ViewByProductID(string productID)
+        public dynamic GetStoreImportDetail_ViewByProductID(string productID)
         {
-            List<Store_Import> data = new List<Store_Import>();
-            foreach(Store_Import i in GetAllStoreImport())
+            List<StoreImportDetail> data = new List<StoreImportDetail>();
+            foreach(StoreImportDetail i in GetAllStoreImportDetail())
             {
                 if(i.ProductID == productID)
                 {
                     data.Add(i);
                 }
             }
-            var storeImportList = data.Select(p => new { p.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
+            var storeImportList = data.Select(p => new { p.Store_Import.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
             return storeImportList.ToList();
         }
 
-        public dynamic SortStoreImport(string sortCategory, bool ascending)
+        public dynamic SortStoreImportDetail(string sortCategory, bool ascending)
         {
             QLSPEntities db = new QLSPEntities();
-            List<Store_Import> data = new List<Store_Import>();
+            List<StoreImportDetail> data = new List<StoreImportDetail>();
             if (sortCategory == "ImportDate")
             {
                 if (ascending)
-                    data = db.Store_Imports.OrderBy(p => p.ImportDate).ToList();
+                    data = db.StoreImportDetails.OrderBy(p => p.Store_Import.ImportDate).ToList();
                 else
-                    data = db.Store_Imports.OrderByDescending(p => p.ImportDate).ToList();
+                    data = db.StoreImportDetails.OrderByDescending(p => p.Store_Import.ImportDate).ToList();
             }
             if (sortCategory == "ImportQuantity")
             {
                 if (ascending)
-                    data = db.Store_Imports.OrderBy(p => p.ImportQuantity).ToList();
+                    data = db.StoreImportDetails.OrderBy(p => p.ImportQuantity).ToList();
                 else
-                    data = db.Store_Imports.OrderByDescending(p => p.ImportQuantity).ToList();
+                    data = db.StoreImportDetails.OrderByDescending(p => p.ImportQuantity).ToList();
             }
             if (sortCategory == "StoreQuantity")
             {
                 if (ascending)
-                    data = db.Store_Imports.OrderBy(p => p.Product.StoreQuantity).ToList();
+                    data = db.StoreImportDetails.OrderBy(p => p.Product.StoreQuantity).ToList();
                 else
-                    data = db.Store_Imports.OrderByDescending(p => p.Product.StoreQuantity).ToList();
+                    data = db.StoreImportDetails.OrderByDescending(p => p.Product.StoreQuantity).ToList();
             }
-            var sortedList = data.Select(p => new { p.ImportDate, p.ImportQuantity, p.Product.StoreQuantity}).ToList();
+            var sortedList = data.Select(p => new { p.Store_Import.ImportDate, p.ImportQuantity, p.Product.StoreQuantity}).ToList();
             return sortedList;
         }
 
-        public dynamic FilterStoreImportByDate(string day, string month, string year)
+        public dynamic FilterStoreImportDetailByDate(string day, string month, string year)
         {
             int Day = 0, Month = 0, Year = 0;
             if(day != "")
@@ -93,8 +92,8 @@ namespace PBL3.BLL
                 Month = Convert.ToInt32(month);
             if(year != "")
                 Year = Convert.ToInt32(year);
-            List<Store_Import> data = new List<Store_Import>();
-            foreach(Store_Import i in GetAllStoreImport())
+            List<StoreImportDetail> data = new List<StoreImportDetail>();
+            foreach(StoreImportDetail i in GetAllStoreImportDetail())
             {
                 if(day != "")
                 {
@@ -102,12 +101,12 @@ namespace PBL3.BLL
                     {
                         if(year != "")
                         {
-                            if(i.ImportDate.Day == Day && i.ImportDate.Month == Month && i.ImportDate.Year == Year)
+                            if(i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Month == Month && i.Store_Import.ImportDate.Year == Year)
                                 data.Add(i);
                         }
                         else
                         {
-                            if(i.ImportDate.Day == Day && i.ImportDate.Month == Month)
+                            if(i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Month == Month)
                                 data.Add(i);
                         }
                     }
@@ -115,12 +114,12 @@ namespace PBL3.BLL
                     {
                         if(year != "")
                         {
-                            if(i.ImportDate.Day == Day && i.ImportDate.Year == Year)
+                            if(i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Year == Year)
                                 data.Add(i);
                         }
                         else
                         {
-                            if (i.ImportDate.Day == Day)
+                            if (i.Store_Import.ImportDate.Day == Day)
                                 data.Add(i);
                         }
                     }
@@ -131,12 +130,12 @@ namespace PBL3.BLL
                     {
                         if (year != "")
                         {
-                            if (i.ImportDate.Month == Month && i.ImportDate.Year == Year)
+                            if (i.Store_Import.ImportDate.Month == Month && i.Store_Import.ImportDate.Year == Year)
                                 data.Add(i);
                         }
                         else
                         {
-                            if (i.ImportDate.Month == Month)
+                            if (i.Store_Import.ImportDate.Month == Month)
                                 data.Add(i);
                         }
                     }
@@ -144,13 +143,13 @@ namespace PBL3.BLL
                     {
                         if (year != "")
                         {
-                            if (i.ImportDate.Year == Year)
+                            if (i.Store_Import.ImportDate.Year == Year)
                                 data.Add(i);
                         }
                     }
                 }
             }
-            var filteredList = data.Select(p => new { p.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
+            var filteredList = data.Select(p => new { p.Store_Import.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
             return filteredList.ToList();
         }
     }
