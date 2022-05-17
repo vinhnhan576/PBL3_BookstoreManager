@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.BLL;
 
 namespace PBL3.View.AdminChildForms
 {
@@ -15,21 +16,12 @@ namespace PBL3.View.AdminChildForms
         public BillForm()
         {
             InitializeComponent();
+            InitializeGUI();
         }
 
-        private void guna2TextBox4_TextChanged(object sender, EventArgs e)
+        private void InitializeGUI()
         {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel9_Click(object sender, EventArgs e)
-        {
-
+            dgvBill.DataSource = BLLReceiptManagement.Instance.GetAllBill_View();
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.BLL;
 
 namespace PBL3.View.AdminChildForms
 {
@@ -15,6 +16,12 @@ namespace PBL3.View.AdminChildForms
         public CustomerForm()
         {
             InitializeComponent();
+            InitializeGUI();
+        }
+
+        private void InitializeGUI()
+        {
+            dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
         }
     }
 }

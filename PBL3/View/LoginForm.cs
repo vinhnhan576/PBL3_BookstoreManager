@@ -53,6 +53,7 @@ namespace PBL3.View
                             new AdminForm(i).ShowDialog();
                             ClearTextboxes();
                             this.Visible = true;
+                            tbUsername.Focus();
                             break;
                         }
                         if (i.Person.Role.Trim() == "Salesman")
@@ -61,6 +62,7 @@ namespace PBL3.View
                             new CashierForm(i).ShowDialog();
                             ClearTextboxes();
                             this.Visible = true;
+                            tbUsername.Focus();
                             break;
                         }
                         if (i.Person.Role.Trim() == "Stockkeeper")
@@ -69,6 +71,7 @@ namespace PBL3.View
                             new StockkeeperForm(i).ShowDialog();
                             ClearTextboxes();
                             this.Visible = true;
+                            tbUsername.Focus();
                             break;
                         }
                     }
@@ -76,6 +79,7 @@ namespace PBL3.View
                     {
                         MessageBox.Show("Wrong password");
                         tbPassword.Text = "";
+                        tbPassword.Focus();
                         break;
                     }
                 }
@@ -84,6 +88,7 @@ namespace PBL3.View
             {
                 tbPassword.Text = "";
                 MessageBox.Show("Account username doesn't exist");
+                tbUsername.Focus();
             }
         }
 
@@ -98,6 +103,11 @@ namespace PBL3.View
             this.Visible = false;
             new ForgotPasswordForm().ShowDialog();
             this.Visible = true;
+        }
+
+        private void tbUsername_Enter(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnSignIn;
         }
     }
 }
