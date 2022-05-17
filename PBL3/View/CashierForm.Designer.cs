@@ -256,8 +256,9 @@ namespace PBL3.View
             this.Controls.Add(this.pnLeft);
             this.Controls.Add(this.pnRight);
             this.Controls.Add(this.pnTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CashierForm";
-            this.Text = "Form1";
+            this.Text = "Salesman";
             this.pnTop.ResumeLayout(false);
             this.pnTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();

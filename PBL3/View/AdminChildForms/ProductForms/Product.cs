@@ -90,7 +90,7 @@ namespace PBL3.View.AdminChildForms.ProductForms
 
         private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvProduct.DataSource = BLLProductManagement.Instance.FilterProduct(cbbFilterCategory.SelectedIndex.ToString(), cbbFilterValue.SelectedItem.ToString());
+            dgvProduct.DataSource = BLLProductManagement.Instance.FilterProduct(cbbFilterValue.SelectedItem.ToString());
         }
 
     }

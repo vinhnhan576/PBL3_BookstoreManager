@@ -70,6 +70,11 @@ namespace PBL3.View
             }
         }
 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void disableButton()
         {
             foreach (Control prevButton in pnMenu.Controls)

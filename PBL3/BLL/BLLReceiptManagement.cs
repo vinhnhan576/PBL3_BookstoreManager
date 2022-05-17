@@ -145,5 +145,17 @@ namespace PBL3.BLL
             }
             return 0;
         }
+
+        public dynamic GetAllBill_View()
+        {
+            var billList = QLSPEntities.Instance.Receipts.Select(p => new
+            {
+                p.ReceiptID,
+                p.Person.PersonName,
+                p.Date,
+                p.Total
+            });
+            return billList.ToList();
+        }
     }
 }
