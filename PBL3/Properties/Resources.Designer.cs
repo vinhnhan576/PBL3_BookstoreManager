@@ -183,9 +183,29 @@ namespace PBL3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconRefresh {
+            get {
+                object obj = ResourceManager.GetObject("iconRefresh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_search_60 {
             get {
                 object obj = ResourceManager.GetObject("icons8_search_60", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap infoIcon {
+            get {
+                object obj = ResourceManager.GetObject("infoIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -32,11 +32,11 @@ namespace PBL3.View.AdminChildForms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2DateTimePicker2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnClear = new Guna.UI2.WinForms.Guna2Button();
+            this.dgvTo = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.dgvFrom = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox7 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox6 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -50,9 +50,9 @@ namespace PBL3.View.AdminChildForms
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.tbSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cbbSortCategory = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -72,11 +72,11 @@ namespace PBL3.View.AdminChildForms
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.guna2Panel1.BorderRadius = 17;
             this.guna2Panel1.BorderThickness = 3;
-            this.guna2Panel1.Controls.Add(this.guna2Button5);
-            this.guna2Panel1.Controls.Add(this.guna2DateTimePicker2);
+            this.guna2Panel1.Controls.Add(this.btnClear);
+            this.guna2Panel1.Controls.Add(this.dgvTo);
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel5);
-            this.guna2Panel1.Controls.Add(this.guna2DateTimePicker1);
-            this.guna2Panel1.Controls.Add(this.guna2Button3);
+            this.guna2Panel1.Controls.Add(this.dgvFrom);
+            this.guna2Panel1.Controls.Add(this.btnSave);
             this.guna2Panel1.Controls.Add(this.guna2TextBox7);
             this.guna2Panel1.Controls.Add(this.guna2TextBox6);
             this.guna2Panel1.Controls.Add(this.guna2TextBox5);
@@ -93,37 +93,37 @@ namespace PBL3.View.AdminChildForms
             this.guna2Panel1.Size = new System.Drawing.Size(622, 166);
             this.guna2Panel1.TabIndex = 15;
             // 
-            // guna2Button5
+            // btnClear
             // 
-            this.guna2Button5.BorderRadius = 8;
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.White;
-            this.guna2Button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.guna2Button5.Location = new System.Drawing.Point(483, 124);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(99, 31);
-            this.guna2Button5.TabIndex = 28;
-            this.guna2Button5.Text = "Clear";
+            this.btnClear.BorderRadius = 8;
+            this.btnClear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClear.FillColor = System.Drawing.Color.White;
+            this.btnClear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.btnClear.Location = new System.Drawing.Point(483, 124);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(99, 31);
+            this.btnClear.TabIndex = 28;
+            this.btnClear.Text = "Clear";
             // 
-            // guna2DateTimePicker2
+            // dgvTo
             // 
-            this.guna2DateTimePicker2.BorderRadius = 7;
-            this.guna2DateTimePicker2.Checked = true;
-            this.guna2DateTimePicker2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.guna2DateTimePicker2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DateTimePicker2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.guna2DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker2.Location = new System.Drawing.Point(115, 122);
-            this.guna2DateTimePicker2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.Name = "guna2DateTimePicker2";
-            this.guna2DateTimePicker2.Size = new System.Drawing.Size(160, 26);
-            this.guna2DateTimePicker2.TabIndex = 27;
-            this.guna2DateTimePicker2.Value = new System.DateTime(2022, 4, 1, 11, 49, 41, 645);
+            this.dgvTo.BorderRadius = 7;
+            this.dgvTo.Checked = true;
+            this.dgvTo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.dgvTo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvTo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvTo.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dgvTo.Location = new System.Drawing.Point(115, 122);
+            this.dgvTo.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dgvTo.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dgvTo.Name = "dgvTo";
+            this.dgvTo.Size = new System.Drawing.Size(160, 26);
+            this.dgvTo.TabIndex = 27;
+            this.dgvTo.Value = new System.DateTime(2022, 4, 1, 11, 49, 41, 645);
             // 
             // guna2HtmlLabel5
             // 
@@ -137,37 +137,37 @@ namespace PBL3.View.AdminChildForms
             this.guna2HtmlLabel5.TabIndex = 26;
             this.guna2HtmlLabel5.Text = "to";
             // 
-            // guna2DateTimePicker1
+            // dgvFrom
             // 
-            this.guna2DateTimePicker1.BorderRadius = 7;
-            this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DateTimePicker1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(115, 87);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(160, 26);
-            this.guna2DateTimePicker1.TabIndex = 17;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2022, 4, 1, 11, 49, 41, 645);
+            this.dgvFrom.BorderRadius = 7;
+            this.dgvFrom.Checked = true;
+            this.dgvFrom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.dgvFrom.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvFrom.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvFrom.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dgvFrom.Location = new System.Drawing.Point(115, 87);
+            this.dgvFrom.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dgvFrom.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dgvFrom.Name = "dgvFrom";
+            this.dgvFrom.Size = new System.Drawing.Size(160, 26);
+            this.dgvFrom.TabIndex = 17;
+            this.dgvFrom.Value = new System.DateTime(2022, 4, 1, 11, 49, 41, 645);
             // 
-            // guna2Button3
+            // btnSave
             // 
-            this.guna2Button3.BorderRadius = 8;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.White;
-            this.guna2Button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.guna2Button3.Location = new System.Drawing.Point(352, 123);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(99, 31);
-            this.guna2Button3.TabIndex = 2;
-            this.guna2Button3.Text = "Save";
+            this.btnSave.BorderRadius = 8;
+            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSave.FillColor = System.Drawing.Color.White;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.btnSave.Location = new System.Drawing.Point(352, 123);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(99, 31);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "Save";
             // 
             // guna2TextBox7
             // 
@@ -285,7 +285,6 @@ namespace PBL3.View.AdminChildForms
             this.guna2HtmlLabel11.Size = new System.Drawing.Size(84, 20);
             this.guna2HtmlLabel11.TabIndex = 7;
             this.guna2HtmlLabel11.Text = "Apply from";
-            this.guna2HtmlLabel11.Click += new System.EventHandler(this.guna2HtmlLabel11_Click);
             // 
             // guna2HtmlLabel10
             // 
@@ -350,7 +349,7 @@ namespace PBL3.View.AdminChildForms
             // guna2Panel2
             // 
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel4);
-            this.guna2Panel2.Location = new System.Drawing.Point(39, 66);
+            this.guna2Panel2.Location = new System.Drawing.Point(53, 67);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(148, 22);
             this.guna2Panel2.TabIndex = 2;
@@ -366,55 +365,54 @@ namespace PBL3.View.AdminChildForms
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(124, 21);
             this.guna2HtmlLabel4.TabIndex = 1;
             this.guna2HtmlLabel4.Text = "Detail Discount";
-            this.guna2HtmlLabel4.Click += new System.EventHandler(this.guna2HtmlLabel4_Click);
             // 
-            // guna2Button1
+            // btnAdd
             // 
-            this.guna2Button1.BorderRadius = 8;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(660, 90);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(93, 32);
-            this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Text = "Add";
+            this.btnAdd.BorderRadius = 8;
+            this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(660, 90);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(93, 32);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Add";
             // 
-            // guna2Button2
+            // btnDelete
             // 
-            this.guna2Button2.BorderRadius = 8;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(660, 192);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(93, 32);
-            this.guna2Button2.TabIndex = 1;
-            this.guna2Button2.Text = "Edit";
+            this.btnDelete.BorderRadius = 8;
+            this.btnDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDelete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(660, 192);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(93, 32);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "Delete";
             // 
-            // guna2Button4
+            // btnEdit
             // 
-            this.guna2Button4.BorderRadius = 8;
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.guna2Button4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Location = new System.Drawing.Point(660, 141);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(93, 32);
-            this.guna2Button4.TabIndex = 3;
-            this.guna2Button4.Text = "Clear";
+            this.btnEdit.BorderRadius = 8;
+            this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEdit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(660, 141);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(93, 32);
+            this.btnEdit.TabIndex = 3;
+            this.btnEdit.Text = "Edit";
             // 
             // tbSearch
             // 
@@ -429,6 +427,7 @@ namespace PBL3.View.AdminChildForms
             this.tbSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.tbSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbSearch.IconLeft = global::PBL3.Properties.Resources.produtIcon;
             this.tbSearch.IconLeftSize = new System.Drawing.Size(0, 0);
@@ -444,6 +443,7 @@ namespace PBL3.View.AdminChildForms
             this.tbSearch.SelectedText = "";
             this.tbSearch.Size = new System.Drawing.Size(230, 29);
             this.tbSearch.TabIndex = 18;
+            this.tbSearch.IconRightClick += new System.EventHandler(this.tbSearch_IconRightClick);
             // 
             // guna2HtmlLabel12
             // 
@@ -472,12 +472,11 @@ namespace PBL3.View.AdminChildForms
             this.cbbSortCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbSortCategory.ItemHeight = 23;
             this.cbbSortCategory.Items.AddRange(new object[] {
-            "ProductID",
-            "ProductName",
-            "PublishYear",
-            "SellingPrice",
-            "StoreQuantity",
-            "StockQuantity"});
+            "DiscountName",
+            "DiscountType",
+            "StartingDate",
+            "ExpirationDate",
+            "Amount"});
             this.cbbSortCategory.Location = new System.Drawing.Point(269, 32);
             this.cbbSortCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
             this.cbbSortCategory.Name = "cbbSortCategory";
@@ -547,13 +546,13 @@ namespace PBL3.View.AdminChildForms
             this.cbbFilterCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbFilterCategory.ItemHeight = 23;
             this.cbbFilterCategory.Items.AddRange(new object[] {
-            "Category",
-            "Status"});
+            "DiscountType"});
             this.cbbFilterCategory.Location = new System.Drawing.Point(499, 31);
             this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterCategory.Name = "cbbFilterCategory";
             this.cbbFilterCategory.Size = new System.Drawing.Size(130, 29);
             this.cbbFilterCategory.TabIndex = 23;
+            this.cbbFilterCategory.SelectedIndexChanged += new System.EventHandler(this.cbbFilterCategory_SelectedIndexChanged);
             // 
             // cbbFilterValue
             // 
@@ -574,6 +573,7 @@ namespace PBL3.View.AdminChildForms
             this.cbbFilterValue.Name = "cbbFilterValue";
             this.cbbFilterValue.Size = new System.Drawing.Size(129, 29);
             this.cbbFilterValue.TabIndex = 24;
+            this.cbbFilterValue.SelectedIndexChanged += new System.EventHandler(this.cbbFilterValue_SelectedIndexChanged);
             // 
             // dgvDiscount
             // 
@@ -637,7 +637,7 @@ namespace PBL3.View.AdminChildForms
             this.dgvDiscount.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDiscount.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // Discount
+            // DiscountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -652,15 +652,14 @@ namespace PBL3.View.AdminChildForms
             this.Controls.Add(this.cbbFilterValue);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.guna2HtmlLabel12);
-            this.Controls.Add(this.guna2Button4);
-            this.Controls.Add(this.guna2Button2);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Discount";
+            this.Name = "DiscountForm";
             this.Text = "Product";
-            this.Load += new System.EventHandler(this.Discount_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
@@ -686,14 +685,14 @@ namespace PBL3.View.AdminChildForms
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker2;
+        private Guna.UI2.WinForms.Guna2Button btnSave;
+        private Guna.UI2.WinForms.Guna2Button btnAdd;
+        private Guna.UI2.WinForms.Guna2Button btnDelete;
+        private Guna.UI2.WinForms.Guna2Button btnEdit;
+        private Guna.UI2.WinForms.Guna2Button btnClear;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dgvTo;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dgvFrom;
         private Guna.UI2.WinForms.Guna2TextBox tbSearch;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
         private Guna.UI2.WinForms.Guna2ComboBox cbbSortCategory;
