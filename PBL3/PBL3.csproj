@@ -226,6 +226,12 @@
     <Compile Include="View\StaffChildForms\ManageOrder.Designer.cs">
       <DependentUpon>ManageOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\StaffChildForms\NewCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StaffChildForms\NewCustomerForm.Designer.cs">
+      <DependentUpon>NewCustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StaffChildForms\NewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
