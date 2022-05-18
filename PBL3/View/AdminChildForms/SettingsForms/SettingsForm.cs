@@ -25,6 +25,10 @@ namespace PBL3.View.AdminChildForms.SettingsForms
         {
             tbStaffID.Text = account.Person.PersonID;
             tbStaffName.Text = account.Person.PersonName;
+            if(account.Person.Gender)
+                rbMale.Checked = true;
+            else
+                rbFemale.Checked = true;
             tbRole.Text = account.Person.Role;
             tbAddress.Text = account.Person.Address;
             tbTel.Text = account.Person.PhoneNumber;
@@ -43,6 +47,7 @@ namespace PBL3.View.AdminChildForms.SettingsForms
             Person person = BLLPersonManagement.Instance.GetPersonByPersonID(account.PersonID);
             EditProfileForm editProfileForm = new EditProfileForm(person);
             editProfileForm.ShowDialog();
+            editProfileForm.myDelegate = InitializeGUI;
         }
     }
 }

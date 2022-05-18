@@ -13,6 +13,8 @@ namespace PBL3.View.AdminChildForms.SettingsForms
 {
     public partial class EditProfileForm : Form
     {
+        public delegate void MyDelegate();
+        public MyDelegate myDelegate;
         Person person;
         public EditProfileForm(Person p)
         {
@@ -47,6 +49,7 @@ namespace PBL3.View.AdminChildForms.SettingsForms
             p.Email = tbEmail.Text;
             p.Gender = (rbMale.Checked ? true : false);
             BLLPersonManagement.Instance.UpdatePeronalInfo(person.PersonID, p);
+            myDelegate();
         }
     }
 }
