@@ -42,7 +42,7 @@ namespace PBL3.View
             bool usernameExist = false;
             foreach(Account i in BLLAccountManagement.Instance.GetAllAccount())
             {
-                if (tbUsername.Text == i.Account1.Trim())
+                if (tbUsername.Text == i.Username.Trim())
                 {
                     usernameExist = true;
                     if(tbPassword.Text == i.Password.Trim())

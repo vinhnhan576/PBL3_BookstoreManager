@@ -80,7 +80,7 @@ namespace PBL3.BLL
             {   
                 Account temp = qLSPEntities.Accounts.Find(ac.PersonID);
                 temp.PersonID = ac.PersonID;
-                temp.Account1 = ac.Account1;
+                temp.Username = ac.Username;
                 temp.Password = ac.Password;
                 temp.Person.Address = ac.Person.Address;
                 temp.Person.PersonName = ac.Person.PersonName;
@@ -107,7 +107,7 @@ namespace PBL3.BLL
                     data.Add(ac);
                 }
             }
-            var account = data.Select(p => new{ p.PersonID,p.Person.PersonName,p.Person.Role,p.Account1, p.Password,  p.Person.Address }) ; 
+            var account = data.Select(p => new{ p.PersonID,p.Person.PersonName,p.Person.Role,p.Username, p.Password,  p.Person.Address }) ; 
             return account.ToList();
         }
         public dynamic SortAcount(string sortCategory, bool ascending)
@@ -142,7 +142,7 @@ namespace PBL3.BLL
                 else
                     data = qLSPEntities.Accounts.OrderByDescending(p => p.Person.Role).ToList();
             }
-            var account = (data.Select(p => new { p.PersonID, p.Person.PersonName, p.Person.Role, p.Account1, p.Password, p.Person.Address })).ToList();
+            var account = (data.Select(p => new { p.PersonID, p.Person.PersonName, p.Person.Role, p.Username, p.Password, p.Person.Address })).ToList();
             return account;
         }
 
@@ -167,7 +167,7 @@ namespace PBL3.BLL
                     }
                 }
             }
-            var prodViewList = data.Select(p => new { p.PersonID,p.Person.PersonName,p.Person.Role, p.Account1, p.Password,  p.Person.Address });
+            var prodViewList = data.Select(p => new { p.PersonID,p.Person.PersonName,p.Person.Role, p.Username, p.Password,  p.Person.Address });
             return prodViewList;
         }
         public Account GetAccountByPersonID(string ID)

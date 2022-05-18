@@ -67,7 +67,7 @@ namespace PBL3.View.AdminChildForms
                 PBL3.Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
                 tbID.Text = ac.PersonID.ToString();
                 tbID.Enabled = false;
-                tbUsername.Text = ac.Account1.ToString();
+                tbUsername.Text = ac.Username.ToString();
                 tbUsername.Enabled = false;
                 tbPassword.Text = ac.Password.ToString();
                 tbPassword.Enabled = false;
@@ -161,7 +161,7 @@ namespace PBL3.View.AdminChildForms
                 PBL3.Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
                 tbID.Text = ac.PersonID.ToString();
                 tbID.Enabled = false;
-                tbUsername.Text = ac.Account1.ToString();
+                tbUsername.Text = ac.Username.ToString();
                 tbUsername.Enabled = true;
                 tbPassword.Text = ac.Password.ToString();
                 tbPassword.Enabled = true;
@@ -199,7 +199,7 @@ namespace PBL3.View.AdminChildForms
             }
             else p.Gender = true;
             a.PersonID = tbID.Text;
-            a.Account1 = tbUsername.Text;
+            a.Username = tbUsername.Text;
             a.Password = tbPassword.Text;
             a.Person = p;
             BLLAccountManagement.Instance.Execute(a);
