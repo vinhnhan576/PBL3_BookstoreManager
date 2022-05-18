@@ -32,9 +32,15 @@ namespace PBL3.View.AdminChildForms.SettingsForms
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-           ChangePasswordForm changePasswordForm = new ChangePasswordForm(account);
+            ChangePasswordForm changePasswordForm = new ChangePasswordForm(account);
             changePasswordForm.ShowDialog();
             tbPassword.Text = account.Password;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            EditProfileForm editProfileForm = new EditProfileForm(account);
+            editProfileForm.ShowDialog();
         }
     }
 }

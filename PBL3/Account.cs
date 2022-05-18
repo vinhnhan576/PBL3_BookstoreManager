@@ -17,6 +17,7 @@ namespace PBL3
         public string PersonID { get; set; }
         public string Account1 { get; set; }
         public string Password { get; set; }
+        public string Username { get; set; }
     
         public virtual Person Person { get; set; }
     }

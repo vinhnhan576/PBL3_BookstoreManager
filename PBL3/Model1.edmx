@@ -10,7 +10,7 @@
             <PropertyRef Name="PersonID" />
           </Key>
           <Property Name="PersonID" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Account" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Username" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="Password" Type="nchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Customer">
@@ -43,6 +43,7 @@
           <Property Name="PhoneNumber" Type="nchar" MaxLength="11" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
           <Property Name="Gender" Type="bit" />
+          <Property Name="Email" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -78,6 +79,7 @@
           <Property Name="Total" Type="float" />
           <Property Name="PersonID" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="CustomerID" Type="nchar" MaxLength="10" />
+          <Property Name="Status" Type="bit" />
         </EntityType>
         <EntityType Name="Receipt Detail">
           <Key>
@@ -104,7 +106,7 @@
           <Property Name="RestockDetailID" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="RestockID" Type="nchar" MaxLength="10" />
           <Property Name="ProductID" Type="nchar" MaxLength="10" />
-          <Property Name="ImportQuantity" Type="int" />
+          <Property Name="ImportQuantity" Type="int" Nullable="false" />
           <Property Name="ImportPrice" Type="float" />
           <Property Name="Total" Type="float" />
         </EntityType>
@@ -353,6 +355,7 @@
           <Property Name="Account1" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.FK_Account_Person" FromRole="Account" ToRole="Person" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -389,6 +392,7 @@
           <NavigationProperty Name="Account" Relationship="Self.FK_Account_Person" FromRole="Person" ToRole="Account" />
           <NavigationProperty Name="Receipts" Relationship="Self.FK_Receipt_Person" FromRole="Person" ToRole="Receipt" />
           <Property Name="Gender" Type="Boolean" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -432,6 +436,7 @@
           <NavigationProperty Name="Customer" Relationship="Self.FK_Receipt_Customer" FromRole="Receipt" ToRole="Customer" />
           <NavigationProperty Name="Person" Relationship="Self.FK_Receipt_Person" FromRole="Receipt" ToRole="Person" />
           <NavigationProperty Name="Receipt_Detail" Relationship="Self.FK_Receipt_Detail_Receipt" FromRole="Receipt" ToRole="Receipt_Detail" />
+          <Property Name="Status" Type="Boolean" />
         </EntityType>
         <EntityType Name="Receipt_Detail">
           <Key>
@@ -623,7 +628,7 @@
           <Property Name="RestockDetailID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="RestockID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="ImportQuantity" Type="Int32" />
+          <Property Name="ImportQuantity" Type="Int32" Nullable="false" />
           <Property Name="ImportPrice" Type="Double" />
           <Property Name="Total" Type="Double" />
           <NavigationProperty Name="Product" Relationship="QLSPModel.FK_RestockDetail_Product" FromRole="RestockDetail" ToRole="Product" />
@@ -714,8 +719,8 @@
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="QLSPModel.Account">
               <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="PersonID" ColumnName="PersonID" />
-                <ScalarProperty Name="Account1" ColumnName="Account" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -745,6 +750,7 @@
           <EntitySetMapping Name="People">
             <EntityTypeMapping TypeName="QLSPModel.Person">
               <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="PersonID" ColumnName="PersonID" />
                 <ScalarProperty Name="PersonName" ColumnName="PersonName" />
@@ -784,6 +790,7 @@
           <EntitySetMapping Name="Receipts">
             <EntityTypeMapping TypeName="QLSPModel.Receipt">
               <MappingFragment StoreEntitySet="Receipt">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="ReceiptID" ColumnName="ReceiptID" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Total" ColumnName="Total" />

@@ -50,7 +50,7 @@ namespace PBL3.View.StaffChildForms
                 int prodQuantity = rd_list[i].Quantity;
                 BLLProductManagement.Instance.DecreaseStoreQuantity(productID, prodQuantity);
 
-                double expenses = BLLRestockManagement.Instance.GetRestockDetailByProductID(productID).ImportQuantity * prodQuantity;
+                double expenses = BLLRestockManagement.Instance.GetRestockDetailByProductID(productID).ImportPrice * prodQuantity;
                 double grossRevenue = rd_list[i].Total;
                 double profit = (grossRevenue / expenses - 1) * 100;
                 profit = (double)Math.Round(profit * 100f) / 100f;
