@@ -41,7 +41,6 @@ namespace PBL3
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Discount> Discounts { get; set; }
         public virtual DbSet<Person> People { get; set; }
@@ -51,8 +50,9 @@ namespace PBL3
         public virtual DbSet<Receipt_Detail> Receipt_Details { get; set; }
         public virtual DbSet<Revenue> Revenues { get; set; }
         public virtual DbSet<RestockDetail> RestockDetails { get; set; }
-        public virtual DbSet<StoreImportDetail> StoreImportDetails { get; set; }
         public virtual DbSet<Restock> Restocks { get; set; }
         public virtual DbSet<Store_Import> Store_Imports { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<StoreImportDetail> StoreImportDetails { get; set; }
     }
 }

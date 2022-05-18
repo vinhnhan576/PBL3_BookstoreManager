@@ -5,16 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="19a1b295220d44899fbf6d59dad2e19f" Name="Diagram1">
-        <EntityTypeShape EntityType="QLSPModel.Account" Width="1.5" PointX="6.125" PointY="14.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QLSPModel.Customer" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLSPModel.Discount" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLSPModel.Person" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLSPModel.Person" Width="1.5" PointX="2" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QLSPModel.Product" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QLSPModel.Rank" Width="1.5" PointX="1.5" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QLSPModel.Receipt" Width="1.5" PointX="3.125" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QLSPModel.Receipt_Detail" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QLSPModel.Revenue" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
-        <AssociationConnector Association="QLSPModel.FK_Account_Person" ManuallyRouted="false" />
         <AssociationConnector Association="QLSPModel.FK_Customer_Rank" ManuallyRouted="false" />
         <AssociationConnector Association="QLSPModel.FK_Receipt_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="QLSPModel.FK_Product_Discount" ManuallyRouted="false" />
@@ -23,12 +21,14 @@
         <AssociationConnector Association="QLSPModel.FK_Receipt_Detail_Receipt" ManuallyRouted="false" />
         <AssociationConnector Association="QLSPModel.FK_Revenue_Receipt_Detail" ManuallyRouted="false" />
         <EntityTypeShape EntityType="QLSPModel.RestockDetail" Width="1.5" PointX="7.625" PointY="8.625" />
-        <EntityTypeShape EntityType="QLSPModel.StoreImportDetail" Width="1.5" PointX="5.5" PointY="11.75" />
         <AssociationConnector Association="QLSPModel.FK_RestockDetail_Product" />
-        <AssociationConnector Association="QLSPModel.FK_StoreImportDetail_Product" />
         <EntityTypeShape EntityType="QLSPModel.Restock" Width="1.5" PointX="9.75" PointY="8.25" />
         <EntityTypeShape EntityType="QLSPModel.Store_Import" Width="1.5" PointX="9.5" PointY="11.625" />
         <AssociationConnector Association="QLSPModel.FK_RestockDetail_Restock" />
+        <EntityTypeShape EntityType="QLSPModel.Account" Width="1.5" PointX="5.75" PointY="15" />
+        <EntityTypeShape EntityType="QLSPModel.StoreImportDetail" Width="1.5" PointX="6" PointY="11.5" />
+        <AssociationConnector Association="QLSPModel.FK_Account_Person" />
+        <AssociationConnector Association="QLSPModel.FK_StoreImportDetail_Product" />
         <AssociationConnector Association="QLSPModel.FK_StoreImportDetail_Store_Import" />
       </Diagram>
     </edmx:Diagrams>
