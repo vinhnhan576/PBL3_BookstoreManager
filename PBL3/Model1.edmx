@@ -352,7 +352,6 @@
             <PropertyRef Name="PersonID" />
           </Key>
           <Property Name="PersonID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Account1" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.FK_Account_Person" FromRole="Account" ToRole="Person" />
           <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />

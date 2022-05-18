@@ -19,7 +19,7 @@ namespace PBL3.View.AdminChildForms.SettingsForms
         public ChangePasswordForm(Account acc)
         {
             InitializeComponent();
-            username = acc.Account1.Trim();
+            username = acc.Username.Trim();
             currentPassword = acc.Password.Trim();
         }
 
