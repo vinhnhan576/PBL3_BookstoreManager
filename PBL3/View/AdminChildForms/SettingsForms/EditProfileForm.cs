@@ -50,6 +50,7 @@ namespace PBL3.View.AdminChildForms.SettingsForms
             p.Gender = (rbMale.Checked ? true : false);
             BLLPersonManagement.Instance.UpdatePeronalInfo(person.PersonID, p);
             myDelegate();
+            this.Close();
         }
     }
 }
