@@ -197,6 +197,12 @@
     <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomMessageBox\MessageBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CustomMessageBox\MessageBoxForm.Designer.cs">
+      <DependentUpon>MessageBoxForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ForgotPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminChildForms\SettingsForms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CustomMessageBox\MessageBoxForm.resx">
+      <DependentUpon>MessageBoxForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
@@ -500,6 +509,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\iconRefresh.png" />
     <None Include="Resources\filterIcon.png" />
     <None Include="Resources\filter.png" />
   </ItemGroup>
