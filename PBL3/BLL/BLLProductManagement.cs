@@ -114,7 +114,8 @@ namespace PBL3.BLL
             foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
             {
                 bool containName = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                if (containName)
+                bool containId = i.ProductID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                if (containName||containId)
                 {
                     data.Add(i);
                 }
@@ -238,9 +239,15 @@ namespace PBL3.BLL
             }
             return prodCategoryList;
         }
-
-
-
+        public List<string> GetAllProductAuthor()
+        {
+            List<string> prodCategoryList = new List<string>();
+            foreach (Product i in GetAllProduct())
+            {
+                prodCategoryList.Add(i.Author);
+            }
+            return prodCategoryList;
+        }
         public List<string> GetAllProductStatus()
         {
             List<string> prodStatusList = new List<string>();
