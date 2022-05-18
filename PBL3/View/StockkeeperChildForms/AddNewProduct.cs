@@ -33,7 +33,7 @@ namespace PBL3.View.StockkeeperChildForms
                 Author = tbAuthor.Text,
                 Category = tbCatogories.Text,
                 StockQuantity = Convert.ToInt32(tbQuantity.Text),
-                StoreQuantity = "0",
+                StoreQuantity = 0,
                 Publisher = tbPublisher.Text,
                 PublishYear = Convert.ToInt32(tbPublishYear.Text),
                 Status = "Het hang",

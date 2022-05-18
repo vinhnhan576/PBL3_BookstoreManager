@@ -85,7 +85,6 @@
     <Compile Include="DTO\RandomGenerator.cs" />
     <Compile Include="DTO\ReceiptDetailView.cs" />
     <Compile Include="DTO\RestockDetailView.cs" />
-    <Compile Include="DTO\ReStockView.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
