@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace PBL3.BLL
 {
     public class BLLStoreImportManagement
@@ -19,6 +21,8 @@ namespace PBL3.BLL
             }
             private set { }
         }
+
+
 
         private BLLStoreImportManagement()
         {
@@ -45,7 +49,7 @@ namespace PBL3.BLL
             List<StoreImportDetail> data = new List<StoreImportDetail>();
             foreach(StoreImportDetail i in GetAllStoreImportDetail())
             {
-                if(i.ProductID == productID)
+                if (i.ProductID == productID)
                 {
                     data.Add(i);
                 }
@@ -86,20 +90,20 @@ namespace PBL3.BLL
         public dynamic FilterStoreImportDetailByDate(string day, string month, string year)
         {
             int Day = 0, Month = 0, Year = 0;
-            if(day != "")
+            if (day != "")
                 Day = Convert.ToInt32(day);
-            if(month != "")
+            if (month != "")
                 Month = Convert.ToInt32(month);
-            if(year != "")
+            if (year != "")
                 Year = Convert.ToInt32(year);
             List<StoreImportDetail> data = new List<StoreImportDetail>();
             foreach(StoreImportDetail i in GetAllStoreImportDetail())
             {
-                if(day != "")
+                if (day != "")
                 {
-                    if(month != "")
+                    if (month != "")
                     {
-                        if(year != "")
+                        if (year != "")
                         {
                             if(i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Month == Month && i.Store_Import.ImportDate.Year == Year)
                                 data.Add(i);
@@ -112,7 +116,7 @@ namespace PBL3.BLL
                     }
                     else
                     {
-                        if(year != "")
+                        if (year != "")
                         {
                             if(i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Year == Year)
                                 data.Add(i);
