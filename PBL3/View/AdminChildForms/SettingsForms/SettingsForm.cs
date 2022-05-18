@@ -23,15 +23,17 @@ namespace PBL3.View.AdminChildForms.SettingsForms
 
         private void InitializeGUI()
         {
-            tbStaffID.Text = account.Person.PersonID;
-            tbStaffName.Text = account.Person.PersonName;
-            if(account.Person.Gender)
+            Person person = BLLPersonManagement.Instance.GetPersonByPersonID(account.PersonID);
+            tbStaffID.Text = person.PersonID;
+            tbStaffName.Text = person.PersonName;
+            if(person.Gender)
                 rbMale.Checked = true;
             else
                 rbFemale.Checked = true;
-            tbRole.Text = account.Person.Role;
-            tbAddress.Text = account.Person.Address;
-            tbTel.Text = account.Person.PhoneNumber;
+            tbRole.Text = person.Role;
+            tbAddress.Text = person.Address;
+            tbTel.Text = person.PhoneNumber;
+            tbEmail.Text = person.Email;
             tbPassword.Text = account.Password;
         }
 
