@@ -45,10 +45,10 @@ namespace PBL3.BLL
         public void AddRevenue(string recieptDetailID, double expenses, double grossrevenue, double profit)
         {
             int count = QLSPEntities.Instance.Revenues.Count() + 1;
-            string revenueID = (count < 100 ? (count < 10 ? "00" + count.ToString() : "0" + count.ToString()) : count.ToString());
-            Revenue revenue = new Revenue{RevenueID = revenueID, ReceiptDetailID = recieptDetailID, Expenses = expenses, GrossRevenue = grossrevenue, Profit = profit};
-            QLSPEntities.Instance.Revenues.Add(revenue);
-            QLSPEntities.Instance.SaveChanges();
+            //string revenueID = (count < 100 ? (count < 10 ? "00" + count.ToString() : "0" + count.ToString()) : count.ToString());
+            //Revenue revenue = new Revenue{RevenueID = count.ToString(), ReceiptDetailID = recieptDetailID, Expenses = expenses, GrossRevenue = grossrevenue, Profit = profit};
+            //QLSPEntities.Instance.Revenues.Add(revenue);
+            //QLSPEntities.Instance.SaveChanges();
         }
 
         public dynamic SortRevenue(string sortCategory, bool ascending)

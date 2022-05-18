@@ -21,7 +21,7 @@ namespace PBL3.View.AdminChildForms
 
         private void InitializeGUI()
         {
-            dgvBill.DataSource = BLLReceiptManagement.Instance.GetAllBill_View();
+            //dgvBill.DataSource = BLLReceiptManagement.Instance.GetAllBill_View();
         }
     }
 }

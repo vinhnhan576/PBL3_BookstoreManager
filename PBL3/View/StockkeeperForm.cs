@@ -14,10 +14,12 @@ namespace PBL3.View
     {
         private Form activeForm;
         private Guna.UI2.WinForms.Guna2Button currentButton, prevButton;
+        Account account;
 
         public StockkeeperForm(Account acc)
         {
             InitializeComponent();
+            account = acc;
             StaffChildForms.Overview overviewForm = new StaffChildForms.Overview();
             overviewForm.TopLevel = false;
             overviewForm.FormBorderStyle = FormBorderStyle.None;
@@ -49,7 +51,7 @@ namespace PBL3.View
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            openChildForm(new StockkeeperChildForms.NewStockItem(), sender);
+            openChildForm(new StockkeeperChildForms.NewStockItem(account), sender);
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
