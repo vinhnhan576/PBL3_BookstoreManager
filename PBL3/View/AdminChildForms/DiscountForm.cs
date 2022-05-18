@@ -22,21 +22,51 @@ namespace PBL3.View.AdminChildForms
         private void InitializeData()
         {
             dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
+            cbbSortOrder.SelectedIndex = 0;
+            cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
+            cbbSortCategory.SelectedIndex = 0;
+            cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
         }
 
-        private void Discount_Load(object sender, EventArgs e)
+        private void tbSearch_IconRightClick(object sender, EventArgs e)
         {
-
+            string searchValue = tbSearch.Text;
+            dgvDiscount.DataSource = BLLDiscountManagement.Instance.SearchDiscount(searchValue);
         }
 
-        private void guna2HtmlLabel11_Click(object sender, EventArgs e)
+        private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            tbSearch.Text = "";
+            string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            dgvDiscount.DataSource = BLLDiscountManagement.Instance.SortDiscount(sortCategory, sortOrder);
         }
 
-        private void guna2HtmlLabel4_Click(object sender, EventArgs e)
+        private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
+            tbSearch.Text = "";
+            string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            dgvDiscount.DataSource = BLLDiscountManagement.Instance.SortDiscount(sortCategory, sortOrder);
+        }
 
+        private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbFilterValue.Text = "";
+            cbbFilterValue.Items.Clear();
+            string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if (filterCategory == "DiscountType")
+            {
+                foreach (string i in BLLDiscountManagement.Instance.GetAllDiscountType().Distinct())
+                {
+                    cbbFilterValue.Items.Add(i);
+                }
+            }
+        }
+
+        private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvDiscount.DataSource = BLLDiscountManagement.Instance.FilterDiscount(cbbFilterValue.SelectedItem.ToString());
         }
     }
 }
