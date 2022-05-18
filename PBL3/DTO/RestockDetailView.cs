@@ -8,6 +8,7 @@ namespace PBL3.DTO
 {
     internal class RestockDetailView
     {
+        public string RestockDetailID { get; set; }
         public string ProductID { get; set; }
         public string ProductName { get; set; }
         public int ImportQuantity { get; set; }

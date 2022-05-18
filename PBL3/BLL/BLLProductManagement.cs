@@ -26,10 +26,13 @@ namespace PBL3.BLL
         private BLLProductManagement()
         {
             
-
-
         }
+        public void AddNewProduct(Product p)
+        {
 
+            QLSPEntities.Instance.Products.Add(p);
+            QLSPEntities.Instance.SaveChanges();
+        }
 
         public List<Product> GetAllProduct()
         {
@@ -266,6 +269,14 @@ namespace PBL3.BLL
 
             var product = QLSPEntities.Instance.Products.Find(productid);
             product.StoreQuantity = (Convert.ToInt32(product.StoreQuantity) - num).ToString();
+            QLSPEntities.Instance.SaveChanges();
+
+        }
+        public void IncreaseStockQuantity(string productid, int num)
+        {
+
+            var product = QLSPEntities.Instance.Products.Find(productid);
+            product.StockQuantity = (Convert.ToInt32(product.StockQuantity) + num);
             QLSPEntities.Instance.SaveChanges();
 
         }

@@ -21,7 +21,7 @@ namespace PBL3.View.AdminChildForms.ProductForms
 
         public void InitializeData(string productID)
         {
-            dgvProduct.DataSource = BLLStoreImportManagement.Instance.GetStoreImport_ViewByProductID(productID);
+           // dgvProduct.DataSource = BLLStoreImportManagement.Instance.GetStoreImport_ViewByProductID(productID);
             tbProduct.Text = BLLProductManagement.Instance.GetProductByID(productID).ProductName;
             cbbSortCategory.SelectedIndex = 0;
             cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
@@ -38,14 +38,14 @@ namespace PBL3.View.AdminChildForms.ProductForms
         {
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            dgvProduct.DataSource = BLLStoreImportManagement.Instance.SortStoreImport(sortCategory, sortOrder);
+           // dgvProduct.DataSource = BLLStoreImportManagement.Instance.SortStoreImport(sortCategory, sortOrder);
         }
 
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false;
-            dgvProduct.DataSource = BLLStoreImportManagement.Instance.SortStoreImport(sortCategory, sortOrder);
+           // dgvProduct.DataSource = BLLStoreImportManagement.Instance.SortStoreImport(sortCategory, sortOrder);
         }
 
         private void tbYear_IconRightClick(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace PBL3.View.AdminChildForms.ProductForms
             string day = tbDay.Text;
             string month = tbMonth.Text;
             string year = tbYear.Text;
-            dgvProduct.DataSource = BLLStoreImportManagement.Instance.FilterStoreImportByDate(day, month, year);
+           // dgvProduct.DataSource = BLLStoreImportManagement.Instance.FilterStoreImportByDate(day, month, year);
         }
 
         private void tbProduct_TextChanged(object sender, EventArgs e)
