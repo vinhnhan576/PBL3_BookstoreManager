@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.View.StaffChildForms;
+using PBL3.View.StockkeeperChildForms;
+using PBL3.View.StaffChildForms;
 using PBL3.View;
 
 
@@ -21,7 +23,9 @@ namespace PBL3
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new NewOrder());
+
         }
 
     }
