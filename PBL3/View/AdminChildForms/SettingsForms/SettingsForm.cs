@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.BLL;
 
 namespace PBL3.View.AdminChildForms.SettingsForms
 {
@@ -39,7 +40,8 @@ namespace PBL3.View.AdminChildForms.SettingsForms
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            EditProfileForm editProfileForm = new EditProfileForm(account);
+            Person person = BLLPersonManagement.Instance.GetPersonByPersonID(account.PersonID);
+            EditProfileForm editProfileForm = new EditProfileForm(person);
             editProfileForm.ShowDialog();
         }
     }
