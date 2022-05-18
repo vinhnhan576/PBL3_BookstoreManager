@@ -46,8 +46,9 @@ namespace PBL3.View.AdminChildForms.SettingsForms
         {
             Person person = BLLPersonManagement.Instance.GetPersonByPersonID(account.PersonID);
             EditProfileForm editProfileForm = new EditProfileForm(person);
-            editProfileForm.ShowDialog();
             editProfileForm.myDelegate = InitializeGUI;
+            editProfileForm.ShowDialog();
+            
         }
     }
 }
