@@ -22,12 +22,12 @@
         <AssociationConnector Association="QLSPModel.FK_Receipt_Detail_Product" ManuallyRouted="false" />
         <AssociationConnector Association="QLSPModel.FK_Receipt_Detail_Receipt" ManuallyRouted="false" />
         <AssociationConnector Association="QLSPModel.FK_Revenue_Receipt_Detail" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="QLSPModel.RestockDetail" Width="1.5" PointX="7.625" PointY="8.625" />
-        <EntityTypeShape EntityType="QLSPModel.StoreImportDetail" Width="1.5" PointX="5.5" PointY="11.75" />
+        <EntityTypeShape EntityType="QLSPModel.RestockDetail" Width="1.5" PointX="12.375" PointY="10.125" />
+        <EntityTypeShape EntityType="QLSPModel.StoreImportDetail" Width="1.5" PointX="17.5" PointY="6.75" />
         <AssociationConnector Association="QLSPModel.FK_RestockDetail_Product" />
         <AssociationConnector Association="QLSPModel.FK_StoreImportDetail_Product" />
-        <EntityTypeShape EntityType="QLSPModel.Restock" Width="1.5" PointX="9.75" PointY="8.25" />
-        <EntityTypeShape EntityType="QLSPModel.Store_Import" Width="1.5" PointX="9.5" PointY="11.625" />
+        <EntityTypeShape EntityType="QLSPModel.Restock" Width="1.5" PointX="16.25" PointY="10" />
+        <EntityTypeShape EntityType="QLSPModel.Store_Import" Width="1.5" PointX="19.75" PointY="7" />
         <AssociationConnector Association="QLSPModel.FK_RestockDetail_Restock" />
         <AssociationConnector Association="QLSPModel.FK_StoreImportDetail_Store_Import" />
       </Diagram>

@@ -26,7 +26,6 @@ namespace PBL3
             }
             private set { }
         }
-
         public QLSPEntities()
             : base("name=QLSPEntities")
         {

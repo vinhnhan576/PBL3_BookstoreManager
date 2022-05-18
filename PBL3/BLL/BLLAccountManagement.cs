@@ -38,7 +38,8 @@ namespace PBL3.BLL
             List<Account> accountList = new List<Account>();
             foreach (Account i in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
                 accountList.Add(i);
-            return accountList;
+            var account = accountList.Select(p => new { p.PersonID, p.Person.PersonName, p.Person.Role, p.Account1, p.Person.Address });
+            return account.ToList();
         }
 
         public void DelAccount(List<string> ID)
@@ -66,12 +67,6 @@ namespace PBL3.BLL
             }
             return Add;
 
-        }
-        public void AddNewAccount(Account ac)
-        {
-            QLSPEntities qLSPEntities = new QLSPEntities();
-            qLSPEntities.Accounts.Add(ac);
-            qLSPEntities.SaveChanges();
         }
         public void Execute(Account ac)
         {
@@ -107,7 +102,7 @@ namespace PBL3.BLL
                     data.Add(ac);
                 }
             }
-            var account = data.Select(p => new{ p.PersonID,p.Person.PersonName,p.Person.Role,p.Account1, p.Password,  p.Person.Address }) ; 
+            var account = data.Select(p => new{ p.PersonID,p.Person.PersonName,p.Person.Role,p.Account1,  p.Person.Address }) ; 
             return account.ToList();
         }
         public dynamic SortAcount(string sortCategory, bool ascending)
@@ -142,7 +137,7 @@ namespace PBL3.BLL
                 else
                     data = qLSPEntities.Accounts.OrderByDescending(p => p.Person.Role).ToList();
             }
-            var account = (data.Select(p => new { p.PersonID, p.Person.PersonName, p.Person.Role, p.Account1, p.Password, p.Person.Address })).ToList();
+            var account = (data.Select(p => new { p.PersonID, p.Person.PersonName, p.Person.Role, p.Account1, p.Person.Address })).ToList();
             return account;
         }
 
