@@ -107,7 +107,7 @@
           <Property Name="RestockID" Type="nchar" MaxLength="10" />
           <Property Name="ProductID" Type="nchar" MaxLength="10" />
           <Property Name="ImportQuantity" Type="int" Nullable="false" />
-          <Property Name="ImportPrice" Type="float" />
+          <Property Name="ImportPrice" Type="float" Nullable="false" />
           <Property Name="Total" Type="float" />
         </EntityType>
         <EntityType Name="Revenue">
@@ -347,15 +347,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLSPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Account">
-          <Key>
-            <PropertyRef Name="PersonID" />
-          </Key>
-          <Property Name="PersonID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Person" Relationship="Self.FK_Account_Person" FromRole="Account" ToRole="Person" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
-        </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerID" />
@@ -388,10 +379,10 @@
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK_Account_Person" FromRole="Person" ToRole="Account" />
           <NavigationProperty Name="Receipts" Relationship="Self.FK_Receipt_Person" FromRole="Person" ToRole="Receipt" />
           <Property Name="Gender" Type="Boolean" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="QLSPModel.FK_Account_Person" FromRole="Person" ToRole="Account" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -461,18 +452,6 @@
           <Property Name="Profit" Type="Double" />
           <NavigationProperty Name="Receipt_Detail" Relationship="Self.FK_Revenue_Receipt_Detail" FromRole="Revenue" ToRole="Receipt_Detail" />
         </EntityType>
-        <Association Name="FK_Account_Person">
-          <End Role="Person" Type="Self.Person" Multiplicity="1" />
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Person">
-              <PropertyRef Name="PersonID" />
-            </Principal>
-            <Dependent Role="Account">
-              <PropertyRef Name="PersonID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Customer_Rank">
           <End Role="Rank" Type="Self.Rank" Multiplicity="0..1" />
           <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
@@ -558,7 +537,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QLSPEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Discounts" EntityType="Self.Discount" />
           <EntitySet Name="People" EntityType="Self.Person" />
@@ -567,10 +545,6 @@
           <EntitySet Name="Receipts" EntityType="Self.Receipt" />
           <EntitySet Name="Receipt_Details" EntityType="Self.Receipt_Detail" />
           <EntitySet Name="Revenues" EntityType="Self.Revenue" />
-          <AssociationSet Name="FK_Account_Person" Association="Self.FK_Account_Person">
-            <End Role="Person" EntitySet="People" />
-            <End Role="Account" EntitySet="Accounts" />
-          </AssociationSet>
           <AssociationSet Name="FK_Customer_Rank" Association="Self.FK_Customer_Rank">
             <End Role="Rank" EntitySet="Ranks" />
             <End Role="Customer" EntitySet="Customers" />
@@ -600,20 +574,25 @@
             <End Role="Revenue" EntitySet="Revenues" />
           </AssociationSet>
           <EntitySet Name="RestockDetails" EntityType="QLSPModel.RestockDetail" />
-          <EntitySet Name="StoreImportDetails" EntityType="QLSPModel.StoreImportDetail" />
           <AssociationSet Name="FK_RestockDetail_Product" Association="QLSPModel.FK_RestockDetail_Product">
             <End Role="Product" EntitySet="Products" />
             <End Role="RestockDetail" EntitySet="RestockDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StoreImportDetail_Product" Association="QLSPModel.FK_StoreImportDetail_Product">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="StoreImportDetail" EntitySet="StoreImportDetails" />
           </AssociationSet>
           <EntitySet Name="Restocks" EntityType="QLSPModel.Restock" />
           <EntitySet Name="Store_Imports" EntityType="QLSPModel.Store_Import" />
           <AssociationSet Name="FK_RestockDetail_Restock" Association="QLSPModel.FK_RestockDetail_Restock">
             <End Role="Restock" EntitySet="Restocks" />
             <End Role="RestockDetail" EntitySet="RestockDetails" />
+          </AssociationSet>
+          <EntitySet Name="Accounts" EntityType="QLSPModel.Account" />
+          <EntitySet Name="StoreImportDetails" EntityType="QLSPModel.StoreImportDetail" />
+          <AssociationSet Name="FK_Account_Person" Association="QLSPModel.FK_Account_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoreImportDetail_Product" Association="QLSPModel.FK_StoreImportDetail_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="StoreImportDetail" EntitySet="StoreImportDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_StoreImportDetail_Store_Import" Association="QLSPModel.FK_StoreImportDetail_Store_Import">
             <End Role="Store_Import" EntitySet="Store_Imports" />
@@ -628,21 +607,10 @@
           <Property Name="RestockID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="ImportQuantity" Type="Int32" Nullable="false" />
-          <Property Name="ImportPrice" Type="Double" />
+          <Property Name="ImportPrice" Type="Double" Nullable="false" />
           <Property Name="Total" Type="Double" />
           <NavigationProperty Name="Product" Relationship="QLSPModel.FK_RestockDetail_Product" FromRole="RestockDetail" ToRole="Product" />
           <NavigationProperty Name="Restock" Relationship="QLSPModel.FK_RestockDetail_Restock" FromRole="RestockDetail" ToRole="Restock" />
-        </EntityType>
-        <EntityType Name="StoreImportDetail">
-          <Key>
-            <PropertyRef Name="StoreImportDetailID" />
-          </Key>
-          <Property Name="StoreImportDetailID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="StoreImportID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="ImportQuantity" Type="Int32" />
-          <NavigationProperty Name="Product" Relationship="QLSPModel.FK_StoreImportDetail_Product" FromRole="StoreImportDetail" ToRole="Product" />
-          <NavigationProperty Name="Store_Import" Relationship="QLSPModel.FK_StoreImportDetail_Store_Import" FromRole="StoreImportDetail" ToRole="Store_Import" />
         </EntityType>
         <Association Name="FK_RestockDetail_Product">
           <End Type="QLSPModel.Product" Role="Product" Multiplicity="0..1" />
@@ -652,18 +620,6 @@
               <PropertyRef Name="ProductID" />
             </Principal>
             <Dependent Role="RestockDetail">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_StoreImportDetail_Product">
-          <End Type="QLSPModel.Product" Role="Product" Multiplicity="0..1" />
-          <End Type="QLSPModel.StoreImportDetail" Role="StoreImportDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="StoreImportDetail">
               <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
@@ -697,6 +653,50 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Person" Relationship="QLSPModel.FK_Account_Person" FromRole="Account" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="StoreImportDetail">
+          <Key>
+            <PropertyRef Name="StoreImportDetailID" />
+          </Key>
+          <Property Name="StoreImportDetailID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="StoreImportID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ImportQuantity" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="QLSPModel.FK_StoreImportDetail_Product" FromRole="StoreImportDetail" ToRole="Product" />
+          <NavigationProperty Name="Store_Import" Relationship="QLSPModel.FK_StoreImportDetail_Store_Import" FromRole="StoreImportDetail" ToRole="Store_Import" />
+        </EntityType>
+        <Association Name="FK_Account_Person">
+          <End Type="QLSPModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="QLSPModel.Account" Role="Account" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoreImportDetail_Product">
+          <End Type="QLSPModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="QLSPModel.StoreImportDetail" Role="StoreImportDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="StoreImportDetail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_StoreImportDetail_Store_Import">
           <End Type="QLSPModel.Store_Import" Role="Store_Import" Multiplicity="0..1" />
           <End Type="QLSPModel.StoreImportDetail" Role="StoreImportDetail" Multiplicity="*" />
@@ -715,15 +715,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QLSPModelStoreContainer" CdmEntityContainer="QLSPEntities">
-          <EntitySetMapping Name="Accounts">
-            <EntityTypeMapping TypeName="QLSPModel.Account">
-              <MappingFragment StoreEntitySet="Account">
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="QLSPModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
@@ -832,16 +823,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StoreImportDetails">
-            <EntityTypeMapping TypeName="QLSPModel.StoreImportDetail">
-              <MappingFragment StoreEntitySet="StoreImportDetail">
-                <ScalarProperty Name="ImportQuantity" ColumnName="ImportQuantity" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="StoreImportID" ColumnName="StoreImportID" />
-                <ScalarProperty Name="StoreImportDetailID" ColumnName="StoreImportDetailID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Restocks">
             <EntityTypeMapping TypeName="QLSPModel.Restock">
               <MappingFragment StoreEntitySet="Restock">
@@ -856,6 +837,25 @@
               <MappingFragment StoreEntitySet="Store Import">
                 <ScalarProperty Name="ImportDate" ColumnName="ImportDate" />
                 <ScalarProperty Name="StoreImportID" ColumnName="StoreImportID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="QLSPModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoreImportDetails">
+            <EntityTypeMapping TypeName="QLSPModel.StoreImportDetail">
+              <MappingFragment StoreEntitySet="StoreImportDetail">
+                <ScalarProperty Name="ImportQuantity" ColumnName="ImportQuantity" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="StoreImportID" ColumnName="StoreImportID" />
+                <ScalarProperty Name="StoreImportDetailID" ColumnName="StoreImportDetailID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
