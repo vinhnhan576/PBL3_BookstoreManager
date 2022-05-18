@@ -14,6 +14,8 @@ namespace PBL3.View.AdminChildForms.SettingsForms
     {
         string username;
         string currentPassword;
+        
+
         public ChangePasswordForm(Account acc)
         {
             InitializeComponent();
