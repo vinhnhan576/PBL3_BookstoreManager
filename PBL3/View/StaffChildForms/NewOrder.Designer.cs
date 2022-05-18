@@ -92,13 +92,13 @@ namespace PBL3.View.StaffChildForms
             this.OrderIDtxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.OrderIDtxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.OrderIDtxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.OrderIDtxt.Location = new System.Drawing.Point(58, 58);
-            this.OrderIDtxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.OrderIDtxt.Location = new System.Drawing.Point(52, 46);
+            this.OrderIDtxt.Margin = new System.Windows.Forms.Padding(2);
             this.OrderIDtxt.Name = "OrderIDtxt";
             this.OrderIDtxt.PasswordChar = '\0';
             this.OrderIDtxt.PlaceholderText = "";
             this.OrderIDtxt.SelectedText = "";
-            this.OrderIDtxt.Size = new System.Drawing.Size(246, 34);
+            this.OrderIDtxt.Size = new System.Drawing.Size(219, 27);
             this.OrderIDtxt.TabIndex = 19;
             // 
             // SalesmanIDtxt
@@ -118,13 +118,13 @@ namespace PBL3.View.StaffChildForms
             this.SalesmanIDtxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.SalesmanIDtxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.SalesmanIDtxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.SalesmanIDtxt.Location = new System.Drawing.Point(58, 128);
-            this.SalesmanIDtxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SalesmanIDtxt.Location = new System.Drawing.Point(52, 102);
+            this.SalesmanIDtxt.Margin = new System.Windows.Forms.Padding(2);
             this.SalesmanIDtxt.Name = "SalesmanIDtxt";
             this.SalesmanIDtxt.PasswordChar = '\0';
             this.SalesmanIDtxt.PlaceholderText = "";
             this.SalesmanIDtxt.SelectedText = "";
-            this.SalesmanIDtxt.Size = new System.Drawing.Size(246, 34);
+            this.SalesmanIDtxt.Size = new System.Drawing.Size(219, 27);
             this.SalesmanIDtxt.TabIndex = 18;
             // 
             // NewOrderButton
@@ -137,10 +137,10 @@ namespace PBL3.View.StaffChildForms
             this.NewOrderButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.NewOrderButton.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewOrderButton.ForeColor = System.Drawing.Color.White;
-            this.NewOrderButton.Location = new System.Drawing.Point(322, 180);
-            this.NewOrderButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NewOrderButton.Location = new System.Drawing.Point(286, 144);
+            this.NewOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.NewOrderButton.Name = "NewOrderButton";
-            this.NewOrderButton.Size = new System.Drawing.Size(136, 49);
+            this.NewOrderButton.Size = new System.Drawing.Size(121, 39);
             this.NewOrderButton.TabIndex = 22;
             this.NewOrderButton.Text = "New order";
             this.NewOrderButton.Click += new System.EventHandler(this.NewOrderButton_Click);
@@ -155,10 +155,10 @@ namespace PBL3.View.StaffChildForms
             this.SaveButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.SaveButton.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveButton.ForeColor = System.Drawing.Color.White;
-            this.SaveButton.Location = new System.Drawing.Point(484, 180);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SaveButton.Location = new System.Drawing.Point(430, 144);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(117, 49);
+            this.SaveButton.Size = new System.Drawing.Size(104, 39);
             this.SaveButton.TabIndex = 23;
             this.SaveButton.Text = "Save";
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
@@ -180,10 +180,10 @@ namespace PBL3.View.StaffChildForms
             this.guna2Panel1.Controls.Add(this.NewOrderButton);
             this.guna2Panel1.Controls.Add(this.SalesmanIDtxt);
             this.guna2Panel1.Controls.Add(this.OrderIDtxt);
-            this.guna2Panel1.Location = new System.Drawing.Point(33, 22);
+            this.guna2Panel1.Location = new System.Drawing.Point(29, 18);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(644, 258);
+            this.guna2Panel1.Size = new System.Drawing.Size(572, 206);
             this.guna2Panel1.TabIndex = 17;
             // 
             // NewCustomerButton
@@ -196,10 +196,10 @@ namespace PBL3.View.StaffChildForms
             this.NewCustomerButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.NewCustomerButton.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewCustomerButton.ForeColor = System.Drawing.Color.White;
-            this.NewCustomerButton.Location = new System.Drawing.Point(129, 180);
-            this.NewCustomerButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NewCustomerButton.Location = new System.Drawing.Point(115, 144);
+            this.NewCustomerButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.NewCustomerButton.Name = "NewCustomerButton";
-            this.NewCustomerButton.Size = new System.Drawing.Size(176, 49);
+            this.NewCustomerButton.Size = new System.Drawing.Size(156, 39);
             this.NewCustomerButton.TabIndex = 31;
             this.NewCustomerButton.Text = "New customer";
             this.NewCustomerButton.Click += new System.EventHandler(this.NewCustomerButton_Click_1);
@@ -209,10 +209,10 @@ namespace PBL3.View.StaffChildForms
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label3.Location = new System.Drawing.Point(332, 98);
+            this.label3.Location = new System.Drawing.Point(295, 78);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 28);
+            this.label3.Size = new System.Drawing.Size(136, 23);
             this.label3.TabIndex = 30;
             this.label3.Text = "Customer Tel";
             // 
@@ -233,13 +233,13 @@ namespace PBL3.View.StaffChildForms
             this.CustomerTeltxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.CustomerTeltxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.CustomerTeltxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.CustomerTeltxt.Location = new System.Drawing.Point(338, 128);
-            this.CustomerTeltxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CustomerTeltxt.Location = new System.Drawing.Point(300, 102);
+            this.CustomerTeltxt.Margin = new System.Windows.Forms.Padding(2);
             this.CustomerTeltxt.Name = "CustomerTeltxt";
             this.CustomerTeltxt.PasswordChar = '\0';
             this.CustomerTeltxt.PlaceholderText = "";
             this.CustomerTeltxt.SelectedText = "";
-            this.CustomerTeltxt.Size = new System.Drawing.Size(266, 34);
+            this.CustomerTeltxt.Size = new System.Drawing.Size(236, 27);
             this.CustomerTeltxt.TabIndex = 29;
             this.CustomerTeltxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CustomerTeltxt_KeyPress);
             // 
@@ -251,12 +251,12 @@ namespace PBL3.View.StaffChildForms
             this.OrderDateTimePicker.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.OrderDateTimePicker.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.OrderDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.OrderDateTimePicker.Location = new System.Drawing.Point(336, 58);
-            this.OrderDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.OrderDateTimePicker.Location = new System.Drawing.Point(299, 46);
+            this.OrderDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OrderDateTimePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.OrderDateTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.OrderDateTimePicker.Name = "OrderDateTimePicker";
-            this.OrderDateTimePicker.Size = new System.Drawing.Size(266, 35);
+            this.OrderDateTimePicker.Size = new System.Drawing.Size(236, 28);
             this.OrderDateTimePicker.TabIndex = 28;
             this.OrderDateTimePicker.Value = new System.DateTime(2022, 4, 1, 12, 4, 50, 99);
             // 
@@ -265,10 +265,10 @@ namespace PBL3.View.StaffChildForms
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label4.Location = new System.Drawing.Point(332, 28);
+            this.label4.Location = new System.Drawing.Point(295, 22);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 28);
+            this.label4.Size = new System.Drawing.Size(56, 23);
             this.label4.TabIndex = 27;
             this.label4.Text = "Date";
             // 
@@ -277,10 +277,10 @@ namespace PBL3.View.StaffChildForms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label2.Location = new System.Drawing.Point(57, 98);
+            this.label2.Location = new System.Drawing.Point(51, 78);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 28);
+            this.label2.Size = new System.Drawing.Size(130, 23);
             this.label2.TabIndex = 25;
             this.label2.Text = "Salesman ID";
             // 
@@ -289,10 +289,10 @@ namespace PBL3.View.StaffChildForms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label1.Location = new System.Drawing.Point(57, 28);
+            this.label1.Location = new System.Drawing.Point(51, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 28);
+            this.label1.Size = new System.Drawing.Size(91, 23);
             this.label1.TabIndex = 24;
             this.label1.Text = "Order ID";
             // 
@@ -301,10 +301,10 @@ namespace PBL3.View.StaffChildForms
             this.guna2Panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel2.Controls.Add(this.label8);
             this.guna2Panel2.Controls.Add(this.label7);
-            this.guna2Panel2.Location = new System.Drawing.Point(74, -5);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Panel2.Location = new System.Drawing.Point(66, -4);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(158, 58);
+            this.guna2Panel2.Size = new System.Drawing.Size(140, 46);
             this.guna2Panel2.TabIndex = 16;
             // 
             // label8
@@ -312,10 +312,10 @@ namespace PBL3.View.StaffChildForms
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(10, 15);
+            this.label8.Location = new System.Drawing.Point(9, 12);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(139, 30);
+            this.label8.Size = new System.Drawing.Size(118, 26);
             this.label8.TabIndex = 29;
             this.label8.Text = "Order Info";
             // 
@@ -324,10 +324,10 @@ namespace PBL3.View.StaffChildForms
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(12, 18);
+            this.label7.Location = new System.Drawing.Point(11, 14);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 30);
+            this.label7.Size = new System.Drawing.Size(118, 26);
             this.label7.TabIndex = 28;
             this.label7.Text = "Order Info";
             // 
@@ -335,10 +335,10 @@ namespace PBL3.View.StaffChildForms
             // 
             this.guna2Panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel3.Controls.Add(this.label9);
-            this.guna2Panel3.Location = new System.Drawing.Point(744, -5);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Panel3.Location = new System.Drawing.Point(661, -4);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(136, 58);
+            this.guna2Panel3.Size = new System.Drawing.Size(121, 46);
             this.guna2Panel3.TabIndex = 19;
             // 
             // label9
@@ -346,10 +346,10 @@ namespace PBL3.View.StaffChildForms
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label9.Location = new System.Drawing.Point(9, 15);
+            this.label9.Location = new System.Drawing.Point(8, 12);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 30);
+            this.label9.Size = new System.Drawing.Size(104, 26);
             this.label9.TabIndex = 30;
             this.label9.Text = "Products";
             // 
@@ -367,10 +367,10 @@ namespace PBL3.View.StaffChildForms
             this.guna2Panel4.Controls.Add(this.ProductDataGridView);
             this.guna2Panel4.Controls.Add(this.AddButton);
             this.guna2Panel4.Controls.Add(this.Quantitytxt);
-            this.guna2Panel4.Location = new System.Drawing.Point(704, 22);
+            this.guna2Panel4.Location = new System.Drawing.Point(626, 18);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(396, 685);
+            this.guna2Panel4.Size = new System.Drawing.Size(352, 548);
             this.guna2Panel4.TabIndex = 20;
             // 
             // label10
@@ -378,10 +378,10 @@ namespace PBL3.View.StaffChildForms
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label10.Location = new System.Drawing.Point(45, 86);
+            this.label10.Location = new System.Drawing.Point(40, 69);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 28);
+            this.label10.Size = new System.Drawing.Size(55, 23);
             this.label10.TabIndex = 28;
             this.label10.Text = "Filter";
             // 
@@ -390,10 +390,10 @@ namespace PBL3.View.StaffChildForms
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label6.Location = new System.Drawing.Point(52, 558);
+            this.label6.Location = new System.Drawing.Point(46, 446);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 28);
+            this.label6.Size = new System.Drawing.Size(93, 23);
             this.label6.TabIndex = 29;
             this.label6.Text = "Quantity";
             // 
@@ -412,10 +412,10 @@ namespace PBL3.View.StaffChildForms
             this.cbbFilterCategory.Items.AddRange(new object[] {
             "Category",
             "Author"});
-            this.cbbFilterCategory.Location = new System.Drawing.Point(30, 118);
+            this.cbbFilterCategory.Location = new System.Drawing.Point(27, 94);
             this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbFilterCategory.Name = "cbbFilterCategory";
-            this.cbbFilterCategory.Size = new System.Drawing.Size(142, 29);
+            this.cbbFilterCategory.Size = new System.Drawing.Size(127, 29);
             this.cbbFilterCategory.TabIndex = 31;
             this.cbbFilterCategory.SelectedIndexChanged += new System.EventHandler(this.cbbFilterCategory_SelectedIndexChanged_1);
             // 
@@ -431,10 +431,10 @@ namespace PBL3.View.StaffChildForms
             this.cbbFilterValue.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbbFilterValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbFilterValue.ItemHeight = 23;
-            this.cbbFilterValue.Location = new System.Drawing.Point(180, 118);
+            this.cbbFilterValue.Location = new System.Drawing.Point(160, 94);
             this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbFilterValue.Name = "cbbFilterValue";
-            this.cbbFilterValue.Size = new System.Drawing.Size(188, 29);
+            this.cbbFilterValue.Size = new System.Drawing.Size(168, 29);
             this.cbbFilterValue.TabIndex = 30;
             this.cbbFilterValue.SelectedIndexChanged += new System.EventHandler(this.cbbFilterValue_SelectedIndexChanged_1);
             // 
@@ -457,13 +457,13 @@ namespace PBL3.View.StaffChildForms
             this.productSearchtxt.IconRight = global::PBL3.Properties.Resources.icons8_search_60;
             this.productSearchtxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.productSearchtxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.productSearchtxt.Location = new System.Drawing.Point(27, 38);
-            this.productSearchtxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.productSearchtxt.Location = new System.Drawing.Point(24, 30);
+            this.productSearchtxt.Margin = new System.Windows.Forms.Padding(2);
             this.productSearchtxt.Name = "productSearchtxt";
             this.productSearchtxt.PasswordChar = '\0';
             this.productSearchtxt.PlaceholderText = "";
             this.productSearchtxt.SelectedText = "";
-            this.productSearchtxt.Size = new System.Drawing.Size(344, 45);
+            this.productSearchtxt.Size = new System.Drawing.Size(306, 36);
             this.productSearchtxt.TabIndex = 29;
             this.productSearchtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productSearchtxt_KeyPress);
             // 
@@ -495,14 +495,14 @@ namespace PBL3.View.StaffChildForms
             this.ProductDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.ProductDataGridView.EnableHeadersVisualStyles = false;
             this.ProductDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.ProductDataGridView.Location = new System.Drawing.Point(40, 180);
+            this.ProductDataGridView.Location = new System.Drawing.Point(36, 144);
             this.ProductDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ProductDataGridView.Name = "ProductDataGridView";
             this.ProductDataGridView.RowHeadersVisible = false;
             this.ProductDataGridView.RowHeadersWidth = 62;
             this.ProductDataGridView.RowTemplate.Height = 28;
             this.ProductDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ProductDataGridView.Size = new System.Drawing.Size(328, 351);
+            this.ProductDataGridView.Size = new System.Drawing.Size(292, 281);
             this.ProductDataGridView.TabIndex = 21;
             this.ProductDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.ProductDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -536,10 +536,10 @@ namespace PBL3.View.StaffChildForms
             this.AddButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.AddButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.White;
-            this.AddButton.Location = new System.Drawing.Point(117, 614);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.AddButton.Location = new System.Drawing.Point(104, 491);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(166, 49);
+            this.AddButton.Size = new System.Drawing.Size(148, 39);
             this.AddButton.TabIndex = 22;
             this.AddButton.Text = "Add";
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click_1);
@@ -561,13 +561,13 @@ namespace PBL3.View.StaffChildForms
             this.Quantitytxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.Quantitytxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.Quantitytxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.Quantitytxt.Location = new System.Drawing.Point(178, 555);
-            this.Quantitytxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Quantitytxt.Location = new System.Drawing.Point(158, 444);
+            this.Quantitytxt.Margin = new System.Windows.Forms.Padding(2);
             this.Quantitytxt.Name = "Quantitytxt";
             this.Quantitytxt.PasswordChar = '\0';
             this.Quantitytxt.PlaceholderText = "";
             this.Quantitytxt.SelectedText = "";
-            this.Quantitytxt.Size = new System.Drawing.Size(178, 34);
+            this.Quantitytxt.Size = new System.Drawing.Size(158, 27);
             this.Quantitytxt.TabIndex = 25;
             // 
             // Totaltxt
@@ -587,13 +587,13 @@ namespace PBL3.View.StaffChildForms
             this.Totaltxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.Totaltxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.Totaltxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.Totaltxt.Location = new System.Drawing.Point(498, 606);
-            this.Totaltxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Totaltxt.Location = new System.Drawing.Point(443, 485);
+            this.Totaltxt.Margin = new System.Windows.Forms.Padding(2);
             this.Totaltxt.Name = "Totaltxt";
             this.Totaltxt.PasswordChar = '\0';
             this.Totaltxt.PlaceholderText = "";
             this.Totaltxt.SelectedText = "";
-            this.Totaltxt.Size = new System.Drawing.Size(178, 34);
+            this.Totaltxt.Size = new System.Drawing.Size(158, 27);
             this.Totaltxt.TabIndex = 27;
             // 
             // ClearButton
@@ -606,10 +606,10 @@ namespace PBL3.View.StaffChildForms
             this.ClearButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.ClearButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearButton.ForeColor = System.Drawing.Color.White;
-            this.ClearButton.Location = new System.Drawing.Point(34, 655);
-            this.ClearButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ClearButton.Location = new System.Drawing.Point(30, 524);
+            this.ClearButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(166, 49);
+            this.ClearButton.Size = new System.Drawing.Size(148, 39);
             this.ClearButton.TabIndex = 26;
             this.ClearButton.Text = "Clear";
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
@@ -624,10 +624,10 @@ namespace PBL3.View.StaffChildForms
             this.DeleteButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.DeleteButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteButton.ForeColor = System.Drawing.Color.White;
-            this.DeleteButton.Location = new System.Drawing.Point(246, 655);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DeleteButton.Location = new System.Drawing.Point(219, 524);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(166, 49);
+            this.DeleteButton.Size = new System.Drawing.Size(148, 39);
             this.DeleteButton.TabIndex = 28;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
@@ -637,10 +637,10 @@ namespace PBL3.View.StaffChildForms
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label5.Location = new System.Drawing.Point(426, 608);
+            this.label5.Location = new System.Drawing.Point(379, 486);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 28);
+            this.label5.Size = new System.Drawing.Size(55, 23);
             this.label5.TabIndex = 28;
             this.label5.Text = "Total";
             // 
@@ -672,14 +672,14 @@ namespace PBL3.View.StaffChildForms
             this.rdDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.rdDataGridView.EnableHeadersVisualStyles = false;
             this.rdDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.rdDataGridView.Location = new System.Drawing.Point(34, 298);
+            this.rdDataGridView.Location = new System.Drawing.Point(30, 238);
             this.rdDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdDataGridView.Name = "rdDataGridView";
             this.rdDataGridView.RowHeadersVisible = false;
             this.rdDataGridView.RowHeadersWidth = 62;
             this.rdDataGridView.RowTemplate.Height = 28;
             this.rdDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.rdDataGridView.Size = new System.Drawing.Size(642, 289);
+            this.rdDataGridView.Size = new System.Drawing.Size(571, 231);
             this.rdDataGridView.TabIndex = 29;
             this.rdDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.rdDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -708,10 +708,10 @@ namespace PBL3.View.StaffChildForms
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label11.Location = new System.Drawing.Point(62, 606);
+            this.label11.Location = new System.Drawing.Point(55, 485);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(150, 28);
+            this.label11.Size = new System.Drawing.Size(127, 23);
             this.label11.TabIndex = 30;
             this.label11.Text = "Discount(%)";
             // 
@@ -732,21 +732,21 @@ namespace PBL3.View.StaffChildForms
             this.guna2TextBox1.IconLeftSize = new System.Drawing.Size(0, 0);
             this.guna2TextBox1.IconRightOffset = new System.Drawing.Point(10, 0);
             this.guna2TextBox1.IconRightSize = new System.Drawing.Size(23, 23);
-            this.guna2TextBox1.Location = new System.Drawing.Point(218, 606);
+            this.guna2TextBox1.Location = new System.Drawing.Point(194, 485);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(178, 34);
+            this.guna2TextBox1.Size = new System.Drawing.Size(158, 27);
             this.guna2TextBox1.TabIndex = 31;
             // 
             // NewOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(1116, 702);
+            this.ClientSize = new System.Drawing.Size(992, 562);
             this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.rdDataGridView);
@@ -758,7 +758,7 @@ namespace PBL3.View.StaffChildForms
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NewOrder";
             this.Text = "NewOrder";
             this.guna2Panel1.ResumeLayout(false);

@@ -286,7 +286,7 @@ namespace PBL3.BLL
         {
 
             var product = QLSPEntities.Instance.Products.Find(productid);
-            product.StoreQuantity = (Convert.ToInt32(product.StoreQuantity) - num).ToString();
+            product.StoreQuantity = (Convert.ToInt32(product.StoreQuantity) - num);
             QLSPEntities.Instance.SaveChanges();
 
         }

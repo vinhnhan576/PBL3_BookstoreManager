@@ -23,7 +23,9 @@ namespace PBL3
         public string RestockID { get; set; }
         public System.DateTime ImportDate { get; set; }
         public Nullable<double> TotalExpense { get; set; }
+        public string PersonID { get; set; }
     
+        public virtual Person Person { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RestockDetail> RestockDetails { get; set; }
     }

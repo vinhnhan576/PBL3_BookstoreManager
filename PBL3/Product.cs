@@ -32,7 +32,7 @@ namespace PBL3
         public string Status { get; set; }
         public string DiscountID { get; set; }
         public int StockQuantity { get; set; }
-        public string StoreQuantity { get; set; }
+        public int StoreQuantity { get; set; }
     
         public virtual Discount Discount { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
