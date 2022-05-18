@@ -23,7 +23,9 @@ namespace PBL3
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PBL3.View.AdminChildForms.AccountForm());
+
+            Application.Run(new NewOrder());
+
         }
 
     }

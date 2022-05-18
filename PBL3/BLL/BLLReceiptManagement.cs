@@ -11,66 +11,52 @@ namespace PBL3.BLL
 {
     internal class BLLReceiptManagement
     {
-        private static BLLReceiptManagement instance;
+
+
+
+        private static BLLReceiptManagement _instance;
+
+
+
         public static BLLReceiptManagement Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = new BLLReceiptManagement();
+                    _instance = new BLLReceiptManagement();
                 }
-                return instance;
+                return _instance;
             }
             private set
             {
-
-
-
             }
         }
-
-
-
         public void AddNewReceipt(Receipt r)
         {
-
             QLSPEntities.Instance.Receipts.Add(r);
             QLSPEntities.Instance.SaveChanges();
-
-
-
         }
         public void AddNewReceiptDetail(Receipt_Detail r)
         {
 
             QLSPEntities.Instance.Receipt_Details.Add(r);
             QLSPEntities.Instance.SaveChanges();
-
-
-
         }
-     
         public dynamic GetProductInReceiptByID(string ID_Receipt)
         {
-
-            //foreach (Receipt_Detail temp in QLSPEntities.Instance.Receipts.Find(ID_Receipt).Receipt_Detail)
-            //{
-            //    temp.Total = temp.SellingQuantity * (temp.Product.SellingPrice);
-            //    QLSPEntities.Instance.SaveChanges();
-            //}
-            var product = QLSPEntities.Instance.Receipt_Details.Where(p => p.ReceiptID == ID_Receipt).Select(p => new { p.Product.ProductName, p.SellingQuantity, p.Product.SellingPrice, p.Total }).ToList();
+            var product = QLSPEntities.Instance.Receipt_Details.Where(p => p.ReceiptID == ID_Receipt).Select(p => new { p.ProductID, p.Product.ProductName, p.SellingQuantity, p.Product.SellingPrice, p.Total }).ToList();
             return product;
         }
 
         public Receipt GetReceiptByReceiptDetailID(string rdID)
         {
             Receipt receipt = new Receipt();
-            foreach(Receipt i in QLSPEntities.Instance.Receipts.Select(p => p).ToList())
+            foreach (Receipt i in QLSPEntities.Instance.Receipts.Select(p => p).ToList())
             {
-                foreach(Receipt_Detail rd in i.Receipt_Detail)
+                foreach (Receipt_Detail rd in i.Receipt_Detail)
                 {
-                    if(rd.ReceipDetailtID == rdID)
+                    if (rd.ReceipDetailtID == rdID)
                     {
                         receipt = i;
                         break;
@@ -96,13 +82,13 @@ namespace PBL3.BLL
         }
         public void AddNewReceiptDetail(List<ReceiptDetailView> list, string receipt_id)
         {
-            for(int i=0;i<list.Count;i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 Receipt_Detail r = new Receipt_Detail();
                 r.ReceipDetailtID = list[i].ReceiptDetailID;
-                r.ProductID= list[i].ProductID;
+                r.ProductID = list[i].ProductID;
                 r.SellingQuantity = list[i].Quantity;
-                r.Total=list[i].Total;
+                r.Total = list[i].Total;
                 r.ReceiptID = receipt_id;
                 BLLReceiptManagement.Instance.AddNewReceiptDetail(r);
             }
@@ -117,8 +103,8 @@ namespace PBL3.BLL
                 return QLSPEntities.Instance.Receipt_Details.Where(p => p.ReceiptID == ID_Receipt).ToList();
         }
 
-       
-        
+
+
 
 
         public double CalculateReceiptToTal(List<ReceiptDetailView> list)
@@ -145,17 +131,71 @@ namespace PBL3.BLL
             }
             return 0;
         }
-
-        public dynamic GetAllBill_View()
+        public dynamic GetAllReceipt_View()
         {
-            var billList = QLSPEntities.Instance.Receipts.Select(p => new
-            {
-                p.ReceiptID,
-                p.Person.PersonName,
-                p.Date,
-                p.Total
-            });
-            return billList.ToList();
+            QLSPEntities db = new QLSPEntities();
+            var product = db.Receipts.Select(p => new { p.ReceiptID, p.Person.PersonName, p.Date, p.Total});
+            return product.ToList();
         }
+        public dynamic SearchReceipt(string searchValue)
+        {
+            List<Receipt> data = new List<Receipt>();
+            foreach (Receipt i in QLSPEntities.Instance.Receipts.Select(p => p).ToList())
+            {
+                bool containID = i.ReceiptID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                bool containSalesmanName = i.Person.PersonName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                //bool containCustomer = i.Customer.CustomerName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                //bool containCustomerID = i.Customer.CustomerName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                bool containSalemansID = i.PersonID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                string dateTemp = i.Date.ToShortDateString();
+                bool containDate = dateTemp.IndexOf(searchValue) >= 0;
+                if (containID || containSalesmanName || containSalemansID || containDate)
+                {
+                    data.Add(i);
+                }
+            }
+            var ReceiptList = data.Select(p => new { p.ReceiptID, p.Person.PersonName, p.Date, p.Total });
+            return ReceiptList.ToList();
+
+        }
+        //public List<string> getReceiptStatus()
+        //{
+        //    List<string> statuslist = new List<string>();
+        //    foreach (Receipt i in QLSPEntities.Instance.Receipts.Select(p => p).ToList())
+        //    {
+        //        statuslist.Add(i.Status);
+        //    }
+        //    return statuslist;
+        //}
+        public dynamic SortReceipt(string sortCategory, bool ascending)
+        {
+            QLSPEntities db = new QLSPEntities();
+            List<Receipt> data = new List<Receipt>();
+            if (sortCategory == "Receipt ID")
+            {
+                if (ascending)
+                    data = db.Receipts.OrderBy(p => p.ReceiptID).ToList();
+                else
+                    data = db.Receipts.OrderByDescending(p => p.ReceiptID).ToList();
+            }
+            if (sortCategory == "Date")
+            {
+                if (ascending)
+                    data = db.Receipts.OrderBy(p => p.Date).ToList();
+                else
+                    data = db.Receipts.OrderByDescending(p => p.Date).ToList();
+            }
+            if (sortCategory == "Total")
+            {
+                if (ascending)
+                    data = db.Receipts.OrderBy(p => p.Total).ToList();
+                else
+                    data = db.Receipts.OrderByDescending(p => p.Total).ToList();
+            }
+            var newList = data.Select(p => new { p.ReceiptID, p.Person.PersonName, p.Date, p.Total }).ToList();
+            return newList;
+        }
+
+
     }
 }

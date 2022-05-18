@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
 using PBL3.DTO;
-
+using PBL3.View;
 
 namespace PBL3.View.StaffChildForms
 {
@@ -49,11 +49,12 @@ namespace PBL3.View.StaffChildForms
                 string productID = rd_list[i].ProductID;
                 int prodQuantity = rd_list[i].Quantity;
                 BLLProductManagement.Instance.DecreaseStoreQuantity(productID, prodQuantity);
-                //double expenses = BLLProductManagement.Instance.GetProductByID(productID).Restocks.Last().ImportPrice * prodQuantity;
-                //double grossRevenue = rd_list[i].Total;
-                //double profit = (grossRevenue / expenses - 1) * 100;
-                //profit = (double)Math.Round(profit * 100f) / 100f;
-                //BLLRevenueManagement.Instance.AddRevenue(rd_list[i].ReceiptDetailID, expenses, grossRevenue, profit);
+
+                double expenses = BLLRestockManagement.Instance.GetRestockDetailByProductID(productID).ImportPrice * prodQuantity;
+                double grossRevenue = rd_list[i].Total;
+                double profit = (grossRevenue / expenses - 1) * 100;
+                profit = (double)Math.Round(profit * 100f) / 100f;
+                BLLRevenueManagement.Instance.AddRevenue(rd_list[i].ReceiptDetailID, expenses, grossRevenue, profit);
             }
 
             rd_list.Clear();
@@ -118,6 +119,45 @@ namespace PBL3.View.StaffChildForms
                 ProductDataGridView.DataSource = BLLProductManagement.Instance.SearchProduct_Order(productSearchtxt.Text);
             }
 
+        }
+
+        private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbFilterValue.Text = "";
+            cbbFilterValue.Items.Clear();
+            string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if (filterCategory == "Category")
+            {
+                foreach (string i in BLLProductManagement.Instance.GetAllProductCategory().Distinct())
+                {
+                    cbbFilterValue.Items.Add(i);
+                    //MessageBox.Show("i");
+                }
+            }
+            if (filterCategory == "Author")
+            {
+                foreach (string i in BLLProductManagement.Instance.GetAllProductAuthor().Distinct())
+                {
+                    cbbFilterValue.Items.Add(i);
+                }
+            }
+
+        }
+
+        private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ProductDataGridView.DataSource = BLLProductManagement.Instance.SearchProduct(cbbFilterValue.SelectedItem.ToString());
+        }
+
+        private void newcustomerbutton_Click(object sender, EventArgs e)
+        {
+            NewCustomerForm form = new NewCustomerForm();
+            form.d = new NewCustomerForm.Mydel(GetCustomerTel);
+            form.ShowDialog();
+        }
+        private void GetCustomerTel(string telephone)
+        {
+          CustomerTeltxt.Text = telephone;
         }
     }
 }

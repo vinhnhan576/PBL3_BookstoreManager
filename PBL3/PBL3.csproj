@@ -223,6 +223,12 @@
     <Compile Include="View\StaffChildForms\ManageOrder.Designer.cs">
       <DependentUpon>ManageOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\StaffChildForms\NewCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StaffChildForms\NewCustomerForm.Designer.cs">
+      <DependentUpon>NewCustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StaffChildForms\NewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StaffChildForms\ManageOrder.resx">
       <DependentUpon>ManageOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StaffChildForms\NewCustomerForm.resx">
+      <DependentUpon>NewCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StaffChildForms\NewOrder.resx">
       <DependentUpon>NewOrder.cs</DependentUpon>
