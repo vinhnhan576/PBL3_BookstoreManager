@@ -15,24 +15,22 @@ namespace PBL3
     
     public partial class QLSPEntities : DbContext
     {
-
-        private static QLSPEntities instance;
+        private static QLSPEntities _instance;
         public static QLSPEntities Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = new QLSPEntities();
+                    _instance = new QLSPEntities();
                 }
-                return instance;
+                return _instance;
             }
-            private set
-            {
+            private set{}
+        }
 
             }
         }
-
         public QLSPEntities()
             : base("name=QLSPEntities")
         {
