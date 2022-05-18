@@ -104,7 +104,7 @@
           <Property Name="RestockDetailID" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="RestockID" Type="nchar" MaxLength="10" />
           <Property Name="ProductID" Type="nchar" MaxLength="10" />
-          <Property Name="ImportQuantity" Type="int" />
+          <Property Name="ImportQuantity" Type="int" Nullable="false" />
           <Property Name="ImportPrice" Type="float" />
           <Property Name="Total" Type="float" />
         </EntityType>
@@ -623,7 +623,7 @@
           <Property Name="RestockDetailID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="RestockID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="ImportQuantity" Type="Int32" />
+          <Property Name="ImportQuantity" Type="Int32" Nullable="false" />
           <Property Name="ImportPrice" Type="Double" />
           <Property Name="Total" Type="Double" />
           <NavigationProperty Name="Product" Relationship="QLSPModel.FK_RestockDetail_Product" FromRole="RestockDetail" ToRole="Product" />
