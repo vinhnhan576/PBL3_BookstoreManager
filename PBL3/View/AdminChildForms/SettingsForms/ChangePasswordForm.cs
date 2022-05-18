@@ -14,10 +14,12 @@ namespace PBL3.View.AdminChildForms.SettingsForms
     {
         string username;
         string currentPassword;
+        
+
         public ChangePasswordForm(Account acc)
         {
             InitializeComponent();
-            username = acc.Account1.Trim();
+            username = acc.Username.Trim();
             currentPassword = acc.Password.Trim();
         }
 

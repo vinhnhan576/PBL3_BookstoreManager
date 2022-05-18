@@ -45,5 +45,16 @@ namespace PBL3.BLL
         {
             return QLSPEntities.Instance.People.Find(personID);
         }
+
+        public void UpdatePeronalInfo(string personID, Person newPerson)
+        {
+            Person p = GetPersonByPersonID(personID);
+            p.PersonName = newPerson.PersonName;
+            p.Address = newPerson.Address;
+            p.PhoneNumber = newPerson.PhoneNumber;
+            p.Email = newPerson.Email;
+            p.Gender = newPerson.Gender;
+            QLSPEntities.Instance.SaveChanges();
+        }
     }
 }

@@ -25,10 +25,11 @@ namespace PBL3
         public Nullable<double> Total { get; set; }
         public string PersonID { get; set; }
         public string CustomerID { get; set; }
+        public Nullable<bool> Status { get; set; }
     
         public virtual Customer Customer { get; set; }
-        public virtual Person Person { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Receipt_Detail> Receipt_Detail { get; set; }
+        public virtual Person Person { get; set; }
     }
 }

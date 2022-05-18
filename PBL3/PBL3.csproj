@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,8 +12,6 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,10 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2, Version=2.0.3.2, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.3.2\lib\net40\Guna.UI2.dll</HintPath>
@@ -87,7 +84,7 @@
     <Compile Include="DTO\Product_Price_View.cs" />
     <Compile Include="DTO\RandomGenerator.cs" />
     <Compile Include="DTO\ReceiptDetailView.cs" />
-    <Compile Include="DTO\RestockDetailView.cs" />
+    <Compile Include="DTO\ReStockView.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -187,6 +184,12 @@
     <Compile Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\EditProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\SettingsForms\EditProfileForm.Designer.cs">
+      <DependentUpon>EditProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +225,12 @@
     </Compile>
     <Compile Include="View\StaffChildForms\ManageOrder.Designer.cs">
       <DependentUpon>ManageOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StaffChildForms\NewCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StaffChildForms\NewCustomerForm.Designer.cs">
+      <DependentUpon>NewCustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StaffChildForms\NewOrder.cs">
       <SubType>Form</SubType>
@@ -299,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\EditProfileForm.resx">
+      <DependentUpon>EditProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminChildForms\SettingsForms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
@@ -482,12 +494,4 @@
     <None Include="Resources\filter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
-  </Target>
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

@@ -25,10 +25,7 @@ namespace PBL3.BLL
 
         private BLLProductManagement()
         {
-            
-        }
-        public void AddNewProduct(Product p)
-        {
+
 
             QLSPEntities.Instance.Products.Add(p);
             QLSPEntities.Instance.SaveChanges();
@@ -59,7 +56,7 @@ namespace PBL3.BLL
 
         public dynamic GetAllProduct_Order_View()
         {
-           
+
             var product = (QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.SellingPrice })).ToList();
             return product;
         }
@@ -119,7 +116,8 @@ namespace PBL3.BLL
             foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
             {
                 bool containName = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                if (containName)
+                bool containId = i.ProductID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                if (containName || containId)
                 {
                     data.Add(i);
                 }
@@ -243,9 +241,15 @@ namespace PBL3.BLL
             }
             return prodCategoryList;
         }
-
-
-
+        public List<string> GetAllProductAuthor()
+        {
+            List<string> prodCategoryList = new List<string>();
+            foreach (Product i in GetAllProduct())
+            {
+                prodCategoryList.Add(i.Author);
+            }
+            return prodCategoryList;
+        }
         public List<string> GetAllProductStatus()
         {
             List<string> prodStatusList = new List<string>();
@@ -260,10 +264,11 @@ namespace PBL3.BLL
             List<Product> data = new List<Product>();
             foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
             {
+                bool containID = i.ProductID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containName = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containStatus = i.Status.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containCategory = i.Category.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                if (containName || containStatus || containCategory)
+                if (containID||containName || containStatus || containCategory)
                 {
                     data.Add(i);
                 }

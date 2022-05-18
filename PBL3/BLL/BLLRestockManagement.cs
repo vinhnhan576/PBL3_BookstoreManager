@@ -9,18 +9,18 @@ namespace PBL3.BLL
 {
     internal class BLLRestockManagement
     {
-        private static BLLRestockManagement _instance;
+        private static BLLRestockManagement instance;
         public static BLLRestockManagement Instance
         {
             get
             {
-                if (_instance == null)
+                if (instance == null)
                 {
-                    _instance = new BLLRestockManagement();
+                    instance = new BLLRestockManagement();
                 }
-                return _instance;
+                return instance;
             }
-            private set {}
+            private set { }
         }
 
         public BLLRestockManagement()

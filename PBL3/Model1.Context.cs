@@ -15,6 +15,10 @@ namespace PBL3
     
     public partial class QLSPEntities : DbContext
     {
+        public QLSPEntities()
+            : base("name=QLSPEntities")
+        {
+        }
         private static QLSPEntities _instance;
         public static QLSPEntities Instance
         {
@@ -26,33 +30,29 @@ namespace PBL3
                 }
                 return _instance;
             }
-            private set{}
-        }
+            private set
+            {
 
             }
         }
-        public QLSPEntities()
-            : base("name=QLSPEntities")
-        {
-        }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Discount> Discounts { get; set; }
-        public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Rank> Ranks { get; set; }
         public virtual DbSet<Receipt> Receipts { get; set; }
         public virtual DbSet<Receipt_Detail> Receipt_Details { get; set; }
         public virtual DbSet<Revenue> Revenues { get; set; }
         public virtual DbSet<RestockDetail> RestockDetails { get; set; }
-        public virtual DbSet<StoreImportDetail> StoreImportDetails { get; set; }
         public virtual DbSet<Restock> Restocks { get; set; }
         public virtual DbSet<Store_Import> Store_Imports { get; set; }
+        public virtual DbSet<StoreImportDetail> StoreImportDetails { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Person> People { get; set; }
     }
 }

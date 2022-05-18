@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PBL3.DTO
 {
-    internal class RestockDetailView
+    internal class ReStockView
     {
         public string RestockDetailID { get; set; }
         public string ProductID { get; set; }

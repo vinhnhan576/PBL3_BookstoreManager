@@ -42,12 +42,7 @@
             this.tbQuantity = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ComboBox3 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label11 = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.dgvProducts = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.butAddnewProduct = new Guna.UI2.WinForms.Guna2Button();
             this.tbImportPrice = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -61,12 +56,15 @@
             this.tbRestockID = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbTotal = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.dtpReStock = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvRestock = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRestock)).BeginInit();
@@ -591,6 +589,23 @@
             this.guna2Panel2.Size = new System.Drawing.Size(105, 26);
             this.guna2Panel2.TabIndex = 29;
             // 
+            // dtpReStock
+            // 
+            this.dtpReStock.BorderRadius = 7;
+            this.dtpReStock.Checked = true;
+            this.dtpReStock.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.dtpReStock.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpReStock.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtpReStock.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpReStock.Location = new System.Drawing.Point(300, 47);
+            this.dtpReStock.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpReStock.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpReStock.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpReStock.Name = "dtpReStock";
+            this.dtpReStock.Size = new System.Drawing.Size(236, 36);
+            this.dtpReStock.TabIndex = 29;
+            this.dtpReStock.Value = new System.DateTime(2022, 4, 1, 12, 4, 50, 99);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -602,6 +617,39 @@
             this.label1.Size = new System.Drawing.Size(90, 19);
             this.label1.TabIndex = 38;
             this.label1.Text = "Stock Info";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.label2.Location = new System.Drawing.Point(59, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 23);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Stock ID";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.label3.Location = new System.Drawing.Point(48, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 23);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Stockkeeper ID";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.label4.Location = new System.Drawing.Point(305, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 23);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "Date";
             // 
             // label9
             // 
@@ -697,7 +745,6 @@
             this.guna2Panel3.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);

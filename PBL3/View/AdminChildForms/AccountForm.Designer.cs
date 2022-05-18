@@ -32,9 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.cbbRole = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.dgvAccount = new Guna.UI2.WinForms.Guna2DataGridView();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
+            this.tbRole = new Guna.UI2.WinForms.Guna2TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tbAddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.tbName = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbID = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dgvAccount = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tbSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -77,9 +77,9 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 3;
-            this.guna2Panel1.Controls.Add(this.cbbRole);
             this.guna2Panel1.Controls.Add(this.rbFemale);
             this.guna2Panel1.Controls.Add(this.rbMale);
+            this.guna2Panel1.Controls.Add(this.tbRole);
             this.guna2Panel1.Controls.Add(this.label14);
             this.guna2Panel1.Controls.Add(this.tbAddress);
             this.guna2Panel1.Controls.Add(this.label13);
@@ -102,28 +102,68 @@
             this.guna2Panel1.Size = new System.Drawing.Size(803, 246);
             this.guna2Panel1.TabIndex = 15;
             // 
-            // cbbRole
+            // dgvAccount
             // 
-            this.cbbRole.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbbRole.BackColor = System.Drawing.Color.Transparent;
-            this.cbbRole.BorderRadius = 10;
-            this.cbbRole.BorderThickness = 0;
-            this.cbbRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbRole.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbRole.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbbRole.ItemHeight = 17;
-            this.cbbRole.Items.AddRange(new object[] {
-            "Admin",
-            "Salesman",
-            "Stockkeeper"});
-            this.cbbRole.Location = new System.Drawing.Point(132, 158);
-            this.cbbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbbRole.Name = "cbbRole";
-            this.cbbRole.Size = new System.Drawing.Size(223, 23);
-            this.cbbRole.TabIndex = 53;
+            this.dgvAccount.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAccount.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAccount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAccount.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvAccount.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAccount.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAccount.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvAccount.EnableHeadersVisualStyles = false;
+            this.dgvAccount.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAccount.Location = new System.Drawing.Point(24, 383);
+            this.dgvAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvAccount.Name = "dgvAccount";
+            this.dgvAccount.ReadOnly = true;
+            this.dgvAccount.RowHeadersVisible = false;
+            this.dgvAccount.RowHeadersWidth = 62;
+            this.dgvAccount.RowTemplate.Height = 28;
+            this.dgvAccount.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAccount.Size = new System.Drawing.Size(976, 152);
+            this.dgvAccount.TabIndex = 52;
+            this.dgvAccount.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAccount.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvAccount.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvAccount.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvAccount.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvAccount.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAccount.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAccount.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvAccount.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvAccount.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvAccount.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvAccount.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvAccount.ThemeStyle.HeaderStyle.Height = 30;
+            this.dgvAccount.ThemeStyle.ReadOnly = true;
+            this.dgvAccount.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAccount.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvAccount.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvAccount.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvAccount.ThemeStyle.RowsStyle.Height = 28;
+            this.dgvAccount.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAccount.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellClick);
             // 
             // rbFemale
             // 
@@ -150,6 +190,32 @@
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
+            // 
+            // tbRole
+            // 
+            this.tbRole.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.tbRole.BorderRadius = 9;
+            this.tbRole.BorderThickness = 0;
+            this.tbRole.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbRole.DefaultText = "";
+            this.tbRole.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbRole.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbRole.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbRole.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbRole.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.tbRole.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbRole.IconLeftSize = new System.Drawing.Size(0, 0);
+            this.tbRole.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.tbRole.IconRightSize = new System.Drawing.Size(23, 23);
+            this.tbRole.Location = new System.Drawing.Point(132, 158);
+            this.tbRole.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.tbRole.Name = "tbRole";
+            this.tbRole.PasswordChar = '\0';
+            this.tbRole.PlaceholderText = "";
+            this.tbRole.SelectedText = "";
+            this.tbRole.Size = new System.Drawing.Size(227, 27);
+            this.tbRole.TabIndex = 56;
             // 
             // label14
             // 
@@ -406,7 +472,7 @@
             this.tbPassword.Location = new System.Drawing.Point(489, 154);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.PasswordChar = '*';
+            this.tbPassword.PasswordChar = '\0';
             this.tbPassword.PlaceholderText = "";
             this.tbPassword.SelectedText = "";
             this.tbPassword.Size = new System.Drawing.Size(271, 27);
@@ -429,7 +495,7 @@
             this.tbID.IconLeftSize = new System.Drawing.Size(0, 0);
             this.tbID.IconRightOffset = new System.Drawing.Point(10, 0);
             this.tbID.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbID.Location = new System.Drawing.Point(132, 21);
+            this.tbID.Location = new System.Drawing.Point(128, 18);
             this.tbID.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbID.Name = "tbID";
             this.tbID.PasswordChar = '\0';
@@ -437,69 +503,6 @@
             this.tbID.SelectedText = "";
             this.tbID.Size = new System.Drawing.Size(223, 27);
             this.tbID.TabIndex = 23;
-            // 
-            // dgvAccount
-            // 
-            this.dgvAccount.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAccount.BackgroundColor = System.Drawing.Color.White;
-            this.dgvAccount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvAccount.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvAccount.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvAccount.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAccount.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvAccount.EnableHeadersVisualStyles = false;
-            this.dgvAccount.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvAccount.Location = new System.Drawing.Point(24, 383);
-            this.dgvAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvAccount.Name = "dgvAccount";
-            this.dgvAccount.ReadOnly = true;
-            this.dgvAccount.RowHeadersVisible = false;
-            this.dgvAccount.RowHeadersWidth = 62;
-            this.dgvAccount.RowTemplate.Height = 28;
-            this.dgvAccount.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAccount.Size = new System.Drawing.Size(976, 152);
-            this.dgvAccount.TabIndex = 52;
-            this.dgvAccount.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvAccount.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvAccount.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvAccount.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvAccount.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvAccount.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvAccount.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvAccount.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvAccount.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvAccount.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dgvAccount.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvAccount.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvAccount.ThemeStyle.HeaderStyle.Height = 30;
-            this.dgvAccount.ThemeStyle.ReadOnly = true;
-            this.dgvAccount.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvAccount.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvAccount.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dgvAccount.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvAccount.ThemeStyle.RowsStyle.Height = 28;
-            this.dgvAccount.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvAccount.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellClick);
             // 
             // tbSearch
             // 
@@ -757,7 +760,7 @@
             this.label3.TabIndex = 45;
             this.label3.Text = "Sort";
             // 
-            // AccountForm
+            // Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -779,7 +782,7 @@
             this.Controls.Add(this.cbbFilterValue);
             this.Controls.Add(this.tbSearch);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "AccountForm";
+            this.Name = "Account";
             this.Text = "Account";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
@@ -816,6 +819,7 @@
         private Guna.UI2.WinForms.Guna2TextBox tbTel;
         private Guna.UI2.WinForms.Guna2TextBox tbAddress;
         private System.Windows.Forms.Label label13;
+        private Guna.UI2.WinForms.Guna2TextBox tbRole;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.RadioButton rbMale;
@@ -826,6 +830,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2DataGridView dgvAccount;
-        private Guna.UI2.WinForms.Guna2ComboBox cbbRole;
     }
 }

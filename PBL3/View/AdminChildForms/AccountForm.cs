@@ -17,7 +17,7 @@ namespace PBL3.View.AdminChildForms
         public AccountForm()
         {
             InitializeComponent();
-            dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
+            dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount();
             cbbSortOrder.SelectedIndex = 0;
             cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;
@@ -25,13 +25,12 @@ namespace PBL3.View.AdminChildForms
         }
         public void Reload()
         {
-            dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
+            dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount();
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            int count = QLSPEntities.Instance.Accounts.Count() + 1;
-            tbID.Text = count.ToString();
-            tbID.Enabled = false;
+            tbID.Text = "";
+            tbID.Enabled = true;
             tbUsername.Text = "";
             tbUsername.Enabled = true;
             tbPassword.Text = "";
@@ -42,9 +41,11 @@ namespace PBL3.View.AdminChildForms
             tbTel.Enabled = true;
             tbAddress.Text = "";
             tbAddress.Enabled = true;
-            cbbRole.Text = null;
-            cbbRole.Enabled = true;
+            tbRole.Text = "";
+            tbRole.Enabled = true;
+
         }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             List<string> del = new List<string>();
@@ -64,19 +65,11 @@ namespace PBL3.View.AdminChildForms
             {
                 string ID = dgvAccount.SelectedRows[0].Cells[0].Value.ToString();
                 PBL3.Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
-                string s = "";
-                for (int i = 0; i < ac.Password.Length; i++)
-                {
-                    if(ac.Password[i] != ' ')
-                    {
-                        s += '*';
-                    }
-                }
                 tbID.Text = ac.PersonID.ToString();
                 tbID.Enabled = false;
-                tbUsername.Text = ac.Account1.ToString();
+                tbUsername.Text = ac.Username.ToString();
                 tbUsername.Enabled = false;
-                tbPassword.Text = s;
+                tbPassword.Text = ac.Password.ToString();
                 tbPassword.Enabled = false;
                 if (ac.Person.Gender == true)
                 {
@@ -92,8 +85,8 @@ namespace PBL3.View.AdminChildForms
                 tbTel.Enabled = false;
                 tbAddress.Text = ac.Person.Address.ToString();
                 tbAddress.Enabled = false;
-                cbbRole.SelectedItem = ac.Person.Role.ToString();
-                cbbRole.Enabled = false;
+                tbRole.Text = ac.Person.Role.ToString();
+                tbRole.Enabled = false;
             }
 
         }
@@ -107,7 +100,7 @@ namespace PBL3.View.AdminChildForms
             tbName.Text = "";
             tbTel.Text = "";
             tbAddress.Text = "";
-            cbbRole.Text = null;
+            tbRole.Text = "";
         }
         private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -166,19 +159,11 @@ namespace PBL3.View.AdminChildForms
             {
                 string ID = dgvAccount.SelectedRows[0].Cells[0].Value.ToString();
                 PBL3.Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
-                string s = "";
-                for (int i = 0; i < ac.Password.Length; i++)
-                {
-                    if (ac.Password[i] != ' ')
-                    {
-                        s += '*';
-                    }
-                }
                 tbID.Text = ac.PersonID.ToString();
                 tbID.Enabled = false;
-                tbUsername.Text = ac.Account1.ToString();
+                tbUsername.Text = ac.Username.ToString();
                 tbUsername.Enabled = true;
-                tbPassword.Text = s;
+                tbPassword.Text = ac.Password.ToString();
                 tbPassword.Enabled = true;
                 if (ac.Person.Gender == true)
                 {
@@ -194,8 +179,8 @@ namespace PBL3.View.AdminChildForms
                 tbTel.Enabled = false;
                 tbAddress.Text = ac.Person.Address.ToString();
                 tbAddress.Enabled = false;
-                cbbRole.SelectedItem = ac.Person.Role.ToString();
-                cbbRole.Enabled = true;
+                tbRole.Text = ac.Person.Role.ToString();
+                tbRole.Enabled = true;
             }
         }
 
@@ -203,28 +188,18 @@ namespace PBL3.View.AdminChildForms
         {
             PBL3.Account a = new PBL3.Account();
             Person p = new Person();
+            p.PersonID = tbID.Text;
             p.PersonName = tbName.Text;
             p.PhoneNumber = tbTel.Text;
             p.Address = tbAddress.Text;
-            p.Role = cbbRole.SelectedItem.ToString();
+            p.Role = tbRole.Text;
             if (rbMale.Checked)
             {
                 p.Gender = true;
             }
             else p.Gender = true;
-            if (cbbRole.SelectedItem.ToString() == "Admin")
-            {
-                p.PersonID = a.PersonID = "ad00" + tbID.Text;
-            }
-            if (cbbRole.SelectedItem.ToString() == "Salesman")
-            {
-                p.PersonID = a.PersonID = "sm00" + tbID.Text;
-            }
-            if (cbbRole.SelectedItem.ToString() == "Stockkeeper")
-            {
-                p.PersonID = a.PersonID = "sk00" + tbID.Text;
-            }
-            a.Account1 = tbUsername.Text;
+            a.PersonID = tbID.Text;
+            a.Username = tbUsername.Text;
             a.Password = tbPassword.Text;
             a.Person = p;
             BLLAccountManagement.Instance.Execute(a);
