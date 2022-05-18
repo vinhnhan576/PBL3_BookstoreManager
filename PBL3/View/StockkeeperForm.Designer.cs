@@ -99,6 +99,7 @@
             this.btnLogout.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 10);
             this.btnLogout.Size = new System.Drawing.Size(30, 30);
             this.btnLogout.TabIndex = 5;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnSettings
             // 
@@ -245,8 +246,9 @@
             this.Controls.Add(this.pnRight);
             this.Controls.Add(this.pnLeft);
             this.Controls.Add(this.guna2GradientPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StockkeeperForm";
-            this.Text = "StockkeeperForm";
+            this.Text = "Stockkeeper";
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();

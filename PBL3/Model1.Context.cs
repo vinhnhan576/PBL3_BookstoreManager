@@ -15,7 +15,6 @@ namespace PBL3
     
     public partial class QLSPEntities : DbContext
     {
-
         private static QLSPEntities _instance;
         public static QLSPEntities Instance
         {
@@ -27,8 +26,8 @@ namespace PBL3
                 }
                 return _instance;
             }
-            private set
-            {
+            private set{}
+        }
 
             }
         }

@@ -49,7 +49,6 @@ namespace PBL3.View.StaffChildForms
                 string productID = rd_list[i].ProductID;
                 int prodQuantity = rd_list[i].Quantity;
                 BLLProductManagement.Instance.DecreaseStoreQuantity(productID, prodQuantity);
-
                 //double expenses = BLLProductManagement.Instance.GetProductByID(productID).Restocks.Last().ImportPrice * prodQuantity;
                 //double grossRevenue = rd_list[i].Total;
                 //double profit = (grossRevenue / expenses - 1) * 100;
