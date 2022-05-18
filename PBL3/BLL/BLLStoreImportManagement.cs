@@ -27,20 +27,16 @@ namespace PBL3.BLL
         private BLLStoreImportManagement()
         {
 
-
-
         }
         public dynamic GetAllStoreImportDetail()
         {
             List<StoreImportDetail> storeImportDetailList = new List<StoreImportDetail>();
-            foreach (StoreImportDetail i in QLSPEntities.Instance.StoreImportDetails.Select(p => p).ToList())
+            foreach(StoreImportDetail i in QLSPEntities.Instance.StoreImportDetails.Select(p => p).ToList())
             {
                 storeImportDetailList.Add(i);
             }
             return storeImportDetailList;
         }
-
-
 
         public dynamic GetAllStoreImportDetail_View()
         {
@@ -48,12 +44,10 @@ namespace PBL3.BLL
             return productImport.ToList();
         }
 
-
-
         public dynamic GetStoreImportDetail_ViewByProductID(string productID)
         {
             List<StoreImportDetail> data = new List<StoreImportDetail>();
-            foreach (StoreImportDetail i in GetAllStoreImportDetail())
+            foreach(StoreImportDetail i in GetAllStoreImportDetail())
             {
                 if (i.ProductID == productID)
                 {
@@ -63,8 +57,6 @@ namespace PBL3.BLL
             var storeImportList = data.Select(p => new { p.Store_Import.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
             return storeImportList.ToList();
         }
-
-
 
         public dynamic SortStoreImportDetail(string sortCategory, bool ascending)
         {
@@ -91,11 +83,9 @@ namespace PBL3.BLL
                 else
                     data = db.StoreImportDetails.OrderByDescending(p => p.Product.StoreQuantity).ToList();
             }
-            var sortedList = data.Select(p => new { p.Store_Import.ImportDate, p.ImportQuantity, p.Product.StoreQuantity }).ToList();
+            var sortedList = data.Select(p => new { p.Store_Import.ImportDate, p.ImportQuantity, p.Product.StoreQuantity}).ToList();
             return sortedList;
         }
-
-
 
         public dynamic FilterStoreImportDetailByDate(string day, string month, string year)
         {
@@ -107,7 +97,7 @@ namespace PBL3.BLL
             if (year != "")
                 Year = Convert.ToInt32(year);
             List<StoreImportDetail> data = new List<StoreImportDetail>();
-            foreach (StoreImportDetail i in GetAllStoreImportDetail())
+            foreach(StoreImportDetail i in GetAllStoreImportDetail())
             {
                 if (day != "")
                 {
@@ -115,12 +105,12 @@ namespace PBL3.BLL
                     {
                         if (year != "")
                         {
-                            if (i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Month == Month && i.Store_Import.ImportDate.Year == Year)
+                            if(i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Month == Month && i.Store_Import.ImportDate.Year == Year)
                                 data.Add(i);
                         }
                         else
                         {
-                            if (i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Month == Month)
+                            if(i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Month == Month)
                                 data.Add(i);
                         }
                     }
@@ -128,7 +118,7 @@ namespace PBL3.BLL
                     {
                         if (year != "")
                         {
-                            if (i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Year == Year)
+                            if(i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Year == Year)
                                 data.Add(i);
                         }
                         else

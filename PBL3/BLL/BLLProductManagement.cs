@@ -80,12 +80,14 @@ namespace PBL3.BLL
             return products;
         }
 
+
         //public dynamic GetAllProduct_Import_View()
         //{
         //    QLSPEntities db = new QLSPEntities();
         //    var productImport = db.Store_Imports.Select(p => new { p.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
         //    return productImport;
         //}
+
 
         public void UpdatePrice(List<string> ID, List<double> newPrice)
         {
@@ -117,9 +119,7 @@ namespace PBL3.BLL
             foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
             {
                 bool containName = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool containStatus = i.Status.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool containCategory = i.Category.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                if (containName || containStatus || containCategory)
+                if (containName)
                 {
                     data.Add(i);
                 }
@@ -195,11 +195,21 @@ namespace PBL3.BLL
             return newList;
         }
 
-
-
-        public dynamic FilterProduct(string filterCategory, string filterValue)
+        public dynamic FilterProduct(string filterValue)
         {
-            QLSPEntities db = new QLSPEntities();
+            List<Product> data = new List<Product>();
+            foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
+            {
+                bool containStatus = i.Status.IndexOf(filterValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                bool containCategory = i.Category.IndexOf(filterValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                if (containStatus || containCategory)
+                {
+                    data.Add(i);
+                }
+            }
+            var prodList = data.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
+            return prodList.ToList();
+            /*QLSPEntities db = new QLSPEntities();
             List<Product> data = new List<Product>();
             foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
             {
@@ -219,7 +229,7 @@ namespace PBL3.BLL
                 }
             }
             var prodViewList = data.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
-            return prodViewList;
+            return prodViewList;*/
         }
 
 

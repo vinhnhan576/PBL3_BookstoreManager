@@ -11,22 +11,16 @@ namespace PBL3.BLL
 {
     internal class BLLReceiptManagement
     {
-
-
-
-        private static BLLReceiptManagement _instance;
-
-
-
+        private static BLLReceiptManagement instance;
         public static BLLReceiptManagement Instance
         {
             get
             {
-                if (_instance == null)
+                if (instance == null)
                 {
-                    _instance = new BLLReceiptManagement();
+                    instance = new BLLReceiptManagement();
                 }
-                return _instance;
+                return instance;
             }
             private set
             {
@@ -150,6 +144,18 @@ namespace PBL3.BLL
 
             }
             return 0;
+        }
+
+        public dynamic GetAllBill_View()
+        {
+            var billList = QLSPEntities.Instance.Receipts.Select(p => new
+            {
+                p.ReceiptID,
+                p.Person.PersonName,
+                p.Date,
+                p.Total
+            });
+            return billList.ToList();
         }
     }
 }
