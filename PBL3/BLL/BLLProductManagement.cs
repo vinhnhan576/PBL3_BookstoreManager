@@ -26,9 +26,6 @@ namespace PBL3.BLL
         private BLLProductManagement()
         {
 
-
-            QLSPEntities.Instance.Products.Add(p);
-            QLSPEntities.Instance.SaveChanges();
         }
 
         public List<Product> GetAllProduct()
@@ -85,6 +82,12 @@ namespace PBL3.BLL
         //    return productImport;
         //}
 
+        public void AddNewProduct(Product p)
+        {
+
+            QLSPEntities.Instance.Products.Add(p);
+            QLSPEntities.Instance.SaveChanges();
+        }
 
         public void UpdatePrice(List<string> ID, List<double> newPrice)
         {

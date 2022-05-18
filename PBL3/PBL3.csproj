@@ -84,6 +84,7 @@
     <Compile Include="DTO\Product_Price_View.cs" />
     <Compile Include="DTO\RandomGenerator.cs" />
     <Compile Include="DTO\ReceiptDetailView.cs" />
+    <Compile Include="DTO\RestockDetailView.cs" />
     <Compile Include="DTO\ReStockView.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -258,6 +259,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\StockkeeperChildForms\AddNewProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StockkeeperChildForms\AddNewProduct.Designer.cs">
+      <DependentUpon>AddNewProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StockkeeperChildForms\ManageStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,6 +359,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\StockkeeperChildForms\AddNewProduct.resx">
+      <DependentUpon>AddNewProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\StockkeeperChildForms\ManageStock.resx">
       <DependentUpon>ManageStock.cs</DependentUpon>
     </EmbeddedResource>
