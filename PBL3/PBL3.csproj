@@ -196,6 +196,7 @@
     <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomMessageBox\MessageBox.cs" />
     <Compile Include="View\CustomMessageBox\MessageBoxForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -508,6 +509,14 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\warningVetor.png" />
+    <None Include="Resources\questionVector.png" />
+    <None Include="Resources\infoVector2.png" />
+    <None Include="Resources\infoVector.png" />
+    <None Include="Resources\errorVector.png" />
+    <None Include="Resources\side.png" />
+    <None Include="Resources\iconClose.png" />
+    <None Include="Resources\icons8-close-100.png" />
     <None Include="Resources\iconRefresh.png" />
     <None Include="Resources\filterIcon.png" />
     <None Include="Resources\filter.png" />
