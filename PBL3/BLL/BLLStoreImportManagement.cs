@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using PBL3.DTO;
 
 
 namespace PBL3.BLL
@@ -31,23 +31,16 @@ namespace PBL3.BLL
         public dynamic GetAllStoreImportDetail()
         {
             List<StoreImportDetail> storeImportDetailList = new List<StoreImportDetail>();
-            foreach(StoreImportDetail i in QLSPEntities.Instance.StoreImportDetails.Select(p => p).ToList())
+            foreach (StoreImportDetail i in QLSPEntities.Instance.StoreImportDetails.Select(p => p).ToList())
             {
                 storeImportDetailList.Add(i);
             }
             return storeImportDetailList;
         }
-
-        public dynamic GetAllStoreImportDetail_View()
-        {
-            var productImport = QLSPEntities.Instance.StoreImportDetails.Select(p => new { p.Store_Import.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
-            return productImport.ToList();
-        }
-
         public dynamic GetStoreImportDetail_ViewByProductID(string productID)
         {
             List<StoreImportDetail> data = new List<StoreImportDetail>();
-            foreach(StoreImportDetail i in GetAllStoreImportDetail())
+            foreach (StoreImportDetail i in GetAllStoreImportDetail())
             {
                 if (i.ProductID == productID)
                 {
@@ -83,7 +76,7 @@ namespace PBL3.BLL
                 else
                     data = db.StoreImportDetails.OrderByDescending(p => p.Product.StoreQuantity).ToList();
             }
-            var sortedList = data.Select(p => new { p.Store_Import.ImportDate, p.ImportQuantity, p.Product.StoreQuantity}).ToList();
+            var sortedList = data.Select(p => new { p.Store_Import.ImportDate, p.ImportQuantity, p.Product.StoreQuantity }).ToList();
             return sortedList;
         }
 
@@ -97,7 +90,7 @@ namespace PBL3.BLL
             if (year != "")
                 Year = Convert.ToInt32(year);
             List<StoreImportDetail> data = new List<StoreImportDetail>();
-            foreach(StoreImportDetail i in GetAllStoreImportDetail())
+            foreach (StoreImportDetail i in GetAllStoreImportDetail())
             {
                 if (day != "")
                 {
@@ -105,12 +98,12 @@ namespace PBL3.BLL
                     {
                         if (year != "")
                         {
-                            if(i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Month == Month && i.Store_Import.ImportDate.Year == Year)
+                            if (i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Month == Month && i.Store_Import.ImportDate.Year == Year)
                                 data.Add(i);
                         }
                         else
                         {
-                            if(i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Month == Month)
+                            if (i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Month == Month)
                                 data.Add(i);
                         }
                     }
@@ -118,7 +111,7 @@ namespace PBL3.BLL
                     {
                         if (year != "")
                         {
-                            if(i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Year == Year)
+                            if (i.Store_Import.ImportDate.Day == Day && i.Store_Import.ImportDate.Year == Year)
                                 data.Add(i);
                         }
                         else
@@ -156,5 +149,69 @@ namespace PBL3.BLL
             var filteredList = data.Select(p => new { p.Store_Import.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
             return filteredList.ToList();
         }
+        public List<Store_Import> GetAllStoreImport()
+        {
+            List<Store_Import> List = new List<Store_Import>();
+            foreach (Store_Import i in QLSPEntities.Instance.Store_Imports.Select(p => p).ToList())
+                List.Add(i);
+            return List;
+        }
+
+        public void AddNewStoreImport(Store_Import r)
+        {
+
+            QLSPEntities.Instance.Store_Imports.Add(r);
+            QLSPEntities.Instance.SaveChanges();
+        }
+        public void AddNewStoreImportDetail(StoreImportDetail r)
+        {
+
+            QLSPEntities.Instance.StoreImportDetails.Add(r);
+            QLSPEntities.Instance.SaveChanges();
+        }
+        public List<StoreImportDetailView> CreateStoreImportDetailView(List<StoreImportDetailView> list, string productid, int quantity)
+        {
+            int check = Check(list, productid);
+            if (check != -1)
+            {
+                list[check].ImportQuantity += quantity;
+            }
+            else
+            {
+                StoreImportDetailView temp = new StoreImportDetailView();
+                temp.StoreImportDetailID = "sidt00" + (QLSPEntities.Instance.StoreImportDetails.Count() + 1 + list.Count()).ToString();
+                Product product = QLSPEntities.Instance.Products.Find(productid);
+                temp.ProductID = productid;
+                temp.ProductName = product.ProductName;
+                temp.ImportQuantity = quantity;
+                list.Add(temp);
+            }
+            return list;
+        }
+        public int Check(List<StoreImportDetailView> list, string product_id)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].ProductID == product_id)
+                {
+                    return i;
+                }
+
+            }
+            return -1;
+        }
+        public void AddNewStoreImportDetail(List<StoreImportDetailView> list, string id)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                StoreImportDetail s = new StoreImportDetail();
+                s.StoreImportDetailID = list[i].StoreImportDetailID;
+                s.ProductID = list[i].ProductID;
+                s.ImportQuantity = list[i].ImportQuantity;
+                s.StoreImportID = id;
+                AddNewStoreImportDetail(s);
+            }
+        }
     }
 }
+

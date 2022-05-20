@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBL3.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace PBL3.View.StockkeeperChildForms
     public partial class AddNewProduct : Form
     {
         public delegate void My_Del(Product product, double importPrice);
+        
         public My_Del MyDel { get; set; }
         public AddNewProduct()
         {
@@ -26,9 +28,10 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            var random = new RandomGenerator();
             Product p = new Product
             {
-                ProductID = tbID.Text,
+                ProductID = "r00"+ random.RandomNumber(1,999),
                 ProductName = tbName.Text,
                 Author = tbAuthor.Text,
                 Category = tbCatogories.Text,
@@ -36,7 +39,7 @@ namespace PBL3.View.StockkeeperChildForms
                 StoreQuantity = 0,
                 Publisher = tbPublisher.Text,
                 PublishYear = Convert.ToInt32(tbPublishYear.Text),
-                Status = "Het hang",
+                Status = "Available",
                 SellingPrice = Convert.ToInt32(tbImportPrice.Text)*1.2,
                 DiscountID = null,
             };
