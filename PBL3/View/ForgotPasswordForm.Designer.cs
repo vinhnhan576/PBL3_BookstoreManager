@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.pbReturn = new System.Windows.Forms.PictureBox();
             this.lbIntro = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -37,6 +38,7 @@
             this.tbEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pbForgotPassword = new System.Windows.Forms.PictureBox();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbReturn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -177,6 +179,12 @@
             this.pbForgotPassword.TabIndex = 12;
             this.pbForgotPassword.TabStop = false;
             // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
             // ForgotPasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,6 +195,7 @@
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.pbForgotPassword);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ForgotPasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ForgotPasswordForm";
@@ -210,5 +219,6 @@
         private Guna.UI2.WinForms.Guna2TextBox tbEmail;
         private System.Windows.Forms.PictureBox pbForgotPassword;
         private System.Windows.Forms.PictureBox pbReturn;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }

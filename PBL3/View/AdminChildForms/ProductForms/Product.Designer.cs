@@ -110,6 +110,9 @@
             this.dgvProduct.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProduct.BackgroundColor = System.Drawing.Color.White;
             this.dgvProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -241,6 +244,7 @@
             // 
             // btnUpdatePrice
             // 
+            this.btnUpdatePrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdatePrice.BorderRadius = 9;
             this.btnUpdatePrice.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnUpdatePrice.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -258,6 +262,7 @@
             // 
             // btnShowHistory
             // 
+            this.btnShowHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShowHistory.BorderRadius = 9;
             this.btnShowHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnShowHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;

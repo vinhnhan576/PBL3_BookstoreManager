@@ -38,8 +38,6 @@ namespace PBL3.View
             this.btnSettings = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnRight = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.pnMenu = new Guna.UI2.WinForms.Guna2Panel();
             this.btnRevenue = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
             this.btnDiscount = new Guna.UI2.WinForms.Guna2Button();
@@ -48,12 +46,10 @@ namespace PBL3.View
             this.btnCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.btnProduct = new Guna.UI2.WinForms.Guna2Button();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
-            this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnMenu = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            this.guna2GradientPanel5.SuspendLayout();
             this.pnMenu.SuspendLayout();
-            this.pnLeft.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnTop
@@ -91,6 +87,7 @@ namespace PBL3.View
             // 
             // btnLogout
             // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogout.CheckedState.Image = global::PBL3.Properties.Resources.logout;
             this.btnLogout.HoverState.Image = global::PBL3.Properties.Resources.logout;
             this.btnLogout.HoverState.ImageSize = new System.Drawing.Size(24, 24);
@@ -108,10 +105,11 @@ namespace PBL3.View
             this.btnLogout.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 6, 6);
             this.btnLogout.Size = new System.Drawing.Size(30, 30);
             this.btnLogout.TabIndex = 5;
-            this.btnLogout.Click += new System.EventHandler(this.guna2ImageButton2_Click);
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnSettings
             // 
+            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSettings.CheckedState.Image = global::PBL3.Properties.Resources.settingsIcon;
             this.btnSettings.CheckedState.ImageSize = new System.Drawing.Size(24, 24);
             this.btnSettings.HoverState.Image = global::PBL3.Properties.Resources.settingsIcon;
@@ -147,43 +145,14 @@ namespace PBL3.View
             // pnRight
             // 
             this.pnRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.pnRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnRight.Location = new System.Drawing.Point(140, 60);
             this.pnRight.Name = "pnRight";
             this.pnRight.Size = new System.Drawing.Size(774, 471);
             this.pnRight.TabIndex = 2;
             // 
-            // guna2GradientPanel5
-            // 
-            this.guna2GradientPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.guna2GradientPanel5.BorderRadius = 25;
-            this.guna2GradientPanel5.Controls.Add(this.pnMenu);
-            this.guna2GradientPanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(224)))), ((int)(((byte)(239)))));
-            this.guna2GradientPanel5.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
-            this.guna2GradientPanel5.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.guna2GradientPanel5.Location = new System.Drawing.Point(-80, 0);
-            this.guna2GradientPanel5.Name = "guna2GradientPanel5";
-            this.guna2GradientPanel5.Size = new System.Drawing.Size(220, 532);
-            this.guna2GradientPanel5.TabIndex = 1;
-            // 
-            // pnMenu
-            // 
-            this.pnMenu.BackColor = System.Drawing.Color.Transparent;
-            this.pnMenu.Controls.Add(this.btnRevenue);
-            this.pnMenu.Controls.Add(this.btnAccount);
-            this.pnMenu.Controls.Add(this.btnDiscount);
-            this.pnMenu.Controls.Add(this.btnStock);
-            this.pnMenu.Controls.Add(this.btnBill);
-            this.pnMenu.Controls.Add(this.btnCustomer);
-            this.pnMenu.Controls.Add(this.btnProduct);
-            this.pnMenu.Controls.Add(this.btnOverview);
-            this.pnMenu.Location = new System.Drawing.Point(80, 22);
-            this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Size = new System.Drawing.Size(140, 447);
-            this.pnMenu.TabIndex = 0;
-            // 
             // btnRevenue
             // 
+            this.btnRevenue.BackColor = System.Drawing.Color.Transparent;
             this.btnRevenue.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRevenue.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRevenue.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -194,7 +163,7 @@ namespace PBL3.View
             this.btnRevenue.ForeColor = System.Drawing.Color.White;
             this.btnRevenue.Image = global::PBL3.Properties.Resources.revenue;
             this.btnRevenue.ImageOffset = new System.Drawing.Point(-4, 0);
-            this.btnRevenue.Location = new System.Drawing.Point(0, 322);
+            this.btnRevenue.Location = new System.Drawing.Point(0, 342);
             this.btnRevenue.Name = "btnRevenue";
             this.btnRevenue.PressedColor = System.Drawing.Color.White;
             this.btnRevenue.PressedDepth = 20;
@@ -206,6 +175,7 @@ namespace PBL3.View
             // 
             // btnAccount
             // 
+            this.btnAccount.BackColor = System.Drawing.Color.Transparent;
             this.btnAccount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAccount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAccount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -216,7 +186,7 @@ namespace PBL3.View
             this.btnAccount.ForeColor = System.Drawing.Color.White;
             this.btnAccount.Image = global::PBL3.Properties.Resources.account;
             this.btnAccount.ImageOffset = new System.Drawing.Point(-5, 0);
-            this.btnAccount.Location = new System.Drawing.Point(0, 276);
+            this.btnAccount.Location = new System.Drawing.Point(0, 296);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.PressedColor = System.Drawing.Color.White;
             this.btnAccount.PressedDepth = 20;
@@ -228,6 +198,7 @@ namespace PBL3.View
             // 
             // btnDiscount
             // 
+            this.btnDiscount.BackColor = System.Drawing.Color.Transparent;
             this.btnDiscount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDiscount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDiscount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -238,7 +209,7 @@ namespace PBL3.View
             this.btnDiscount.ForeColor = System.Drawing.Color.White;
             this.btnDiscount.Image = global::PBL3.Properties.Resources.discount;
             this.btnDiscount.ImageOffset = new System.Drawing.Point(-5, 0);
-            this.btnDiscount.Location = new System.Drawing.Point(0, 230);
+            this.btnDiscount.Location = new System.Drawing.Point(0, 250);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.PressedColor = System.Drawing.Color.White;
             this.btnDiscount.PressedDepth = 20;
@@ -250,6 +221,7 @@ namespace PBL3.View
             // 
             // btnStock
             // 
+            this.btnStock.BackColor = System.Drawing.Color.Transparent;
             this.btnStock.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnStock.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnStock.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -260,7 +232,7 @@ namespace PBL3.View
             this.btnStock.ForeColor = System.Drawing.Color.White;
             this.btnStock.Image = global::PBL3.Properties.Resources.stock;
             this.btnStock.ImageOffset = new System.Drawing.Point(-10, 0);
-            this.btnStock.Location = new System.Drawing.Point(0, 184);
+            this.btnStock.Location = new System.Drawing.Point(0, 204);
             this.btnStock.Name = "btnStock";
             this.btnStock.PressedColor = System.Drawing.Color.White;
             this.btnStock.PressedDepth = 20;
@@ -272,6 +244,7 @@ namespace PBL3.View
             // 
             // btnBill
             // 
+            this.btnBill.BackColor = System.Drawing.Color.Transparent;
             this.btnBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -282,7 +255,7 @@ namespace PBL3.View
             this.btnBill.ForeColor = System.Drawing.Color.White;
             this.btnBill.Image = global::PBL3.Properties.Resources.bill;
             this.btnBill.ImageOffset = new System.Drawing.Point(-15, 0);
-            this.btnBill.Location = new System.Drawing.Point(0, 138);
+            this.btnBill.Location = new System.Drawing.Point(0, 158);
             this.btnBill.Name = "btnBill";
             this.btnBill.PressedColor = System.Drawing.Color.White;
             this.btnBill.PressedDepth = 20;
@@ -294,6 +267,7 @@ namespace PBL3.View
             // 
             // btnCustomer
             // 
+            this.btnCustomer.BackColor = System.Drawing.Color.Transparent;
             this.btnCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -304,7 +278,7 @@ namespace PBL3.View
             this.btnCustomer.ForeColor = System.Drawing.Color.White;
             this.btnCustomer.Image = global::PBL3.Properties.Resources.customer;
             this.btnCustomer.ImageOffset = new System.Drawing.Point(-2, 0);
-            this.btnCustomer.Location = new System.Drawing.Point(0, 92);
+            this.btnCustomer.Location = new System.Drawing.Point(0, 112);
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.PressedColor = System.Drawing.Color.White;
             this.btnCustomer.PressedDepth = 20;
@@ -315,6 +289,7 @@ namespace PBL3.View
             // 
             // btnProduct
             // 
+            this.btnProduct.BackColor = System.Drawing.Color.Transparent;
             this.btnProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -325,7 +300,7 @@ namespace PBL3.View
             this.btnProduct.ForeColor = System.Drawing.Color.White;
             this.btnProduct.Image = global::PBL3.Properties.Resources.bookIcon;
             this.btnProduct.ImageOffset = new System.Drawing.Point(-5, 0);
-            this.btnProduct.Location = new System.Drawing.Point(0, 46);
+            this.btnProduct.Location = new System.Drawing.Point(0, 66);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.PressedColor = System.Drawing.Color.White;
             this.btnProduct.PressedDepth = 20;
@@ -337,6 +312,7 @@ namespace PBL3.View
             // 
             // btnOverview
             // 
+            this.btnOverview.BackColor = System.Drawing.Color.Transparent;
             this.btnOverview.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnOverview.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnOverview.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -347,7 +323,7 @@ namespace PBL3.View
             this.btnOverview.ForeColor = System.Drawing.Color.White;
             this.btnOverview.Image = global::PBL3.Properties.Resources.overview;
             this.btnOverview.ImageOffset = new System.Drawing.Point(-2, 0);
-            this.btnOverview.Location = new System.Drawing.Point(0, 0);
+            this.btnOverview.Location = new System.Drawing.Point(0, 20);
             this.btnOverview.Name = "btnOverview";
             this.btnOverview.PressedColor = System.Drawing.Color.White;
             this.btnOverview.PressedDepth = 20;
@@ -356,15 +332,30 @@ namespace PBL3.View
             this.btnOverview.Text = "Overview";
             this.btnOverview.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // pnLeft
+            // pnMenu
             // 
-            this.pnLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.pnLeft.Controls.Add(this.guna2GradientPanel5);
-            this.pnLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnLeft.Location = new System.Drawing.Point(0, 60);
-            this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(140, 471);
-            this.pnLeft.TabIndex = 3;
+            this.pnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
+            this.pnMenu.BorderRadius = 25;
+            this.pnMenu.Controls.Add(this.btnRevenue);
+            this.pnMenu.Controls.Add(this.btnAccount);
+            this.pnMenu.Controls.Add(this.btnDiscount);
+            this.pnMenu.Controls.Add(this.btnStock);
+            this.pnMenu.Controls.Add(this.btnBill);
+            this.pnMenu.Controls.Add(this.btnCustomer);
+            this.pnMenu.Controls.Add(this.btnProduct);
+            this.pnMenu.Controls.Add(this.btnOverview);
+            this.pnMenu.CustomizableEdges.BottomLeft = false;
+            this.pnMenu.CustomizableEdges.BottomRight = false;
+            this.pnMenu.CustomizableEdges.TopLeft = false;
+            this.pnMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnMenu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(224)))), ((int)(((byte)(239)))));
+            this.pnMenu.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
+            this.pnMenu.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.pnMenu.Location = new System.Drawing.Point(0, 60);
+            this.pnMenu.Name = "pnMenu";
+            this.pnMenu.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pnMenu.Size = new System.Drawing.Size(140, 471);
+            this.pnMenu.TabIndex = 1;
             // 
             // AdminForm
             // 
@@ -373,17 +364,16 @@ namespace PBL3.View
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(914, 531);
             this.Controls.Add(this.pnRight);
-            this.Controls.Add(this.pnLeft);
+            this.Controls.Add(this.pnMenu);
             this.Controls.Add(this.pnTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminForm";
             this.Text = "Admin";
             this.pnTop.ResumeLayout(false);
             this.pnTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            this.guna2GradientPanel5.ResumeLayout(false);
             this.pnMenu.ResumeLayout(false);
-            this.pnLeft.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -395,11 +385,8 @@ namespace PBL3.View
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2ImageButton btnSettings;
         private Guna.UI2.WinForms.Guna2ImageButton btnLogout;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel5;
-        private Guna.UI2.WinForms.Guna2Panel pnMenu;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbDate;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2Panel pnLeft;
         private Guna.UI2.WinForms.Guna2Button btnRevenue;
         private Guna.UI2.WinForms.Guna2Button btnAccount;
         private Guna.UI2.WinForms.Guna2Button btnDiscount;
@@ -408,6 +395,7 @@ namespace PBL3.View
         private Guna.UI2.WinForms.Guna2Button btnCustomer;
         private Guna.UI2.WinForms.Guna2Button btnOverview;
         private Guna.UI2.WinForms.Guna2Button btnProduct;
+        private Guna.UI2.WinForms.Guna2GradientPanel pnMenu;
     }
 }
 

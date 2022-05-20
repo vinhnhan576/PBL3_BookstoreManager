@@ -77,7 +77,7 @@ namespace PBL3.View
                     }
                     else
                     {
-                        CustomMessageBox.MessageBox.Show("Wrong password", "Wrong input");
+                        CustomMessageBox.MessageBox.Show("Wrong password", "Wrong input", MessageBoxIcon.Error);
                         tbPassword.Text = "";
                         tbPassword.Focus();
                         break;
@@ -87,7 +87,7 @@ namespace PBL3.View
             if(!usernameExist)
             {
                 tbPassword.Text = "";
-                CustomMessageBox.MessageBox.Show("Account username doesn't exist", "Wrong input");
+                CustomMessageBox.MessageBox.Show("Account username doesn't exist", "Wrong input", MessageBoxIcon.Error);
                 tbUsername.Focus();
             }
         }
@@ -100,9 +100,9 @@ namespace PBL3.View
 
         private void lbForgotPassword_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            //this.Visible = false;
             new ForgotPasswordForm().ShowDialog();
-            this.Visible = true;
+            //this.Visible = true;
         }
 
         private void tbUsername_Enter(object sender, EventArgs e)

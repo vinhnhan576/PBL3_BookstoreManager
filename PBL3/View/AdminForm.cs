@@ -110,15 +110,6 @@ namespace PBL3.View
             openChildForm(new AdminChildForms.RevenueForm(), sender);
         }
 
-        private void guna2ImageButton2_Click(object sender, EventArgs e)
-        {
-            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo);
-            if(result == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
         private void btnSettings_Click(object sender, EventArgs e)
         {
             SettingsForms.SettingsForm childForm = new SettingsForms.SettingsForm(account);
@@ -133,6 +124,15 @@ namespace PBL3.View
             this.pnRight.Controls.Add(childForm);
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

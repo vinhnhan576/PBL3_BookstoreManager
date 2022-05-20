@@ -124,17 +124,14 @@
   <data name="questionVector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\questionVector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hidePassword" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hidePassword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Login img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_search_60" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-search-60.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="manageOrder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\manageOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Forgot password" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Forgot password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,23 +154,23 @@
   <data name="upIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\upIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="adminVector" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\adminVector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="newOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\newOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="customer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\customer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="salesmanVector1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salesmanVector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="stockkeeperVector" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stockkeeperVector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sales" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Reading book-rafiki (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reading book-rafiki (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="warningVetor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\warningVetor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,14 +184,17 @@
   <data name="bookIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bookIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="return" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\return.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="filterIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filterIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Reading book-rafiki" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reading book-rafiki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\filter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="manageOrder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\manageOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="newOrder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="showPassword" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\showPassword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,11 +202,20 @@
   <data name="errorVector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\errorVector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconRefresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconRefresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="revenue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\revenue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="salesmanVector1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salesmanVector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconStore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconStore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-close-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-close-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="infoIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\infoIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="stock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,8 +223,8 @@
   <data name="bill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="newOrder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\newOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="warningVetor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warningVetor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="seePassword" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\seePassword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,8 +232,8 @@
   <data name="overview icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\overview icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="filterIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\filterIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="manageBooks" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\manageBooks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,8 +244,8 @@
   <data name="infoVector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\infoVector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="infoIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\infoIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_search_60" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-search-60.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="salesmanVector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\salesmanVector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,8 +253,8 @@
   <data name="infoVector2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\infoVector2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="revenue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\revenue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconRefresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconRefresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="side" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\side.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,8 +268,8 @@
   <data name="iconClose" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconClose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="return" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\return.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hidePassword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hidePassword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="overview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\overview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -268,7 +277,7 @@
   <data name="manageOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\manageOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="adminVector" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\adminVector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="stockkeeperVector2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stockkeeperVector2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

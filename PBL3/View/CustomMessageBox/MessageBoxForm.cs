@@ -69,6 +69,7 @@ namespace PBL3.View.CustomMessageBox
         private void InitializeGUI()
         {
             this.btnClose.DialogResult = DialogResult.Cancel;
+            this.btn1.DialogResult = DialogResult.OK;
             this.btn1.Visible = false;
             this.btn2.Visible = false;
         }
@@ -88,26 +89,31 @@ namespace PBL3.View.CustomMessageBox
                     btn1.Visible = true;
                     btn1.Text = "OK";
                     btn1.DialogResult = DialogResult.OK;
+                    SetDefaultButton(defaultButton);
 
                     break;
                 case MessageBoxButtons.OKCancel:
                     btn1.Visible = true;
-                    btn1.Text = "OK";
-                    btn1.DialogResult = DialogResult.OK;
+                    btn1.Text = "Cancel";
+                    btn1.DialogResult = DialogResult.Cancel;
 
                     btn2.Visible = true;
-                    btn2.Text = "Cancel";
-                    btn2.DialogResult = DialogResult.Cancel;
+                    btn2.Text = "OK";
+                    btn2.DialogResult = DialogResult.OK;
+
+                    SetDefaultButton(defaultButton);
 
                     break;
                 case MessageBoxButtons.YesNo:
                     btn1.Visible = true;
-                    btn1.Text = "Yes";
-                    btn1.DialogResult = DialogResult.Yes;
+                    btn1.Text = "No";
+                    btn1.DialogResult = DialogResult.No;
 
                     btn2.Visible = true;
-                    btn2.Text = "No";
-                    btn2.DialogResult = DialogResult.No;
+                    btn2.Text = "Yes";
+                    btn2.DialogResult = DialogResult.Yes;
+
+                    SetDefaultButton(defaultButton);
 
                     break;
                 //case MessageBoxButtons.YesNoCancel:
@@ -150,13 +156,41 @@ namespace PBL3.View.CustomMessageBox
                     this.pbIcon.SizeMode = PictureBoxSizeMode.Zoom;
 
                     break;
-                default:
+            }
+        }
+
+        private void SetDefaultButton(MessageBoxDefaultButton defaultButton)
+        {
+            switch (defaultButton)
+            {
+                case MessageBoxDefaultButton.Button1://Focus button 1
+                    btn1.Select();
+                    btn1.ForeColor = Color.White;
+                    btn1.Font = new Font(btn1.Font, FontStyle.Underline);
+                    break;
+                case MessageBoxDefaultButton.Button2://Focus button 2
+                    btn2.Select();
+                    btn2.ForeColor = Color.White;
+                    btn2.Font = new Font(btn2.Font, FontStyle.Underline);
                     break;
             }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = ((Guna.UI2.WinForms.Guna2Button)sender).DialogResult;
+            this.Close();
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = ((Guna.UI2.WinForms.Guna2Button)sender).DialogResult;
             this.Close();
         }
     }

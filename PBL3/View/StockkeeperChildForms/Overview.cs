@@ -22,7 +22,12 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void InitializeGUI()
         {
-
+            lbName.Text = person.PersonName;
+            lbRole.Text = person.Role;
+            lbGender.Text = (person.Gender ? "Male" : "Female");
+            lbTel.Text = person.PhoneNumber.Trim();
+            lbAddress.Text = person.Address;
+            lbEmail.Text = (person.Email != null) ? person.Email : "N/A";
         }
     }
 }

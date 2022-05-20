@@ -73,50 +73,6 @@ namespace PBL3.View
             openChildForm(new ManageOrder(), sender);
         }
 
-        private void guna2ImageButton2_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
-        private void pnLeft_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbDate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2GradientPanel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnSettings_Click(object sender, EventArgs e)
         {
             SettingsForms.SettingsForm childForm = new SettingsForms.SettingsForm(account);
@@ -133,9 +89,18 @@ namespace PBL3.View
             childForm.Show();
         }
 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
         private void disableButton()
         {
-            foreach (Control prevButton in pnMenu.Controls)
+            foreach (Control prevButton in pnLeft.Controls)
             {
                 if (prevButton.GetType() == typeof(Guna.UI2.WinForms.Guna2Button))
                 {

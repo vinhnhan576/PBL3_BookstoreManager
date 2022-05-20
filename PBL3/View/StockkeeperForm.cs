@@ -74,7 +74,11 @@ namespace PBL3.View
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
@@ -91,6 +95,11 @@ namespace PBL3.View
             this.pnRight.Controls.Add(childForm);
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void btnStoreImport_Click(object sender, EventArgs e)
+        {
+            openChildForm(new StockkeeperChildForms.ImportStore(), sender);
         }
 
         private void disableButton()

@@ -149,7 +149,7 @@
             this.btn2.Size = new System.Drawing.Size(110, 32);
             this.btn2.TabIndex = 1;
             this.btn2.Text = "button 2";
-            this.btn2.Click += new System.EventHandler(this.btnClose_Click);
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btn1
             // 
@@ -166,7 +166,7 @@
             this.btn1.Size = new System.Drawing.Size(110, 32);
             this.btn1.TabIndex = 0;
             this.btn1.Text = "button 1";
-            this.btn1.Click += new System.EventHandler(this.btnClose_Click);
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // pnLeft
             // 
