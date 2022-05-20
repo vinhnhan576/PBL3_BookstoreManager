@@ -31,6 +31,8 @@ namespace PBL3.View.StaffChildForms
             customer.CustomerName = CustomerNametxt.Text;
             customer.PhoneNumber = Teltxt.Text;
             customer.TotalSpending = 0;
+            customer.RankID = "r00";
+            customer.Used = 0;
             BLLCustomerManagement.Instance.AddNewCustomer(customer);
             d(Teltxt.Text);
             int idtemp1 = QLSPEntities.Instance.Customers.Count() + 1;

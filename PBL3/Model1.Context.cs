@@ -15,16 +15,16 @@ namespace PBL3
     
     public partial class QLSPEntities : DbContext
     {
-        private static QLSPEntities instance;
+        private static QLSPEntities _instance;
         public static QLSPEntities Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = new QLSPEntities();
+                    _instance = new QLSPEntities();
                 }
-                return instance;
+                return _instance;
             }
             private set
             {
@@ -42,17 +42,17 @@ namespace PBL3
         }
     
         public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Discount> Discounts { get; set; }
         public virtual DbSet<Person> People { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Rank> Ranks { get; set; }
         public virtual DbSet<Receipt> Receipts { get; set; }
         public virtual DbSet<Receipt_Detail> Receipt_Details { get; set; }
-        public virtual DbSet<Restock> Restocks { get; set; }
         public virtual DbSet<RestockDetail> RestockDetails { get; set; }
         public virtual DbSet<Revenue> Revenues { get; set; }
         public virtual DbSet<Store_Import> Store_Imports { get; set; }
         public virtual DbSet<StoreImportDetail> StoreImportDetails { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Rank> Ranks { get; set; }
+        public virtual DbSet<Restock> Restocks { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
     }
 }

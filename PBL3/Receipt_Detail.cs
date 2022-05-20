@@ -26,9 +26,9 @@ namespace PBL3
         public Nullable<double> Total { get; set; }
         public string ReceiptID { get; set; }
     
-        public virtual Product Product { get; set; }
         public virtual Receipt Receipt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Revenue> Revenues { get; set; }
+        public virtual Product Product { get; set; }
     }
 }
