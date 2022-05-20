@@ -40,5 +40,8 @@ namespace PBL3.BLL
             var discountList = QLSPEntities.Instance.Discounts.Select(p => new { p.DiscountName, p.DiscountType, p.Amount, p.StartingDate, p.ExpirationDate });
             return discountList.ToList();
         }
+
+        
+        
     }
 }

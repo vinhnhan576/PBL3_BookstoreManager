@@ -5,15 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="19a1b295220d44899fbf6d59dad2e19f" Name="Diagram1" ZoomLevel="82">
-        <EntityTypeShape EntityType="QLSPModel.Customer" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLSPModel.Discount" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QLSPModel.Product" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLSPModel.Rank" Width="1.5" PointX="1.5" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QLSPModel.Receipt" Width="1.5" PointX="3.125" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QLSPModel.Receipt_Detail" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QLSPModel.Revenue" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
-        <AssociationConnector Association="QLSPModel.FK_Customer_Rank" ManuallyRouted="false" />
-        <AssociationConnector Association="QLSPModel.FK_Receipt_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="QLSPModel.FK_Product_Discount" ManuallyRouted="false" />
         <AssociationConnector Association="QLSPModel.FK_Receipt_Detail_Product" ManuallyRouted="false" />
         <AssociationConnector Association="QLSPModel.FK_Receipt_Detail_Receipt" ManuallyRouted="false" />
@@ -30,6 +26,10 @@
         <EntityTypeShape EntityType="QLSPModel.Person" Width="1.5" PointX="0.75" PointY="10.5" />
         <AssociationConnector Association="QLSPModel.FK_Account_Person" />
         <AssociationConnector Association="QLSPModel.FK_Receipt_Person" />
+        <EntityTypeShape EntityType="QLSPModel.Customer" Width="1.5" PointX="7.625" PointY="1" />
+        <EntityTypeShape EntityType="QLSPModel.Rank" Width="1.5" PointX="5.375" PointY="1.125" />
+        <AssociationConnector Association="QLSPModel.FK_Customer_Rank" />
+        <AssociationConnector Association="QLSPModel.FK_Receipt_Customer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

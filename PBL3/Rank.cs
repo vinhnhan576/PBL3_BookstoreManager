@@ -23,7 +23,7 @@ namespace PBL3
         public string RankID { get; set; }
         public string RankName { get; set; }
         public double Requirement { get; set; }
-        public string CustomerDiscount___ { get; set; }
+        public double CustomerDiscount___ { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer> Customers { get; set; }

@@ -22,6 +22,7 @@
           <Property Name="PhoneNumber" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="RankID" Type="nchar" MaxLength="10" />
           <Property Name="TotalSpending" Type="float" />
+          <Property Name="Used" Type="int" />
         </EntityType>
         <EntityType Name="Discount">
           <Key>
@@ -69,7 +70,7 @@
           <Property Name="RankID" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="RankName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Requirement" Type="float" Nullable="false" />
-          <Property Name="CustomerDiscount(%)" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomerDiscount(%)" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Receipt">
           <Key>
@@ -348,18 +349,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLSPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="CustomerID" />
-          </Key>
-          <Property Name="CustomerID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="RankID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Rank" Relationship="Self.FK_Customer_Rank" FromRole="Customer" ToRole="Rank" />
-          <NavigationProperty Name="Receipts" Relationship="Self.FK_Receipt_Customer" FromRole="Customer" ToRole="Receipt" />
-          <Property Name="TotalSpending" Type="Double" />
-        </EntityType>
         <EntityType Name="Discount">
           <Key>
             <PropertyRef Name="DiscountID" />
@@ -392,16 +381,6 @@
           <NavigationProperty Name="RestockDetails" Relationship="QLSPModel.FK_RestockDetail_Product" FromRole="Product" ToRole="RestockDetail" />
           <NavigationProperty Name="StoreImportDetails" Relationship="QLSPModel.FK_StoreImportDetail_Product" FromRole="Product" ToRole="StoreImportDetail" />
         </EntityType>
-        <EntityType Name="Rank">
-          <Key>
-            <PropertyRef Name="RankID" />
-          </Key>
-          <Property Name="RankID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="RankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Requirement" Type="Double" Nullable="false" />
-          <Property Name="CustomerDiscount___" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Rank" FromRole="Rank" ToRole="Customer" />
-        </EntityType>
         <EntityType Name="Receipt">
           <Key>
             <PropertyRef Name="ReceiptID" />
@@ -411,10 +390,10 @@
           <Property Name="Total" Type="Double" />
           <Property Name="PersonID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="CustomerID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_Receipt_Customer" FromRole="Receipt" ToRole="Customer" />
           <NavigationProperty Name="Receipt_Detail" Relationship="Self.FK_Receipt_Detail_Receipt" FromRole="Receipt" ToRole="Receipt_Detail" />
           <Property Name="Status" Type="Boolean" />
           <NavigationProperty Name="Person" Relationship="QLSPModel.FK_Receipt_Person" FromRole="Receipt" ToRole="Person" />
+          <NavigationProperty Name="Customer" Relationship="QLSPModel.FK_Receipt_Customer" FromRole="Receipt" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Receipt_Detail">
           <Key>
@@ -440,30 +419,6 @@
           <Property Name="Profit" Type="Double" />
           <NavigationProperty Name="Receipt_Detail" Relationship="Self.FK_Revenue_Receipt_Detail" FromRole="Revenue" ToRole="Receipt_Detail" />
         </EntityType>
-        <Association Name="FK_Customer_Rank">
-          <End Role="Rank" Type="Self.Rank" Multiplicity="0..1" />
-          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Rank">
-              <PropertyRef Name="RankID" />
-            </Principal>
-            <Dependent Role="Customer">
-              <PropertyRef Name="RankID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Receipt_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="Receipt">
-              <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Product_Discount">
           <End Role="Discount" Type="Self.Discount" Multiplicity="0..1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
@@ -513,21 +468,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QLSPEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Discounts" EntityType="Self.Discount" />
           <EntitySet Name="Products" EntityType="Self.Product" />
-          <EntitySet Name="Ranks" EntityType="Self.Rank" />
           <EntitySet Name="Receipts" EntityType="Self.Receipt" />
           <EntitySet Name="Receipt_Details" EntityType="Self.Receipt_Detail" />
           <EntitySet Name="Revenues" EntityType="Self.Revenue" />
-          <AssociationSet Name="FK_Customer_Rank" Association="Self.FK_Customer_Rank">
-            <End Role="Rank" EntitySet="Ranks" />
-            <End Role="Customer" EntitySet="Customers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Receipt_Customer" Association="Self.FK_Receipt_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Receipt" EntitySet="Receipts" />
-          </AssociationSet>
           <AssociationSet Name="FK_Product_Discount" Association="Self.FK_Product_Discount">
             <End Role="Discount" EntitySet="Discounts" />
             <End Role="Product" EntitySet="Products" />
@@ -572,6 +517,16 @@
           </AssociationSet>
           <AssociationSet Name="FK_Receipt_Person" Association="QLSPModel.FK_Receipt_Person">
             <End Role="Person" EntitySet="People" />
+            <End Role="Receipt" EntitySet="Receipts" />
+          </AssociationSet>
+          <EntitySet Name="Customers" EntityType="QLSPModel.Customer" />
+          <EntitySet Name="Ranks" EntityType="QLSPModel.Rank" />
+          <AssociationSet Name="FK_Customer_Rank" Association="QLSPModel.FK_Customer_Rank">
+            <End Role="Rank" EntitySet="Ranks" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receipt_Customer" Association="QLSPModel.FK_Receipt_Customer">
+            <End Role="Customer" EntitySet="Customers" />
             <End Role="Receipt" EntitySet="Receipts" />
           </AssociationSet>
         </EntityContainer>
@@ -711,23 +666,59 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="RankID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TotalSpending" Type="Double" />
+          <NavigationProperty Name="Rank" Relationship="QLSPModel.FK_Customer_Rank" FromRole="Customer" ToRole="Rank" />
+          <NavigationProperty Name="Receipts" Relationship="QLSPModel.FK_Receipt_Customer" FromRole="Customer" ToRole="Receipt" />
+          <Property Name="Used" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Rank">
+          <Key>
+            <PropertyRef Name="RankID" />
+          </Key>
+          <Property Name="RankID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="RankName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Requirement" Type="Double" Nullable="false" />
+          <Property Name="CustomerDiscount___" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="QLSPModel.FK_Customer_Rank" FromRole="Rank" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_Customer_Rank">
+          <End Type="QLSPModel.Rank" Role="Rank" Multiplicity="0..1" />
+          <End Type="QLSPModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rank">
+              <PropertyRef Name="RankID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="RankID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receipt_Customer">
+          <End Type="QLSPModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="QLSPModel.Receipt" Role="Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QLSPModelStoreContainer" CdmEntityContainer="QLSPEntities">
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="QLSPModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="TotalSpending" ColumnName="TotalSpending" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="RankID" ColumnName="RankID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Discounts">
             <EntityTypeMapping TypeName="QLSPModel.Discount">
               <MappingFragment StoreEntitySet="Discount">
@@ -754,16 +745,6 @@
                 <ScalarProperty Name="DiscountID" ColumnName="DiscountID" />
                 <ScalarProperty Name="StockQuantity" ColumnName="StockQuantity" />
                 <ScalarProperty Name="StoreQuantity" ColumnName="StoreQuantity" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Ranks">
-            <EntityTypeMapping TypeName="QLSPModel.Rank">
-              <MappingFragment StoreEntitySet="Rank">
-                <ScalarProperty Name="RankID" ColumnName="RankID" />
-                <ScalarProperty Name="RankName" ColumnName="RankName" />
-                <ScalarProperty Name="Requirement" ColumnName="Requirement" />
-                <ScalarProperty Name="CustomerDiscount___" ColumnName="CustomerDiscount(%)" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -859,6 +840,28 @@
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="PersonName" ColumnName="PersonName" />
                 <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="QLSPModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Used" ColumnName="Used" />
+                <ScalarProperty Name="TotalSpending" ColumnName="TotalSpending" />
+                <ScalarProperty Name="RankID" ColumnName="RankID" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ranks">
+            <EntityTypeMapping TypeName="QLSPModel.Rank">
+              <MappingFragment StoreEntitySet="Rank">
+                <ScalarProperty Name="CustomerDiscount___" ColumnName="CustomerDiscount(%)" />
+                <ScalarProperty Name="Requirement" ColumnName="Requirement" />
+                <ScalarProperty Name="RankName" ColumnName="RankName" />
+                <ScalarProperty Name="RankID" ColumnName="RankID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

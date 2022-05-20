@@ -66,7 +66,7 @@ namespace PBL3.View.StaffChildForms
             this.label5 = new System.Windows.Forms.Label();
             this.rdDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label11 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.discounttxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -715,31 +715,31 @@ namespace PBL3.View.StaffChildForms
             this.label11.TabIndex = 30;
             this.label11.Text = "Discount(%)";
             // 
-            // guna2TextBox1
+            // discounttxt
             // 
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
-            this.guna2TextBox1.BorderRadius = 9;
-            this.guna2TextBox1.BorderThickness = 0;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Arial Narrow", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.IconLeftSize = new System.Drawing.Size(0, 0);
-            this.guna2TextBox1.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.guna2TextBox1.IconRightSize = new System.Drawing.Size(23, 23);
-            this.guna2TextBox1.Location = new System.Drawing.Point(218, 606);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(178, 34);
-            this.guna2TextBox1.TabIndex = 31;
+            this.discounttxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.discounttxt.BorderRadius = 9;
+            this.discounttxt.BorderThickness = 0;
+            this.discounttxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.discounttxt.DefaultText = "";
+            this.discounttxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.discounttxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.discounttxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.discounttxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.discounttxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.discounttxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.discounttxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.discounttxt.IconLeftSize = new System.Drawing.Size(0, 0);
+            this.discounttxt.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.discounttxt.IconRightSize = new System.Drawing.Size(23, 23);
+            this.discounttxt.Location = new System.Drawing.Point(218, 606);
+            this.discounttxt.Margin = new System.Windows.Forms.Padding(2);
+            this.discounttxt.Name = "discounttxt";
+            this.discounttxt.PasswordChar = '\0';
+            this.discounttxt.PlaceholderText = "";
+            this.discounttxt.SelectedText = "";
+            this.discounttxt.Size = new System.Drawing.Size(178, 34);
+            this.discounttxt.TabIndex = 31;
             // 
             // NewOrder
             // 
@@ -747,7 +747,7 @@ namespace PBL3.View.StaffChildForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(1116, 702);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.discounttxt);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.rdDataGridView);
             this.Controls.Add(this.label5);
@@ -809,6 +809,6 @@ namespace PBL3.View.StaffChildForms
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox CustomerTeltxt;
         private System.Windows.Forms.Label label11;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox discounttxt;
     }
 }

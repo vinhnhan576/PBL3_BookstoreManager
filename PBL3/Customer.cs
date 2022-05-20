@@ -25,9 +25,20 @@ namespace PBL3
         public string PhoneNumber { get; set; }
         public string RankID { get; set; }
         public Nullable<double> TotalSpending { get; set; }
+        public Nullable<int> Used { get; set; }
     
         public virtual Rank Rank { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Receipt> Receipts { get; set; }
+        public bool IsValidDiscount(int used=2)
+        {
+            if (this.Used<used)
+            {
+                //Discount Rank 
+                return true;
+            }
+            return false;
+        }
+       
     }
 }

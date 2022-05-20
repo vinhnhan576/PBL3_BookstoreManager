@@ -18,7 +18,7 @@ namespace PBL3
         public string RestockID { get; set; }
         public string ProductID { get; set; }
         public int ImportQuantity { get; set; }
-        public double ImportPrice { get; set; }
+        public Nullable<double> ImportPrice { get; set; }
         public Nullable<double> Total { get; set; }
     
         public virtual Product Product { get; set; }
