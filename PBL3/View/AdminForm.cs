@@ -20,7 +20,7 @@ namespace PBL3.View
         {
             InitializeComponent();
             account = acc;
-            AdminChildForms.OverviewForm overviewForm = new AdminChildForms.OverviewForm();
+            AdminChildForms.OverviewForm overviewForm = new AdminChildForms.OverviewForm(account.Person);
             overviewForm.TopLevel = false;
             overviewForm.FormBorderStyle = FormBorderStyle.None;
             overviewForm.Dock = DockStyle.Fill;
@@ -112,7 +112,7 @@ namespace PBL3.View
 
         private void guna2ImageButton2_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo);
+            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo);
             if(result == DialogResult.Yes)
             {
                 this.Close();
@@ -121,7 +121,7 @@ namespace PBL3.View
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            AdminChildForms.SettingsForms.SettingsForm childForm = new AdminChildForms.SettingsForms.SettingsForm(account);
+            SettingsForms.SettingsForm childForm = new SettingsForms.SettingsForm(account);
             if (activeForm != null)
             {
                 activeForm.Close();
@@ -137,7 +137,7 @@ namespace PBL3.View
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            openChildForm(new AdminChildForms.OverviewForm(), sender);
+            openChildForm(new AdminChildForms.OverviewForm(account.Person), sender);
         }
     }
 }

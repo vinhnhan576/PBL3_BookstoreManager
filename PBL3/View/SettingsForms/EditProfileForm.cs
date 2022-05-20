@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
 
-namespace PBL3.View.AdminChildForms.SettingsForms
+namespace PBL3.View.SettingsForms
 {
     public partial class EditProfileForm : Form
     {

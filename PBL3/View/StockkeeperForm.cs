@@ -20,7 +20,7 @@ namespace PBL3.View
         {
             InitializeComponent();
             account = acc;
-            StaffChildForms.Overview overviewForm = new StaffChildForms.Overview();
+            StockkeeperChildForms.Overview overviewForm = new StockkeeperChildForms.Overview(account.Person);
             overviewForm.TopLevel = false;
             overviewForm.FormBorderStyle = FormBorderStyle.None;
             overviewForm.Dock = DockStyle.Fill;
@@ -46,7 +46,7 @@ namespace PBL3.View
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            openChildForm(new StockkeeperChildForms.Overview(), sender);
+            openChildForm(new StockkeeperChildForms.Overview(account.Person), sender);
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -75,6 +75,22 @@ namespace PBL3.View
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForms.SettingsForm childForm = new SettingsForms.SettingsForm(account);
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.pnRight.Controls.Add(childForm);
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         private void disableButton()

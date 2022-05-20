@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PBL3.DTO;
 
 namespace PBL3.BLL
 {
@@ -40,6 +41,21 @@ namespace PBL3.BLL
             var revenues = QLSPEntities.Instance.Revenues.Select(p => new {
                 p.Receipt_Detail.Receipt.Date, p.Receipt_Detail.Receipt.Person.PersonName, p.Expenses, p.GrossRevenue, p.Profit });
             return revenues.ToList();
+        }
+
+        public dynamic GetAllRevenue_Chart_View()
+        {
+            List<RevenueChartView> revenues = new List<RevenueChartView>();
+            foreach (Revenue i in QLSPEntities.Instance.Revenues.Select(p => p).ToList())
+            {
+                RevenueChartView rcv = new RevenueChartView
+                {
+                    date = i.Receipt_Detail.Receipt.Date,
+                    grossRevenue = i.GrossRevenue,
+                };
+                revenues.Add(rcv);
+            }
+            return revenues;
         }
 
         public void AddRevenue(string recieptDetailID, double expenses, double grossrevenue, double profit)

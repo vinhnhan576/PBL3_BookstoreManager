@@ -17,7 +17,7 @@ namespace PBL3
         public string RevenueID { get; set; }
         public string ReceiptDetailID { get; set; }
         public Nullable<double> Expenses { get; set; }
-        public Nullable<double> GrossRevenue { get; set; }
+        public double GrossRevenue { get; set; }
         public Nullable<double> Profit { get; set; }
     
         public virtual Receipt_Detail Receipt_Detail { get; set; }

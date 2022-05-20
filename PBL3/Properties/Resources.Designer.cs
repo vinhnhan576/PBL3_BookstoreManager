@@ -83,6 +83,16 @@ namespace PBL3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap adminVector {
+            get {
+                object obj = ResourceManager.GetObject("adminVector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bill {
             get {
                 object obj = ResourceManager.GetObject("bill", resourceCulture);
@@ -436,6 +446,26 @@ namespace PBL3.Properties {
         internal static System.Drawing.Bitmap salesIcon {
             get {
                 object obj = ResourceManager.GetObject("salesIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap salesmanVector {
+            get {
+                object obj = ResourceManager.GetObject("salesmanVector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap salesmanVector1 {
+            get {
+                object obj = ResourceManager.GetObject("salesmanVector1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
