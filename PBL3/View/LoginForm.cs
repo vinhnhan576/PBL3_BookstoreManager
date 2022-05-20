@@ -77,7 +77,7 @@ namespace PBL3.View
                     }
                     else
                     {
-                        MessageBox.Show("Wrong password");
+                        CustomMessageBox.MessageBox.Show("Wrong password", "Wrong input");
                         tbPassword.Text = "";
                         tbPassword.Focus();
                         break;
@@ -87,7 +87,7 @@ namespace PBL3.View
             if(!usernameExist)
             {
                 tbPassword.Text = "";
-                MessageBox.Show("Account username doesn't exist");
+                CustomMessageBox.MessageBox.Show("Account username doesn't exist", "Wrong input");
                 tbUsername.Focus();
             }
         }
@@ -108,6 +108,11 @@ namespace PBL3.View
         private void tbUsername_Enter(object sender, EventArgs e)
         {
             this.AcceptButton = btnSignIn;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

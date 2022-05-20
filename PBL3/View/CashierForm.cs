@@ -13,13 +13,15 @@ namespace PBL3.View
 {
     public partial class CashierForm : Form
     {
+        Account account;
         private Form activeForm;
         private Guna.UI2.WinForms.Guna2Button currentButton, prevButton;
 
         public CashierForm(Account acc)
         {
             InitializeComponent();
-           Overview overviewForm = new Overview();
+            account = acc;
+            Overview overviewForm = new Overview(account.Person);
             overviewForm.TopLevel = false;
             overviewForm.FormBorderStyle = FormBorderStyle.None;
             overviewForm.Dock = DockStyle.Fill;
@@ -58,7 +60,7 @@ namespace PBL3.View
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            openChildForm(new Overview(), sender);
+            openChildForm(new Overview(account.Person), sender);
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -113,6 +115,22 @@ namespace PBL3.View
         private void guna2GradientPanel5_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForms.SettingsForm childForm = new SettingsForms.SettingsForm(account);
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.pnRight.Controls.Add(childForm);
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         private void disableButton()
