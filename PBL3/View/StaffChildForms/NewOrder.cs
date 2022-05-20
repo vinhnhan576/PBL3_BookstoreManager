@@ -84,10 +84,10 @@ namespace PBL3.View.StaffChildForms
         {
             Customer customer = BLLCustomerManagement.Instance.getCustomerID(CustomerTeltxt.Text.Trim());
             double total = Convert.ToDouble(Totaltxt.Text);
-            total = total - customer.Rank.CustomerDiscount___;
+            total = total - customer.Rank.CustomerDiscount;
             if (customer.IsValidDiscount(2) == true&&customer.RankID!="r00")
             {
-                string message = "You have " + (2 - customer.Used) + " voucher " + customer.Rank.CustomerDiscount___ + "VND" +
+                string message = "You have " + (2 - customer.Used) + " voucher " + customer.Rank.CustomerDiscount + "VND" +
                 "\nYour total after using this discount: " + total +
                 "\nDo you want to get a discount?";
                 string title = "Notification";

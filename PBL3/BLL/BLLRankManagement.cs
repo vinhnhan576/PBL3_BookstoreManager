@@ -39,7 +39,7 @@ namespace PBL3.BLL
             {
                 if (total >= i.Requirement)
                 {
-                    discount = i.CustomerDiscount___;
+                    discount = i.CustomerDiscount;
                 }
 
             }
@@ -48,7 +48,7 @@ namespace PBL3.BLL
         public double GetTotalAfterDisount(string Rankid,double TotalBefore)
         {
             Rank rank = QLSPEntities.Instance.Ranks.Find(Rankid);
-            double TotalAfter = Convert.ToDouble(rank.CustomerDiscount___)/100 * TotalBefore;
+            double TotalAfter = Convert.ToDouble(rank.CustomerDiscount)/100 * TotalBefore;
             return TotalAfter;
         }
     }

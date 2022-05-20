@@ -18,7 +18,7 @@ namespace PBL3
         public Person()
         {
             this.Receipts = new HashSet<Receipt>();
-            this.RestockDetails = new HashSet<RestockDetail>();
+            this.Restocks = new HashSet<Restock>();
         }
     
         public string PersonID { get; set; }
@@ -33,6 +33,6 @@ namespace PBL3
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Receipt> Receipts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RestockDetail> RestockDetails { get; set; }
+        public virtual ICollection<Restock> Restocks { get; set; }
     }
 }

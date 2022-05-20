@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
 
-namespace PBL3.View.StaffChildForms
+namespace PBL3.View.AdminChildForms
 {
     public partial class BillForm : Form
     {
-        public BillForm()
+        public BillForm(Account acc)
         {
             InitializeComponent();
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();

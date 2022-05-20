@@ -51,7 +51,7 @@ namespace PBL3.BLL
                 RevenueChartView rcv = new RevenueChartView
                 {
                     date = i.Receipt_Detail.Receipt.Date,
-                    grossRevenue = i.GrossRevenue,
+                    grossRevenue = (double)i.GrossRevenue,
                 };
                 revenues.Add(rcv);
             }
