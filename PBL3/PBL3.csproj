@@ -84,7 +84,9 @@
     <Compile Include="DTO\Product_Price_View.cs" />
     <Compile Include="DTO\RandomGenerator.cs" />
     <Compile Include="DTO\ReceiptDetailView.cs" />
-    <Compile Include="DTO\ReStockView.cs" />
+    <Compile Include="DTO\RestockDetailView.cs" />
+	<Compile Include="DTO\StoreImportDetailView.cs" />
+    <Compile Include="DTO\RevenueChartView.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -178,23 +180,30 @@
     <Compile Include="View\AdminChildForms\ProductForms\UpdatePrice.Designer.cs">
       <DependentUpon>UpdatePrice.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.cs">
+    <Compile Include="View\SettingsForms\ChangePasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.Designer.cs">
+    <Compile Include="View\SettingsForms\ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\SettingsForms\EditProfileForm.cs">
+    <Compile Include="View\SettingsForms\EditProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\SettingsForms\EditProfileForm.Designer.cs">
+    <Compile Include="View\SettingsForms\EditProfileForm.Designer.cs">
       <DependentUpon>EditProfileForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.cs">
+    <Compile Include="View\SettingsForms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.Designer.cs">
+    <Compile Include="View\SettingsForms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomMessageBox\MessageBox.cs" />
+    <Compile Include="View\CustomMessageBox\MessageBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CustomMessageBox\MessageBoxForm.Designer.cs">
+      <DependentUpon>MessageBoxForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ForgotPasswordForm.cs">
       <SubType>Form</SubType>
@@ -220,6 +229,12 @@
     <Compile Include="View\AdminChildForms\StockForm.Designer.cs">
       <DependentUpon>StockForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\StaffChildForms\Overview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StaffChildForms\Overview.Designer.cs">
+      <DependentUpon>Overview.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StaffChildForms\ManageOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,12 +253,6 @@
     <Compile Include="View\StaffChildForms\NewOrder.Designer.cs">
       <DependentUpon>NewOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\StaffChildForms\Overview.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\StaffChildForms\Overview.Designer.cs">
-      <DependentUpon>Overview.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\CashierForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,6 +267,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\StockkeeperChildForms\AddNewProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StockkeeperChildForms\AddNewProduct.Designer.cs">
+      <DependentUpon>AddNewProduct.cs</DependentUpon>
+    </Compile>
+	  <Compile Include="View\StockkeeperChildForms\ImportStore.cs">
+		  <SubType>Form</SubType>
+	  </Compile>
+	  <Compile Include="View\StockkeeperChildForms\ImportStore.Designer.cs">
+		  <DependentUpon>ImportStore.cs</DependentUpon>
+	  </Compile>
     <Compile Include="View\StockkeeperChildForms\ManageStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,14 +327,17 @@
     <EmbeddedResource Include="View\AdminChildForms\ProductForms\UpdatePrice.resx">
       <DependentUpon>UpdatePrice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.resx">
+    <EmbeddedResource Include="View\SettingsForms\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\EditProfileForm.resx">
+    <EmbeddedResource Include="View\SettingsForms\EditProfileForm.resx">
       <DependentUpon>EditProfileForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\SettingsForm.resx">
+    <EmbeddedResource Include="View\SettingsForms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CustomMessageBox\MessageBoxForm.resx">
+      <DependentUpon>MessageBoxForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
@@ -333,9 +357,6 @@
     <EmbeddedResource Include="View\StaffChildForms\NewOrder.resx">
       <DependentUpon>NewOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\StaffChildForms\Overview.resx">
-      <DependentUpon>Overview.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\CashierForm.resx">
       <DependentUpon>CashierForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -352,6 +373,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\StaffChildForms\Overview.resx">
+      <DependentUpon>Overview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StockkeeperChildForms\AddNewProduct.resx">
+      <DependentUpon>AddNewProduct.cs</DependentUpon>
+    </EmbeddedResource>
+	  <EmbeddedResource Include="View\StockkeeperChildForms\ImportStore.resx">
+		  <DependentUpon>ImportStore.cs</DependentUpon>
+	  </EmbeddedResource>
     <EmbeddedResource Include="View\StockkeeperChildForms\ManageStock.resx">
       <DependentUpon>ManageStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -490,6 +520,17 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\adminVector.png" />
+    <None Include="Resources\salesmanVector.png" />
+    <None Include="Resources\warningVetor.png" />
+    <None Include="Resources\questionVector.png" />
+    <None Include="Resources\infoVector2.png" />
+    <None Include="Resources\infoVector.png" />
+    <None Include="Resources\errorVector.png" />
+    <None Include="Resources\side.png" />
+    <None Include="Resources\iconClose.png" />
+    <None Include="Resources\icons8-close-100.png" />
+    <None Include="Resources\iconRefresh.png" />
     <None Include="Resources\filterIcon.png" />
     <None Include="Resources\filter.png" />
   </ItemGroup>

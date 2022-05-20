@@ -91,6 +91,7 @@ namespace PBL3.View
             // 
             this.btnLogout.CheckedState.Image = global::PBL3.Properties.Resources.logout;
             this.btnLogout.HoverState.Image = global::PBL3.Properties.Resources.logout;
+            this.btnLogout.HoverState.ImageSize = new System.Drawing.Size(24, 24);
             this.btnLogout.Image = global::PBL3.Properties.Resources.logout;
             this.btnLogout.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnLogout.ImageRotate = 0F;
@@ -98,10 +99,11 @@ namespace PBL3.View
             this.btnLogout.Location = new System.Drawing.Point(858, 12);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.PressedState.Image = global::PBL3.Properties.Resources.logout;
-            this.btnLogout.ShadowDecoration.BorderRadius = 8;
-            this.btnLogout.ShadowDecoration.Depth = 5;
+            this.btnLogout.PressedState.ImageSize = new System.Drawing.Size(18, 18);
+            this.btnLogout.ShadowDecoration.BorderRadius = 0;
+            this.btnLogout.ShadowDecoration.Depth = 6;
             this.btnLogout.ShadowDecoration.Enabled = true;
-            this.btnLogout.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 10);
+            this.btnLogout.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 6, 6);
             this.btnLogout.Size = new System.Drawing.Size(30, 30);
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Click += new System.EventHandler(this.guna2ImageButton2_Click);
@@ -110,19 +112,22 @@ namespace PBL3.View
             // 
             this.btnSettings.CheckedState.Image = global::PBL3.Properties.Resources.settingsIcon;
             this.btnSettings.HoverState.Image = global::PBL3.Properties.Resources.settingsIcon;
+            this.btnSettings.HoverState.ImageSize = new System.Drawing.Size(24, 24);
             this.btnSettings.Image = global::PBL3.Properties.Resources.settingsIcon;
             this.btnSettings.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnSettings.ImageRotate = 0F;
             this.btnSettings.ImageSize = new System.Drawing.Size(20, 20);
             this.btnSettings.Location = new System.Drawing.Point(806, 12);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.ShadowDecoration.BorderRadius = 8;
-            this.btnSettings.ShadowDecoration.Depth = 5;
+            this.btnSettings.PressedState.Image = global::PBL3.Properties.Resources.settingsIcon;
+            this.btnSettings.PressedState.ImageSize = new System.Drawing.Size(22, 22);
+            this.btnSettings.ShadowDecoration.BorderRadius = 0;
+            this.btnSettings.ShadowDecoration.Depth = 6;
             this.btnSettings.ShadowDecoration.Enabled = true;
-            this.btnSettings.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 10);
+            this.btnSettings.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 6, 6);
             this.btnSettings.Size = new System.Drawing.Size(30, 30);
             this.btnSettings.TabIndex = 4;
-            this.btnSettings.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // guna2PictureBox1
             // 

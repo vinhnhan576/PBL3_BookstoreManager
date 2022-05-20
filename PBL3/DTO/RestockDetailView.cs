@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace PBL3.DTO
 {
-    internal class ReStockView
+    internal class RestockDetailView
     {
+        public string RestockDetailID { get; set; }
         public string ProductID { get; set; }
         public string ProductName { get; set; }
         public int ImportQuantity { get; set; }
-        public double  ImportPrice{ get; set; }
+        public double ImportPrice { get; set; }
         public double Total { get; set; }
     }
 }

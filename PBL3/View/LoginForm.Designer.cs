@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.lbAccount = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lbIntro = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnSignIn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.pn = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnClose = new Guna.UI2.WinForms.Guna2CircleButton();
             this.lbForgotPassword = new System.Windows.Forms.Label();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -42,6 +44,7 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pic = new System.Windows.Forms.PictureBox();
             this.pbShowPass = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.pn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
@@ -95,6 +98,7 @@
             // pn
             // 
             this.pn.BackColor = System.Drawing.Color.White;
+            this.pn.Controls.Add(this.btnClose);
             this.pn.Controls.Add(this.lbForgotPassword);
             this.pn.Controls.Add(this.guna2HtmlLabel3);
             this.pn.Controls.Add(this.guna2HtmlLabel4);
@@ -107,6 +111,26 @@
             this.pn.Name = "pn";
             this.pn.Size = new System.Drawing.Size(349, 531);
             this.pn.TabIndex = 2;
+            // 
+            // btnClose
+            // 
+            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClose.FillColor = System.Drawing.Color.Transparent;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(194)))), ((int)(((byte)(185)))));
+            this.btnClose.HoverState.Image = global::PBL3.Properties.Resources.icons8_close_100;
+            this.btnClose.Image = global::PBL3.Properties.Resources.iconClose;
+            this.btnClose.Location = new System.Drawing.Point(306, 10);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.PressedColor = System.Drawing.Color.White;
+            this.btnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnClose.Size = new System.Drawing.Size(32, 32);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lbForgotPassword
             // 
@@ -256,6 +280,12 @@
             this.pbShowPass.TabStop = false;
             this.pbShowPass.Click += new System.EventHandler(this.pbShowPass_Click);
             // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnSignIn;
@@ -269,7 +299,7 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.pn);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -299,5 +329,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private System.Windows.Forms.PictureBox pic;
         private System.Windows.Forms.Label lbForgotPassword;
+        private Guna.UI2.WinForms.Guna2CircleButton btnClose;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace PBL3.View.AdminChildForms.SettingsForms
+﻿namespace PBL3.View.SettingsForms
 {
     partial class EditProfileForm
     {

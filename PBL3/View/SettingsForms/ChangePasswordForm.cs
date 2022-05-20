@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PBL3.View.AdminChildForms.SettingsForms
+namespace PBL3.View.SettingsForms
 {
     public partial class ChangePasswordForm : Form
     {

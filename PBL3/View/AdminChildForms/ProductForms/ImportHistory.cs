@@ -55,10 +55,5 @@ namespace PBL3.View.AdminChildForms.ProductForms
             string year = tbYear.Text;
             dgvProduct.DataSource = BLLStoreImportManagement.Instance.FilterStoreImportDetailByDate(day, month, year);
         }
-
-        private void tbProduct_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

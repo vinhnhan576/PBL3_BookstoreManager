@@ -12,9 +12,17 @@ namespace PBL3.View.StockkeeperChildForms
 {
     public partial class Overview : Form
     {
-        public Overview()
+        private Person person;
+        public Overview(Person p)
         {
             InitializeComponent();
+            person = p;
+            InitializeGUI();
+        }
+
+        private void InitializeGUI()
+        {
+
         }
     }
 }
