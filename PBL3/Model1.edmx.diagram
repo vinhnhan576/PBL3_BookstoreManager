@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="QLSPModel.Person" Width="1.5" PointX="4.5" PointY="9.5" />
         <EntityTypeShape EntityType="QLSPModel.Receipt" Width="1.5" PointX="6.75" PointY="11.25" />
         <EntityTypeShape EntityType="QLSPModel.Receipt_Detail" Width="1.5" PointX="9" PointY="4.25" />
-        <EntityTypeShape EntityType="QLSPModel.RestockDetail" Width="1.5" PointX="6" PointY="4.25" />
         <EntityTypeShape EntityType="QLSPModel.Revenue" Width="1.5" PointX="11.25" PointY="4.5" />
         <EntityTypeShape EntityType="QLSPModel.Store_Import" Width="1.5" PointX="3.75" PointY="0.75" />
         <EntityTypeShape EntityType="QLSPModel.StoreImportDetail" Width="1.5" PointX="6" PointY="0.5" />
@@ -19,18 +18,19 @@
         <AssociationConnector Association="QLSPModel.FK_Receipt_Detail_Receipt" />
         <AssociationConnector Association="QLSPModel.FK_Revenue_Receipt_Detail" />
         <AssociationConnector Association="QLSPModel.FK_StoreImportDetail_Store_Import" />
-        <EntityTypeShape EntityType="QLSPModel.Customer" Width="1.5" PointX="11.625" PointY="8" />
-        <EntityTypeShape EntityType="QLSPModel.Rank" Width="1.5" PointX="9.375" PointY="8.25" />
-        <AssociationConnector Association="QLSPModel.FK_Customer_Rank" />
-        <AssociationConnector Association="QLSPModel.FK_Receipt_Customer" />
-        <AssociationConnector Association="QLSPModel.FK_RestockDetail_Person" />
-        <EntityTypeShape EntityType="QLSPModel.Restock" Width="1.5" PointX="0.75" PointY="0.875" />
-        <AssociationConnector Association="QLSPModel.FK_RestockDetail_Restock" />
         <EntityTypeShape EntityType="QLSPModel.Product" Width="1.5" PointX="3.75" PointY="3.625" />
         <AssociationConnector Association="QLSPModel.FK_Product_Discount" />
         <AssociationConnector Association="QLSPModel.FK_Receipt_Detail_Product" />
-        <AssociationConnector Association="QLSPModel.FK_RestockDetail_Product" />
         <AssociationConnector Association="QLSPModel.FK_StoreImportDetail_Product" />
+        <EntityTypeShape EntityType="QLSPModel.Restock" Width="1.5" PointX="6.75" PointY="14.875" />
+        <EntityTypeShape EntityType="QLSPModel.RestockDetail" Width="1.5" PointX="9" PointY="12.125" />
+        <AssociationConnector Association="QLSPModel.FK_Restock_Person" />
+        <AssociationConnector Association="QLSPModel.FK_RestockDetail_Product" />
+        <AssociationConnector Association="QLSPModel.FK_RestockDetail_Restock" />
+        <EntityTypeShape EntityType="QLSPModel.Customer" Width="1.5" PointX="11.625" PointY="8" />
+        <AssociationConnector Association="QLSPModel.FK_Receipt_Customer" />
+        <EntityTypeShape EntityType="QLSPModel.Rank" Width="1.5" PointX="9.375" PointY="8.25" />
+        <AssociationConnector Association="QLSPModel.FK_Customer_Rank" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

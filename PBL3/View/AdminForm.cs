@@ -87,7 +87,7 @@ namespace PBL3.View
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            openChildForm(new AdminChildForms.BillForm(), sender);
+            openChildForm(new AdminChildForms.BillForm(account), sender);
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
