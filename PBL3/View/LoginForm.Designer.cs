@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.lbAccount = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lbIntro = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -44,7 +43,6 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pic = new System.Windows.Forms.PictureBox();
             this.pbShowPass = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.pn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
@@ -280,12 +278,6 @@
             this.pbShowPass.TabStop = false;
             this.pbShowPass.Click += new System.EventHandler(this.pbShowPass_Click);
             // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnSignIn;
@@ -330,6 +322,5 @@
         private System.Windows.Forms.PictureBox pic;
         private System.Windows.Forms.Label lbForgotPassword;
         private Guna.UI2.WinForms.Guna2CircleButton btnClose;
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }

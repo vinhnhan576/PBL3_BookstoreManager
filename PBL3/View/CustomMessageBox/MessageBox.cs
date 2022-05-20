@@ -17,7 +17,7 @@ namespace PBL3.View.CustomMessageBox
             return result;
         }
 
-        public static DialogResult Show(string text, string title, MessageBoxIcon icon = MessageBoxIcon.Error)
+        public static DialogResult Show(string text, string title, MessageBoxIcon icon)
         {
             DialogResult result;
             using (var msgForm = new MessageBoxForm(text, title, icon))
@@ -25,7 +25,7 @@ namespace PBL3.View.CustomMessageBox
             return result;
         }
 
-        public static DialogResult Show(string text, string title, MessageBoxButtons buttons, MessageBoxIcon icon = MessageBoxIcon.Error)
+        public static DialogResult Show(string text, string title, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
             DialogResult result;
             using (var msgForm = new MessageBoxForm(text, title, buttons, icon))

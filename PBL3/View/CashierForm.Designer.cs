@@ -38,16 +38,12 @@ namespace PBL3.View
             this.btnSettings = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnRight = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.pnMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnManageOrder = new Guna.UI2.WinForms.Guna2Button();
-            this.btnNewOrder = new Guna.UI2.WinForms.Guna2Button();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
-            this.pnLeft = new System.Windows.Forms.Panel();
+            this.btnNewOrder = new Guna.UI2.WinForms.Guna2Button();
+            this.btnManageOrder = new Guna.UI2.WinForms.Guna2Button();
+            this.pnLeft = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            this.guna2GradientPanel5.SuspendLayout();
-            this.pnMenu.SuspendLayout();
             this.pnLeft.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,10 +59,12 @@ namespace PBL3.View
             this.pnTop.Name = "pnTop";
             this.pnTop.Size = new System.Drawing.Size(914, 62);
             this.pnTop.TabIndex = 0;
-            this.pnTop.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2GradientPanel1_Paint);
             // 
             // lbDate
             // 
+            this.lbDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbDate.BackColor = System.Drawing.Color.Transparent;
             this.lbDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDate.Location = new System.Drawing.Point(170, 28);
@@ -74,10 +72,12 @@ namespace PBL3.View
             this.lbDate.Size = new System.Drawing.Size(67, 22);
             this.lbDate.TabIndex = 7;
             this.lbDate.Text = "03/31/2022";
-            this.lbDate.Click += new System.EventHandler(this.lbDate_Click);
             // 
             // guna2HtmlLabel1
             // 
+            this.guna2HtmlLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(169, 7);
@@ -85,7 +85,6 @@ namespace PBL3.View
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(153, 26);
             this.guna2HtmlLabel1.TabIndex = 6;
             this.guna2HtmlLabel1.Text = "Welcome, Y/N";
-            this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
             // 
             // btnLogout
             // 
@@ -106,7 +105,7 @@ namespace PBL3.View
             this.btnLogout.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 6, 6);
             this.btnLogout.Size = new System.Drawing.Size(30, 30);
             this.btnLogout.TabIndex = 5;
-            this.btnLogout.Click += new System.EventHandler(this.guna2ImageButton2_Click);
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnSettings
             // 
@@ -131,6 +130,9 @@ namespace PBL3.View
             // 
             // guna2PictureBox1
             // 
+            this.guna2PictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2PictureBox1.Image = global::PBL3.Properties.Resources.logo_ver_2;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
@@ -140,87 +142,21 @@ namespace PBL3.View
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // pnRight
             // 
+            this.pnRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.pnRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnRight.Location = new System.Drawing.Point(169, 62);
             this.pnRight.Name = "pnRight";
             this.pnRight.Size = new System.Drawing.Size(745, 469);
             this.pnRight.TabIndex = 2;
             // 
-            // guna2GradientPanel5
-            // 
-            this.guna2GradientPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.guna2GradientPanel5.BorderRadius = 25;
-            this.guna2GradientPanel5.Controls.Add(this.pnMenu);
-            this.guna2GradientPanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(224)))), ((int)(((byte)(239)))));
-            this.guna2GradientPanel5.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
-            this.guna2GradientPanel5.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.guna2GradientPanel5.Location = new System.Drawing.Point(-80, 0);
-            this.guna2GradientPanel5.Name = "guna2GradientPanel5";
-            this.guna2GradientPanel5.Size = new System.Drawing.Size(250, 532);
-            this.guna2GradientPanel5.TabIndex = 1;
-            this.guna2GradientPanel5.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2GradientPanel5_Paint);
-            // 
-            // pnMenu
-            // 
-            this.pnMenu.BackColor = System.Drawing.Color.Transparent;
-            this.pnMenu.Controls.Add(this.btnManageOrder);
-            this.pnMenu.Controls.Add(this.btnNewOrder);
-            this.pnMenu.Controls.Add(this.btnOverview);
-            this.pnMenu.Location = new System.Drawing.Point(80, 22);
-            this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Size = new System.Drawing.Size(170, 447);
-            this.pnMenu.TabIndex = 0;
-            // 
-            // btnManageOrder
-            // 
-            this.btnManageOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnManageOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnManageOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnManageOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnManageOrder.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnManageOrder.FillColor = System.Drawing.Color.Transparent;
-            this.btnManageOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageOrder.ForeColor = System.Drawing.Color.White;
-            this.btnManageOrder.Image = global::PBL3.Properties.Resources.manageOrder;
-            this.btnManageOrder.ImageOffset = new System.Drawing.Point(-3, 0);
-            this.btnManageOrder.Location = new System.Drawing.Point(0, 92);
-            this.btnManageOrder.Name = "btnManageOrder";
-            this.btnManageOrder.PressedColor = System.Drawing.Color.White;
-            this.btnManageOrder.PressedDepth = 20;
-            this.btnManageOrder.Size = new System.Drawing.Size(170, 46);
-            this.btnManageOrder.TabIndex = 2;
-            this.btnManageOrder.Text = "Manage Order";
-            this.btnManageOrder.Click += new System.EventHandler(this.guna2Button3_Click);
-            // 
-            // btnNewOrder
-            // 
-            this.btnNewOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnNewOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnNewOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnNewOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnNewOrder.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNewOrder.FillColor = System.Drawing.Color.Transparent;
-            this.btnNewOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewOrder.ForeColor = System.Drawing.Color.White;
-            this.btnNewOrder.Image = global::PBL3.Properties.Resources.newOrder;
-            this.btnNewOrder.ImageOffset = new System.Drawing.Point(-11, 0);
-            this.btnNewOrder.Location = new System.Drawing.Point(0, 46);
-            this.btnNewOrder.Name = "btnNewOrder";
-            this.btnNewOrder.PressedColor = System.Drawing.Color.White;
-            this.btnNewOrder.PressedDepth = 20;
-            this.btnNewOrder.Size = new System.Drawing.Size(170, 46);
-            this.btnNewOrder.TabIndex = 1;
-            this.btnNewOrder.Text = "New Order";
-            this.btnNewOrder.TextOffset = new System.Drawing.Point(-8, 0);
-            this.btnNewOrder.Click += new System.EventHandler(this.guna2Button2_Click);
-            // 
             // btnOverview
             // 
+            this.btnOverview.BackColor = System.Drawing.Color.Transparent;
             this.btnOverview.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnOverview.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnOverview.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -231,7 +167,7 @@ namespace PBL3.View
             this.btnOverview.ForeColor = System.Drawing.Color.White;
             this.btnOverview.Image = global::PBL3.Properties.Resources.overview;
             this.btnOverview.ImageOffset = new System.Drawing.Point(-12, 0);
-            this.btnOverview.Location = new System.Drawing.Point(0, 0);
+            this.btnOverview.Location = new System.Drawing.Point(0, 20);
             this.btnOverview.Name = "btnOverview";
             this.btnOverview.PressedColor = System.Drawing.Color.White;
             this.btnOverview.PressedDepth = 20;
@@ -241,16 +177,70 @@ namespace PBL3.View
             this.btnOverview.TextOffset = new System.Drawing.Point(-10, 0);
             this.btnOverview.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
+            // btnNewOrder
+            // 
+            this.btnNewOrder.BackColor = System.Drawing.Color.Transparent;
+            this.btnNewOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnNewOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnNewOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnNewOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnNewOrder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNewOrder.FillColor = System.Drawing.Color.Transparent;
+            this.btnNewOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewOrder.ForeColor = System.Drawing.Color.White;
+            this.btnNewOrder.Image = global::PBL3.Properties.Resources.newOrder;
+            this.btnNewOrder.ImageOffset = new System.Drawing.Point(-11, 0);
+            this.btnNewOrder.Location = new System.Drawing.Point(0, 66);
+            this.btnNewOrder.Name = "btnNewOrder";
+            this.btnNewOrder.PressedColor = System.Drawing.Color.White;
+            this.btnNewOrder.PressedDepth = 20;
+            this.btnNewOrder.Size = new System.Drawing.Size(170, 46);
+            this.btnNewOrder.TabIndex = 1;
+            this.btnNewOrder.Text = "New Order";
+            this.btnNewOrder.TextOffset = new System.Drawing.Point(-8, 0);
+            this.btnNewOrder.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
+            // btnManageOrder
+            // 
+            this.btnManageOrder.BackColor = System.Drawing.Color.Transparent;
+            this.btnManageOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnManageOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnManageOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnManageOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnManageOrder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnManageOrder.FillColor = System.Drawing.Color.Transparent;
+            this.btnManageOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageOrder.ForeColor = System.Drawing.Color.White;
+            this.btnManageOrder.Image = global::PBL3.Properties.Resources.manageOrder;
+            this.btnManageOrder.ImageOffset = new System.Drawing.Point(-3, 0);
+            this.btnManageOrder.Location = new System.Drawing.Point(0, 112);
+            this.btnManageOrder.Name = "btnManageOrder";
+            this.btnManageOrder.PressedColor = System.Drawing.Color.White;
+            this.btnManageOrder.PressedDepth = 20;
+            this.btnManageOrder.Size = new System.Drawing.Size(170, 46);
+            this.btnManageOrder.TabIndex = 2;
+            this.btnManageOrder.Text = "Manage Order";
+            this.btnManageOrder.Click += new System.EventHandler(this.guna2Button3_Click);
+            // 
             // pnLeft
             // 
-            this.pnLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
-            this.pnLeft.Controls.Add(this.guna2GradientPanel5);
+            this.pnLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
+            this.pnLeft.BorderRadius = 25;
+            this.pnLeft.Controls.Add(this.btnManageOrder);
+            this.pnLeft.Controls.Add(this.btnNewOrder);
+            this.pnLeft.Controls.Add(this.btnOverview);
+            this.pnLeft.CustomizableEdges.BottomLeft = false;
+            this.pnLeft.CustomizableEdges.BottomRight = false;
+            this.pnLeft.CustomizableEdges.TopLeft = false;
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeft.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(224)))), ((int)(((byte)(239)))));
+            this.pnLeft.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
+            this.pnLeft.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.pnLeft.Location = new System.Drawing.Point(0, 62);
             this.pnLeft.Name = "pnLeft";
+            this.pnLeft.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.pnLeft.Size = new System.Drawing.Size(170, 469);
-            this.pnLeft.TabIndex = 2;
-            this.pnLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.pnLeft_Paint);
+            this.pnLeft.TabIndex = 1;
             // 
             // CashierForm
             // 
@@ -261,14 +251,13 @@ namespace PBL3.View
             this.Controls.Add(this.pnLeft);
             this.Controls.Add(this.pnRight);
             this.Controls.Add(this.pnTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CashierForm";
             this.Text = "Salesman";
             this.pnTop.ResumeLayout(false);
             this.pnTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            this.guna2GradientPanel5.ResumeLayout(false);
-            this.pnMenu.ResumeLayout(false);
             this.pnLeft.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -281,14 +270,12 @@ namespace PBL3.View
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2ImageButton btnSettings;
         private Guna.UI2.WinForms.Guna2ImageButton btnLogout;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel5;
-        private Guna.UI2.WinForms.Guna2Panel pnMenu;
-        private Guna.UI2.WinForms.Guna2Button btnOverview;
-        private Guna.UI2.WinForms.Guna2Button btnManageOrder;
-        private Guna.UI2.WinForms.Guna2Button btnNewOrder;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbDate;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private System.Windows.Forms.Panel pnLeft;
+        private Guna.UI2.WinForms.Guna2Button btnManageOrder;
+        private Guna.UI2.WinForms.Guna2Button btnNewOrder;
+        private Guna.UI2.WinForms.Guna2Button btnOverview;
+        private Guna.UI2.WinForms.Guna2GradientPanel pnLeft;
     }
 }
 

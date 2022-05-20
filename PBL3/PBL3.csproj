@@ -85,7 +85,7 @@
     <Compile Include="DTO\RandomGenerator.cs" />
     <Compile Include="DTO\ReceiptDetailView.cs" />
     <Compile Include="DTO\RestockDetailView.cs" />
-	<Compile Include="DTO\StoreImportDetailView.cs" />
+    <Compile Include="DTO\StoreImportDetailView.cs" />
     <Compile Include="DTO\RevenueChartView.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -273,12 +273,12 @@
     <Compile Include="View\StockkeeperChildForms\AddNewProduct.Designer.cs">
       <DependentUpon>AddNewProduct.cs</DependentUpon>
     </Compile>
-	  <Compile Include="View\StockkeeperChildForms\ImportStore.cs">
-		  <SubType>Form</SubType>
-	  </Compile>
-	  <Compile Include="View\StockkeeperChildForms\ImportStore.Designer.cs">
-		  <DependentUpon>ImportStore.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="View\StockkeeperChildForms\ImportStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StockkeeperChildForms\ImportStore.Designer.cs">
+      <DependentUpon>ImportStore.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StockkeeperChildForms\ManageStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,9 +379,9 @@
     <EmbeddedResource Include="View\StockkeeperChildForms\AddNewProduct.resx">
       <DependentUpon>AddNewProduct.cs</DependentUpon>
     </EmbeddedResource>
-	  <EmbeddedResource Include="View\StockkeeperChildForms\ImportStore.resx">
-		  <DependentUpon>ImportStore.cs</DependentUpon>
-	  </EmbeddedResource>
+    <EmbeddedResource Include="View\StockkeeperChildForms\ImportStore.resx">
+      <DependentUpon>ImportStore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\StockkeeperChildForms\ManageStock.resx">
       <DependentUpon>ManageStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -520,6 +520,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\stockkeeperVector2.png" />
+    <None Include="Resources\stockkeeperVector.png" />
+    <None Include="Resources\iconStore.png" />
     <None Include="Resources\adminVector.png" />
     <None Include="Resources\salesmanVector.png" />
     <None Include="Resources\warningVetor.png" />
