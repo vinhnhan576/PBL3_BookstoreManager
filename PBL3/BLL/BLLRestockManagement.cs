@@ -27,6 +27,13 @@ namespace PBL3.BLL
         {
 
         }
+        public List<Restock> GetAllRestock()
+        {
+            List<Restock> restockList = new List<Restock>();
+            foreach (Restock i in QLSPEntities.Instance.Restocks.Select(p => p).ToList())
+                restockList.Add(i);
+            return restockList;
+        }
 
         public List<RestockDetail> GetAllRestockDetail()
         {
@@ -75,7 +82,6 @@ namespace PBL3.BLL
         }
         public List<RestockDetailView> CreateRestockDetailView(List<RestockDetailView> list,string productid, int quantity, double ImportPrice)
         {
-            var ramdom = new RandomGenerator();
             int check = Check(list, productid);
             if (check != -1)
             {
@@ -85,7 +91,7 @@ namespace PBL3.BLL
             else
             {
                 RestockDetailView temp = new RestockDetailView();
-                temp.RestockDetailID = "rs00" + ramdom.RandomNumber(100,999);
+                temp.RestockDetailID = "dt00" + (QLSPEntities.Instance.RestockDetails.Count() + 1 +list.Count()).ToString();
                 Product product = QLSPEntities.Instance.Products.Find(productid);
                 temp.ProductID = productid;
                 temp.ProductName = product.ProductName;
@@ -125,6 +131,7 @@ namespace PBL3.BLL
                 r.RestockDetailID = list[i].RestockDetailID;
                 r.ProductID = list[i].ProductID;
                 r.ImportQuantity = list[i].ImportQuantity;
+                r.ImportPrice = list[i].ImportPrice;
                 r.Total = list[i].Total;
                 r.RestockID = restock_id;
                 BLLRestockManagement.Instance.AddNewRestockDetail(r);
