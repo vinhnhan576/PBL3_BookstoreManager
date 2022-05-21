@@ -101,7 +101,7 @@ namespace PBL3.BLL
         {
             foreach (var customer in QLSPEntities.Instance.Customers)
             {
-                if (customer.PhoneNumber == tel)
+                if (customer.PhoneNumber.Trim() == tel)
                 {
                     return customer;
                 }

@@ -31,7 +31,7 @@ namespace PBL3.View.StockkeeperChildForms
             var random = new RandomGenerator();
             Product p = new Product
             {
-                ProductID = "r00"+ random.RandomNumber(1,999),
+                ProductID = "r00" + BLL.BLLProductManagement.Instance.CountProduct(),
                 ProductName = tbName.Text,
                 Author = tbAuthor.Text,
                 Category = tbCatogories.Text,

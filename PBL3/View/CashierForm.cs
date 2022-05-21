@@ -21,6 +21,11 @@ namespace PBL3.View
         {
             InitializeComponent();
             account = acc;
+            InitializeGUI();
+        }
+
+        private void InitializeGUI()
+        {
             Overview overviewForm = new Overview(account.Person);
             overviewForm.TopLevel = false;
             overviewForm.FormBorderStyle = FormBorderStyle.None;
@@ -28,7 +33,12 @@ namespace PBL3.View
             this.pnRight.Controls.Add(overviewForm);
             overviewForm.BringToFront();
             overviewForm.Show();
+
+            string name = account.Person.PersonName.Split()[account.Person.PersonName.Split().Count() - 1];
+            lbWelcome.Text = "Welcome, " + name;
+            lbDate.Text = DateTime.Now.ToShortDateString();
         }
+
         private void openChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
@@ -87,11 +97,12 @@ namespace PBL3.View
             this.pnRight.Controls.Add(childForm);
             childForm.BringToFront();
             childForm.Show();
+            disableButton();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.Close();

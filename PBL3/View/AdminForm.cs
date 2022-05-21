@@ -20,6 +20,11 @@ namespace PBL3.View
         {
             InitializeComponent();
             account = acc;
+            InitializeGUI();
+        }
+
+        private void InitializeGUI()
+        {
             AdminChildForms.OverviewForm overviewForm = new AdminChildForms.OverviewForm(account.Person);
             overviewForm.TopLevel = false;
             overviewForm.FormBorderStyle = FormBorderStyle.None;
@@ -27,6 +32,10 @@ namespace PBL3.View
             this.pnRight.Controls.Add(overviewForm);
             overviewForm.BringToFront();
             overviewForm.Show();
+
+            string name = account.Person.PersonName.Split()[account.Person.PersonName.Split().Count() - 1];
+            lbWelcome.Text = "Welcome, " + name;
+            lbDate.Text = DateTime.Now.ToShortDateString();
         }
 
         private void openChildForm(Form childForm, object btnSender)
@@ -53,7 +62,10 @@ namespace PBL3.View
                 {
                     disableButton();
                     currentButton = (Guna.UI2.WinForms.Guna2Button)sender;
-                    currentButton.BackColor = Color.White;
+                    currentButton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    currentButton.FillColor = Color.FromArgb(198, 232, 229);
+                    currentButton.ForeColor = Color.FromArgb(1, 79, 134);
+                    //currentButton.Image.Dispose();
                 }
             }
         }
@@ -64,50 +76,12 @@ namespace PBL3.View
             {
                 if(prevButton.GetType() == typeof(Guna.UI2.WinForms.Guna2Button))
                 {
-                    prevButton.BackColor = Color.Transparent;
-                    prevButton.ForeColor = Color.Gainsboro;
+                    ((Guna.UI2.WinForms.Guna2Button)prevButton).FillColor = Color.Transparent;
+                    prevButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    prevButton.ForeColor = Color.White;
+                    //((Guna.UI2.WinForms.Guna2Button)prevButton).Image.Tag =
                 }
             }
-        }
-
-        private void guna2GradientPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            openChildForm(new AdminChildForms.ProductForms.Product(), sender);
-        }
-
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-            openChildForm(new AdminChildForms.CustomerForm(), sender);
-        }
-
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-            openChildForm(new AdminChildForms.BillForm(account), sender);
-        }
-
-        private void guna2Button5_Click(object sender, EventArgs e)
-        {
-            openChildForm(new AdminChildForms.StockForm(), sender);
-        }
-
-        private void guna2Button6_Click(object sender, EventArgs e)
-        {
-            openChildForm(new AdminChildForms.DiscountForm(), sender);
-        }
-
-        private void guna2Button7_Click(object sender, EventArgs e)
-        {
-            openChildForm(new AdminChildForms.AccountForm(), sender);
-        }
-
-        private void guna2Button8_Click(object sender, EventArgs e)
-        {
-            openChildForm(new AdminChildForms.RevenueForm(), sender);
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
@@ -124,20 +98,56 @@ namespace PBL3.View
             this.pnRight.Controls.Add(childForm);
             childForm.BringToFront();
             childForm.Show();
+            disableButton();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.Close();
             }
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void btnOverview_Click(object sender, EventArgs e)
         {
             openChildForm(new AdminChildForms.OverviewForm(account.Person), sender);
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AdminChildForms.ProductForms.Product(), sender);
+        }
+
+        private void btnBill_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AdminChildForms.BillForm(account), sender);
+        }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AdminChildForms.StockForm(), sender);
+        }
+
+        private void btnDiscount_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AdminChildForms.DiscountForm(), sender);
+        }
+
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AdminChildForms.AccountForm(), sender);
+        }
+
+        private void btnRevenue_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AdminChildForms.RevenueForm(), sender);
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AdminChildForms.CustomerForm(), sender);
         }
     }
 }

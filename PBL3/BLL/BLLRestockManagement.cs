@@ -55,6 +55,12 @@ namespace PBL3.BLL
             return restockDetails.ToList();
         }
 
+        public dynamic GetAllProduct_StockView()
+        {
+            var products = QLSPEntities.Instance.RestockDetails.Select(p => new { p.Product.ProductName, p.ImportQuantity });
+            return products.ToList();
+        }
+
         public RestockDetail GetRestockDetailByProductID(string productID)
         {
             RestockDetail restockDetail = new RestockDetail();

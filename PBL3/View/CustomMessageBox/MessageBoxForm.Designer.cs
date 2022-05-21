@@ -91,7 +91,7 @@
             this.btnClose.FillColor = System.Drawing.Color.Transparent;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(194)))), ((int)(((byte)(185)))));
+            this.btnClose.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(176)))), ((int)(((byte)(210)))));
             this.btnClose.HoverState.Image = global::PBL3.Properties.Resources.icons8_close_100;
             this.btnClose.Image = global::PBL3.Properties.Resources.iconClose;
             this.btnClose.Location = new System.Drawing.Point(355, 6);
@@ -114,12 +114,12 @@
             // 
             // lbContext
             // 
-            this.lbContext.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbContext.AutoSize = true;
             this.lbContext.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbContext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(193)))), ((int)(((byte)(217)))));
             this.lbContext.Location = new System.Drawing.Point(10, 10);
             this.lbContext.Name = "lbContext";
-            this.lbContext.Size = new System.Drawing.Size(374, 37);
+            this.lbContext.Size = new System.Drawing.Size(73, 23);
             this.lbContext.TabIndex = 2;
             this.lbContext.Text = "Caption";
             this.lbContext.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -226,6 +226,7 @@
             this.pnTop.ResumeLayout(false);
             this.pnTitle.ResumeLayout(false);
             this.pnFill.ResumeLayout(false);
+            this.pnFill.PerformLayout();
             this.pnBottom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbSideBG)).EndInit();
             this.pbSideBG.ResumeLayout(false);

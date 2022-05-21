@@ -72,7 +72,7 @@
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(27, 8);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(57, 21);
             this.guna2HtmlLabel1.TabIndex = 0;
@@ -91,6 +91,7 @@
             this.Searchtxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.Searchtxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Searchtxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.Searchtxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.Searchtxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Searchtxt.IconLeft = global::PBL3.Properties.Resources.produtIcon;
             this.Searchtxt.IconLeftSize = new System.Drawing.Size(0, 0);
@@ -149,7 +150,7 @@
             this.guna2Panel1.Controls.Add(this.IDtxt);
             this.guna2Panel1.Location = new System.Drawing.Point(9, 77);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(727, 151);
+            this.guna2Panel1.Size = new System.Drawing.Size(727, 136);
             this.guna2Panel1.TabIndex = 47;
             // 
             // guna2TextBox1
@@ -164,28 +165,29 @@
             this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.IconLeftSize = new System.Drawing.Size(0, 0);
             this.guna2TextBox1.IconRightOffset = new System.Drawing.Point(10, 0);
             this.guna2TextBox1.IconRightSize = new System.Drawing.Size(23, 23);
-            this.guna2TextBox1.Location = new System.Drawing.Point(569, 118);
+            this.guna2TextBox1.Location = new System.Drawing.Point(287, 28);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(142, 21);
+            this.guna2TextBox1.Size = new System.Drawing.Size(130, 22);
             this.guna2TextBox1.TabIndex = 57;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label3.Location = new System.Drawing.Point(495, 123);
+            this.label3.Location = new System.Drawing.Point(207, 59);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.Size = new System.Drawing.Size(77, 20);
             this.label3.TabIndex = 56;
             this.label3.Text = "Customer";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -219,8 +221,8 @@
             this.Productdgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.Productdgv.EnableHeadersVisualStyles = false;
             this.Productdgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.Productdgv.Location = new System.Drawing.Point(235, 20);
-            this.Productdgv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Productdgv.Location = new System.Drawing.Point(434, 30);
+            this.Productdgv.Margin = new System.Windows.Forms.Padding(2);
             this.Productdgv.Name = "Productdgv";
             this.Productdgv.ReadOnly = true;
             this.Productdgv.RowHeadersVisible = false;
@@ -228,7 +230,7 @@
             this.Productdgv.RowTemplate.Height = 28;
             this.Productdgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Productdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Productdgv.Size = new System.Drawing.Size(475, 94);
+            this.Productdgv.Size = new System.Drawing.Size(276, 90);
             this.Productdgv.TabIndex = 55;
             this.Productdgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.Productdgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -255,11 +257,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label2.Location = new System.Drawing.Point(243, 3);
+            this.label2.Location = new System.Drawing.Point(435, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
+            this.label2.Size = new System.Drawing.Size(71, 20);
             this.label2.TabIndex = 54;
             this.label2.Text = "Products";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -267,13 +269,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label1.Location = new System.Drawing.Point(255, 123);
+            this.label1.Location = new System.Drawing.Point(209, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 17);
+            this.label1.Size = new System.Drawing.Size(75, 20);
             this.label1.TabIndex = 53;
-            this.label1.Text = "Salesman Name";
+            this.label1.Text = "Salesman";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // salesmannametxt
@@ -288,18 +290,19 @@
             this.salesmannametxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.salesmannametxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.salesmannametxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.salesmannametxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.salesmannametxt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesmannametxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.salesmannametxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.salesmannametxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.salesmannametxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.salesmannametxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.salesmannametxt.Location = new System.Drawing.Point(368, 120);
+            this.salesmannametxt.Location = new System.Drawing.Point(288, 59);
             this.salesmannametxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.salesmannametxt.Name = "salesmannametxt";
             this.salesmannametxt.PasswordChar = '\0';
             this.salesmannametxt.PlaceholderText = "";
             this.salesmannametxt.SelectedText = "";
-            this.salesmannametxt.Size = new System.Drawing.Size(123, 21);
+            this.salesmannametxt.Size = new System.Drawing.Size(130, 22);
             this.salesmannametxt.TabIndex = 52;
             // 
             // DateTimePicker
@@ -310,57 +313,57 @@
             this.DateTimePicker.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DateTimePicker.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DateTimePicker.Location = new System.Drawing.Point(117, 120);
+            this.DateTimePicker.Location = new System.Drawing.Point(255, 94);
             this.DateTimePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DateTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(134, 21);
+            this.DateTimePicker.Size = new System.Drawing.Size(162, 21);
             this.DateTimePicker.TabIndex = 51;
             this.DateTimePicker.Value = new System.DateTime(2022, 4, 1, 12, 4, 50, 99);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label9.Location = new System.Drawing.Point(13, 21);
+            this.label9.Location = new System.Drawing.Point(42, 29);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 19);
+            this.label9.Size = new System.Drawing.Size(25, 20);
             this.label9.TabIndex = 49;
-            this.label9.Text = "Bill ID";
+            this.label9.Text = "ID";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label4.Location = new System.Drawing.Point(3, 120);
+            this.label4.Location = new System.Drawing.Point(207, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 19);
+            this.label4.Size = new System.Drawing.Size(42, 20);
             this.label4.TabIndex = 44;
-            this.label4.Text = "Delivery Date";
+            this.label4.Text = "Date";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(13, 49);
+            this.label7.Location = new System.Drawing.Point(17, 60);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 19);
+            this.label7.Size = new System.Drawing.Size(53, 20);
             this.label7.TabIndex = 47;
-            this.label7.Text = "Bill Status";
+            this.label7.Text = "Status";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label10.Location = new System.Drawing.Point(15, 82);
+            this.label10.Location = new System.Drawing.Point(23, 94);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 19);
+            this.label10.Size = new System.Drawing.Size(44, 20);
             this.label10.TabIndex = 50;
             this.label10.Text = "Total";
             // 
@@ -376,18 +379,19 @@
             this.statustxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.statustxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.statustxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.statustxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.statustxt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statustxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.statustxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.statustxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.statustxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.statustxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.statustxt.Location = new System.Drawing.Point(95, 49);
+            this.statustxt.Location = new System.Drawing.Point(75, 61);
             this.statustxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.statustxt.Name = "statustxt";
             this.statustxt.PasswordChar = '\0';
             this.statustxt.PlaceholderText = "";
             this.statustxt.SelectedText = "";
-            this.statustxt.Size = new System.Drawing.Size(94, 22);
+            this.statustxt.Size = new System.Drawing.Size(118, 22);
             this.statustxt.TabIndex = 31;
             // 
             // totaltxt
@@ -402,18 +406,19 @@
             this.totaltxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.totaltxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.totaltxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.totaltxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.totaltxt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totaltxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.totaltxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.totaltxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.totaltxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.totaltxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.totaltxt.Location = new System.Drawing.Point(95, 82);
+            this.totaltxt.Location = new System.Drawing.Point(75, 94);
             this.totaltxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.totaltxt.Name = "totaltxt";
             this.totaltxt.PasswordChar = '\0';
             this.totaltxt.PlaceholderText = "";
             this.totaltxt.SelectedText = "";
-            this.totaltxt.Size = new System.Drawing.Size(94, 22);
+            this.totaltxt.Size = new System.Drawing.Size(118, 22);
             this.totaltxt.TabIndex = 28;
             // 
             // IDtxt
@@ -428,18 +433,19 @@
             this.IDtxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.IDtxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.IDtxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.IDtxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.IDtxt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IDtxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.IDtxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.IDtxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.IDtxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.IDtxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.IDtxt.Location = new System.Drawing.Point(95, 20);
+            this.IDtxt.Location = new System.Drawing.Point(75, 28);
             this.IDtxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.IDtxt.Name = "IDtxt";
             this.IDtxt.PasswordChar = '\0';
             this.IDtxt.PlaceholderText = "";
             this.IDtxt.SelectedText = "";
-            this.IDtxt.Size = new System.Drawing.Size(94, 22);
+            this.IDtxt.Size = new System.Drawing.Size(118, 22);
             this.IDtxt.TabIndex = 23;
             // 
             // Receiptdgv
@@ -471,8 +477,8 @@
             this.Receiptdgv.DefaultCellStyle = dataGridViewCellStyle6;
             this.Receiptdgv.EnableHeadersVisualStyles = false;
             this.Receiptdgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.Receiptdgv.Location = new System.Drawing.Point(11, 233);
-            this.Receiptdgv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Receiptdgv.Location = new System.Drawing.Point(19, 238);
+            this.Receiptdgv.Margin = new System.Windows.Forms.Padding(2);
             this.Receiptdgv.Name = "Receiptdgv";
             this.Receiptdgv.ReadOnly = true;
             this.Receiptdgv.RowHeadersVisible = false;
@@ -480,7 +486,7 @@
             this.Receiptdgv.RowTemplate.Height = 28;
             this.Receiptdgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Receiptdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Receiptdgv.Size = new System.Drawing.Size(725, 212);
+            this.Receiptdgv.Size = new System.Drawing.Size(725, 213);
             this.Receiptdgv.TabIndex = 56;
             this.Receiptdgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.Receiptdgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -517,7 +523,7 @@
             this.cbbSortCategory.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbSortCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbSortCategory.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbSortCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbbSortCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbSortCategory.ItemHeight = 23;
             this.cbbSortCategory.Items.AddRange(new object[] {
             "ProductID",
@@ -538,7 +544,7 @@
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(579, 8);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(38, 21);
             this.guna2HtmlLabel3.TabIndex = 60;
@@ -550,7 +556,7 @@
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(349, 8);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(30, 21);
             this.guna2HtmlLabel2.TabIndex = 57;
@@ -568,13 +574,13 @@
             this.cbbSortOrder.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbSortOrder.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbSortOrder.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbSortOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbbSortOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbSortOrder.ItemHeight = 23;
             this.cbbSortOrder.Items.AddRange(new object[] {
             "Ascending",
             "Descending"});
             this.cbbSortOrder.Location = new System.Drawing.Point(443, 32);
-            this.cbbSortOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbSortOrder.Margin = new System.Windows.Forms.Padding(2);
             this.cbbSortOrder.Name = "cbbSortOrder";
             this.cbbSortOrder.Size = new System.Drawing.Size(99, 29);
             this.cbbSortOrder.TabIndex = 58;
@@ -592,13 +598,13 @@
             this.cbbFilterCategory.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbFilterCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbFilterCategory.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbFilterCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbbFilterCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbFilterCategory.ItemHeight = 23;
             this.cbbFilterCategory.Items.AddRange(new object[] {
             "Category",
             "Status"});
             this.cbbFilterCategory.Location = new System.Drawing.Point(560, 31);
-            this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterCategory.Name = "cbbFilterCategory";
             this.cbbFilterCategory.Size = new System.Drawing.Size(97, 29);
             this.cbbFilterCategory.TabIndex = 61;
@@ -615,10 +621,10 @@
             this.cbbFilterValue.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbFilterValue.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbFilterValue.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbFilterValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbbFilterValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbFilterValue.ItemHeight = 23;
             this.cbbFilterValue.Location = new System.Drawing.Point(653, 31);
-            this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterValue.Name = "cbbFilterValue";
             this.cbbFilterValue.Size = new System.Drawing.Size(84, 29);
             this.cbbFilterValue.TabIndex = 62;
@@ -640,7 +646,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.Searchtxt);
             this.Controls.Add(this.guna2HtmlLabel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BillForm";
             this.Text = "Product";
             this.guna2Panel2.ResumeLayout(false);
