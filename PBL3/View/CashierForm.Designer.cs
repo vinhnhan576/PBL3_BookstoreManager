@@ -33,7 +33,7 @@ namespace PBL3.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierForm));
             this.pnTop = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.lbDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lbWelcome = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnLogout = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnSettings = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -50,14 +50,14 @@ namespace PBL3.View
             // pnTop
             // 
             this.pnTop.Controls.Add(this.lbDate);
-            this.pnTop.Controls.Add(this.guna2HtmlLabel1);
+            this.pnTop.Controls.Add(this.lbWelcome);
             this.pnTop.Controls.Add(this.btnLogout);
             this.pnTop.Controls.Add(this.btnSettings);
             this.pnTop.Controls.Add(this.guna2PictureBox1);
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTop.Location = new System.Drawing.Point(0, 0);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(914, 62);
+            this.pnTop.Size = new System.Drawing.Size(914, 60);
             this.pnTop.TabIndex = 0;
             // 
             // lbDate
@@ -67,24 +67,26 @@ namespace PBL3.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbDate.BackColor = System.Drawing.Color.Transparent;
             this.lbDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDate.Location = new System.Drawing.Point(170, 28);
+            this.lbDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            this.lbDate.Location = new System.Drawing.Point(182, 34);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(67, 22);
             this.lbDate.TabIndex = 7;
             this.lbDate.Text = "03/31/2022";
             // 
-            // guna2HtmlLabel1
+            // lbWelcome
             // 
-            this.guna2HtmlLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lbWelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(169, 7);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(153, 26);
-            this.guna2HtmlLabel1.TabIndex = 6;
-            this.guna2HtmlLabel1.Text = "Welcome, Y/N";
+            this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
+            this.lbWelcome.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            this.lbWelcome.Location = new System.Drawing.Point(180, 8);
+            this.lbWelcome.Name = "lbWelcome";
+            this.lbWelcome.Size = new System.Drawing.Size(134, 32);
+            this.lbWelcome.TabIndex = 6;
+            this.lbWelcome.Text = "Welcome, Y/N";
             // 
             // btnLogout
             // 
@@ -138,7 +140,7 @@ namespace PBL3.View
             this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
             this.guna2PictureBox1.Location = new System.Drawing.Point(3, 6);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(115, 56);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(115, 54);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
@@ -212,14 +214,15 @@ namespace PBL3.View
             this.btnManageOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageOrder.ForeColor = System.Drawing.Color.White;
             this.btnManageOrder.Image = global::PBL3.Properties.Resources.manageOrder;
-            this.btnManageOrder.ImageOffset = new System.Drawing.Point(-3, 0);
+            this.btnManageOrder.ImageOffset = new System.Drawing.Point(-10, 0);
             this.btnManageOrder.Location = new System.Drawing.Point(0, 112);
             this.btnManageOrder.Name = "btnManageOrder";
             this.btnManageOrder.PressedColor = System.Drawing.Color.White;
             this.btnManageOrder.PressedDepth = 20;
             this.btnManageOrder.Size = new System.Drawing.Size(170, 46);
             this.btnManageOrder.TabIndex = 2;
-            this.btnManageOrder.Text = "Manage Order";
+            this.btnManageOrder.Text = "View Order";
+            this.btnManageOrder.TextOffset = new System.Drawing.Point(-6, 0);
             this.btnManageOrder.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // pnLeft
@@ -236,10 +239,10 @@ namespace PBL3.View
             this.pnLeft.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(224)))), ((int)(((byte)(239)))));
             this.pnLeft.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
             this.pnLeft.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.pnLeft.Location = new System.Drawing.Point(0, 62);
+            this.pnLeft.Location = new System.Drawing.Point(0, 60);
             this.pnLeft.Name = "pnLeft";
             this.pnLeft.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.pnLeft.Size = new System.Drawing.Size(170, 469);
+            this.pnLeft.Size = new System.Drawing.Size(170, 471);
             this.pnLeft.TabIndex = 1;
             // 
             // CashierForm
@@ -271,7 +274,7 @@ namespace PBL3.View
         private Guna.UI2.WinForms.Guna2ImageButton btnSettings;
         private Guna.UI2.WinForms.Guna2ImageButton btnLogout;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbDate;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lbWelcome;
         private Guna.UI2.WinForms.Guna2Button btnManageOrder;
         private Guna.UI2.WinForms.Guna2Button btnNewOrder;
         private Guna.UI2.WinForms.Guna2Button btnOverview;

@@ -40,7 +40,7 @@ namespace PBL3.View.SettingsForms
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
             ChangePasswordForm changePasswordForm = new ChangePasswordForm(account);
-            changePasswordForm.ShowDialog();
+            changePasswordForm.Show();
             tbPassword.Text = account.Password;
         }
 
@@ -49,7 +49,7 @@ namespace PBL3.View.SettingsForms
             Person person = BLLPersonManagement.Instance.GetPersonByPersonID(account.PersonID);
             EditProfileForm editProfileForm = new EditProfileForm(person);
             editProfileForm.myDelegate = InitializeGUI;
-            editProfileForm.ShowDialog();
+            editProfileForm.Show();
             
         }
     }

@@ -22,6 +22,7 @@ namespace PBL3.View.AdminChildForms
         private void InitializeGUI()
         {
             dgvStock.DataSource = BLLRestockManagement.Instance.GetAllRestockDetail_View();
+            dgvProduct.DataSource = BLLRestockManagement.Instance.GetAllProduct_StockView();
         }
     }
 }

@@ -51,7 +51,7 @@ namespace PBL3.BLL
             //    temp.Total = temp.SellingQuantity * (temp.Product.SellingPrice);
             //    QLSPEntities.Instance.SaveChanges();
             //}
-            var product = QLSPEntities.Instance.Receipt_Details.Where(p => p.ReceiptID == ID_Receipt).Select(p => new { p.Product.ProductName, p.SellingQuantity, p.Product.SellingPrice, p.Total }).ToList();
+            var product = QLSPEntities.Instance.Receipt_Details.Where(p => p.ReceiptID == ID_Receipt).Select(p => new { p.Product.ProductName, p.SellingQuantity, p.Total }).ToList();
             return product;
         }
 

@@ -23,6 +23,7 @@ namespace PBL3.View.CustomMessageBox
             InitializeGUI();
             this.lbContext.Text = text;
             this.lbTitle.Text = "";
+            SetFormSize();
             SetButtons(MessageBoxButtons.OK, MessageBoxDefaultButton.Button1);
             SetIcon(icon);
         }
@@ -36,6 +37,7 @@ namespace PBL3.View.CustomMessageBox
             InitializeGUI();
             this.lbContext.Text = text;
             this.lbTitle.Text = title;
+            SetFormSize();
             SetButtons(MessageBoxButtons.OK, MessageBoxDefaultButton.Button1);
             SetIcon(icon);
         }
@@ -49,6 +51,7 @@ namespace PBL3.View.CustomMessageBox
             InitializeGUI();
             this.lbContext.Text = text;
             this.lbTitle.Text = title;
+            SetFormSize();
             SetButtons(buttons, MessageBoxDefaultButton.Button1);
             SetIcon(icon);
         }
@@ -62,6 +65,7 @@ namespace PBL3.View.CustomMessageBox
             InitializeGUI();
             this.lbContext.Text = text;
             this.lbTitle.Text = title;
+            SetFormSize();
             SetButtons(buttons, defaultButton);
             SetIcon(icon);
         }
@@ -77,7 +81,7 @@ namespace PBL3.View.CustomMessageBox
         private void SetFormSize()
         {
             int widht = this.pbSideBG.Width + this.pnFill.Width;
-            int height = this.pnTop.Height + this.pnFill.Height + this.pnBottom.Height;
+            int height = this.pnTop.Height + this.pnFill.Padding.Top + this.lbContext.Height + this.pnFill.Padding.Bottom + this.pnBottom.Height;
             this.Size = new Size(widht, height);
         }
 

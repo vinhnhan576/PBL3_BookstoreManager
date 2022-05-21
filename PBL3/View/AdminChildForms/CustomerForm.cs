@@ -18,6 +18,10 @@ namespace PBL3.View.AdminChildForms
             InitializeComponent();
             InitializeGUI();
             dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
+            cbbSortOrder.SelectedIndex = 0;
+            this.cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
+            cbbSortCategory.SelectedIndex = 0;
+            this.cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
         }
 
         private void InitializeGUI()
@@ -79,6 +83,14 @@ namespace PBL3.View.AdminChildForms
             {
                 dgvCustomer.DataSource = BLLCustomerManagement.Instance.SearchCustomer(Searchtxt.Text);
             }
+        }
+
+        private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Searchtxt.Text = "";
+            string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            dgvCustomer.DataSource = BLLCustomerManagement.Instance.SortCustomer(sortCategory, sortOrder);
         }
     }
 }

@@ -59,7 +59,6 @@ namespace PBL3.BLL
         }
         public dynamic GetAllProduct_Import_View()
         {
-
             var product = (QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.StockQuantity })).ToList();
             return product;
         }
@@ -80,6 +79,11 @@ namespace PBL3.BLL
             return products;
         }
 
+        public dynamic GetAllProduct_OrderView()
+        {
+            var products = QLSPEntities.Instance.Products.Select(p => new { p.ProductName, p.StoreQuantity });
+            return products.ToList();
+        }
 
         //public dynamic GetAllProduct_Import_View()
         //{
@@ -331,6 +335,25 @@ namespace PBL3.BLL
         public Product GetProductByID(string productID)
         {
             return QLSPEntities.Instance.Products.Find(productID);
+        }
+
+        public Product GetProductByProductName(string productName)
+        {
+            Product product = new Product();
+            foreach(Product prod in GetAllProduct())
+            {
+                if(prod.ProductName == productName)
+                {
+                    product = prod;
+                    break;
+                }
+            }
+            return product;
+        }
+
+        public int CountProduct()
+        {
+            return GetAllProduct().Count();
         }
     }
 }

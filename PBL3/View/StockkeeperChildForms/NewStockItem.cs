@@ -131,7 +131,7 @@ namespace PBL3.View.StockkeeperChildForms
             AddNewProduct form = new AddNewProduct();
             form.FormBorderStyle = FormBorderStyle.None;
             form.MyDel = AddProduct;
-            form.ShowDialog();
+            form.Show();
         }
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
