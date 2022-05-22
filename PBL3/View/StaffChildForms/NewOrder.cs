@@ -83,29 +83,39 @@ namespace PBL3.View.StaffChildForms
         {
             Customer customer = BLLCustomerManagement.Instance.getCustomerID(CustomerTeltxt.Text.Trim());
             double total = Convert.ToDouble(Totaltxt.Text);
-            total = total - customer.Rank.CustomerDiscount;
-            if(total < 0) total = 0;
-            if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r00")
+            if(customer != null)
             {
-                string message = "You have " + (2 - customer.Used) + " voucher " + customer.Rank.CustomerDiscount + "VND" +
-                "\nYour total after using this discount: " + total +
-                "\nDo you want to get a discount?";
-                string title = "Notification";
-                DialogResult result = CustomMessageBox.MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                total = total - customer.Rank.CustomerDiscount;
+                if (total < 0) total = 0;
+                if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r00")
                 {
-                    Save(total);
-                    BLLCustomerManagement.Instance.UpdateUsed(customer.CustomerID);
+                    string message = "You have " + (2 - customer.Used) + " voucher " + customer.Rank.CustomerDiscount + "VND" +
+                    "\nYour total after using this discount: " + total +
+                    "\nDo you want to get a discount?";
+                    string title = "Notification";
+                    DialogResult result = CustomMessageBox.MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        Save(total);
+                        BLLCustomerManagement.Instance.UpdateUsed(customer.CustomerID);
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        Save(Convert.ToDouble(Totaltxt.Text));
+                    }
                 }
-                else if (result == DialogResult.No)
+                else if (customer.RankID.Trim() == "r00")
                 {
                     Save(Convert.ToDouble(Totaltxt.Text));
                 }
             }
-            else if(customer.RankID.Trim() == "r00")
+
+            else
             {
                 Save(Convert.ToDouble(Totaltxt.Text));
             }
+
+
            
             rd_list.Clear();
             dgvOrder.DataSource = rd_list.ToList();
@@ -114,7 +124,7 @@ namespace PBL3.View.StaffChildForms
             Totaltxt.Text = "";
             dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_Order_View();
 
-
+            LoadNewOrder();
         }
 
         private void AddButton_Click_1(object sender, EventArgs e)
@@ -160,8 +170,12 @@ namespace PBL3.View.StaffChildForms
 
         private void NewOrderButton_Click(object sender, EventArgs e)
         {
-            var random = new RandomGenerator();
-            OrderIDtxt.Text = "rpt" +(QLSPEntities.Instance.Receipts.Count()+1).ToString();
+            LoadNewOrder();
+        }
+
+        private void LoadNewOrder()
+        {
+            OrderIDtxt.Text = "rpt" + (QLSPEntities.Instance.Receipts.Count() + 1).ToString();
             SalesmanIDtxt.Text = "sm001";
             CustomerTeltxt.Text = "";
             OrderDateTimePicker.Value = DateTime.Now;

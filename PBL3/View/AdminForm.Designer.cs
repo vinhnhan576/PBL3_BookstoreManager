@@ -32,7 +32,9 @@ namespace PBL3.View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.pnTop = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.lbDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnLogout = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.lbWelcome = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnSettings = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnRight = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -45,8 +47,6 @@ namespace PBL3.View
             this.btnProduct = new Guna.UI2.WinForms.Guna2Button();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
             this.pnMenu = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.lbDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lbWelcome = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.pnMenu.SuspendLayout();
@@ -64,6 +64,20 @@ namespace PBL3.View
             this.pnTop.Name = "pnTop";
             this.pnTop.Size = new System.Drawing.Size(914, 60);
             this.pnTop.TabIndex = 0;
+            // 
+            // lbDate
+            // 
+            this.lbDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDate.BackColor = System.Drawing.Color.Transparent;
+            this.lbDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            this.lbDate.Location = new System.Drawing.Point(172, 34);
+            this.lbDate.Name = "lbDate";
+            this.lbDate.Size = new System.Drawing.Size(67, 22);
+            this.lbDate.TabIndex = 9;
+            this.lbDate.Text = "03/31/2022";
             // 
             // btnLogout
             // 
@@ -86,6 +100,20 @@ namespace PBL3.View
             this.btnLogout.Size = new System.Drawing.Size(30, 30);
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // lbWelcome
+            // 
+            this.lbWelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
+            this.lbWelcome.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            this.lbWelcome.Location = new System.Drawing.Point(170, 8);
+            this.lbWelcome.Name = "lbWelcome";
+            this.lbWelcome.Size = new System.Drawing.Size(134, 32);
+            this.lbWelcome.TabIndex = 8;
+            this.lbWelcome.Text = "Welcome, Y/N";
             // 
             // btnSettings
             // 
@@ -124,6 +152,9 @@ namespace PBL3.View
             // 
             // pnRight
             // 
+            this.pnRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.pnRight.Location = new System.Drawing.Point(140, 60);
             this.pnRight.Name = "pnRight";
@@ -344,34 +375,6 @@ namespace PBL3.View
             this.pnMenu.Padding = new System.Windows.Forms.Padding(10, 20, 10, 0);
             this.pnMenu.Size = new System.Drawing.Size(140, 471);
             this.pnMenu.TabIndex = 1;
-            // 
-            // lbDate
-            // 
-            this.lbDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbDate.BackColor = System.Drawing.Color.Transparent;
-            this.lbDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.lbDate.Location = new System.Drawing.Point(172, 34);
-            this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(67, 22);
-            this.lbDate.TabIndex = 9;
-            this.lbDate.Text = "03/31/2022";
-            // 
-            // lbWelcome
-            // 
-            this.lbWelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.lbWelcome.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.lbWelcome.Location = new System.Drawing.Point(170, 8);
-            this.lbWelcome.Name = "lbWelcome";
-            this.lbWelcome.Size = new System.Drawing.Size(134, 32);
-            this.lbWelcome.TabIndex = 8;
-            this.lbWelcome.Text = "Welcome, Y/N";
             // 
             // AdminForm
             // 

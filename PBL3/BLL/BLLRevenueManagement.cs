@@ -43,20 +43,59 @@ namespace PBL3.BLL
             return revenues.ToList();
         }
 
-        public dynamic GetAllRevenue_Chart_View()
+        public List<RevenueChartView> GetAllRevenueByDate_ChartView(DateTime startDate, DateTime endDate, string chartType)
         {
             List<RevenueChartView> revenues = new List<RevenueChartView>();
-            foreach (Revenue i in QLSPEntities.Instance.Revenues.Select(p => p).ToList())
+            int noDays = (endDate - startDate).Days;
+            if(noDays == 1)
             {
-                RevenueChartView rcv = new RevenueChartView
+                chartType = "Day";
+            }
+            else if(noDays <= 7)
+            {
+                chartType = "Week";
+            }
+            else if(noDays <= 31)
+            {
+                chartType = "Month";
+            }
+            else if(noDays <= 365)
+            {
+                int noMonths = (int)(noDays / 30);
+                DateTime[] months = new DateTime[noMonths];
+                double[] totals = new double[noMonths];
+                int currentMonth = startDate.Month;
+                int receiptMonth, j =0;
+                foreach (Revenue i in QLSPEntities.Instance.Revenues.Select(p => p).ToList())
                 {
-                    date = i.Receipt_Detail.Receipt.Date,
-                    grossRevenue = (double)i.GrossRevenue,
-                };
-                revenues.Add(rcv);
+                    int month = i.Receipt_Detail.Receipt.Date.Month;
+                    int year = i.Receipt_Detail.Receipt.Date.Year;
+                    if ((month >= startDate.Month && month <= endDate.Month && (year == startDate.Year || year == endDate.Year)))
+                    {
+                        receiptMonth = i.Receipt_Detail.Receipt.Date.Month;
+                        if (currentMonth != receiptMonth)
+                        {
+                            currentMonth = receiptMonth;
+                            j++;
+                        }
+                        months[j] = i.Receipt_Detail.Receipt.Date;
+                        totals[j] += (double)i.GrossRevenue;
+                    }
+                }
+                for(int i = 0; i < noMonths; i++)
+                {
+                    RevenueChartView rcv = new RevenueChartView
+                    {
+                        date = months[i],
+                        total = totals[i],
+                    };
+                    revenues.Add(rcv);
+                }
+                chartType = "Year";
             }
             return revenues;
         }
+
 
         public void AddRevenue(string recieptDetailID, double expenses, double grossrevenue, double profit)
         {
