@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.Model;
 
 namespace PBL3.View
 {
     public partial class AdminForm : Form
     {
         private Form activeForm;
-        private Guna.UI2.WinForms.Guna2Button currentButton, prevButton;
+        private Guna.UI2.WinForms.Guna2Button currentButton;
         Account account;
 
         public AdminForm(Account acc)
@@ -25,13 +26,9 @@ namespace PBL3.View
 
         private void InitializeGUI()
         {
-            AdminChildForms.OverviewForm overviewForm = new AdminChildForms.OverviewForm(account.Person);
-            overviewForm.TopLevel = false;
-            overviewForm.FormBorderStyle = FormBorderStyle.None;
-            overviewForm.Dock = DockStyle.Fill;
-            this.pnRight.Controls.Add(overviewForm);
-            overviewForm.BringToFront();
-            overviewForm.Show();
+            currentButton = btnDiscount;
+            openChildForm(new AdminChildForms.OverviewForm(account.Person), btnOverview);
+
 
             string name = account.Person.PersonName.Split()[account.Person.PersonName.Split().Count() - 1];
             lbWelcome.Text = "Welcome, " + name;
@@ -65,7 +62,23 @@ namespace PBL3.View
                     currentButton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     currentButton.FillColor = Color.FromArgb(198, 232, 229);
                     currentButton.ForeColor = Color.FromArgb(1, 79, 134);
-                    //currentButton.Image.Dispose();
+                    if (currentButton.Text == "Overview")
+                        currentButton.Image = Properties.Resources.iconBlueOverview;
+                    else if(currentButton.Text == "Product")
+                        currentButton.Image = Properties.Resources.iconBlueBook;
+                    else if (currentButton.Text == "Customer")
+                        currentButton.Image = Properties.Resources.iconBlueCustomer;
+                    else if (currentButton.Text == "Bill")
+                        currentButton.Image = Properties.Resources.iconBlueBill;
+                    else if (currentButton.Text == "Stock")
+                        currentButton.Image = Properties.Resources.iconBlueStock;
+                    else if (currentButton.Text == "Discount")
+                        currentButton.Image = Properties.Resources.iconBlueDiscount;
+                    else if (currentButton.Text == "Account")
+                        currentButton.Image = Properties.Resources.iconBlueAccount;
+                    else
+                        currentButton.Image = Properties.Resources.iconBlueRevenue;
+
                 }
             }
         }
@@ -79,7 +92,22 @@ namespace PBL3.View
                     ((Guna.UI2.WinForms.Guna2Button)prevButton).FillColor = Color.Transparent;
                     prevButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     prevButton.ForeColor = Color.White;
-                    //((Guna.UI2.WinForms.Guna2Button)prevButton).Image.Tag =
+                    if (currentButton.Text == "Overview")
+                        currentButton.Image = Properties.Resources.iconWhiteOverview;
+                    else if (currentButton.Text == "Product")
+                        currentButton.Image = Properties.Resources.iconWhiteBook;
+                    else if (currentButton.Text == "Customer")
+                        currentButton.Image = Properties.Resources.customer;
+                    else if (currentButton.Text == "Bill")
+                        currentButton.Image = Properties.Resources.bill;
+                    else if (currentButton.Text == "Stock")
+                        currentButton.Image = Properties.Resources.stock;
+                    else if (currentButton.Text == "Discount")
+                        currentButton.Image = Properties.Resources.iconWhiteDiscount;
+                    else if (currentButton.Text == "Account")
+                        currentButton.Image = Properties.Resources.account;
+                    else
+                        currentButton.Image = Properties.Resources.revenue;
                 }
             }
         }

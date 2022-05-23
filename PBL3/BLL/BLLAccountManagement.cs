@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PBL3.Model;
 
 namespace PBL3.BLL
 {
@@ -28,7 +29,7 @@ namespace PBL3.BLL
         public List<Account> GetAllAccount()
         {
             List<Account> accountList = new List<Account>();
-            foreach(Account i in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
+            foreach(Account i in QLNS.Instance.Accounts.ToList())
                 accountList.Add(i);
             return accountList;
         }
@@ -36,7 +37,7 @@ namespace PBL3.BLL
         public dynamic GetAllAccount_View()
         {
             List<Account> accountList = new List<Account>();
-            foreach (Account i in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
+            foreach (Account i in QLNS.Instance.Accounts.Select(p => p).ToList())
                 accountList.Add(i);
             var account = accountList.Select(p => new { p.PersonID, p.Person.PersonName, p.Person.Role, p.Username, p.Person.Address });
             return account.ToList();
@@ -44,7 +45,7 @@ namespace PBL3.BLL
 
         public void DelAccount(List<string> ID)
         {
-            QLSPEntities qLSPEntities = new QLSPEntities();
+            QLNS qLSPEntities = new QLNS();
             foreach (string i in ID)
             {
                 Account ac = qLSPEntities.Accounts.Find(i);
@@ -55,7 +56,7 @@ namespace PBL3.BLL
         }
         public bool Check(string ID)
         {
-            QLSPEntities qLSPEntities = new QLSPEntities();
+            QLNS qLSPEntities = new QLNS();
             bool Add = false;
             foreach (Account ac in qLSPEntities.Accounts.Select(p=>p).ToList())
             {
@@ -70,13 +71,13 @@ namespace PBL3.BLL
         }
         public void AddNewAccount(Account ac)
         {
-            QLSPEntities qLSPEntities = new QLSPEntities();
+            QLNS qLSPEntities = new QLNS();
             qLSPEntities.Accounts.Add(ac);
             qLSPEntities.SaveChanges();
         }
         public void Execute(Account ac)
         {
-            QLSPEntities qLSPEntities = new QLSPEntities();
+            QLNS qLSPEntities = new QLNS();
             if (Check(ac.PersonID) == true)
             {   
                 Account temp = qLSPEntities.Accounts.Find(ac.PersonID);
@@ -99,7 +100,7 @@ namespace PBL3.BLL
         }
         public dynamic SearchAccount(string value)
         {
-            QLSPEntities qLSPEntities = new QLSPEntities();
+            QLNS qLSPEntities = new QLNS();
             List<Account> data = new List<Account>();
             foreach (Account ac in qLSPEntities.Accounts.Select(p => p).ToList())
             {
@@ -113,7 +114,7 @@ namespace PBL3.BLL
         }
         public dynamic SortAcount(string sortCategory, bool ascending)
         {
-            QLSPEntities qLSPEntities = new QLSPEntities();
+            QLNS qLSPEntities = new QLNS();
             List<Account> data = new List<Account>();
             if (sortCategory == "ID")
             {
@@ -149,9 +150,9 @@ namespace PBL3.BLL
 
         public dynamic FilterProduct(string filterCategory, string filterValue)
         {
-            QLSPEntities qLSPEntities = new QLSPEntities();
+            QLNS qLSPEntities = new QLNS();
             List<Account> data = new List<Account>();
-            foreach (Account i in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
+            foreach (Account i in QLNS.Instance.Accounts.Select(p => p).ToList())
             {
                 if (filterCategory == "Role")
                 {
@@ -173,14 +174,14 @@ namespace PBL3.BLL
         }
         public Account GetAccountByPersonID(string ID)
         {
-            QLSPEntities qLSPEntities = new QLSPEntities();
+            QLNS qLSPEntities = new QLNS();
             Account ac = qLSPEntities.Accounts.Find(ID);
             return ac;
         }
         public List<string> GetAllRole()
         {
             List<string> data = new List<string>();
-            foreach (Account a in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
+            foreach (Account a in QLNS.Instance.Accounts.Select(p => p).ToList())
             {
                 data.Add(a.Person.Role);
             }
@@ -190,7 +191,7 @@ namespace PBL3.BLL
         public List<string> GetAllAddress()
         {
             List<string> data = new List<string>();
-            foreach (Account i in QLSPEntities.Instance.Accounts.Select(p => p).ToList())
+            foreach (Account i in QLNS.Instance.Accounts.Select(p => p).ToList())
             {
                 data.Add(i.Person.Address);
             }
@@ -199,9 +200,9 @@ namespace PBL3.BLL
 
         public void ChangePassword(string username, string newPassword)
         {
-            Account acc = QLSPEntities.Instance.Accounts.Find(username);
+            Account acc = QLNS.Instance.Accounts.Find(username);
             acc.Password = newPassword;
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.SaveChanges();
         }
     }
  }

@@ -33,8 +33,8 @@ namespace PBL3.DTO
 
         private void getNoItems()
         {
-            noCustomers = QLSPEntities.Instance.Customers.Count();
-            noProducts = QLSPEntities.Instance.Products.Count();
+            noCustomers = QLNS.Instance.Customers.Count();
+            noProducts = QLNS.Instance.Products.Count();
             
         }
 

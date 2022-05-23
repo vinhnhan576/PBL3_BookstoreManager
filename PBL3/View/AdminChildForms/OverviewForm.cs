@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using PBL3.Model;
 using PBL3.BLL;
 
 namespace PBL3.View.AdminChildForms
@@ -39,72 +40,99 @@ namespace PBL3.View.AdminChildForms
             lbAddress.Text = person.Address;
             lbEmail.Text = (person.Email != null) ? person.Email : "N/A";
 
-            //chartRevenue.DataSource = BLLRevenueManagement.Instance.GetAllRevenue_Chart_View();
-            //chartRevenue.Series[0].YValueMembers = "Total";
-            //chartRevenue.Series[0].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            //chartRevenue.Series[0].XValueMember = "Month";
-            //chartRevenue.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            
-        }
-
-        private void getNoItems()
-        {
-            noCustomers = QLSPEntities.Instance.Customers.Count();
-            lbNoCustomer.Text = noCustomers.ToString();
-            noProducts = QLSPEntities.Instance.Products.Count();
-        }
-
-        private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string category = cbbSortCategory.SelectedItem.ToString();
-            switch (category)
-            {
-                case "This Week":
-                    chartType = "Week";
-                    break;
-                case "This Month":
-                    chartType = "Month";
-                    break;
-                case "This Year":
-                    startDate = new DateTime(DateTime.Now.Year, 1, 1, 0, 0, 0);
-                    endDate = DateTime.Now;
-                    chartType = "Year";
-                    break;
-            }
+            activateButton(btnThisYear);
+            startDate = BLLRevenueManagement.Instance.GetFirstDate();
+            endDate = DateTime.Now;
+            chartType = "Year";
             LoadChart();
+            setNoItems();
+        }
+
+        private void setNoItems()
+        {
+            lbNoCustomer.Text = BLLRevenueManagement.Instance.GetAllVisitors(startDate, endDate).ToString();
+            lbProducts.Text = BLLRevenueManagement.Instance.GetAllNOProductsSold(startDate, endDate).ToString();
+            lbGrossRevenue.Text = BLLRevenueManagement.Instance.GetTotalGrossRevenue(startDate, endDate).ToString();
+        }
+
+        private void activateButton(object sender)
+        {
+            disableButtons();
+            ((Guna.UI2.WinForms.Guna2Button)sender).FillColor = Color.FromArgb(21, 134, 183);
+            ((Guna.UI2.WinForms.Guna2Button)sender).ForeColor = Color.White;
+        }
+
+        private void disableButtons()
+        {
+            foreach (Control otherButtons in pnTime.Controls)
+            {
+                if (otherButtons.GetType() == typeof(Guna.UI2.WinForms.Guna2Button))
+                {
+                    ((Guna.UI2.WinForms.Guna2Button)otherButtons).FillColor = Color.White;
+                    otherButtons.ForeColor = Color.FromArgb(21, 134, 183);
+                }
+            }
+        }
+
+        private void btnThisWeek_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+            startDate = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
+            endDate = DateTime.Now;
+            chartType = "Week";
+            LoadChart();
+            setNoItems();
+        }
+
+        private void btnThisYear_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+            startDate = BLLRevenueManagement.Instance.GetFirstDate();
+            endDate = DateTime.Now;
+            chartType = "Year";
+            LoadChart();
+            setNoItems();
         }
 
         private void LoadChart()
-        {
-            switch (chartType)
+        {   
+            if(chartType == "Week")
             {
-                case "Day":
-                    break;
-                case "Week":
-                    MessageBox.Show(chartType);
-                    break;
-                case "Month":
-                    MessageBox.Show(chartType);
-                    break;
-                case "Year":
-                    var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate, chartType);
-                    int[] N = new int[points.Count];
-                    double[] M = new double[points.Count];
-                    int i = 0;
-                    foreach (var item in points)
-                    {
-                        N[i] = item.date.Month;
-                        MessageBox.Show(item.date.Month.ToString());
-                        M[i] = item.total;
-                        i++;
-                    }
-                    chartRevenue.Series[0].Points.DataBindXY(N, M);
-                    break;
+                var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate, chartType);
+                int[] N = new int[points.Count];
+                double[] M = new double[points.Count];
+                int i = 0;
+                foreach (var item in points)
+                {
+                    N[i] = item.date.Day;
+                    M[i] = item.total;
+                    i++;
+                }
+                chartRevenue.Series[0].Points.DataBindXY(N, M);
             }
-
-
+            if(chartType == "Year")
+            {
+                var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate, chartType);
+                int[] N = new int[points.Count];
+                double[] M = new double[points.Count];
+                int i = 0;
+                foreach (var item in points)
+                {
+                    N[i] = item.date.Month;
+                    M[i] = item.total;
+                    i++;
+                }
+                chartRevenue.Series[0].Points.DataBindXY(N, M);
+            }
         }
+    }
 
-
+    public static class DateTimeExtensions
+    {
+        public static DateTime StartOfWeek(this DateTime dt, DayOfWeek startOfWeek)
+        {
+            int diff = (7 + (dt.DayOfWeek - startOfWeek)) % 7;
+            return dt.AddDays(-1 * diff).Date;
+        }
     }
 }

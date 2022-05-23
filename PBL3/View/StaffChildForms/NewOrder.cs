@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
 using PBL3.DTO;
-using PBL3.View;
+using PBL3.Model;
 
 namespace PBL3.View.StaffChildForms
 {
@@ -29,7 +29,7 @@ namespace PBL3.View.StaffChildForms
             dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
             rd_list = new List<ReceiptDetailView>();
             var random = new RandomGenerator();
-            OrderIDtxt.Text = "rpt" + (QLSPEntities.Instance.Receipts.Count() + 1).ToString();
+            OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
             OrderIDtxt.Enabled = false;
             SalesmanIDtxt.Text = account.PersonID;
             SalesmanIDtxt.Enabled = false;
@@ -42,7 +42,7 @@ namespace PBL3.View.StaffChildForms
             BLLCustomerManagement.Instance.UpdateTotalSpending(customer.PhoneNumber,total);
             double totaltemp = (double)customer.TotalSpending;
             string rankID = BLLRankManagement.Instance.GetRankIDByReQuirement(totaltemp);
-            BLLCustomerManagement.Instance.UpdateRankCustomer(customer.CustomerID, rankID);
+            BLLCustomerManagement.Instance.UpdateRankCustomer(customer.PhoneNumber, rankID);
         }
         
         private void Save(double total)
@@ -55,7 +55,7 @@ namespace PBL3.View.StaffChildForms
             if (CustomerTeltxt.Text != "")
             {
                 Customer customer = BLLCustomerManagement.Instance.getCustomerID(CustomerTeltxt.Text.Trim());
-                receipt.CustomerID = customer.CustomerID;
+                receipt.CustomerID = customer.PhoneNumber;
                 BLLCustomerManagement.Instance.SaveCustomer(customer, total);
             }
             //receipt.CustomerID = (QLSPEntities.Instance.Customers.Count() + 1).ToString();
@@ -97,14 +97,14 @@ namespace PBL3.View.StaffChildForms
                     if (result == DialogResult.Yes)
                     {
                         Save(total);
-                        BLLCustomerManagement.Instance.UpdateUsed(customer.CustomerID);
+                        BLLCustomerManagement.Instance.UpdateUsed(customer.PhoneNumber);
                     }
                     else if (result == DialogResult.No)
                     {
                         Save(Convert.ToDouble(Totaltxt.Text));
                     }
                 }
-                else if (customer.RankID.Trim() == "r00")
+                else
                 {
                     Save(Convert.ToDouble(Totaltxt.Text));
                 }
@@ -122,7 +122,7 @@ namespace PBL3.View.StaffChildForms
             OrderIDtxt.Text = "";
             SalesmanIDtxt.Text = "";
             Totaltxt.Text = "";
-            dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_Order_View();
+            dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
 
             LoadNewOrder();
         }
@@ -175,7 +175,7 @@ namespace PBL3.View.StaffChildForms
 
         private void LoadNewOrder()
         {
-            OrderIDtxt.Text = "rpt" + (QLSPEntities.Instance.Receipts.Count() + 1).ToString();
+            OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
             SalesmanIDtxt.Text = "sm001";
             CustomerTeltxt.Text = "";
             OrderDateTimePicker.Value = DateTime.Now;

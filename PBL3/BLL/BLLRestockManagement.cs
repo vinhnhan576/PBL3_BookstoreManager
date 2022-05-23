@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PBL3.DTO;
+using PBL3.Model;
 
 namespace PBL3.BLL
 {
@@ -30,7 +31,7 @@ namespace PBL3.BLL
         public List<Restock> GetAllRestock()
         {
             List<Restock> restockList = new List<Restock>();
-            foreach (Restock i in QLSPEntities.Instance.Restocks.Select(p => p).ToList())
+            foreach (Restock i in QLNS.Instance.Restocks.Select(p => p).ToList())
                 restockList.Add(i);
             return restockList;
         }
@@ -38,14 +39,14 @@ namespace PBL3.BLL
         public List<RestockDetail> GetAllRestockDetail()
         {
             List<RestockDetail> restockDetails = new List<RestockDetail>();
-            foreach(RestockDetail restockDetail in QLSPEntities.Instance.RestockDetails.Select(p => p).ToList())
+            foreach(RestockDetail restockDetail in QLNS.Instance.RestockDetails.Select(p => p).ToList())
                 restockDetails.Add(restockDetail);
             return restockDetails;
         }
 
         public dynamic GetAllRestockDetail_View()
         {
-            var restockDetails = QLSPEntities.Instance.RestockDetails.Select(p => new
+            var restockDetails = QLNS.Instance.RestockDetails.Select(p => new
             {
                 p.RestockDetailID,
                 p.Product.ProductName,
@@ -57,14 +58,14 @@ namespace PBL3.BLL
 
         public dynamic GetAllProduct_StockView()
         {
-            var products = QLSPEntities.Instance.RestockDetails.Select(p => new { p.Product.ProductName, p.ImportQuantity });
+            var products = QLNS.Instance.RestockDetails.Select(p => new { p.Product.ProductName, p.ImportQuantity });
             return products.ToList();
         }
 
         public RestockDetail GetRestockDetailByProductID(string productID)
         {
             RestockDetail restockDetail = new RestockDetail();
-            foreach (RestockDetail i in QLSPEntities.Instance.RestockDetails.Select(p => p).ToList())
+            foreach (RestockDetail i in QLNS.Instance.RestockDetails.Select(p => p).ToList())
             {
                 if (i.ProductID == productID)
                 {
@@ -77,14 +78,14 @@ namespace PBL3.BLL
         public void AddNewRestock(Restock r)
         {
 
-            QLSPEntities.Instance.Restocks.Add(r);
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.Restocks.Add(r);
+            QLNS.Instance.SaveChanges();
         }
         public void AddNewRestockDetail(RestockDetail r)
         {
 
-            QLSPEntities.Instance.RestockDetails.Add(r);
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.RestockDetails.Add(r);
+            QLNS.Instance.SaveChanges();
         }
         public List<RestockDetailView> CreateRestockDetailView(List<RestockDetailView> list,string productid, int quantity, double ImportPrice)
         {
@@ -97,8 +98,8 @@ namespace PBL3.BLL
             else
             {
                 RestockDetailView temp = new RestockDetailView();
-                temp.RestockDetailID = "dt00" + (QLSPEntities.Instance.RestockDetails.Count() + 1 +list.Count()).ToString();
-                Product product = QLSPEntities.Instance.Products.Find(productid);
+                temp.RestockDetailID = "dt00" + (QLNS.Instance.RestockDetails.Count() + 1 +list.Count()).ToString();
+                Product product = QLNS.Instance.Products.Find(productid);
                 temp.ProductID = productid;
                 temp.ProductName = product.ProductName;
                 temp.ImportPrice = ImportPrice;

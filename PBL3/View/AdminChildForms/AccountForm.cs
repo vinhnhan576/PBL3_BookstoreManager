@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.Model;
 
 using PBL3.BLL;
 
@@ -29,7 +30,7 @@ namespace PBL3.View.AdminChildForms
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            int count = QLSPEntities.Instance.Accounts.Count() + 1;
+            int count = QLNS.Instance.Accounts.Count() + 1;
             tbID.Text = count.ToString();
             tbID.Enabled = false;
             tbUsername.Text = "";
@@ -63,7 +64,7 @@ namespace PBL3.View.AdminChildForms
             if (dgvAccount.SelectedRows.Count == 1)
             {
                 string ID = dgvAccount.SelectedRows[0].Cells[0].Value.ToString();
-                PBL3.Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
+                Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
                 string s = "";
                 for (int i = 0; i < ac.Password.Length; i++)
                 {
@@ -165,7 +166,7 @@ namespace PBL3.View.AdminChildForms
             if (dgvAccount.SelectedRows.Count == 1)
             {
                 string ID = dgvAccount.SelectedRows[0].Cells[0].Value.ToString();
-                PBL3.Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
+                Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
                 string s = "";
                 for (int i = 0; i < ac.Password.Length; i++)
                 {
@@ -201,7 +202,7 @@ namespace PBL3.View.AdminChildForms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            PBL3.Account a = new PBL3.Account();
+            Account a = new Account();
             Person p = new Person();
             p.PersonName = tbName.Text;
             p.PhoneNumber = tbTel.Text;
