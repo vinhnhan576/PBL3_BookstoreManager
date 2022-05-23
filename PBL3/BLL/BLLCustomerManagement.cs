@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.Model;
 
 namespace PBL3.BLL
 {
@@ -26,18 +27,17 @@ namespace PBL3.BLL
         public List<Customer> GetAllCustomer()
         {
             List<Customer> customerList = new List<Customer>();
-            foreach(Customer customer in QLSPEntities.Instance.Customers.Select(p => p).ToList())
+            foreach(Customer customer in QLNS.Instance.Customers.Select(p => p).ToList())
                 customerList.Add(customer);
             return customerList;
         }
 
         public dynamic GetAllCustomer_View()
         {
-            var customerList = QLSPEntities.Instance.Customers.Select(p => new
+            var customerList = QLNS.Instance.Customers.Select(p => new
             {
-                p.CustomerID,
-                p.CustomerName,
                 p.PhoneNumber,
+                p.CustomerName,
                 p.Rank.RankName,
                 p.TotalSpending,
             });
@@ -45,12 +45,12 @@ namespace PBL3.BLL
         }
         public void AddNewCustomer(Customer r)
         {
-            QLSPEntities.Instance.Customers.Add(r);
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.Customers.Add(r);
+            QLNS.Instance.SaveChanges();
         }
         public bool Customer_Check(string tel)
         {
-            List<Customer> data = QLSPEntities.Instance.Customers.Select(p=>p).ToList();
+            List<Customer> data = QLNS.Instance.Customers.Select(p=>p).ToList();
             for (int i = 0; i<data.Count ; i++)
             {
                 if (data[i].PhoneNumber.Trim() == tel)
@@ -63,43 +63,33 @@ namespace PBL3.BLL
         }
         public dynamic CalculateCustomerTotal(string id)
         {
-            var customertotal = QLSPEntities.Instance.Receipts.Where(p => p.CustomerID == id).Select(p => p.Total).Sum();
+            var customertotal = QLNS.Instance.Receipts.Where(p => p.CustomerID == id).Select(p => p.Total).Sum();
 
             return customertotal;
 
         }
         public void UpdateTotalSpending(string customerphone, double totalspending)
         {
-            string temp = "";
-            foreach (var customer in QLSPEntities.Instance.Customers)
-            {
-                if (customer.PhoneNumber == customerphone)
-                {
-                    temp = customer.CustomerID;
-                    break;
-                }
-
-            }
-            var customertemp = QLSPEntities.Instance.Customers.Find(temp);
+            var customertemp = QLNS.Instance.Customers.Find(customerphone);
             customertemp.TotalSpending += totalspending;
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.SaveChanges();
 
         }
         public void UpdateRankCustomer(string CustomerID, string RankID)
         {
-            var customer = QLSPEntities.Instance.Customers.Find(CustomerID);
+            var customer = QLNS.Instance.Customers.Find(CustomerID);
             customer.RankID = RankID;
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.SaveChanges();
         }
         public void UpdateUsed(string CustomerID)
         {
-            var customer = QLSPEntities.Instance.Customers.Find(CustomerID);
+            var customer = QLNS.Instance.Customers.Find(CustomerID);
             customer.Used++;
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.SaveChanges();
         }
         public Customer getCustomerID(string tel)
         {
-            foreach (var customer in QLSPEntities.Instance.Customers)
+            foreach (var customer in QLNS.Instance.Customers)
             {
                 if (customer.PhoneNumber.Trim() == tel)
                 {
@@ -114,14 +104,14 @@ namespace PBL3.BLL
             BLLCustomerManagement.Instance.UpdateTotalSpending(customer.PhoneNumber, total);
             double totaltemp = (double)customer.TotalSpending;
             string rankID = BLLRankManagement.Instance.GetRankIDByReQuirement(totaltemp);
-            BLLCustomerManagement.Instance.UpdateRankCustomer(customer.CustomerID, rankID);
+            BLLCustomerManagement.Instance.UpdateRankCustomer(customer.PhoneNumber, rankID);
         }
         public dynamic GetReceiptByCustomerID(string customerid)
         {
             if (customerid == "")
-                 return QLSPEntities.Instance.Receipts.Select(p => p).ToList();
+                 return QLNS.Instance.Receipts.Select(p => p).ToList();
             else
-                return QLSPEntities.Instance.Receipts.Where(p => p.CustomerID == customerid).Select(p => new {p.ReceiptID,p.Date,p.Total}).ToList();
+                return QLNS.Instance.Receipts.Where(p => p.CustomerID == customerid).Select(p => new {p.ReceiptID,p.Date,p.Total}).ToList();
         }
         //public dynamic GetProductByListReceipt(List<Receipt> receiptlist)
         //{
@@ -140,17 +130,17 @@ namespace PBL3.BLL
         public dynamic SearchCustomer(string searchValue)
         {
             List<Customer> data = new List<Customer>();
-            foreach (Customer i in QLSPEntities.Instance.Customers.Select(p => p).ToList())
+            foreach (Customer i in QLNS.Instance.Customers.Select(p => p).ToList())
             {
-                bool containID = i.CustomerID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                bool containPhone = i.PhoneNumber.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containCustomerName = i.CustomerName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                if (containID || containCustomerName)
+                if (containPhone || containCustomerName)
                 {
                     data.Add(i);
                 }
 
             }
-            var List = data.Select(p => new { p.CustomerID, p.CustomerName, p.PhoneNumber, p.Rank.RankName, p.TotalSpending });
+            var List = data.Select(p => new { p.CustomerName, p.PhoneNumber, p.Rank.RankName, p.TotalSpending });
             return List.ToList();
         }
 
@@ -158,7 +148,7 @@ namespace PBL3.BLL
         {
             List<Customer> data = new List<Customer>();
             bool containRank = false;
-            foreach (Customer i in QLSPEntities.Instance.Customers.Select(p => p).ToList())
+            foreach (Customer i in QLNS.Instance.Customers.Select(p => p).ToList())
             {
                 containRank = i.Rank.RankName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 if (containRank)
@@ -167,21 +157,14 @@ namespace PBL3.BLL
                 }
 
             }
-            var List = data.Select(p => new { p.CustomerID, p.CustomerName, p.PhoneNumber, p.Rank.RankName, p.TotalSpending });
+            var List = data.Select(p => new { p.CustomerName, p.PhoneNumber, p.Rank.RankName, p.TotalSpending });
             return List.ToList();
         }
 
         public dynamic SortCustomer(string sortCategory, bool ascending)
         {
-            QLSPEntities db = new QLSPEntities();
+            QLNS db = new QLNS();
             List<Customer> data = new List<Customer>();
-            if (sortCategory == "Customer ID")
-            {
-                if (ascending)
-                    data = db.Customers.OrderBy(p => p.CustomerID).ToList();
-                else
-                    data = db.Customers.OrderByDescending(p => p.CustomerID).ToList();
-            }
             if (sortCategory == "Customer Name")
             {
                 if (ascending)
@@ -196,13 +179,13 @@ namespace PBL3.BLL
                 else
                     data = db.Customers.OrderByDescending(p => p.TotalSpending).ToList();
             }
-            var newList = data.Select(p => new { p.CustomerID, p.CustomerName, p.PhoneNumber, p.Rank.RankName, p.TotalSpending }).ToList();
+            var newList = data.Select(p => new { p.CustomerName, p.PhoneNumber, p.Rank.RankName, p.TotalSpending }).ToList();
             return newList;
         }
         public List<string> GetAllCustomerRank()
         {
             List<string> RankList = new List<string>();
-            foreach (Rank i in QLSPEntities.Instance.Ranks.Select(p=>p).ToList())
+            foreach (Rank i in QLNS.Instance.Ranks.Select(p=>p).ToList())
             {
                 RankList.Add(i.RankName);
             }
@@ -213,12 +196,12 @@ namespace PBL3.BLL
             DateTime now = DateTime.Now;
             if (now.Hour==20&&now.Minute==42)
             {
-                List<Customer> list = QLSPEntities.Instance.Customers.Select(p => p).ToList();
+                List<Customer> list = QLNS.Instance.Customers.Select(p => p).ToList();
                 foreach (Customer c in list)
                 {
                     c.Used = 0;
                 }
-                QLSPEntities.Instance.SaveChanges();
+                QLNS.Instance.SaveChanges();
             }
         }
         

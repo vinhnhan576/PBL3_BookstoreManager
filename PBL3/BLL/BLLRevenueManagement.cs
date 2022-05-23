@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PBL3.DTO;
+using System.Windows.Forms;
+using PBL3.Model;
 
 namespace PBL3.BLL
 {
@@ -29,7 +31,7 @@ namespace PBL3.BLL
         public List<Revenue> GetAllRevenue()
         {
             List<Revenue> revenues = new List<Revenue>();
-            foreach(Revenue i in QLSPEntities.Instance.Revenues.Select(p => p).ToList())
+            foreach(Revenue i in QLNS.Instance.Revenues.Select(p => p).ToList())
             {
                 revenues.Add(i);
             }
@@ -38,91 +40,37 @@ namespace PBL3.BLL
 
         public dynamic GetAllRevenue_View()
         {
-            var revenues = QLSPEntities.Instance.Revenues.Select(p => new {
-                p.Receipt_Detail.Receipt.Date, p.Receipt_Detail.Receipt.Person.PersonName, p.Expenses, p.GrossRevenue, p.Profit });
+            var revenues = QLNS.Instance.Revenues.Select(p => new {
+                p.ReceiptDetail.Receipt.Date, p.ReceiptDetail.Receipt.Person.PersonName, p.Expenses, p.GrossRevenue, p.Profit });
             return revenues.ToList();
         }
 
-        public List<RevenueChartView> GetAllRevenueByDate_ChartView(DateTime startDate, DateTime endDate, string chartType)
-        {
-            List<RevenueChartView> revenues = new List<RevenueChartView>();
-            int noDays = (endDate - startDate).Days;
-            if(noDays == 1)
-            {
-                chartType = "Day";
-            }
-            else if(noDays <= 7)
-            {
-                chartType = "Week";
-            }
-            else if(noDays <= 31)
-            {
-                chartType = "Month";
-            }
-            else if(noDays <= 365)
-            {
-                int noMonths = (int)(noDays / 30);
-                DateTime[] months = new DateTime[noMonths];
-                double[] totals = new double[noMonths];
-                int currentMonth = startDate.Month;
-                int receiptMonth, j =0;
-                foreach (Revenue i in QLSPEntities.Instance.Revenues.Select(p => p).ToList())
-                {
-                    int month = i.Receipt_Detail.Receipt.Date.Month;
-                    int year = i.Receipt_Detail.Receipt.Date.Year;
-                    if ((month >= startDate.Month && month <= endDate.Month && (year == startDate.Year || year == endDate.Year)))
-                    {
-                        receiptMonth = i.Receipt_Detail.Receipt.Date.Month;
-                        if (currentMonth != receiptMonth)
-                        {
-                            currentMonth = receiptMonth;
-                            j++;
-                        }
-                        months[j] = i.Receipt_Detail.Receipt.Date;
-                        totals[j] += (double)i.GrossRevenue;
-                    }
-                }
-                for(int i = 0; i < noMonths; i++)
-                {
-                    RevenueChartView rcv = new RevenueChartView
-                    {
-                        date = months[i],
-                        total = totals[i],
-                    };
-                    revenues.Add(rcv);
-                }
-                chartType = "Year";
-            }
-            return revenues;
-        }
-
-
         public void AddRevenue(string recieptDetailID, double expenses, double grossrevenue, double profit)
         {
-            int count = QLSPEntities.Instance.Revenues.Count() + 1;
+            int count = QLNS.Instance.Revenues.Count() + 1;
             string revenueID = (count < 100 ? (count < 10 ? "00" + count.ToString() : "0" + count.ToString()) : count.ToString());
             Revenue revenue = new Revenue { RevenueID = count.ToString(), ReceiptDetailID = recieptDetailID, Expenses = expenses, GrossRevenue = grossrevenue, Profit = profit };
-            QLSPEntities.Instance.Revenues.Add(revenue);
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.Revenues.Add(revenue);
+            QLNS.Instance.SaveChanges();
         }
 
         public dynamic SortRevenue(string sortCategory, bool ascending)
         {
-            QLSPEntities db = new QLSPEntities();
+            QLNS db = new QLNS();
             List<Revenue> data = new List<Revenue>();
             if (sortCategory == "Date")
             {
                 if (ascending)
-                    data = db.Revenues.OrderBy(p => p.Receipt_Detail.Receipt.Date).ToList();
+                    data = db.Revenues.OrderBy(p => p.ReceiptDetail.Receipt.Date).ToList();
                 else
-                    data = db.Revenues.OrderByDescending(p => p.Receipt_Detail.Receipt.Date).ToList();
+                    data = db.Revenues.OrderByDescending(p => p.ReceiptDetail.Receipt.Date).ToList();
             }
             if (sortCategory == "PersonName")
             {
                 if (ascending)
-                    data = db.Revenues.OrderBy(p => p.Receipt_Detail.Receipt.Person.PersonName).ToList();
+                    data = db.Revenues.OrderBy(p => p.ReceiptDetail.Receipt.Person.PersonName).ToList();
                 else
-                    data = db.Revenues.OrderByDescending(p => p.Receipt_Detail.Receipt.Person.PersonName).ToList();
+                    data = db.Revenues.OrderByDescending(p => p.ReceiptDetail.Receipt.Person.PersonName).ToList();
             }
             if (sortCategory == "Expenses")
             {
@@ -145,7 +93,7 @@ namespace PBL3.BLL
                 else
                     data = db.Revenues.OrderByDescending(p => p.Profit).ToList();
             }
-            var sortedList = data.Select(p => new { p.Receipt_Detail.Receipt.Date, p.Receipt_Detail.Receipt.Person.PersonName, p.Expenses, p.GrossRevenue, p.Profit }).ToList();
+            var sortedList = data.Select(p => new { p.ReceiptDetail.Receipt.Date, p.ReceiptDetail.Receipt.Person.PersonName, p.Expenses, p.GrossRevenue, p.Profit }).ToList();
             return sortedList;
         }
 
@@ -167,12 +115,12 @@ namespace PBL3.BLL
                     {
                         if (year != "")
                         {
-                            if (i.Receipt_Detail.Receipt.Date.Day == Day && i.Receipt_Detail.Receipt.Date.Month == Month && i.Receipt_Detail.Receipt.Date.Year == Year)
+                            if (i.ReceiptDetail.Receipt.Date.Day == Day && i.ReceiptDetail.Receipt.Date.Month == Month && i.ReceiptDetail.Receipt.Date.Year == Year)
                                 data.Add(i);
                         }
                         else
                         {
-                            if (i.Receipt_Detail.Receipt.Date.Day == Day && i.Receipt_Detail.Receipt.Date.Month == Month)
+                            if (i.ReceiptDetail.Receipt.Date.Day == Day && i.ReceiptDetail.Receipt.Date.Month == Month)
                                 data.Add(i);
                         }
                     }
@@ -180,12 +128,12 @@ namespace PBL3.BLL
                     {
                         if (year != "")
                         {
-                            if (i.Receipt_Detail.Receipt.Date.Day == Day && i.Receipt_Detail.Receipt.Date.Year == Year)
+                            if (i.ReceiptDetail.Receipt.Date.Day == Day && i.ReceiptDetail.Receipt.Date.Year == Year)
                                 data.Add(i);
                         }
                         else
                         {
-                            if (i.Receipt_Detail.Receipt.Date.Day == Day)
+                            if (i.ReceiptDetail.Receipt.Date.Day == Day)
                                 data.Add(i);
                         }
                     }
@@ -196,12 +144,12 @@ namespace PBL3.BLL
                     {
                         if (year != "")
                         {
-                            if (i.Receipt_Detail.Receipt.Date.Month == Month && i.Receipt_Detail.Receipt.Date.Year == Year)
+                            if (i.ReceiptDetail.Receipt.Date.Month == Month && i.ReceiptDetail.Receipt.Date.Year == Year)
                                 data.Add(i);
                         }
                         else
                         {
-                            if (i.Receipt_Detail.Receipt.Date.Month == Month)
+                            if (i.ReceiptDetail.Receipt.Date.Month == Month)
                                 data.Add(i);
                         }
                     }
@@ -209,14 +157,126 @@ namespace PBL3.BLL
                     {
                         if (year != "")
                         {
-                            if (i.Receipt_Detail.Receipt.Date.Year == Year)
+                            if (i.ReceiptDetail.Receipt.Date.Year == Year)
                                 data.Add(i);
                         }
                     }
                 }
             }
-            var filteredList = data.Select(p => new { p.Receipt_Detail.Receipt.Date, p.Receipt_Detail.Receipt.Person.PersonName, p.Expenses, p.GrossRevenue, p.Profit });
+            var filteredList = data.Select(p => new { p.ReceiptDetail.Receipt.Date, p.ReceiptDetail.Receipt.Person.PersonName, p.Expenses, p.GrossRevenue, p.Profit });
             return filteredList.ToList();
+        }
+
+        public List<RevenueChartView> GetAllRevenueByDate_ChartView(DateTime startDate, DateTime endDate, string chartType)
+        {
+            List<RevenueChartView> revenues = new List<RevenueChartView>();
+            int noDays = (endDate - startDate).Days;
+            if (noDays == 1)
+            {
+                chartType = "Day";
+            }
+            else if (noDays <= 7)
+            {
+                DateTime[] days = new DateTime[31];
+                double[] totals = new double[31];
+                foreach (Revenue i in QLNS.Instance.Revenues.Select(p => p).ToList())
+                {
+                    DateTime date = i.ReceiptDetail.Receipt.Date;
+                    int day = date.Day;
+                    if (date >= startDate && date <= endDate)
+                    {
+                        days[day] = i.ReceiptDetail.Receipt.Date;
+                        totals[day] += (double)i.GrossRevenue;
+                    }
+                }
+                for (int i = startDate.Day; i < endDate.Day + 1; i++)
+                {
+                    RevenueChartView rcv = new RevenueChartView
+                    {
+                        date = days[i],
+                        total = totals[i],
+                    };
+                    revenues.Add(rcv);
+                }
+                chartType = "Week";
+            }
+            else if (noDays <= 31)
+            {
+                chartType = "Month";
+            }
+            else if (noDays <= 365)
+            {
+                DateTime[] months = new DateTime[12];
+                double[] totals = new double[12];
+                foreach (Revenue i in QLNS.Instance.Revenues.Select(p => p).ToList())
+                {
+                    DateTime date = i.ReceiptDetail.Receipt.Date;
+                    int month = date.Month;
+                    if (date >= startDate && date <= endDate)
+                    {
+                        months[month] = i.ReceiptDetail.Receipt.Date;
+                        totals[month] += (double)i.GrossRevenue;
+                    }
+                }
+                for (int i = startDate.Month; i < endDate.Month + 1; i++)
+                {
+                    RevenueChartView rcv = new RevenueChartView
+                    {
+                        date = months[i],
+                        total = totals[i],
+                    };
+                    revenues.Add(rcv);
+                }
+                chartType = "Year";
+            }
+            return revenues;
+        }
+
+        public DateTime GetFirstDate()
+        {
+            return QLNS.Instance.Receipts.First().Date;
+        }
+
+        public int GetAllVisitors(DateTime startDate, DateTime endDate)
+        {
+            int noVisitors = 0;
+            foreach (ReceiptDetail i in QLNS.Instance.ReceiptDetails.Select(p => p).ToList())
+            {
+                DateTime date = i.Receipt.Date;
+                if (date >= startDate && date <= endDate)
+                {
+                    noVisitors++;
+                }
+            }
+            return noVisitors;
+        }
+
+        public int GetAllNOProductsSold(DateTime startDate, DateTime endDate)
+        {
+            int noProductsSold = 0;
+            foreach (ReceiptDetail i in QLNS.Instance.ReceiptDetails.Select(p => p).ToList())
+            {
+                DateTime date = i.Receipt.Date;
+                if (date >= startDate && date <= endDate)
+                {
+                    noProductsSold += i.SellingQuantity;
+                }
+            }
+            return noProductsSold;
+        }
+
+        public double GetTotalGrossRevenue(DateTime startDate, DateTime endDate)
+        {
+            double totalGrossRevenue = 0;
+            foreach (Revenue i in QLNS.Instance.Revenues.Select(p => p).ToList())
+            {
+                DateTime date = i.ReceiptDetail.Receipt.Date;
+                if (date >= startDate && date <= endDate)
+                {
+                    totalGrossRevenue += (double)i.GrossRevenue;
+                }
+            }
+            return totalGrossRevenue;
         }
     }
 }

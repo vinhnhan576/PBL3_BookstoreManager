@@ -28,15 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lbNoCustomer = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.pnInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.lbEmail = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,11 +51,22 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pbVisitors = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbGrossRevenue = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbProducts = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.cbbSortCategory = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.pnTime = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnThisWeek = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLast30days = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLast7days = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThisMonth = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThisYear = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).BeginInit();
             this.pnInfo.SuspendLayout();
             this.pnProfile.SuspendLayout();
@@ -71,68 +78,45 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
+            this.pnTime.SuspendLayout();
             this.SuspendLayout();
             // 
             // chartRevenue
             // 
             this.chartRevenue.BackColor = System.Drawing.Color.Transparent;
             this.chartRevenue.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisX.IsLabelAutoFit = false;
-            chartArea4.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(149)))));
-            chartArea4.AxisX.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisY.IsLabelAutoFit = false;
-            chartArea4.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI Historic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(149)))));
-            chartArea4.AxisY.LineColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
-            chartArea4.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.Name = "ChartArea1";
-            this.chartRevenue.ChartAreas.Add(chartArea4);
-            this.chartRevenue.Location = new System.Drawing.Point(3, 36);
+            chartArea2.AxisX.IsLabelAutoFit = false;
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(149)))));
+            chartArea2.AxisX.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisY.IsLabelAutoFit = false;
+            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI Historic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(149)))));
+            chartArea2.AxisY.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chartRevenue.ChartAreas.Add(chartArea2);
+            this.chartRevenue.Location = new System.Drawing.Point(3, 23);
             this.chartRevenue.Name = "chartRevenue";
             this.chartRevenue.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chartRevenue.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.Black};
-            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            series4.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(224)))), ((int)(((byte)(239)))));
-            series4.BorderColor = System.Drawing.Color.Blue;
-            series4.BorderWidth = 0;
-            series4.ChartArea = "ChartArea1";
-            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chartRevenue.Series.Add(series4);
-            this.chartRevenue.Size = new System.Drawing.Size(460, 274);
+            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(224)))), ((int)(((byte)(239)))));
+            series2.BorderColor = System.Drawing.Color.Blue;
+            series2.BorderWidth = 0;
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartRevenue.Series.Add(series2);
+            this.chartRevenue.Size = new System.Drawing.Size(460, 258);
             this.chartRevenue.TabIndex = 5;
             this.chartRevenue.Text = "chart1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.label2.Location = new System.Drawing.Point(20, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 25);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "45,000.00$";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.label3.Location = new System.Drawing.Point(17, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 32);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "10%";
             // 
             // label9
             // 
@@ -151,36 +135,12 @@
             this.lbNoCustomer.BackColor = System.Drawing.Color.White;
             this.lbNoCustomer.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNoCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.lbNoCustomer.Location = new System.Drawing.Point(7, 57);
+            this.lbNoCustomer.Location = new System.Drawing.Point(7, 49);
             this.lbNoCustomer.Name = "lbNoCustomer";
             this.lbNoCustomer.Size = new System.Drawing.Size(138, 32);
             this.lbNoCustomer.TabIndex = 10;
             this.lbNoCustomer.Text = "x ";
             this.lbNoCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.DarkGray;
-            this.label10.Location = new System.Drawing.Point(56, 22);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(82, 18);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Total sales";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DarkGray;
-            this.label11.Location = new System.Drawing.Point(51, 22);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 18);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Rate up";
             // 
             // pnInfo
             // 
@@ -195,12 +155,12 @@
             this.pnInfo.Controls.Add(this.lbGender);
             this.pnInfo.Controls.Add(this.label7);
             this.pnInfo.FillColor = System.Drawing.Color.White;
-            this.pnInfo.Location = new System.Drawing.Point(538, 222);
+            this.pnInfo.Location = new System.Drawing.Point(540, 222);
             this.pnInfo.Name = "pnInfo";
             this.pnInfo.ShadowDecoration.Depth = 7;
             this.pnInfo.ShadowDecoration.Enabled = true;
             this.pnInfo.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
-            this.pnInfo.Size = new System.Drawing.Size(218, 231);
+            this.pnInfo.Size = new System.Drawing.Size(216, 231);
             this.pnInfo.TabIndex = 20;
             // 
             // lbEmail
@@ -299,12 +259,12 @@
             this.pnProfile.Controls.Add(this.lbName);
             this.pnProfile.Controls.Add(this.guna2CirclePictureBox1);
             this.pnProfile.FillColor = System.Drawing.Color.White;
-            this.pnProfile.Location = new System.Drawing.Point(538, 20);
+            this.pnProfile.Location = new System.Drawing.Point(540, 20);
             this.pnProfile.Name = "pnProfile";
             this.pnProfile.ShadowDecoration.Depth = 7;
             this.pnProfile.ShadowDecoration.Enabled = true;
             this.pnProfile.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
-            this.pnProfile.Size = new System.Drawing.Size(218, 185);
+            this.pnProfile.Size = new System.Drawing.Size(216, 185);
             this.pnProfile.TabIndex = 19;
             // 
             // lbRole
@@ -322,7 +282,7 @@
             // 
             this.lbName.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.lbName.Location = new System.Drawing.Point(3, 136);
+            this.lbName.Location = new System.Drawing.Point(2, 136);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(212, 45);
             this.lbName.TabIndex = 1;
@@ -333,7 +293,7 @@
             // 
             this.guna2CirclePictureBox1.Image = global::PBL3.Properties.Resources.adminVector;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(52, 10);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(51, 10);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.BorderRadius = 5;
             this.guna2CirclePictureBox1.ShadowDecoration.Depth = 20;
@@ -349,23 +309,22 @@
             // 
             this.pnStatistics.BackColor = System.Drawing.Color.Transparent;
             this.pnStatistics.BorderRadius = 12;
-            this.pnStatistics.Controls.Add(this.cbbSortCategory);
             this.pnStatistics.Controls.Add(this.label8);
             this.pnStatistics.Controls.Add(this.chartRevenue);
             this.pnStatistics.FillColor = System.Drawing.Color.White;
-            this.pnStatistics.Location = new System.Drawing.Point(19, 141);
+            this.pnStatistics.Location = new System.Drawing.Point(19, 178);
             this.pnStatistics.Name = "pnStatistics";
             this.pnStatistics.ShadowDecoration.Depth = 7;
             this.pnStatistics.ShadowDecoration.Enabled = true;
             this.pnStatistics.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
-            this.pnStatistics.Size = new System.Drawing.Size(500, 313);
+            this.pnStatistics.Size = new System.Drawing.Size(500, 276);
             this.pnStatistics.TabIndex = 21;
             // 
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.label8.Location = new System.Drawing.Point(11, 10);
+            this.label8.Location = new System.Drawing.Point(397, 13);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 23);
             this.label8.TabIndex = 10;
@@ -400,17 +359,54 @@
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.BorderRadius = 12;
-            this.guna2Panel3.Controls.Add(this.label3);
+            this.guna2Panel3.Controls.Add(this.lbGrossRevenue);
             this.guna2Panel3.Controls.Add(this.label11);
+            this.guna2Panel3.Controls.Add(this.label13);
             this.guna2Panel3.Controls.Add(this.guna2PictureBox3);
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(367, 20);
+            this.guna2Panel3.Location = new System.Drawing.Point(367, 72);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.Depth = 7;
             this.guna2Panel3.ShadowDecoration.Enabled = true;
             this.guna2Panel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
-            this.guna2Panel3.Size = new System.Drawing.Size(151, 101);
+            this.guna2Panel3.Size = new System.Drawing.Size(151, 91);
             this.guna2Panel3.TabIndex = 24;
+            // 
+            // lbGrossRevenue
+            // 
+            this.lbGrossRevenue.BackColor = System.Drawing.Color.White;
+            this.lbGrossRevenue.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGrossRevenue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            this.lbGrossRevenue.Location = new System.Drawing.Point(6, 49);
+            this.lbGrossRevenue.Name = "lbGrossRevenue";
+            this.lbGrossRevenue.Size = new System.Drawing.Size(138, 32);
+            this.lbGrossRevenue.TabIndex = 18;
+            this.lbGrossRevenue.Text = "x ";
+            this.lbGrossRevenue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkGray;
+            this.label11.Location = new System.Drawing.Point(51, 12);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 18);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Total";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.White;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DarkGray;
+            this.label13.Location = new System.Drawing.Point(50, 26);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 16);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "gross revenue";
             // 
             // guna2PictureBox3
             // 
@@ -428,17 +424,54 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderRadius = 12;
-            this.guna2Panel1.Controls.Add(this.label2);
+            this.guna2Panel1.Controls.Add(this.lbProducts);
+            this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.label10);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(193, 20);
+            this.guna2Panel1.Location = new System.Drawing.Point(193, 72);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Depth = 7;
             this.guna2Panel1.ShadowDecoration.Enabled = true;
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
-            this.guna2Panel1.Size = new System.Drawing.Size(151, 101);
+            this.guna2Panel1.Size = new System.Drawing.Size(151, 91);
             this.guna2Panel1.TabIndex = 23;
+            // 
+            // lbProducts
+            // 
+            this.lbProducts.BackColor = System.Drawing.Color.White;
+            this.lbProducts.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProducts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            this.lbProducts.Location = new System.Drawing.Point(6, 49);
+            this.lbProducts.Name = "lbProducts";
+            this.lbProducts.Size = new System.Drawing.Size(138, 32);
+            this.lbProducts.TabIndex = 16;
+            this.lbProducts.Text = "x ";
+            this.lbProducts.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkGray;
+            this.label1.Location = new System.Drawing.Point(52, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 18);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Total";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DarkGray;
+            this.label10.Location = new System.Drawing.Point(51, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 16);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "products sold";
             // 
             // guna2Panel4
             // 
@@ -449,12 +482,12 @@
             this.guna2Panel4.Controls.Add(this.lbNoCustomer);
             this.guna2Panel4.Controls.Add(this.pbVisitors);
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(19, 20);
+            this.guna2Panel4.Location = new System.Drawing.Point(19, 72);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.Depth = 7;
             this.guna2Panel4.ShadowDecoration.Enabled = true;
             this.guna2Panel4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
-            this.guna2Panel4.Size = new System.Drawing.Size(151, 101);
+            this.guna2Panel4.Size = new System.Drawing.Size(151, 91);
             this.guna2Panel4.TabIndex = 22;
             // 
             // label12
@@ -465,34 +498,150 @@
             this.label12.ForeColor = System.Drawing.Color.DarkGray;
             this.label12.Location = new System.Drawing.Point(53, 29);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(82, 18);
+            this.label12.Size = new System.Drawing.Size(55, 18);
             this.label12.TabIndex = 15;
-            this.label12.Text = "customers";
+            this.label12.Text = "visitors";
             // 
-            // cbbSortCategory
+            // pnTime
             // 
-            this.cbbSortCategory.BackColor = System.Drawing.Color.Transparent;
-            this.cbbSortCategory.BorderRadius = 10;
-            this.cbbSortCategory.BorderThickness = 0;
-            this.cbbSortCategory.CustomizableEdges.BottomRight = false;
-            this.cbbSortCategory.CustomizableEdges.TopRight = false;
-            this.cbbSortCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbSortCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbSortCategory.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbSortCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbSortCategory.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbSortCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.cbbSortCategory.ItemHeight = 23;
-            this.cbbSortCategory.Items.AddRange(new object[] {
-            "This Day",
-            "This Month",
-            "This Year"});
-            this.cbbSortCategory.Location = new System.Drawing.Point(367, 11);
-            this.cbbSortCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
-            this.cbbSortCategory.Name = "cbbSortCategory";
-            this.cbbSortCategory.Size = new System.Drawing.Size(122, 29);
-            this.cbbSortCategory.TabIndex = 11;
-            this.cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
+            this.pnTime.BackColor = System.Drawing.Color.Transparent;
+            this.pnTime.BorderRadius = 12;
+            this.pnTime.Controls.Add(this.btnThisYear);
+            this.pnTime.Controls.Add(this.btnThisMonth);
+            this.pnTime.Controls.Add(this.btnThisWeek);
+            this.pnTime.Controls.Add(this.btnLast30days);
+            this.pnTime.Controls.Add(this.btnLast7days);
+            this.pnTime.FillColor = System.Drawing.Color.White;
+            this.pnTime.Location = new System.Drawing.Point(19, 20);
+            this.pnTime.Name = "pnTime";
+            this.pnTime.ShadowDecoration.Depth = 7;
+            this.pnTime.ShadowDecoration.Enabled = true;
+            this.pnTime.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
+            this.pnTime.Size = new System.Drawing.Size(500, 36);
+            this.pnTime.TabIndex = 25;
+            // 
+            // btnThisWeek
+            // 
+            this.btnThisWeek.BorderRadius = 12;
+            this.btnThisWeek.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnThisWeek.CustomBorderThickness = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btnThisWeek.CustomizableEdges.BottomLeft = false;
+            this.btnThisWeek.CustomizableEdges.BottomRight = false;
+            this.btnThisWeek.CustomizableEdges.TopLeft = false;
+            this.btnThisWeek.CustomizableEdges.TopRight = false;
+            this.btnThisWeek.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThisWeek.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThisWeek.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThisWeek.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThisWeek.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnThisWeek.FillColor = System.Drawing.Color.White;
+            this.btnThisWeek.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnThisWeek.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnThisWeek.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnThisWeek.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnThisWeek.Location = new System.Drawing.Point(213, 0);
+            this.btnThisWeek.Name = "btnThisWeek";
+            this.btnThisWeek.Size = new System.Drawing.Size(93, 36);
+            this.btnThisWeek.TabIndex = 2;
+            this.btnThisWeek.Text = "This week";
+            this.btnThisWeek.Click += new System.EventHandler(this.btnThisWeek_Click);
+            // 
+            // btnLast30days
+            // 
+            this.btnLast30days.BorderRadius = 12;
+            this.btnLast30days.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnLast30days.CustomBorderThickness = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btnLast30days.CustomizableEdges.BottomLeft = false;
+            this.btnLast30days.CustomizableEdges.BottomRight = false;
+            this.btnLast30days.CustomizableEdges.TopLeft = false;
+            this.btnLast30days.CustomizableEdges.TopRight = false;
+            this.btnLast30days.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLast30days.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLast30days.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLast30days.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLast30days.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnLast30days.FillColor = System.Drawing.Color.White;
+            this.btnLast30days.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnLast30days.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnLast30days.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnLast30days.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnLast30days.Location = new System.Drawing.Point(102, 0);
+            this.btnLast30days.Name = "btnLast30days";
+            this.btnLast30days.Size = new System.Drawing.Size(111, 36);
+            this.btnLast30days.TabIndex = 1;
+            this.btnLast30days.Text = "Last 30 days";
+            // 
+            // btnLast7days
+            // 
+            this.btnLast7days.BorderRadius = 12;
+            this.btnLast7days.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnLast7days.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.btnLast7days.CustomizableEdges.BottomRight = false;
+            this.btnLast7days.CustomizableEdges.TopRight = false;
+            this.btnLast7days.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLast7days.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLast7days.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLast7days.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLast7days.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnLast7days.FillColor = System.Drawing.Color.White;
+            this.btnLast7days.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnLast7days.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnLast7days.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnLast7days.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnLast7days.Location = new System.Drawing.Point(0, 0);
+            this.btnLast7days.Name = "btnLast7days";
+            this.btnLast7days.Size = new System.Drawing.Size(102, 36);
+            this.btnLast7days.TabIndex = 0;
+            this.btnLast7days.Text = "Last 7 days";
+            // 
+            // btnThisMonth
+            // 
+            this.btnThisMonth.BorderRadius = 12;
+            this.btnThisMonth.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnThisMonth.CustomBorderThickness = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btnThisMonth.CustomizableEdges.BottomLeft = false;
+            this.btnThisMonth.CustomizableEdges.BottomRight = false;
+            this.btnThisMonth.CustomizableEdges.TopLeft = false;
+            this.btnThisMonth.CustomizableEdges.TopRight = false;
+            this.btnThisMonth.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThisMonth.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThisMonth.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThisMonth.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThisMonth.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnThisMonth.FillColor = System.Drawing.Color.White;
+            this.btnThisMonth.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnThisMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnThisMonth.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnThisMonth.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnThisMonth.Location = new System.Drawing.Point(306, 0);
+            this.btnThisMonth.Name = "btnThisMonth";
+            this.btnThisMonth.Size = new System.Drawing.Size(108, 36);
+            this.btnThisMonth.TabIndex = 3;
+            this.btnThisMonth.Text = "This month";
+            // 
+            // btnThisYear
+            // 
+            this.btnThisYear.BorderRadius = 12;
+            this.btnThisYear.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnThisYear.CustomBorderThickness = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.btnThisYear.CustomizableEdges.BottomLeft = false;
+            this.btnThisYear.CustomizableEdges.TopLeft = false;
+            this.btnThisYear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThisYear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThisYear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThisYear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThisYear.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnThisYear.FillColor = System.Drawing.Color.White;
+            this.btnThisYear.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnThisYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnThisYear.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            this.btnThisYear.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnThisYear.Location = new System.Drawing.Point(414, 0);
+            this.btnThisYear.Name = "btnThisYear";
+            this.btnThisYear.Size = new System.Drawing.Size(86, 36);
+            this.btnThisYear.TabIndex = 4;
+            this.btnThisYear.Text = "This year";
+            this.btnThisYear.Click += new System.EventHandler(this.btnThisYear_Click);
             // 
             // OverviewForm
             // 
@@ -500,6 +649,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(774, 471);
+            this.Controls.Add(this.pnTime);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel4);
@@ -507,7 +657,6 @@
             this.Controls.Add(this.pnInfo);
             this.Controls.Add(this.pnProfile);
             this.Name = "OverviewForm";
-            this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).EndInit();
             this.pnInfo.ResumeLayout(false);
             this.pnInfo.PerformLayout();
@@ -523,20 +672,17 @@
             this.guna2Panel1.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
+            this.pnTime.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRevenue;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2PictureBox pbVisitors;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lbNoCustomer;
-        private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2Panel pnInfo;
         private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.Label label6;
@@ -557,6 +703,17 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private System.Windows.Forms.Label label12;
-        private Guna.UI2.WinForms.Guna2ComboBox cbbSortCategory;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbGrossRevenue;
+        private System.Windows.Forms.Label lbProducts;
+        private Guna.UI2.WinForms.Guna2Panel pnTime;
+        private Guna.UI2.WinForms.Guna2Button btnLast7days;
+        private Guna.UI2.WinForms.Guna2Button btnLast30days;
+        private Guna.UI2.WinForms.Guna2Button btnThisWeek;
+        private Guna.UI2.WinForms.Guna2Button btnThisYear;
+        private Guna.UI2.WinForms.Guna2Button btnThisMonth;
     }
 }

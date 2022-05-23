@@ -60,26 +60,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="BLL\BLLAccountManagement.cs" />
     <Compile Include="BLL\BLLCustomerManagement.cs" />
     <Compile Include="BLL\BLLDiscountManagement.cs" />
     <Compile Include="BLL\BLLPersonManagement.cs" />
     <Compile Include="BLL\BLLProductManagement.cs" />
-    <Compile Include="BLL\BLLQLSV.cs" />
     <Compile Include="BLL\BLLRankManagement.cs" />
     <Compile Include="BLL\BLLReceiptManagement.cs" />
     <Compile Include="BLL\BLLRestockManagement.cs" />
     <Compile Include="BLL\BLLRevenueManagement.cs" />
     <Compile Include="BLL\BLLStoreImportManagement.cs" />
-    <Compile Include="Customer.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Discount.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
+    <Compile Include="CreateDB.cs" />
     <Compile Include="DTO\CBBItem.cs" />
     <Compile Include="DTO\Dashboard.cs" />
     <Compile Include="DTO\DiscountRank.cs" />
@@ -89,51 +80,20 @@
     <Compile Include="DTO\RestockDetailView.cs" />
     <Compile Include="DTO\StoreImportDetailView.cs" />
     <Compile Include="DTO\RevenueChartView.cs" />
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Person.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Product.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Rank.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Receipt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Receipt_Detail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Restock.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RestockDetail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Revenue.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StoreImportDetail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Store_Import.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Discount.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Rank.cs" />
+    <Compile Include="Model\Receipt.cs" />
+    <Compile Include="Model\ReceiptDetail.cs" />
+    <Compile Include="Model\Restock.cs" />
+    <Compile Include="Model\RestockDetail.cs" />
+    <Compile Include="Model\Revenue.cs" />
+    <Compile Include="Model\StoreImportDetail.cs" />
+    <Compile Include="Model\StoreImport.cs" />
+    <Compile Include="QLNS.cs" />
     <Compile Include="View\AdminChildForms\AccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,13 +356,6 @@
     <EmbeddedResource Include="View\StockkeeperForm.resx">
       <DependentUpon>StockkeeperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -510,20 +463,20 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
+    <None Include="Resources\iconWhiteDiscount.png" />
+    <None Include="Resources\iconBlueBook.png" />
+    <None Include="Resources\iconBlueCustomer.png" />
+    <None Include="Resources\iconBlueBill.png" />
+    <None Include="Resources\iconBlueStock.png" />
+    <None Include="Resources\iconBlueDiscount.png" />
+    <None Include="Resources\iconBlueAccount.png" />
+    <None Include="Resources\iconBlueRevenue.png" />
+    <None Include="Resources\iconWhiteOverview.png" />
+    <None Include="Resources\iconBlueOverview.png" />
+    <None Include="Resources\iconWhiteCustomer.png" />
+    <None Include="Resources\iconWhiteBook.png" />
     <None Include="Resources\stockkeeperVector2.png" />
     <None Include="Resources\stockkeeperVector.png" />
     <None Include="Resources\iconStore.png" />

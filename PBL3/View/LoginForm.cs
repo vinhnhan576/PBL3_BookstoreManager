@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
+using PBL3.Model;
 
 namespace PBL3.View
 {
@@ -17,7 +18,7 @@ namespace PBL3.View
         public LoginForm()
         {
             InitializeComponent();
-            
+            List<Account> accounts = QLNS.Instance.Accounts.ToList();
         }
 
         private void pbShowPass_Click(object sender, EventArgs e)

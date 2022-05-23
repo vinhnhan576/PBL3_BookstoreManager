@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PBL3.Model;
 
 namespace PBL3.BLL
 {
@@ -26,13 +27,13 @@ namespace PBL3.BLL
         }
         public void AddNewPerson(Person ps)
         {
-            QLSPEntities qLSPEntities = new QLSPEntities();
+            QLNS qLSPEntities = new QLNS();
             qLSPEntities.People.Add(ps);
             qLSPEntities.SaveChanges();
         }
         public void DelPerson(List<string> ID)
         {
-            QLSPEntities qLSPEntities = new QLSPEntities();
+            QLNS qLSPEntities = new QLNS();
             foreach (string i in ID)
             {
                 Account ac = qLSPEntities.Accounts.Find(i);
@@ -43,7 +44,7 @@ namespace PBL3.BLL
 
         public Person GetPersonByPersonID(string personID)
         {
-            return QLSPEntities.Instance.People.Find(personID);
+            return QLNS.Instance.People.Find(personID);
         }
 
         public void UpdatePeronalInfo(string personID, Person newPerson)
@@ -54,7 +55,7 @@ namespace PBL3.BLL
             p.PhoneNumber = newPerson.PhoneNumber;
             p.Email = newPerson.Email;
             p.Gender = newPerson.Gender;
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.SaveChanges();
         }
     }
 }
