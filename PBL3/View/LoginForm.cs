@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
+using PBL3.Model;
 
 namespace PBL3.View
 {
@@ -17,7 +18,7 @@ namespace PBL3.View
         public LoginForm()
         {
             InitializeComponent();
-            
+            List<Account> accounts = QLNS.Instance.Accounts.ToList();
         }
 
         private void pbShowPass_Click(object sender, EventArgs e)
@@ -77,7 +78,7 @@ namespace PBL3.View
                     }
                     else
                     {
-                        MessageBox.Show("Wrong password");
+                        CustomMessageBox.MessageBox.Show("Wrong password", "Wrong input", MessageBoxIcon.Error);
                         tbPassword.Text = "";
                         tbPassword.Focus();
                         break;
@@ -87,7 +88,7 @@ namespace PBL3.View
             if(!usernameExist)
             {
                 tbPassword.Text = "";
-                MessageBox.Show("Account username doesn't exist");
+                CustomMessageBox.MessageBox.Show("Account username doesn't exist", "Wrong input", MessageBoxIcon.Error);
                 tbUsername.Focus();
             }
         }
@@ -100,14 +101,19 @@ namespace PBL3.View
 
         private void lbForgotPassword_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            //this.Visible = false;
             new ForgotPasswordForm().ShowDialog();
-            this.Visible = true;
+            //this.Visible = true;
         }
 
         private void tbUsername_Enter(object sender, EventArgs e)
         {
             this.AcceptButton = btnSignIn;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PBL3.DTO;
-
-
+using PBL3.Model;
 
 namespace PBL3.BLL
 {
@@ -32,15 +31,15 @@ namespace PBL3.BLL
         public void AddNewReceipt(Receipt r)
         {
 
-            QLSPEntities.Instance.Receipts.Add(r);
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.Receipts.Add(r);
+            QLNS.Instance.SaveChanges();
 
         }
-        public void AddNewReceiptDetail(Receipt_Detail r)
+        public void AddNewReceiptDetail(ReceiptDetail r)
         {
 
-            QLSPEntities.Instance.Receipt_Details.Add(r);
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.ReceiptDetails.Add(r);
+            QLNS.Instance.SaveChanges();
         }
      
         public dynamic GetProductInReceiptByID(string ID_Receipt)
@@ -51,18 +50,18 @@ namespace PBL3.BLL
             //    temp.Total = temp.SellingQuantity * (temp.Product.SellingPrice);
             //    QLSPEntities.Instance.SaveChanges();
             //}
-            var product = QLSPEntities.Instance.Receipt_Details.Where(p => p.ReceiptID == ID_Receipt).Select(p => new { p.Product.ProductName, p.SellingQuantity, p.Product.SellingPrice, p.Total }).ToList();
+            var product = QLNS.Instance.ReceiptDetails.Where(p => p.ReceiptID == ID_Receipt).Select(p => new { p.Product.ProductName, p.SellingQuantity, p.Total }).ToList();
             return product;
         }
 
         public Receipt GetReceiptByReceiptDetailID(string rdID)
         {
             Receipt receipt = new Receipt();
-            foreach(Receipt i in QLSPEntities.Instance.Receipts.Select(p => p).ToList())
+            foreach(Receipt i in QLNS.Instance.Receipts.Select(p => p).ToList())
             {
-                foreach(Receipt_Detail rd in i.Receipt_Detail)
+                foreach(ReceiptDetail rd in i.ReceiptDetails)
                 {
-                    if(rd.ReceipDetailtID == rdID)
+                    if(rd.ReceiptDetailID == rdID)
                     {
                         receipt = i;
                         break;
@@ -84,8 +83,8 @@ namespace PBL3.BLL
             else
             {
                 ReceiptDetailView temp = new ReceiptDetailView();
-                var Product = QLSPEntities.Instance.Products.Find(productid);
-                temp.ReceiptDetailID = (QLSPEntities.Instance.Receipt_Details.Count()+list.Count()).ToString();
+                var Product = QLNS.Instance.Products.Find(productid);
+                temp.ReceiptDetailID = (QLNS.Instance.ReceiptDetails.Count()+list.Count()).ToString();
                 temp.ProductID = productid;
                 temp.ProductName = Product.ProductName;
                 temp.SellingPrice = Product.SellingPrice;
@@ -99,8 +98,8 @@ namespace PBL3.BLL
         {
             for(int i=0;i<list.Count;i++)
             {
-                Receipt_Detail r = new Receipt_Detail();
-                r.ReceipDetailtID = list[i].ReceiptDetailID;
+                ReceiptDetail r = new ReceiptDetail();
+                r.ReceiptDetailID = list[i].ReceiptDetailID;
                 r.ProductID= list[i].ProductID;
                 r.SellingQuantity = list[i].Quantity;
                 r.Total=list[i].Total;
@@ -109,13 +108,13 @@ namespace PBL3.BLL
             }
         }
 
-        public List<Receipt_Detail> getReceiptDetailByReceiptID(string ID_Receipt)
+        public List<ReceiptDetail> getReceiptDetailByReceiptID(string ID_Receipt)
         {
 
             if (ID_Receipt == "")
-                return QLSPEntities.Instance.Receipt_Details.Select(p => p).ToList();
+                return QLNS.Instance.ReceiptDetails.Select(p => p).ToList();
             else
-                return QLSPEntities.Instance.Receipt_Details.Where(p => p.ReceiptID == ID_Receipt).ToList();
+                return QLNS.Instance.ReceiptDetails.Where(p => p.ReceiptID == ID_Receipt).ToList();
         }
 
         public double CalculateReceiptToTal(List<ReceiptDetailView> list)
@@ -145,7 +144,7 @@ namespace PBL3.BLL
 
         public dynamic GetAllBill_View()
         {
-            var billList = QLSPEntities.Instance.Receipts.Select(p => new
+            var billList = QLNS.Instance.Receipts.Select(p => new
             {
                 p.ReceiptID,
                 p.Person.PersonName,
@@ -157,7 +156,7 @@ namespace PBL3.BLL
         public dynamic SearchReceipt(string searchValue)
         {
             List<Receipt> data = new List<Receipt>();
-            foreach (Receipt i in QLSPEntities.Instance.Receipts.Select(p => p).ToList())
+            foreach (Receipt i in QLNS.Instance.Receipts.Select(p => p).ToList())
             {
                 bool containID = i.ReceiptID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containSalesmanName = i.Person.PersonName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
@@ -176,13 +175,13 @@ namespace PBL3.BLL
         }
         public dynamic GetAllReceipt_View()
         {
-            QLSPEntities db = new QLSPEntities();
+            QLNS db = new QLNS();
             var product = db.Receipts.Select(p => new { p.ReceiptID, p.Person.PersonName, p.Date, p.Total, p.Status });
             return product.ToList();
         }
         public dynamic SortReceipt(string sortCategory, bool ascending)
         {
-            QLSPEntities db = new QLSPEntities();
+            QLNS db = new QLNS();
             List<Receipt> data = new List<Receipt>();
             if (sortCategory == "Receipt ID")
             {

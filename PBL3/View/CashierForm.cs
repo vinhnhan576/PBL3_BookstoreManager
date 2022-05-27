@@ -8,25 +8,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.View.StaffChildForms;
+using PBL3.Model;
 
 namespace PBL3.View
 {
     public partial class CashierForm : Form
     {
+        Account account;
         private Form activeForm;
         private Guna.UI2.WinForms.Guna2Button currentButton, prevButton;
 
         public CashierForm(Account acc)
         {
             InitializeComponent();
-           Overview overviewForm = new Overview();
+            account = acc;
+            InitializeGUI();
+        }
+
+        private void InitializeGUI()
+        {
+            Overview overviewForm = new Overview(account.Person);
             overviewForm.TopLevel = false;
             overviewForm.FormBorderStyle = FormBorderStyle.None;
             overviewForm.Dock = DockStyle.Fill;
             this.pnRight.Controls.Add(overviewForm);
             overviewForm.BringToFront();
             overviewForm.Show();
+
+            string name = account.Person.PersonName.Split()[account.Person.PersonName.Split().Count() - 1];
+            lbWelcome.Text = "Welcome, " + name;
+            lbDate.Text = DateTime.Now.ToShortDateString();
         }
+
         private void openChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
@@ -58,12 +71,12 @@ namespace PBL3.View
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            openChildForm(new Overview(), sender);
+            openChildForm(new Overview(account.Person), sender);
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            openChildForm(new NewOrder(), sender);
+            openChildForm(new NewOrder(account), sender);
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
@@ -71,53 +84,35 @@ namespace PBL3.View
             openChildForm(new ManageOrder(), sender);
         }
 
-        private void guna2ImageButton2_Click(object sender, EventArgs e)
+        private void btnSettings_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo);
+            SettingsForms.SettingsForm childForm = new SettingsForms.SettingsForm(account);
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.pnRight.Controls.Add(childForm);
+            childForm.BringToFront();
+            childForm.Show();
+            disableButton();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.Close();
             }
         }
 
-        private void pnLeft_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbDate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2GradientPanel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void disableButton()
         {
-            foreach (Control prevButton in pnMenu.Controls)
+            foreach (Control prevButton in pnLeft.Controls)
             {
                 if (prevButton.GetType() == typeof(Guna.UI2.WinForms.Guna2Button))
                 {

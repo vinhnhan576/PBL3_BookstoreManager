@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,10 +38,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2, Version=2.0.3.2, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.3.2\lib\net40\Guna.UI2.dll</HintPath>
@@ -60,76 +63,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="BLL\BLLAccountManagement.cs" />
     <Compile Include="BLL\BLLCustomerManagement.cs" />
     <Compile Include="BLL\BLLDiscountManagement.cs" />
     <Compile Include="BLL\BLLPersonManagement.cs" />
     <Compile Include="BLL\BLLProductManagement.cs" />
-    <Compile Include="BLL\BLLQLSV.cs" />
     <Compile Include="BLL\BLLRankManagement.cs" />
     <Compile Include="BLL\BLLReceiptManagement.cs" />
     <Compile Include="BLL\BLLRestockManagement.cs" />
     <Compile Include="BLL\BLLRevenueManagement.cs" />
     <Compile Include="BLL\BLLStoreImportManagement.cs" />
-    <Compile Include="Customer.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Discount.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
+    <Compile Include="CreateDB.cs" />
     <Compile Include="DTO\CBBItem.cs" />
+    <Compile Include="DTO\Dashboard.cs" />
+    <Compile Include="DTO\DiscountRank.cs" />
     <Compile Include="DTO\Product_Price_View.cs" />
     <Compile Include="DTO\RandomGenerator.cs" />
     <Compile Include="DTO\ReceiptDetailView.cs" />
     <Compile Include="DTO\RestockDetailView.cs" />
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Person.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Product.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Rank.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Receipt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Receipt_Detail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Restock.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RestockDetail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Revenue.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StoreImportDetail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Store_Import.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DTO\StoreImportDetailView.cs" />
+    <Compile Include="DTO\RevenueChartView.cs" />
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Discount.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Rank.cs" />
+    <Compile Include="Model\Receipt.cs" />
+    <Compile Include="Model\ReceiptDetail.cs" />
+    <Compile Include="Model\Restock.cs" />
+    <Compile Include="Model\RestockDetail.cs" />
+    <Compile Include="Model\Revenue.cs" />
+    <Compile Include="Model\StoreImportDetail.cs" />
+    <Compile Include="Model\StoreImport.cs" />
+    <Compile Include="QLNS.cs" />
     <Compile Include="View\AdminChildForms\AccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,24 +145,25 @@
     <Compile Include="View\AdminChildForms\ProductForms\UpdatePrice.Designer.cs">
       <DependentUpon>UpdatePrice.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.cs">
+    <Compile Include="View\SettingsForms\ChangePasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.Designer.cs">
+    <Compile Include="View\SettingsForms\ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\SettingsForms\EditProfileForm.cs">
+    <Compile Include="View\SettingsForms\EditProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\SettingsForms\EditProfileForm.Designer.cs">
+    <Compile Include="View\SettingsForms\EditProfileForm.Designer.cs">
       <DependentUpon>EditProfileForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.cs">
+    <Compile Include="View\SettingsForms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\SettingsForms\SettingsForm.Designer.cs">
+    <Compile Include="View\SettingsForms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomMessageBox\MessageBox.cs" />
     <Compile Include="View\CustomMessageBox\MessageBoxForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +194,12 @@
     <Compile Include="View\AdminChildForms\StockForm.Designer.cs">
       <DependentUpon>StockForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\StaffChildForms\Overview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StaffChildForms\Overview.Designer.cs">
+      <DependentUpon>Overview.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StaffChildForms\ManageOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,12 +218,6 @@
     <Compile Include="View\StaffChildForms\NewOrder.Designer.cs">
       <DependentUpon>NewOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\StaffChildForms\Overview.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\StaffChildForms\Overview.Designer.cs">
-      <DependentUpon>Overview.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\CashierForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,11 +232,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\StockkeeperChildForms\AddNewItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StockkeeperChildForms\AddNewItem.Designer.cs">
+      <DependentUpon>AddNewItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StockkeeperChildForms\AddNewProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\StockkeeperChildForms\AddNewProduct.Designer.cs">
       <DependentUpon>AddNewProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StockkeeperChildForms\ImportStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StockkeeperChildForms\ImportStore.Designer.cs">
+      <DependentUpon>ImportStore.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StockkeeperChildForms\ManageStock.cs">
       <SubType>Form</SubType>
@@ -318,13 +298,13 @@
     <EmbeddedResource Include="View\AdminChildForms\ProductForms\UpdatePrice.resx">
       <DependentUpon>UpdatePrice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\ChangePasswordForm.resx">
+    <EmbeddedResource Include="View\SettingsForms\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\EditProfileForm.resx">
+    <EmbeddedResource Include="View\SettingsForms\EditProfileForm.resx">
       <DependentUpon>EditProfileForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\SettingsForms\SettingsForm.resx">
+    <EmbeddedResource Include="View\SettingsForms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CustomMessageBox\MessageBoxForm.resx">
@@ -348,9 +328,6 @@
     <EmbeddedResource Include="View\StaffChildForms\NewOrder.resx">
       <DependentUpon>NewOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\StaffChildForms\Overview.resx">
-      <DependentUpon>Overview.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\CashierForm.resx">
       <DependentUpon>CashierForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -367,8 +344,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\StaffChildForms\Overview.resx">
+      <DependentUpon>Overview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StockkeeperChildForms\AddNewItem.resx">
+      <DependentUpon>AddNewItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\StockkeeperChildForms\AddNewProduct.resx">
       <DependentUpon>AddNewProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StockkeeperChildForms\ImportStore.resx">
+      <DependentUpon>ImportStore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockkeeperChildForms\ManageStock.resx">
       <DependentUpon>ManageStock.cs</DependentUpon>
@@ -382,13 +368,6 @@
     <EmbeddedResource Include="View\StockkeeperForm.resx">
       <DependentUpon>StockkeeperForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -496,21 +475,46 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
+    <None Include="Resources\icons8-add.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconWhiteDiscount.png" />
+    <None Include="Resources\iconBlueBook.png" />
+    <None Include="Resources\iconBlueCustomer.png" />
+    <None Include="Resources\iconBlueBill.png" />
+    <None Include="Resources\iconBlueStock.png" />
+    <None Include="Resources\iconBlueDiscount.png" />
+    <None Include="Resources\iconBlueAccount.png" />
+    <None Include="Resources\iconBlueRevenue.png" />
+    <None Include="Resources\iconWhiteOverview.png" />
+    <None Include="Resources\iconBlueOverview.png" />
+    <None Include="Resources\iconWhiteCustomer.png" />
+    <None Include="Resources\iconWhiteBook.png" />
+    <None Include="Resources\stockkeeperVector2.png" />
+    <None Include="Resources\stockkeeperVector.png" />
+    <None Include="Resources\iconStore.png" />
+    <None Include="Resources\adminVector.png" />
+    <None Include="Resources\salesmanVector.png" />
+    <None Include="Resources\warningVetor.png" />
+    <None Include="Resources\questionVector.png" />
+    <None Include="Resources\infoVector2.png" />
+    <None Include="Resources\infoVector.png" />
+    <None Include="Resources\errorVector.png" />
+    <None Include="Resources\side.png" />
+    <None Include="Resources\iconClose.png" />
+    <None Include="Resources\icons8-close-100.png" />
     <None Include="Resources\iconRefresh.png" />
     <None Include="Resources\filterIcon.png" />
     <None Include="Resources\filter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

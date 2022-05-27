@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PBL3.DTO;
-
-
+using PBL3.Model;
 
 namespace PBL3.BLL
 {
@@ -30,7 +29,7 @@ namespace PBL3.BLL
 
         public List<Product> GetAllProduct()
         {
-            QLSPEntities db = new QLSPEntities();
+            QLNS db = new QLNS();
             List<Product> data = new List<Product>();
             foreach (Product i in db.Products.Select(p => p))
             {
@@ -40,13 +39,13 @@ namespace PBL3.BLL
         }
         public dynamic GetAllProduct_Import_Views()
         {
-            var product = QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StockQuantity });
+            var product = QLNS.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StockQuantity });
             return product.ToList();
         }
 
         public dynamic GetAllProduct_View()
         {
-            QLSPEntities db = new QLSPEntities();
+            QLNS db = new QLNS();
             var product = db.Products.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
             return product.ToList();
         }
@@ -54,19 +53,18 @@ namespace PBL3.BLL
         public dynamic GetAllProduct_Order_View()
         {
 
-            var product = (QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.SellingPrice })).ToList();
+            var product = (QLNS.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.SellingPrice })).ToList();
             return product;
         }
         public dynamic GetAllProduct_Import_View()
         {
-
-            var product = (QLSPEntities.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.StockQuantity })).ToList();
+            var product = (QLNS.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.StockQuantity })).ToList();
             return product;
         }
 
         public dynamic GetAllProduct_Price_View()
         {
-            QLSPEntities db = new QLSPEntities();
+            QLNS db = new QLNS();
             List<Product_Price_View> products = new List<Product_Price_View>();
             foreach (Product i in db.Products.Select(p => p))
             {
@@ -80,6 +78,11 @@ namespace PBL3.BLL
             return products;
         }
 
+        public dynamic GetAllProduct_OrderView()
+        {
+            var products = QLNS.Instance.Products.Select(p => new { p.ProductName, p.StoreQuantity });
+            return products.ToList();
+        }
 
         //public dynamic GetAllProduct_Import_View()
         //{
@@ -91,13 +94,13 @@ namespace PBL3.BLL
         public void AddNewProduct(Product p)
         {
 
-            QLSPEntities.Instance.Products.Add(p);
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.Products.Add(p);
+            QLNS.Instance.SaveChanges();
         }
 
         public void UpdatePrice(List<string> ID, List<double> newPrice)
         {
-            QLSPEntities db = new QLSPEntities();
+            QLNS db = new QLNS();
             foreach (string i in ID)
             {
                 Product p = db.Products.Find(i);
@@ -111,7 +114,7 @@ namespace PBL3.BLL
 
         public void Execute(string ID, double newPrice)
         {
-            QLSPEntities db = new QLSPEntities();
+            QLNS db = new QLNS();
             Product p = db.Products.Find(ID);
             p.SellingPrice = newPrice;
             db.SaveChanges();
@@ -122,7 +125,7 @@ namespace PBL3.BLL
         public dynamic SearchProduct(string searchValue)
         {
             List<Product> data = new List<Product>();
-            foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
+            foreach (Product i in QLNS.Instance.Products.Select(p => p).ToList())
             {
                 bool containName = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containId = i.ProductID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
@@ -154,7 +157,7 @@ namespace PBL3.BLL
 
         public dynamic SortProduct(string sortCategory, bool ascending)
         {
-            QLSPEntities db = new QLSPEntities();
+            QLNS db = new QLNS();
             List<Product> data = new List<Product>();
             if (sortCategory == "ProductID")
             {
@@ -205,7 +208,7 @@ namespace PBL3.BLL
         public dynamic FilterProduct(string filterValue)
         {
             List<Product> data = new List<Product>();
-            foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
+            foreach (Product i in QLNS.Instance.Products.Select(p => p).ToList())
             {
                 bool containStatus = i.Status.IndexOf(filterValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containCategory = i.Category.IndexOf(filterValue, StringComparison.OrdinalIgnoreCase) >= 0;
@@ -271,7 +274,7 @@ namespace PBL3.BLL
         public dynamic SearchProduct_Order(string searchValue)
         {
             List<Product> data = new List<Product>();
-            foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
+            foreach (Product i in QLNS.Instance.Products.Select(p => p).ToList())
             {
                 bool containID = i.ProductID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containName = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
@@ -288,7 +291,7 @@ namespace PBL3.BLL
         public dynamic SearchProduct_Restock(string searchValue)
         {
             List<Product> data = new List<Product>();
-            foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
+            foreach (Product i in QLNS.Instance.Products.Select(p => p).ToList())
             {
                 bool containID = i.ProductID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containName = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
@@ -305,32 +308,60 @@ namespace PBL3.BLL
         public void DecreaseStoreQuantity(string productid, int num)
         {
 
-            var product = QLSPEntities.Instance.Products.Find(productid);
+            var product = QLNS.Instance.Products.Find(productid);
             product.StoreQuantity = (Convert.ToInt32(product.StoreQuantity) - num);
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.SaveChanges();
 
         }
         public void IncreaseStockQuantity(string productid, int num)
         {
 
-            var product = QLSPEntities.Instance.Products.Find(productid);
+            var product = QLNS.Instance.Products.Find(productid);
             product.StockQuantity = (Convert.ToInt32(product.StockQuantity) + num);
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.SaveChanges();
 
         }
         public void IncreaseStoreQuantity(string productid, int num)
         {
 
-            var product = QLSPEntities.Instance.Products.Find(productid);
+            var product = QLNS.Instance.Products.Find(productid);
             product.StoreQuantity = (Convert.ToInt32(product.StoreQuantity) + num);
             product.StockQuantity = (Convert.ToInt32(product.StockQuantity) - num);
-            QLSPEntities.Instance.SaveChanges();
+            QLNS.Instance.SaveChanges();
 
         }
 
         public Product GetProductByID(string productID)
         {
-            return QLSPEntities.Instance.Products.Find(productID);
+            return QLNS.Instance.Products.Find(productID);
+        }
+
+        public Product GetProductByProductName(string productName)
+        {
+            Product product = new Product();
+            foreach(Product prod in GetAllProduct())
+            {
+                if(prod.ProductName == productName)
+                {
+                    product = prod;
+                    break;
+                }
+            }
+            return product;
+        }
+        public List<string> GetAllProductPublisher()
+        {
+            List<string> prodPublisherList = new List<string>();
+            foreach (Product i in GetAllProduct())
+            {
+                prodPublisherList.Add(i.Author);
+            }
+            return prodPublisherList;
+        }
+
+        public int CountProduct()
+        {
+            return GetAllProduct().Count();
         }
     }
 }

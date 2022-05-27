@@ -9,21 +9,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
 using PBL3.DTO;
+using PBL3.Model;
 
 
 namespace PBL3.View.StockkeeperChildForms
 {
     public partial class ImportStore : Form
     {
+        Account account; 
         List<StoreImportDetailView> list = new List<StoreImportDetailView>();
-        public ImportStore()
+        public ImportStore(Account acc)
         {
             InitializeComponent();
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_View();
-            //account = acc;
-            tbStoreImportID.Text = "is00" + (QLSPEntities.Instance.Store_Imports.Count() + 1).ToString();
+            account = acc;
+            tbStoreImportID.Text = "is00" + (QLNS.Instance.StoreImports.Count() + 1).ToString();
             tbStoreImportID.Enabled = false;
-            tbStockkeperID.Text = "sk001";
+            tbStockkeperID.Text = account.PersonID.ToString();
             tbStockkeperID.Enabled = false;
             dtpRestock.Value = DateTime.Now;
         }
@@ -43,7 +45,7 @@ namespace PBL3.View.StockkeeperChildForms
         }
         private void butSave_Click(object sender, EventArgs e)
         {
-            Store_Import s = new Store_Import();
+            StoreImport s = new StoreImport();
             s.StoreImportID = tbStoreImportID.Text;
             //s.PersonID = tbStockkeperID.Text;
             s.ImportDate = DateTime.Now;
@@ -66,13 +68,9 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void butDelete_Click(object sender, EventArgs e)
         {
-            if (dgvImport.SelectedRows.Count > 0)
-            {
-                for (int i = 0; i < dgvImport.SelectedRows.Count; i++)
-                {
-                    list.RemoveAt(i);
-
-                }
+            if (dgvImport.SelectedRows.Count == 1)
+            { 
+                list.RemoveAt(dgvImport.SelectedRows.Count);
             }
             dgvImport.DataSource = list.ToList();
         }
@@ -85,7 +83,7 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void butNewImport_Click(object sender, EventArgs e)
         {
-            int count = (QLSPEntities.Instance.Restocks.Count() + 1);
+            int count = (QLNS.Instance.Restocks.Count() + 1);
             tbStoreImportID.Text = "rs" + count.ToString();
             tbStockkeperID.Text = "sk001";//account.PersonID;
             dtpRestock.Value = DateTime.Now;

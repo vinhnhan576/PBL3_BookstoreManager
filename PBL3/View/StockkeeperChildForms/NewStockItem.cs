@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
 using PBL3.DTO;
+using PBL3.Model;
 
 namespace PBL3.View.StockkeeperChildForms
 {
@@ -23,7 +24,7 @@ namespace PBL3.View.StockkeeperChildForms
             InitializeComponent();
             account = acc;
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_Views();
-            tbRestockID.Text = "rs00" + (QLSPEntities.Instance.Restocks.Count()+1).ToString();
+            tbRestockID.Text = "rs00" + (QLNS.Instance.Restocks.Count()+1).ToString();
             tbRestockID.Enabled = false;
             tbStockkeperID.Text = account.PersonID;
             tbStockkeperID.Enabled = false;
@@ -60,7 +61,7 @@ namespace PBL3.View.StockkeeperChildForms
                 ImportPrice = importPrice,
                 ImportQuantity = p.StockQuantity,
                 Total = importPrice * p.StockQuantity,
-                RestockDetailID = "rs00"+(QLSPEntities.Instance.RestockDetails.Count()+list.Count()+1).ToString(), 
+                RestockDetailID = "rs00"+(QLNS.Instance.RestockDetails.Count()+list.Count()+1).ToString(), 
             };
             list.Add(restockDetailView);
             dgvRestock.DataSource = this.list.ToList();
@@ -99,13 +100,9 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void butDelete_Click(object sender, EventArgs e)
         {
-            if (dgvRestock.SelectedRows.Count > 0)
+            if (dgvRestock.SelectedRows.Count == 1)
             {
-                for (int i = 0; i < dgvRestock.SelectedRows.Count; i++)
-                {
-                    list.RemoveAt(i);
-
-                }
+                list.RemoveAt(dgvRestock.SelectedRows.Count);
             }
             dgvRestock.DataSource = list.ToList();
             tbTotal.Text = BLLRestockManagement.Instance.CalculateRestockToTal(list).ToString();
@@ -120,7 +117,7 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void butNewStock_Click(object sender, EventArgs e)
         {
-            int count = (QLSPEntities.Instance.Restocks.Count() + 1);
+            int count = (QLNS.Instance.Restocks.Count() + 1);
             tbRestockID.Text = "rs"+count.ToString();
             tbStockkeperID.Text = account.PersonID;
             dtpRestock.Value = DateTime.Now;
@@ -131,7 +128,7 @@ namespace PBL3.View.StockkeeperChildForms
             AddNewProduct form = new AddNewProduct();
             form.FormBorderStyle = FormBorderStyle.None;
             form.MyDel = AddProduct;
-            form.ShowDialog();
+            form.Show();
         }
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {

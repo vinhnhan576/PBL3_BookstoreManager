@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PBL3.Model;
 
 namespace PBL3.BLL
 {
@@ -28,7 +29,7 @@ namespace PBL3.BLL
         public List<Discount> GetAllDiscount()
         {
             List<Discount> discountList = new List<Discount>();
-            foreach(Discount i in QLSPEntities.Instance.Discounts.Select(p => p).ToList())
+            foreach(Discount i in QLNS.Instance.Discounts.Select(p => p).ToList())
             {
                 discountList.Add(i);
             }
@@ -37,14 +38,14 @@ namespace PBL3.BLL
 
         public dynamic GetAllDiscount_View()
         {
-            var discountList = QLSPEntities.Instance.Discounts.Select(p => new { p.DiscountName, p.DiscountType, p.Amount, p.StartingDate, p.ExpirationDate });
+            var discountList = QLNS.Instance.Discounts.Select(p => new { p.DiscountName, p.DiscountType, p.Amount, p.StartingDate, p.ExpirationDate });
             return discountList.ToList();
         }
 
         public dynamic SearchDiscount(string searchValue)
         {
             List<Discount> data = new List<Discount>();
-            foreach (Discount i in QLSPEntities.Instance.Discounts.Select(p => p).ToList())
+            foreach (Discount i in QLNS.Instance.Discounts.Select(p => p).ToList())
             {
                 bool containName = i.DiscountName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 if (containName)
@@ -58,7 +59,7 @@ namespace PBL3.BLL
 
         public dynamic SortDiscount(string sortCategory, bool ascending)
         {
-            QLSPEntities db = new QLSPEntities();
+            QLNS db = new QLNS();
             List<Discount> data = new List<Discount>();
             if (sortCategory == "DiscountName")
             {
@@ -112,7 +113,7 @@ namespace PBL3.BLL
         public dynamic FilterDiscount(string filterValue)
         {
             List<Discount> data = new List<Discount>();
-            foreach (Discount i in QLSPEntities.Instance.Discounts.Select(p => p).ToList())
+            foreach (Discount i in QLNS.Instance.Discounts.Select(p => p).ToList())
             {
                 bool containType = i.DiscountType.IndexOf(filterValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 if (containType)

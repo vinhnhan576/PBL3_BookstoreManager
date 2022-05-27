@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
+using PBL3.Model;
 
 namespace PBL3.View.StaffChildForms
 {
@@ -19,7 +20,7 @@ namespace PBL3.View.StaffChildForms
         public NewCustomerForm()
         {
             InitializeComponent();
-            int idtemp = QLSPEntities.Instance.Customers.Count() + 1;
+            int idtemp = QLNS.Instance.Customers.Count() + 1;
             CustomerIDtxt.Text = "000" + idtemp.ToString();
 
         }
@@ -27,13 +28,15 @@ namespace PBL3.View.StaffChildForms
         private void SaveButton_Click(object sender, EventArgs e)
         {
             Customer customer = new Customer();
-            customer.CustomerID = CustomerIDtxt.Text;
+            customer.PhoneNumber = CustomerIDtxt.Text;
             customer.CustomerName = CustomerNametxt.Text;
             customer.PhoneNumber = Teltxt.Text;
             customer.TotalSpending = 0;
+            customer.RankID = "r00";
+            customer.Used = 0;
             BLLCustomerManagement.Instance.AddNewCustomer(customer);
             d(Teltxt.Text);
-            int idtemp1 = QLSPEntities.Instance.Customers.Count() + 1;
+            int idtemp1 = QLNS.Instance.Customers.Count() + 1;
             CustomerIDtxt.Text = "00" + idtemp1.ToString();
             CustomerNametxt.Text = "";
             Teltxt.Text = "";
@@ -42,7 +45,7 @@ namespace PBL3.View.StaffChildForms
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            int idtemp = QLSPEntities.Instance.Customers.Count() + 1;
+            int idtemp = QLNS.Instance.Customers.Count() + 1;
             CustomerIDtxt.Text = "00" + idtemp.ToString();
             CustomerNametxt.Text = "";
             Teltxt.Text = "";
