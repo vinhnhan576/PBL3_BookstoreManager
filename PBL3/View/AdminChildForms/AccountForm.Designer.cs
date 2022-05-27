@@ -658,7 +658,6 @@
             this.cbbSortCategory.Name = "cbbSortCategory";
             this.cbbSortCategory.Size = new System.Drawing.Size(135, 29);
             this.cbbSortCategory.TabIndex = 6;
-            this.cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
             // 
             // cbbFilterValue
             // 
@@ -728,7 +727,6 @@
             this.cbbSortOrder.Size = new System.Drawing.Size(161, 29);
             this.cbbSortOrder.TabIndex = 12;
             this.cbbSortOrder.TextOffset = new System.Drawing.Point(10, 0);
-            this.cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             // 
             // label2
             // 

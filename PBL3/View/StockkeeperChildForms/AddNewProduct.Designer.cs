@@ -45,14 +45,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.tbAdd = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.cbbPublisher = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbbCatogory = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.tbAdd = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel2
@@ -361,18 +361,18 @@
             this.guna2Panel1.Size = new System.Drawing.Size(815, 293);
             this.guna2Panel1.TabIndex = 0;
             // 
-            // tbAdd
+            // guna2CirclePictureBox1
             // 
-            this.tbAdd.ErrorImage = null;
-            this.tbAdd.ImageRotate = 0F;
-            this.tbAdd.InitialImage = null;
-            this.tbAdd.Location = new System.Drawing.Point(383, 136);
-            this.tbAdd.Name = "tbAdd";
-            this.tbAdd.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.tbAdd.Size = new System.Drawing.Size(25, 25);
-            this.tbAdd.TabIndex = 40;
-            this.tbAdd.TabStop = false;
-            this.tbAdd.Click += new System.EventHandler(this.tbAdd_Click);
+            this.guna2CirclePictureBox1.ErrorImage = null;
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.InitialImage = null;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(386, 178);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.guna2CirclePictureBox1.TabIndex = 41;
+            this.guna2CirclePictureBox1.TabStop = false;
+            this.guna2CirclePictureBox1.Click += new System.EventHandler(this.tbAdd_Click);
             // 
             // cbbPublisher
             // 
@@ -412,18 +412,20 @@
             this.cbbCatogory.TabIndex = 38;
             this.cbbCatogory.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // guna2CirclePictureBox1
+            // tbAdd
             // 
-            this.guna2CirclePictureBox1.ErrorImage = null;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.InitialImage = null;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(383, 178);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.guna2CirclePictureBox1.TabIndex = 41;
-            this.guna2CirclePictureBox1.TabStop = false;
-            this.guna2CirclePictureBox1.Click += new System.EventHandler(this.tbAdd_Click);
+            this.tbAdd.ErrorImage = null;
+            this.tbAdd.Image = global::PBL3.Properties.Resources.icons8_add1;
+            this.tbAdd.ImageRotate = 0F;
+            this.tbAdd.InitialImage = null;
+            this.tbAdd.Location = new System.Drawing.Point(385, 132);
+            this.tbAdd.Name = "tbAdd";
+            this.tbAdd.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.tbAdd.Size = new System.Drawing.Size(25, 25);
+            this.tbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.tbAdd.TabIndex = 40;
+            this.tbAdd.TabStop = false;
+            this.tbAdd.Click += new System.EventHandler(this.tbAdd_Click);
             // 
             // AddNewProduct
             // 
@@ -441,8 +443,8 @@
             this.guna2Panel2.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAdd)).EndInit();
             this.ResumeLayout(false);
 
         }
