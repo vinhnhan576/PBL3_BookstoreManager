@@ -74,11 +74,8 @@ namespace PBL3.View.AdminChildForms
                     }
                 }
                 tbID.Text = ac.PersonID.ToString();
-                tbID.Enabled = false;
                 tbUsername.Text = ac.Username.ToString();
-                tbUsername.Enabled = false;
                 tbPassword.Text = s;
-                tbPassword.Enabled = false;
                 if (ac.Person.Gender == true)
                 {
                     rbMale.Checked = true;
@@ -88,12 +85,16 @@ namespace PBL3.View.AdminChildForms
                     rbFemale.Checked = true;
                 }
                 tbName.Text = ac.Person.PersonName.ToString();
-                tbName.Enabled = false;
                 tbTel.Text = (Convert.ToInt32(ac.Person.PhoneNumber)).ToString();
-                tbTel.Enabled = false;
                 tbAddress.Text = ac.Person.Address.ToString();
-                tbAddress.Enabled = false;
                 cbbRole.SelectedItem = ac.Person.Role.ToString();
+                tbID.Enabled = false;
+                tbUsername.Enabled = false;
+                tbTel.Enabled = false;
+                tbPassword.Enabled = false;
+                tbAddress.Enabled = false;
+                cbbRole.Enabled = false;
+                tbName.Enabled = false;
                 cbbRole.Enabled = false;
             }
 
@@ -116,16 +117,14 @@ namespace PBL3.View.AdminChildForms
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
             dgvAccount.DataSource = BLLAccountManagement.Instance.SortAcount(sortCategory, sortOrder);
-        }
-
+        }        
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tbSearch.Text = "";
-            string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            dgvAccount.DataSource = BLLAccountManagement.Instance.SortAcount(sortCategory, sortOrder);
+            //tbSearch.Text = "";
+            //string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            //bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            //dgvAccount.DataSource = BLLAccountManagement.Instance.SortAcount(sortCategory, sortOrder);
         }
-
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbbFilterValue.Text = "";
@@ -149,7 +148,7 @@ namespace PBL3.View.AdminChildForms
 
         private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvAccount.DataSource = BLLAccountManagement.Instance.SearchAccount(cbbFilterValue.SelectedItem.ToString());
+            dgvAccount.DataSource = BLLAccountManagement.Instance.Fitler_Account(cbbFilterValue.SelectedItem.ToString());
         }
 
         private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -167,19 +166,11 @@ namespace PBL3.View.AdminChildForms
             {
                 string ID = dgvAccount.SelectedRows[0].Cells[0].Value.ToString();
                 Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
-                string s = "";
-                for (int i = 0; i < ac.Password.Length; i++)
-                {
-                    if (ac.Password[i] != ' ')
-                    {
-                        s += '*';
-                    }
-                }
                 tbID.Text = ac.PersonID.ToString();
                 tbID.Enabled = false;
                 tbUsername.Text = ac.Username.ToString();
                 tbUsername.Enabled = true;
-                tbPassword.Text = s;
+                tbPassword.Text = ac.Password.ToString();
                 tbPassword.Enabled = true;
                 if (ac.Person.Gender == true)
                 {
@@ -196,40 +187,58 @@ namespace PBL3.View.AdminChildForms
                 tbAddress.Text = ac.Person.Address.ToString();
                 tbAddress.Enabled = false;
                 cbbRole.SelectedItem = ac.Person.Role.ToString();
-                cbbRole.Enabled = true;
+                cbbRole.Enabled = false;
             }
         }
-
+        public string SetID(string role)
+        {
+            string id = "";
+            if (role == "Admin") id = "ad00" + tbID.Text;
+            if (role == "Stockkeeper") id = "ad00" + tbID.Text;
+            if(role == "Salesman") id = "ad00" + tbID.Text;
+            return id;
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Account a = new Account();
-            Person p = new Person();
-            p.PersonName = tbName.Text;
-            p.PhoneNumber = tbTel.Text;
-            p.Address = tbAddress.Text;
-            p.Role = cbbRole.SelectedItem.ToString();
-            if (rbMale.Checked)
+            if (tbAddress.Text == "" || tbName.Text == "" || tbTel.Text == "" || tbPassword.Text == "" || tbUsername.Text == "" )
+                CustomMessageBox.MessageBox.Show("Enter missing account information", "Wrong input", MessageBoxIcon.Error);
+            else
             {
-                p.Gender = true;
+                Account a = new Account();
+                Person p = new Person();
+                p.PersonName = tbName.Text;
+                p.PhoneNumber = tbTel.Text;
+                p.Address = tbAddress.Text;
+                p.Role = cbbRole.SelectedItem.ToString();
+                if (rbMale.Checked)
+                {
+                    p.Gender = true;
+                }
+                else p.Gender = true;
+                p.PersonID = a.PersonID = SetID(cbbRole.SelectedItem.ToString());
+                a.Username = tbUsername.Text;
+                a.Password = tbPassword.Text;
+                a.Person = p;
+                BLLAccountManagement.Instance.Execute(a);
+                CustomMessageBox.MessageBox.Show("", "Success", MessageBoxIcon.Information);
             }
-            else p.Gender = true;
-            if (cbbRole.SelectedItem.ToString() == "Admin")
-            {
-                p.PersonID = a.PersonID = "ad00" + tbID.Text;
-            }
-            if (cbbRole.SelectedItem.ToString() == "Salesman")
-            {
-                p.PersonID = a.PersonID = "sm00" + tbID.Text;
-            }
-            if (cbbRole.SelectedItem.ToString() == "Stockkeeper")
-            {
-                p.PersonID = a.PersonID = "sk00" + tbID.Text;
-            }
-            a.Username = tbUsername.Text;
-            a.Password = tbPassword.Text;
-            a.Person = p;
-            BLLAccountManagement.Instance.Execute(a);
-            Reload();
+            dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
+            tbID.Text = "";
+            tbUsername.Text = "";
+            tbPassword.Text = "";
+            tbName.Text = "";
+            tbTel.Text = "";
+            tbAddress.Text = "";
+            cbbRole.Text = null;
+            tbID.Enabled = true;
+            tbUsername.Enabled = true;
+            tbTel.Enabled = true;
+            tbPassword.Enabled = true;
+            tbAddress.Enabled = true;
+            cbbRole.Enabled = true;
+            tbName.Enabled = true;
         }
+
+
     }
 }

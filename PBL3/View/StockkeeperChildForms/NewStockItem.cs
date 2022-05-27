@@ -100,13 +100,9 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void butDelete_Click(object sender, EventArgs e)
         {
-            if (dgvRestock.SelectedRows.Count > 0)
+            if (dgvRestock.SelectedRows.Count == 1)
             {
-                for (int i = 0; i < dgvRestock.SelectedRows.Count; i++)
-                {
-                    list.RemoveAt(i);
-
-                }
+                list.RemoveAt(dgvRestock.SelectedRows.Count);
             }
             dgvRestock.DataSource = list.ToList();
             tbTotal.Text = BLLRestockManagement.Instance.CalculateRestockToTal(list).ToString();

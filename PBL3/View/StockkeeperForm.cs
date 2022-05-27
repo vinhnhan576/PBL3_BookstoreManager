@@ -111,7 +111,7 @@ namespace PBL3.View
 
         private void btnStoreImport_Click(object sender, EventArgs e)
         {
-            openChildForm(new StockkeeperChildForms.ImportStore(), sender);
+            openChildForm(new StockkeeperChildForms.ImportStore(account), sender);
         }
 
         private void disableButton()
