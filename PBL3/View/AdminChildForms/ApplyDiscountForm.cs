@@ -16,19 +16,19 @@ namespace PBL3
 {
     public partial class ApplyDiscountForm : Form
     {
-        private Discount discount;
+        private string id;
         private List<Product_Discount_View> productlist=new List<Product_Discount_View>();
-        public ApplyDiscountForm(Discount discount)
+        public ApplyDiscountForm(string id)
         {
             InitializeComponent();
-            this.discount = discount;
+            this.id = id;
             this.dgvProduct.DataSource = BLLDiscountManagement.Instance.GetAllProduct_Discount_View();
         }
 
         private void btnApply_Click(object sender, EventArgs e)
         {
             Product_Discount_View obj = (Product_Discount_View)dgvProduct.CurrentRow.DataBoundItem;
-            obj.DiscountID = this.discount.DiscountID;
+            obj.DiscountID = this.id;
             int index = dgvProduct.SelectedRows[0].Index;
             dgvProduct.Rows[index].Selected = false;
             dgvProduct.Rows[index].Selected = true;
@@ -46,8 +46,16 @@ namespace PBL3
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            BLLDiscountManagement.Instance.UpdateProductDiscountIDList(this.discount.DiscountID,productlist);
+            BLLDiscountManagement.Instance.UpdateProductDiscountIDList(this.id,productlist);
             View.CustomMessageBox.MessageBox.Show("Discount applied Successfully","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                
+            }
         }
     }
 }
