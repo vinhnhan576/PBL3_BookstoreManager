@@ -31,7 +31,7 @@ namespace PBL3.View.StaffChildForms
             var random = new RandomGenerator();
             OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
             OrderIDtxt.Enabled = false;
-            SalesmanIDtxt.Text = account.PersonID;
+            SalesmanIDtxt.Text = account.PersonID.Trim();
             SalesmanIDtxt.Enabled = false;
             Totaltxt.Text = "0";
             Totaltxt.Enabled = false;
@@ -55,7 +55,7 @@ namespace PBL3.View.StaffChildForms
             if (CustomerTeltxt.Text != "")
             {
                 Customer customer = BLLCustomerManagement.Instance.getCustomerID(CustomerTeltxt.Text.Trim());
-                receipt.CustomerID = customer.PhoneNumber;
+                receipt.PhoneNumber = customer.PhoneNumber;
                 BLLCustomerManagement.Instance.SaveCustomer(customer, total);
             }
             //receipt.CustomerID = (QLSPEntities.Instance.Customers.Count() + 1).ToString();
@@ -87,7 +87,7 @@ namespace PBL3.View.StaffChildForms
             {
                 total = total - customer.Rank.CustomerDiscount;
                 if (total < 0) total = 0;
-                if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r00")
+                if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r0")
                 {
                     string message = "You have " + (2 - customer.Used) + " voucher " + customer.Rank.CustomerDiscount + "VND" +
                     "\nYour total after using this discount: " + total +

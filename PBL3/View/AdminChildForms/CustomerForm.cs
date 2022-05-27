@@ -45,7 +45,7 @@ namespace PBL3.View.AdminChildForms
                 {
                     TotalSpendingtxt.Text = dgvCustomer.SelectedRows[0].Cells["TotalSpending"].Value.ToString();   
                 }
-                Productdgv.DataSource = BLLCustomerManagement.Instance.GetReceiptByCustomerID(dgvCustomer.SelectedRows[0].Cells[0].Value.ToString());
+                Productdgv.DataSource = BLLCustomerManagement.Instance.GetReceiptByCustomerTel(dgvCustomer.SelectedRows[0].Cells[0].Value.ToString());
             }
 
         }
