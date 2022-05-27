@@ -38,10 +38,10 @@ namespace PBL3.View.AdminChildForms
 
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //tbSearch.Text = "";
-            //string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            //bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            //dgvStock.DataSource = BLLRestockManagement.Instance.SortRestock(sortCategory, sortOrder);
+            tbSearch.Text = "";
+            string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            dgvStock.DataSource = BLLRestockManagement.Instance.SortRestock(sortCategory, sortOrder);
         }
         private void dgvStock_CellClick(object sender, DataGridViewCellEventArgs e)
         {
