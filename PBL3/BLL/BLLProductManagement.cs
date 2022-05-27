@@ -349,6 +349,15 @@ namespace PBL3.BLL
             }
             return product;
         }
+        public List<string> GetAllProductPublisher()
+        {
+            List<string> prodPublisherList = new List<string>();
+            foreach (Product i in GetAllProduct())
+            {
+                prodPublisherList.Add(i.Author);
+            }
+            return prodPublisherList;
+        }
 
         public int CountProduct()
         {

@@ -16,15 +16,16 @@ namespace PBL3.View.StockkeeperChildForms
 {
     public partial class ImportStore : Form
     {
+        Account account; 
         List<StoreImportDetailView> list = new List<StoreImportDetailView>();
-        public ImportStore()
+        public ImportStore(Account acc)
         {
             InitializeComponent();
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_View();
-            //account = acc;
+            account = acc;
             tbStoreImportID.Text = "is00" + (QLNS.Instance.StoreImports.Count() + 1).ToString();
             tbStoreImportID.Enabled = false;
-            tbStockkeperID.Text = "sk001";
+            tbStockkeperID.Text = account.PersonID.ToString();
             tbStockkeperID.Enabled = false;
             dtpRestock.Value = DateTime.Now;
         }
@@ -67,13 +68,9 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void butDelete_Click(object sender, EventArgs e)
         {
-            if (dgvImport.SelectedRows.Count > 0)
-            {
-                for (int i = 0; i < dgvImport.SelectedRows.Count; i++)
-                {
-                    list.RemoveAt(i);
-
-                }
+            if (dgvImport.SelectedRows.Count == 1)
+            { 
+                list.RemoveAt(dgvImport.SelectedRows.Count);
             }
             dgvImport.DataSource = list.ToList();
         }
