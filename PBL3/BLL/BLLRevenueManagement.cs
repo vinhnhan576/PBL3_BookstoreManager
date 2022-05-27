@@ -167,29 +167,32 @@ namespace PBL3.BLL
             return filteredList.ToList();
         }
 
-        public List<RevenueChartView> GetAllRevenueByDate_ChartView(DateTime startDate, DateTime endDate, string chartType)
+        public List<RevenueChartView> GetAllRevenueByDate_ChartView(DateTime startDate, DateTime endDate)
         {
             List<RevenueChartView> revenues = new List<RevenueChartView>();
             int noDays = (endDate - startDate).Days;
-            if (noDays == 1)
+            if (noDays <= 31)
             {
-                chartType = "Day";
-            }
-            else if (noDays <= 7)
-            {
-                DateTime[] days = new DateTime[31];
-                double[] totals = new double[31];
-                foreach (Revenue i in QLNS.Instance.Revenues.Select(p => p).ToList())
+                DateTime[] days = new DateTime[noDays];
+                double[] totals = new double[noDays];
+                int temp = -1;
+                int day = 0;
+                foreach (Revenue i in QLNS.Instance.Revenues.OrderBy(p => p.ReceiptDetail.Receipt.Date).ToList())
                 {
                     DateTime date = i.ReceiptDetail.Receipt.Date;
-                    int day = date.Day;
                     if (date >= startDate && date <= endDate)
                     {
-                        days[day] = i.ReceiptDetail.Receipt.Date;
-                        totals[day] += (double)i.GrossRevenue;
+                        
+                        if (i.ReceiptDetail.Receipt.Date.Day != day)
+                        {
+                            day = date.Day;
+                            temp++;
+                        }
+                        days[temp] = date;
+                        totals[temp] += (double)i.GrossRevenue;
                     }
                 }
-                for (int i = startDate.Day; i < endDate.Day + 1; i++)
+                for(int i = 0; i <= temp; i++)
                 {
                     RevenueChartView rcv = new RevenueChartView
                     {
@@ -198,11 +201,6 @@ namespace PBL3.BLL
                     };
                     revenues.Add(rcv);
                 }
-                chartType = "Week";
-            }
-            else if (noDays <= 31)
-            {
-                chartType = "Month";
             }
             else if (noDays <= 365)
             {
@@ -227,14 +225,15 @@ namespace PBL3.BLL
                     };
                     revenues.Add(rcv);
                 }
-                chartType = "Year";
             }
             return revenues;
         }
 
         public DateTime GetFirstDate()
         {
-            return QLNS.Instance.Receipts.First().Date;
+            if (QLNS.Instance.Receipts.Count() > 0)
+                return QLNS.Instance.Receipts.OrderBy(p => p.Date).First().Date;
+            else return new DateTime();
         }
 
         public int GetAllVisitors(DateTime startDate, DateTime endDate)

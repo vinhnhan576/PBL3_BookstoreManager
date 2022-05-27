@@ -14,7 +14,7 @@ namespace PBL3.View
     public partial class StockkeeperForm : Form
     {
         private Form activeForm;
-        private Guna.UI2.WinForms.Guna2Button currentButton, prevButton;
+        private Guna.UI2.WinForms.Guna2Button currentButton;
         Account account;
 
         public StockkeeperForm(Account acc)

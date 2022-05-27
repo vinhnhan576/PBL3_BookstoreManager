@@ -16,7 +16,7 @@ namespace PBL3.View
     {
         Account account;
         private Form activeForm;
-        private Guna.UI2.WinForms.Guna2Button currentButton, prevButton;
+        private Guna.UI2.WinForms.Guna2Button currentButton;
 
         public CashierForm(Account acc)
         {
