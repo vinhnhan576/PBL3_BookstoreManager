@@ -375,7 +375,6 @@
             this.cbbSortOrder.Size = new System.Drawing.Size(160, 29);
             this.cbbSortOrder.TabIndex = 59;
             this.cbbSortOrder.TextOffset = new System.Drawing.Point(25, 0);
-            this.cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             // 
             // cbbSortCategory
             // 
@@ -400,7 +399,6 @@
             this.cbbSortCategory.Name = "cbbSortCategory";
             this.cbbSortCategory.Size = new System.Drawing.Size(193, 29);
             this.cbbSortCategory.TabIndex = 58;
-            this.cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
             // 
             // dgvStock
             // 
