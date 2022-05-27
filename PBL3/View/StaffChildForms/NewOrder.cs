@@ -38,7 +38,7 @@ namespace PBL3.View.StaffChildForms
             var random = new RandomGenerator();
             OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
             OrderIDtxt.Enabled = false;
-            SalesmanIDtxt.Text = "sm001";
+            SalesmanIDtxt.Text = account.PersonID.Trim();
             SalesmanIDtxt.Enabled = false;
             TotalOrdertxt.Text = "0";
             TotalOrdertxt.Enabled = false;
@@ -56,7 +56,7 @@ namespace PBL3.View.StaffChildForms
         {
             Receipt receipt = new Receipt();
             receipt.ReceiptID = OrderIDtxt.Text;
-            receipt.PersonID = SalesmanIDtxt.Text;
+            receipt.PersonID = account.PersonID;
             receipt.Date = DateTime.Now;
             receipt.Total = total;
             if (CustomerTeltxt.Text != "")
@@ -95,7 +95,7 @@ namespace PBL3.View.StaffChildForms
             {
                 total = total - customer.Rank.CustomerDiscount;
                 if (total < 0) total = 0;
-                if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r00")
+                if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r0")
                 {
                     string message = "You have " + (2 - customer.Used) + " voucher " + customer.Rank.CustomerDiscount + "VND" +
                     "\nYour total after using this discount: " + total +
@@ -141,7 +141,6 @@ namespace PBL3.View.StaffChildForms
                 string productName = dgvProduct.SelectedRows[0].Cells["ProductName"].Value.ToString();
                 product_temp = BLLProductManagement.Instance.GetProductByProductName(productName).ProductID;
                 rd_list = BLLReceiptManagement.Instance.CreateReceiptDetailView(rd_list, product_temp, Convert.ToInt32(Quantitytxt.Text));
-                MessageBox.Show(rd_list[0].GetDiscount().DiscountID);
             }
             dgvOrder.DataSource = this.rd_list.ToList();
             dgvOrder.DataSource = BLLReceiptManagement.Instance.GetListAfterVoucher(rd_list, p);
@@ -161,7 +160,7 @@ namespace PBL3.View.StaffChildForms
         private void LoadNewOrder()
         {
             OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
-            SalesmanIDtxt.Text = "sm001";
+            SalesmanIDtxt.Text = account.PersonID;
             CustomerTeltxt.Text = "";
             OrderDateTimePicker.Value = DateTime.Now;
         }

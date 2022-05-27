@@ -109,7 +109,7 @@ namespace PBL3.View.AdminChildForms
             discount.DiscountType=Typecbb.SelectedItem.ToString();
             discount.StartingDate = dgvFrom.Value;
             discount.ExpirationDate = dgvTo.Value;
-            discount.DiscountApply=Convert.ToDouble(AmountApplytxt.Text);
+            discount.DiscountApply=Convert.ToDouble(DiscountApplytxt.Text);
             BLLDiscountManagement.Instance.AddNewDiscount(discount);           
         }
 

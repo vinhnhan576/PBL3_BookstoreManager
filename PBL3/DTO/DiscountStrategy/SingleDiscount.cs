@@ -26,9 +26,12 @@ namespace PBL3.DTO.DiscountStrategy
             double result = 0;  
             foreach(ReceiptDetailView item in list)
             {
-                if (item.GetDiscount().DiscountType == "Single")
+                if (item.GetDiscount() != null)
                 {
-                    result = 0;
+                    if (item.GetDiscount().DiscountType == "Single")
+                    {
+                        result = 0;
+                    }
                 }
             }
             return result;
@@ -37,10 +40,13 @@ namespace PBL3.DTO.DiscountStrategy
         {
             foreach(ReceiptDetailView item in list)
             {
-                if(item.GetDiscount().DiscountType == "Single")
+                if (item.GetDiscount() != null)
                 {
-                    item.Voucher = item.GetDiscount().DiscountApply*item.Quantity;
-                    item.Total = item.Total - item.Voucher;
+                    if (item.GetDiscount().DiscountType == "Single")
+                    {
+                        item.Voucher = item.GetDiscount().DiscountApply * item.Quantity;
+                        item.Total = item.Total - item.Voucher;
+                    }
                 }
             }
             return list;

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using PBL3.Model;
 using PBL3.DTO;
 using PBL3.BLL;
+using PBL3.View.CustomMessageBox;
 
 namespace PBL3
 {
@@ -46,7 +47,7 @@ namespace PBL3
         private void btnOK_Click(object sender, EventArgs e)
         {
             BLLDiscountManagement.Instance.UpdateProductDiscountIDList(this.discount.DiscountID,productlist);
-            MessageBox.Show("Discount applied Successfully");
+            View.CustomMessageBox.MessageBox.Show("Discount applied Successfully","",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
     }
 }
