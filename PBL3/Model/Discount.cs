@@ -23,6 +23,8 @@ namespace PBL3.Model
         public string DiscountType { get; set; }
         public System.DateTime StartingDate { get; set; }
         public System.DateTime ExpirationDate { get; set; }
+        public int AmmountApply { get; set; }
+        public double DiscountApply { get; set; }
         public virtual ICollection<Product> Products { get; set; }
     }
 }

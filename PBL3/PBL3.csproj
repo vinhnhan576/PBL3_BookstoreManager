@@ -60,6 +60,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\DiscountStrategy\ComboDiscount.cs" />
+    <Compile Include="DTO\DiscountStrategy\NoDiscount.cs" />
+    <Compile Include="DTO\DiscountStrategy\PromotedStrategy.cs" />
+    <Compile Include="DTO\DiscountStrategy\SingleDiscount.cs" />
+    <Compile Include="DTO\Product_Discount_View.cs" />
+    <Compile Include="View\AdminChildForms\AppliedProductsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\AppliedProductsForm.Designer.cs">
+      <DependentUpon>AppliedProductsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminChildForms\ApplyDiscountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminChildForms\ApplyDiscountForm.Designer.cs">
+      <DependentUpon>ApplyDiscountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BLL\BLLAccountManagement.cs" />
     <Compile Include="BLL\BLLCustomerManagement.cs" />
     <Compile Include="BLL\BLLDiscountManagement.cs" />
@@ -274,6 +291,12 @@
     <EmbeddedResource Include="View\AdminChildForms\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\AppliedProductsForm.resx">
+      <DependentUpon>AppliedProductsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminChildForms\ApplyDiscountForm.resx">
+      <DependentUpon>ApplyDiscountForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdminChildForms\DiscountForm.resx">
       <DependentUpon>DiscountForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -463,7 +486,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="View\AdminChildForms\DiscountForms\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconWhiteDiscount.png" />
     <None Include="Resources\iconBlueBook.png" />
