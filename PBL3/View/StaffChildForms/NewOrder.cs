@@ -62,7 +62,7 @@ namespace PBL3.View.StaffChildForms
             if (CustomerTeltxt.Text != "")
             {
                 Customer customer = BLLCustomerManagement.Instance.getCustomer(CustomerTeltxt.Text.Trim());
-                receipt.CustomerID = customer.PhoneNumber;
+                receipt.PhoneNumber = customer.PhoneNumber;
                 BLLCustomerManagement.Instance.SaveCustomer(customer, total);
             }
             //receipt.CustomerID = (QLSPEntities.Instance.Customers.Count() + 1).ToString();
