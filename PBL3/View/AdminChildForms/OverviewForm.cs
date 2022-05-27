@@ -128,12 +128,12 @@ namespace PBL3.View.AdminChildForms
             if(chartType == "Month")
             {
                 var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate);
-                int[] N = new int[points.Count];
+                string[] N = new string[points.Count];
                 double[] M = new double[points.Count];
                 int i = 0;
                 foreach (var item in points)
                 {
-                    N[i] = item.date.Day;
+                    N[i] = item.date.Month.ToString() + "-" + item.date.Day.ToString();
                     M[i] = item.total;
                     i++;
                 }
@@ -142,12 +142,12 @@ namespace PBL3.View.AdminChildForms
             if(chartType == "Year")
             {
                 var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate);
-                int[] N = new int[points.Count];
+                string[] N = new string[points.Count];
                 double[] M = new double[points.Count];
                 int i = 0;
                 foreach (var item in points)
                 {
-                    N[i] = item.date.Month;
+                    N[i] = item.date.ToString("MMMM");
                     M[i] = item.total;
                     i++;
                 }

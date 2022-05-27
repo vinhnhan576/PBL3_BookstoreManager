@@ -173,17 +173,16 @@ namespace PBL3.BLL
             int noDays = (endDate - startDate).Days;
             if (noDays <= 31)
             {
-                MessageBox.Show(noDays.ToString());
                 DateTime[] days = new DateTime[noDays];
                 double[] totals = new double[noDays];
                 int temp = -1;
                 int day = 0;
-                        MessageBox.Show(startDate.ToString());
                 foreach (Revenue i in QLNS.Instance.Revenues.OrderBy(p => p.ReceiptDetail.Receipt.Date).ToList())
                 {
                     DateTime date = i.ReceiptDetail.Receipt.Date;
                     if (date >= startDate && date <= endDate)
                     {
+                        
                         if (i.ReceiptDetail.Receipt.Date.Day != day)
                         {
                             day = date.Day;
@@ -203,10 +202,6 @@ namespace PBL3.BLL
                     revenues.Add(rcv);
                 }
             }
-            //else if (noDays <= 31)
-            //{
-            //    chartType = "Month";
-            //}
             else if (noDays <= 365)
             {
                 DateTime[] months = new DateTime[12];
