@@ -10,17 +10,24 @@ using System.Windows.Forms;
 using PBL3.BLL;
 using PBL3.DTO;
 using PBL3.Model;
+using PBL3.DTO.DiscountStrategy;
 
 namespace PBL3.View.StaffChildForms
 {
     public partial class NewOrder : Form
     {
         private List<ReceiptDetailView> rd_list;
+        private PromotedStrategy p=new SingleDiscount();
         private Account account;
         public NewOrder(Account acc)
         {
             InitializeComponent();
             account = acc;
+            InitializeGUI();
+        }
+        public NewOrder()
+        {
+            InitializeComponent();
             InitializeGUI();
         }
 
@@ -31,10 +38,10 @@ namespace PBL3.View.StaffChildForms
             var random = new RandomGenerator();
             OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
             OrderIDtxt.Enabled = false;
-            SalesmanIDtxt.Text = account.PersonID;
+            SalesmanIDtxt.Text = account.PersonID.Trim();
             SalesmanIDtxt.Enabled = false;
-            Totaltxt.Text = "0";
-            Totaltxt.Enabled = false;
+            TotalOrdertxt.Text = "0";
+            TotalOrdertxt.Enabled = false;
             OrderDateTimePicker.Value = DateTime.Now;
         }
         private void SaveCustomer(Customer customer,double total)
@@ -49,12 +56,12 @@ namespace PBL3.View.StaffChildForms
         {
             Receipt receipt = new Receipt();
             receipt.ReceiptID = OrderIDtxt.Text;
-            receipt.PersonID = SalesmanIDtxt.Text;
+            receipt.PersonID = account.PersonID;
             receipt.Date = DateTime.Now;
             receipt.Total = total;
             if (CustomerTeltxt.Text != "")
             {
-                Customer customer = BLLCustomerManagement.Instance.getCustomerID(CustomerTeltxt.Text.Trim());
+                Customer customer = BLLCustomerManagement.Instance.getCustomer(CustomerTeltxt.Text.Trim());
                 receipt.CustomerID = customer.PhoneNumber;
                 BLLCustomerManagement.Instance.SaveCustomer(customer, total);
             }
@@ -70,7 +77,7 @@ namespace PBL3.View.StaffChildForms
                 double grossRevenue = rd_list[i].Total;
                 double profit = (grossRevenue / expenses - 1) * 100;
                 profit = (double)Math.Round(profit * 100f) / 100f;
-                BLLRevenueManagement.Instance.AddRevenue(rd_list[i].ReceiptDetailID, expenses, grossRevenue, profit);
+                //BLLRevenueManagement.Instance.AddRevenue(rd_list[i].ReceiptDetailID, expenses, grossRevenue, profit);
             }
             //rd_list.Clear();
             //rdDataGridView.DataSource = rd_list.ToList();
@@ -81,13 +88,14 @@ namespace PBL3.View.StaffChildForms
         }
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            Customer customer = BLLCustomerManagement.Instance.getCustomerID(CustomerTeltxt.Text.Trim());
-            double total = Convert.ToDouble(Totaltxt.Text);
+            Customer customer = BLLCustomerManagement.Instance.getCustomer(CustomerTeltxt.Text.Trim());
+            //MessageBox.Show(customer.Rankid);
+            double total = Convert.ToDouble(TotalOrdertxt.Text);
             if(customer != null)
             {
                 total = total - customer.Rank.CustomerDiscount;
                 if (total < 0) total = 0;
-                if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r00")
+                if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r0")
                 {
                     string message = "You have " + (2 - customer.Used) + " voucher " + customer.Rank.CustomerDiscount + "VND" +
                     "\nYour total after using this discount: " + total +
@@ -101,35 +109,32 @@ namespace PBL3.View.StaffChildForms
                     }
                     else if (result == DialogResult.No)
                     {
-                        Save(Convert.ToDouble(Totaltxt.Text));
+                        Save(Convert.ToDouble(TotalOrdertxt.Text));
                     }
                 }
                 else
                 {
-                    Save(Convert.ToDouble(Totaltxt.Text));
+                    Save(Convert.ToDouble(TotalOrdertxt.Text));
                 }
             }
 
             else
             {
-                Save(Convert.ToDouble(Totaltxt.Text));
+                Save(Convert.ToDouble(TotalOrdertxt.Text));
             }
-
-
            
             rd_list.Clear();
             dgvOrder.DataSource = rd_list.ToList();
             OrderIDtxt.Text = "";
             SalesmanIDtxt.Text = "";
-            Totaltxt.Text = "";
+            TotalOrdertxt.Text = "";
             dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
-
             LoadNewOrder();
         }
 
         private void AddButton_Click_1(object sender, EventArgs e)
         {
-            Customer customer = BLLCustomerManagement.Instance.getCustomerID(CustomerTeltxt.Text.Trim());
+            Customer customer = BLLCustomerManagement.Instance.getCustomer(CustomerTeltxt.Text.Trim());
             string product_temp;
             if (dgvProduct.SelectedRows.Count == 1)
             {
@@ -138,36 +143,15 @@ namespace PBL3.View.StaffChildForms
                 rd_list = BLLReceiptManagement.Instance.CreateReceiptDetailView(rd_list, product_temp, Convert.ToInt32(Quantitytxt.Text));
             }
             dgvOrder.DataSource = this.rd_list.ToList();
-            Totaltxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
+            dgvOrder.DataSource = BLLReceiptManagement.Instance.GetListAfterVoucher(rd_list, p);
+            TotalOrdertxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list, p).ToString();
             //if (CustomerTeltxt.Text != "")
             //{
             //    double totalspending = (double)customer.TotalSpending + Convert.ToDouble(Totaltxt.Text);
             //}
             Quantitytxt.Text = "";
+ 
         }
-
-        private void DeleteButton_Click(object sender, EventArgs e)
-        {
-            //List<string> del = new List<string>();
-            if (dgvOrder.SelectedRows.Count > 0)
-            {
-                for (int i = 0; i < dgvOrder.SelectedRows.Count; i++)
-                {
-                    rd_list.RemoveAt(i);
-
-                }
-            }
-            dgvOrder.DataSource = rd_list.ToList();
-            Totaltxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
-        }
-
-        private void ClearButton_Click(object sender, EventArgs e)
-        {
-            rd_list.Clear();
-            dgvOrder.DataSource = rd_list.ToList();
-            Totaltxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
-        }
-
         private void NewOrderButton_Click(object sender, EventArgs e)
         {
             LoadNewOrder();
@@ -176,7 +160,7 @@ namespace PBL3.View.StaffChildForms
         private void LoadNewOrder()
         {
             OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
-            SalesmanIDtxt.Text = "sm001";
+            SalesmanIDtxt.Text = account.PersonID;
             CustomerTeltxt.Text = "";
             OrderDateTimePicker.Value = DateTime.Now;
         }
@@ -221,8 +205,6 @@ namespace PBL3.View.StaffChildForms
                     cbbFilterValue.Items.Add(i);
                 }
             }
-
-
         }
 
         private void cbbFilterValue_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -238,14 +220,31 @@ namespace PBL3.View.StaffChildForms
                 if (!BLLCustomerManagement.Instance.Customer_Check(CustomerTeltxt.Text))
                 {
                     MessageBox.Show("Telephone Number doesn't exist");
-
                 }
                 else
-                {
-                    
+                {                  
                 }
             }
 
+        }
+        private void Deletebtn_Click(object sender, EventArgs e)
+        {
+            if (dgvOrder.SelectedRows.Count > 0)
+            {
+                for (int i = 0; i < dgvOrder.SelectedRows.Count; i++)
+                {
+                    rd_list.RemoveAt(i);
+
+                }
+            }
+            dgvOrder.DataSource = rd_list.ToList();
+            TotalOrdertxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list,p).ToString();
+        }
+        private void Clearbtn_Click(object sender, EventArgs e)
+        {
+            rd_list.Clear();
+            dgvOrder.DataSource = rd_list.ToList();
+            TotalOrdertxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list,p).ToString();
         }
     }
 }

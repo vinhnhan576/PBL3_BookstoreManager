@@ -40,12 +40,12 @@ namespace PBL3.View.AdminChildForms
             lbAddress.Text = person.Address;
             lbEmail.Text = (person.Email != null) ? person.Email : "N/A";
 
-            activateButton(btnThisYear);
-            startDate = BLLRevenueManagement.Instance.GetFirstDate();
-            endDate = DateTime.Now;
-            chartType = "Year";
-            LoadChart();
-            setNoItems();
+            //activateButton(btnThisYear);
+            //startDate = BLLRevenueManagement.Instance.GetFirstDate();
+            //endDate = DateTime.Now;
+            //chartType = "Year";
+            //LoadChart();
+            //setNoItems();
         }
 
         private void setNoItems()
