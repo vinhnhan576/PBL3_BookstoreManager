@@ -11,7 +11,7 @@ namespace PBL3.Model
     [Table("Customer")]
     public partial class Customer
     {
-        
+      
         public Customer()
         {
             Receipts = new HashSet<Receipt>();

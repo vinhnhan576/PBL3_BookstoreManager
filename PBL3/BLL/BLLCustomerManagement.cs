@@ -87,15 +87,13 @@ namespace PBL3.BLL
             customer.Used++;
             QLNS.Instance.SaveChanges();
         }
-        public Customer getCustomerID(string tel)
+        public Customer getCustomer(string tel)
         {
-            foreach (var customer in QLNS.Instance.Customers)
+            List<Customer> list = QLNS.Instance.Customers.Select(p => p).ToList();
+            foreach(Customer customer in list)
             {
-                if (customer.PhoneNumber.Trim() == tel)
-                {
+                if (customer.PhoneNumber == tel)
                     return customer;
-                }
-
             }
             return null;
         }

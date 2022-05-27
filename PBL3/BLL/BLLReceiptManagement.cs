@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PBL3.DTO;
 using PBL3.Model;
+using PBL3.DTO.DiscountStrategy;
 
 namespace PBL3.BLL
 {
@@ -90,6 +91,7 @@ namespace PBL3.BLL
                 temp.SellingPrice = Product.SellingPrice;
                 temp.Quantity = quantity;
                 temp.Total = temp.SellingPrice * quantity;
+                temp.SetDiscount(Product.Discount);
                 list.Add(temp);
                 return list;
             }
@@ -107,7 +109,6 @@ namespace PBL3.BLL
                 AddNewReceiptDetail(r);
             }
         }
-
         public List<ReceiptDetail> getReceiptDetailByReceiptID(string ID_Receipt)
         {
 
@@ -117,17 +118,15 @@ namespace PBL3.BLL
                 return QLNS.Instance.ReceiptDetails.Where(p => p.ReceiptID == ID_Receipt).ToList();
         }
 
-        public double CalculateReceiptToTal(List<ReceiptDetailView> list)
+        public double CalculateReceiptToTal(List<ReceiptDetailView> list,PromotedStrategy p)
         {
             double total = 0;
             for (int i = 0; i < list.Count; i++)
             {
                 total += list[i].Total;
             }
+            total = total - p.GetPromotedDiscount(list);
             return total;
-
-
-
         }
         public int ReceiptDetailView_Check(List<ReceiptDetailView> list, string product_id)
         {
@@ -204,9 +203,14 @@ namespace PBL3.BLL
                 else
                     data = db.Receipts.OrderByDescending(p => p.Total).ToList();
             }
-            var newList = data.Select(p => new { p.ReceiptID, p.Person.PersonName, p.Date, p.Total,p.Status}).ToList();
+            var newList = data.Select(p => new { p.ReceiptID, p.Person.PersonName, p.Date, p.Total, p.Status }).ToList();
             return newList;
         }
+        public List<ReceiptDetailView> GetListAfterVoucher(List<ReceiptDetailView> list,PromotedStrategy p)
+        { 
+            return p.GetAll(list);
+        }
+
 
     }
 }

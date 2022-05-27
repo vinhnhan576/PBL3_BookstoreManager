@@ -104,7 +104,7 @@ namespace PBL3.BLL
             List<Account> data = new List<Account>();
             foreach (Account ac in qLSPEntities.Accounts.Select(p => p).ToList())
             {
-                if (ac.PersonID.Contains(value) == true|| ac.Person.Role.Contains(value) == true|| ac.Person.Address.Contains(value) == true || ac.Person.PersonName.Contains(value) == true)
+                if (ac.Person.PersonName.Contains(value) == true)
                 {
                     data.Add(ac);
                 }
@@ -112,6 +112,21 @@ namespace PBL3.BLL
             var account = data.Select(p => new{ p.PersonID,p.Person.PersonName,p.Person.Role,p.Username,  p.Person.Address }) ; 
             return account.ToList();
         }
+        public dynamic Fitler_Account(string value)
+        {
+            QLNS qLSPEntities = new QLNS();
+            List<Account> data = new List<Account>();
+            foreach (Account ac in qLSPEntities.Accounts.Select(p => p).ToList())
+            {
+                if (ac.Person.Role.Contains(value) == true || ac.Person.Address.Contains(value) == true)
+                {
+                    data.Add(ac);
+                }
+            }
+            var account = data.Select(p => new { p.PersonID, p.Person.PersonName, p.Person.Role, p.Username, p.Person.Address });
+            return account.ToList();
+        }
+
         public dynamic SortAcount(string sortCategory, bool ascending)
         {
             QLNS qLSPEntities = new QLNS();
@@ -146,31 +161,6 @@ namespace PBL3.BLL
             }
             var account = (data.Select(p => new { p.PersonID, p.Person.PersonName, p.Person.Role, p.Username, p.Person.Address })).ToList();
             return account;
-        }
-
-        public dynamic FilterProduct(string filterCategory, string filterValue)
-        {
-            QLNS qLSPEntities = new QLNS();
-            List<Account> data = new List<Account>();
-            foreach (Account i in QLNS.Instance.Accounts.Select(p => p).ToList())
-            {
-                if (filterCategory == "Role")
-                {
-                    if (i.Person.Role == filterValue)
-                    {
-                        data.Add(i);
-                    }
-                }
-                if (filterCategory == "Address")
-                {
-                    if (i.Person.Address == filterValue)
-                    {
-                        data.Add(i);
-                    }
-                }
-            }
-            var prodViewList = data.Select(p => new { p.PersonID,p.Person.PersonName,p.Person.Role, p.Username,  p.Person.Address });
-            return prodViewList;
         }
         public Account GetAccountByPersonID(string ID)
         {
