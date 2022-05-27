@@ -184,5 +184,22 @@ namespace PBL3.BLL
             var products = QLNS.Instance.Products.Where(p => p.DiscountID == discountid).Select(p => new { p.ProductID, p.ProductName });
             return products.ToList();
         }
+        public bool Check(string discountid)
+        {
+            List<Discount> list = QLNS.Instance.Discounts.Select(p=>p).ToList();
+            foreach(Discount i in list)
+            {
+                if(i.DiscountID == discountid)
+                    return true;
+            }
+            return false;
+        }
+        public Discount GetDiscountByID(string ID)
+        {
+            var discount = QLNS.Instance.Discounts.Find(ID);
+            return discount;
+        }
+
+
     }
 }

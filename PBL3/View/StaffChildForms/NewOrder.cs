@@ -219,10 +219,12 @@ namespace PBL3.View.StaffChildForms
             {
                 if (!BLLCustomerManagement.Instance.Customer_Check(CustomerTeltxt.Text))
                 {
-                    MessageBox.Show("Telephone Number doesn't exist");
+                    View.CustomMessageBox.MessageBox.Show("Telephone number doesn't exist", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
-                {                  
+                {
+                    string tel = BLLCustomerManagement.Instance.getCustomer(CustomerTeltxt.Text).CustomerName.ToString();
+                    View.CustomMessageBox.MessageBox.Show(tel,"", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
