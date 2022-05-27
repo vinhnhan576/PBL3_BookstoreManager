@@ -23,6 +23,8 @@ namespace PBL3.View.AdminChildForms
             cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;
             cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
+            btnSave.Visible = false;
+            btnClear.Visible = false;
         }
         public void Reload()
         {
@@ -45,6 +47,8 @@ namespace PBL3.View.AdminChildForms
             tbAddress.Enabled = true;
             cbbRole.Text = null;
             cbbRole.Enabled = true;
+            btnSave.Visible = true;
+            btnClear.Visible = true;
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -96,6 +100,8 @@ namespace PBL3.View.AdminChildForms
                 cbbRole.Enabled = false;
                 tbName.Enabled = false;
                 cbbRole.Enabled = false;
+                btnSave.Visible = false;
+                btnClear.Visible = false;
             }
 
         }
@@ -120,10 +126,10 @@ namespace PBL3.View.AdminChildForms
         }        
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //tbSearch.Text = "";
-            //string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            //bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            //dgvAccount.DataSource = BLLAccountManagement.Instance.SortAcount(sortCategory, sortOrder);
+            tbSearch.Text = "";
+            string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            dgvAccount.DataSource = BLLAccountManagement.Instance.SortAcount(sortCategory, sortOrder);
         }
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -188,6 +194,8 @@ namespace PBL3.View.AdminChildForms
                 tbAddress.Enabled = false;
                 cbbRole.SelectedItem = ac.Person.Role.ToString();
                 cbbRole.Enabled = false;
+                btnSave.Visible = true;
+                btnClear.Visible = true;
             }
         }
         public string SetID(string role)
@@ -237,6 +245,9 @@ namespace PBL3.View.AdminChildForms
             tbAddress.Enabled = true;
             cbbRole.Enabled = true;
             tbName.Enabled = true;
+            btnSave.Visible = false;
+            btnClear.Visible = false;
+
         }
 
 

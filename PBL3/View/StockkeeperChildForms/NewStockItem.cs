@@ -126,7 +126,7 @@ namespace PBL3.View.StockkeeperChildForms
         private void butAddnewProduct_Click(object sender, EventArgs e)
         {
             AddNewProduct form = new AddNewProduct();
-            form.FormBorderStyle = FormBorderStyle.None;
+            //form.FormBorderStyle = FormBorderStyle.None;
             form.MyDel = AddProduct;
             form.Show();
         }
