@@ -61,9 +61,9 @@ namespace PBL3.BLL
             }
             return false;
         }
-        public dynamic CalculateCustomerTotal(string id)
+        public dynamic CalculateCustomerTotal(string tel)
         {
-            var customertotal = QLNS.Instance.Receipts.Where(p => p.CustomerID == id).Select(p => p.Total).Sum();
+            var customertotal = QLNS.Instance.Receipts.Where(p => p.PhoneNumber == tel).Select(p => p.Total).Sum();
 
             return customertotal;
 
@@ -104,12 +104,12 @@ namespace PBL3.BLL
             string rankID = BLLRankManagement.Instance.GetRankIDByReQuirement(totaltemp);
             BLLCustomerManagement.Instance.UpdateRankCustomer(customer.PhoneNumber, rankID);
         }
-        public dynamic GetReceiptByCustomerID(string customerid)
+        public dynamic GetReceiptByCustomerTel(string tel)
         {
-            if (customerid == "")
+            if (tel == "")
                  return QLNS.Instance.Receipts.Select(p => p).ToList();
             else
-                return QLNS.Instance.Receipts.Where(p => p.CustomerID == customerid).Select(p => new {p.ReceiptID,p.Date,p.Total}).ToList();
+                return QLNS.Instance.Receipts.Where(p => p.PhoneNumber == tel).Select(p => new {p.ReceiptID,p.Date,p.Total}).ToList();
         }
         //public dynamic GetProductByListReceipt(List<Receipt> receiptlist)
         //{

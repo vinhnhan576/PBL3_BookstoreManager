@@ -16,10 +16,7 @@ namespace PBL3.Model
         {
             this.Customers = new HashSet<Customer>();
         }
-        [Key]
-        [StringLength(10)]
-        [Required]
-        [Column("ID")]
+        [Key][StringLength(10)][Required][Column("ID")]
         public string RankID { get; set; }
         [Column("Rank Name")]
         public string RankName { get; set; }

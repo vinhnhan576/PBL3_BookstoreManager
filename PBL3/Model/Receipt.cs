@@ -21,13 +21,13 @@ namespace PBL3.Model
         public double Total { get; set; }
         [Column("Staff ID")]
         public string PersonID { get; set; }
-        [Column("Customer ID")]
-        public string CustomerID { get; set; }
+        [Column("Customer number")][StringLength(11)]
+        public string PhoneNumber { get; set; }
         public bool Status { get; set; }
         [ForeignKey("PersonID")]
         public virtual Person Person { get; set; }
         public virtual ICollection<ReceiptDetail> ReceiptDetails { get; set; }
-        [ForeignKey("CustomerID")]
+        [ForeignKey("PhoneNumber")]
         public virtual Customer Customer { get; set; }
     }
 }
