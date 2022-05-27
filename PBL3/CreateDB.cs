@@ -28,7 +28,8 @@ namespace PBL3
             context.People.AddRange(new Person[]
             {
                 new Person { PersonID = "ad01", PersonName = "Lê Văn Vĩnh Nhân", Address = "Huế", Email = "vinhnhan576@gmail.com", Gender = true, PhoneNumber = "0708182526", Role = "Admin" },
-                new Person { PersonID = "sm01", PersonName = "Hoàng Thị Phương Uyên", Address = "Huế", Gender = false, PhoneNumber = "0708182526", Role = "Salesman" },
+                new Person { PersonID = "sm01", PersonName = "Hoàng Thị Phương Uyên", Address = "Huế", Gender = false, PhoneNumber = "0123456789", Role = "Salesman" },
+                new Person { PersonID = "sk01", PersonName = "Trần Thanh Bình", Address = "Quảng Trị", Gender = true, PhoneNumber = "0987654321", Role = "Stockkeeper" },
             });
 
 
@@ -43,14 +44,18 @@ namespace PBL3
             context.Ranks.AddRange(new Rank[]
             {
                 new Rank { RankID = "r0", RankName = "Unranked", Requirement = 0, CustomerDiscount = 0 },
-                new Rank { RankID = "r1", RankName = "Bronze", Requirement = 200000, CustomerDiscount = 20000 },
+                new Rank { RankID = "r1", RankName = "Bronze", Requirement = 500000, CustomerDiscount = 20000 },
+                new Rank { RankID = "r2", RankName = "Silver", Requirement = 700000, CustomerDiscount = 40000 },
+                new Rank { RankID = "r3", RankName = "Gold", Requirement = 1000000, CustomerDiscount = 50000 },
+                new Rank { RankID = "r4", RankName = "Platinum", Requirement = 2000000, CustomerDiscount = 100000 },
+                new Rank { RankID = "r5", RankName = "Diamond", Requirement = 5000000, CustomerDiscount = 200000 },
             });
 
 
 
             context.Customers.AddRange(new Customer[]
             {
-                new Customer { PhoneNumber = "0123456789", CustomerName = "Le Van Dat", RankID = "r1", TotalSpending = 0 },
+                new Customer { PhoneNumber = "0147258369", CustomerName = "Le Van Dat", RankID = "r0", TotalSpending = 0 },
             });
 
 

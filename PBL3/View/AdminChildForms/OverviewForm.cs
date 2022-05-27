@@ -18,7 +18,6 @@ namespace PBL3.View.AdminChildForms
         private Person person;
 
         private DateTime startDate, endDate;
-        private int noDays;
         string chartType;
 
         public int noCustomers { get; private set; }
@@ -40,12 +39,12 @@ namespace PBL3.View.AdminChildForms
             lbAddress.Text = person.Address;
             lbEmail.Text = (person.Email != null) ? person.Email : "N/A";
 
-            //activateButton(btnThisYear);
-            //startDate = BLLRevenueManagement.Instance.GetFirstDate();
-            //endDate = DateTime.Now;
-            //chartType = "Year";
-            //LoadChart();
-            //setNoItems();
+            activateButton(btnThisYear);
+            startDate = BLLRevenueManagement.Instance.GetFirstDate();
+            endDate = DateTime.Now;
+            chartType = "Year";
+            LoadChart();
+            setNoItems();
         }
 
         private void setNoItems()
@@ -79,7 +78,7 @@ namespace PBL3.View.AdminChildForms
             activateButton(sender);
             startDate = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
             endDate = DateTime.Now;
-            chartType = "Week";
+            chartType = "Month";
             LoadChart();
             setNoItems();
         }
@@ -94,11 +93,41 @@ namespace PBL3.View.AdminChildForms
             setNoItems();
         }
 
+        private void btnLast7days_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+            startDate = DateTime.Now.AddDays(-7);
+            endDate = DateTime.Now;
+            chartType = "Month";
+            LoadChart();
+            setNoItems();
+        }
+
+        private void btnThisMonth_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+            startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            endDate = DateTime.Now;
+            chartType = "Month";
+            LoadChart();
+            setNoItems();
+        }
+
+        private void btnLast30days_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+            startDate = DateTime.Now.AddMonths(-1);
+            endDate = DateTime.Now;
+            chartType = "Month";
+            LoadChart();
+            setNoItems();
+        }
+
         private void LoadChart()
         {   
-            if(chartType == "Week")
+            if(chartType == "Month")
             {
-                var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate, chartType);
+                var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate);
                 int[] N = new int[points.Count];
                 double[] M = new double[points.Count];
                 int i = 0;
@@ -112,7 +141,7 @@ namespace PBL3.View.AdminChildForms
             }
             if(chartType == "Year")
             {
-                var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate, chartType);
+                var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate);
                 int[] N = new int[points.Count];
                 double[] M = new double[points.Count];
                 int i = 0;
