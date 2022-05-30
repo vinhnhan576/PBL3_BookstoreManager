@@ -33,7 +33,10 @@ namespace PBL3.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.pnTop = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.lbDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnLogout = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lbWelcome = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnSettings = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnRight = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.pnMenu = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.btnRevenue = new Guna.UI2.WinForms.Guna2Button();
@@ -44,12 +47,9 @@ namespace PBL3.View
             this.btnCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.btnProduct = new Guna.UI2.WinForms.Guna2Button();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
-            this.btnLogout = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.btnSettings = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnTop.SuspendLayout();
-            this.pnMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.pnMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnTop
@@ -79,6 +79,28 @@ namespace PBL3.View
             this.lbDate.TabIndex = 9;
             this.lbDate.Text = "03/31/2022";
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogout.CheckedState.Image = global::PBL3.Properties.Resources.logout;
+            this.btnLogout.HoverState.Image = global::PBL3.Properties.Resources.logout;
+            this.btnLogout.HoverState.ImageSize = new System.Drawing.Size(24, 24);
+            this.btnLogout.Image = global::PBL3.Properties.Resources.logout;
+            this.btnLogout.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnLogout.ImageRotate = 0F;
+            this.btnLogout.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnLogout.Location = new System.Drawing.Point(858, 12);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.PressedState.Image = global::PBL3.Properties.Resources.logout;
+            this.btnLogout.PressedState.ImageSize = new System.Drawing.Size(18, 18);
+            this.btnLogout.ShadowDecoration.BorderRadius = 0;
+            this.btnLogout.ShadowDecoration.Depth = 6;
+            this.btnLogout.ShadowDecoration.Enabled = true;
+            this.btnLogout.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 6, 6);
+            this.btnLogout.Size = new System.Drawing.Size(30, 30);
+            this.btnLogout.TabIndex = 5;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // lbWelcome
             // 
             this.lbWelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -92,6 +114,41 @@ namespace PBL3.View
             this.lbWelcome.Size = new System.Drawing.Size(134, 32);
             this.lbWelcome.TabIndex = 8;
             this.lbWelcome.Text = "Welcome, Y/N";
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSettings.CheckedState.Image = global::PBL3.Properties.Resources.settingsIcon;
+            this.btnSettings.CheckedState.ImageSize = new System.Drawing.Size(24, 24);
+            this.btnSettings.HoverState.Image = global::PBL3.Properties.Resources.settingsIcon;
+            this.btnSettings.HoverState.ImageSize = new System.Drawing.Size(24, 24);
+            this.btnSettings.Image = global::PBL3.Properties.Resources.settingsIcon;
+            this.btnSettings.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnSettings.ImageRotate = 0F;
+            this.btnSettings.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnSettings.Location = new System.Drawing.Point(806, 12);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.PressedState.Image = global::PBL3.Properties.Resources.settingsIcon;
+            this.btnSettings.PressedState.ImageSize = new System.Drawing.Size(23, 23);
+            this.btnSettings.ShadowDecoration.BorderRadius = 0;
+            this.btnSettings.ShadowDecoration.Depth = 6;
+            this.btnSettings.ShadowDecoration.Enabled = true;
+            this.btnSettings.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 6, 6);
+            this.btnSettings.Size = new System.Drawing.Size(30, 30);
+            this.btnSettings.TabIndex = 4;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::PBL3.Properties.Resources.logo_ver_2;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
+            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 6);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(115, 56);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // pnRight
             // 
@@ -319,63 +376,6 @@ namespace PBL3.View
             this.btnOverview.Text = "Overview";
             this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogout.CheckedState.Image = global::PBL3.Properties.Resources.logout;
-            this.btnLogout.HoverState.Image = global::PBL3.Properties.Resources.logout;
-            this.btnLogout.HoverState.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnLogout.Image = global::PBL3.Properties.Resources.logout;
-            this.btnLogout.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnLogout.ImageRotate = 0F;
-            this.btnLogout.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnLogout.Location = new System.Drawing.Point(858, 12);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.PressedState.Image = global::PBL3.Properties.Resources.logout;
-            this.btnLogout.PressedState.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnLogout.ShadowDecoration.BorderRadius = 0;
-            this.btnLogout.ShadowDecoration.Depth = 6;
-            this.btnLogout.ShadowDecoration.Enabled = true;
-            this.btnLogout.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 6, 6);
-            this.btnLogout.Size = new System.Drawing.Size(30, 30);
-            this.btnLogout.TabIndex = 5;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSettings.CheckedState.Image = global::PBL3.Properties.Resources.settingsIcon;
-            this.btnSettings.CheckedState.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnSettings.HoverState.Image = global::PBL3.Properties.Resources.settingsIcon;
-            this.btnSettings.HoverState.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnSettings.Image = global::PBL3.Properties.Resources.settingsIcon;
-            this.btnSettings.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnSettings.ImageRotate = 0F;
-            this.btnSettings.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnSettings.Location = new System.Drawing.Point(806, 12);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.PressedState.Image = global::PBL3.Properties.Resources.settingsIcon;
-            this.btnSettings.PressedState.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnSettings.ShadowDecoration.BorderRadius = 0;
-            this.btnSettings.ShadowDecoration.Depth = 6;
-            this.btnSettings.ShadowDecoration.Enabled = true;
-            this.btnSettings.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 6, 6);
-            this.btnSettings.Size = new System.Drawing.Size(30, 30);
-            this.btnSettings.TabIndex = 4;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = global::PBL3.Properties.Resources.logo_ver_2;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 6);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(115, 56);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,8 +391,8 @@ namespace PBL3.View
             this.Text = "Admin";
             this.pnTop.ResumeLayout(false);
             this.pnTop.PerformLayout();
-            this.pnMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.pnMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

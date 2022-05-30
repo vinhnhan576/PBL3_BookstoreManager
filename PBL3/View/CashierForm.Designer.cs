@@ -62,9 +62,6 @@ namespace PBL3.View
             // 
             // lbDate
             // 
-            this.lbDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbDate.BackColor = System.Drawing.Color.Transparent;
             this.lbDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
@@ -76,9 +73,6 @@ namespace PBL3.View
             // 
             // lbWelcome
             // 
-            this.lbWelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
             this.lbWelcome.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
@@ -90,6 +84,7 @@ namespace PBL3.View
             // 
             // btnLogout
             // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogout.CheckedState.Image = global::PBL3.Properties.Resources.logout;
             this.btnLogout.HoverState.Image = global::PBL3.Properties.Resources.logout;
             this.btnLogout.HoverState.ImageSize = new System.Drawing.Size(24, 24);
@@ -111,6 +106,7 @@ namespace PBL3.View
             // 
             // btnSettings
             // 
+            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSettings.CheckedState.Image = global::PBL3.Properties.Resources.settingsIcon;
             this.btnSettings.HoverState.Image = global::PBL3.Properties.Resources.settingsIcon;
             this.btnSettings.HoverState.ImageSize = new System.Drawing.Size(24, 24);
@@ -132,9 +128,6 @@ namespace PBL3.View
             // 
             // guna2PictureBox1
             // 
-            this.guna2PictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2PictureBox1.Image = global::PBL3.Properties.Resources.logo_ver_2;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
@@ -147,13 +140,11 @@ namespace PBL3.View
             // 
             // pnRight
             // 
-            this.pnRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.pnRight.Location = new System.Drawing.Point(169, 62);
+            this.pnRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnRight.Location = new System.Drawing.Point(170, 60);
             this.pnRight.Name = "pnRight";
-            this.pnRight.Size = new System.Drawing.Size(745, 469);
+            this.pnRight.Size = new System.Drawing.Size(744, 471);
             this.pnRight.TabIndex = 2;
             // 
             // btnOverview
@@ -163,21 +154,19 @@ namespace PBL3.View
             this.btnOverview.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnOverview.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnOverview.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOverview.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOverview.FillColor = System.Drawing.Color.Transparent;
             this.btnOverview.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOverview.ForeColor = System.Drawing.Color.White;
             this.btnOverview.Image = global::PBL3.Properties.Resources.overview;
-            this.btnOverview.ImageOffset = new System.Drawing.Point(-12, 0);
-            this.btnOverview.Location = new System.Drawing.Point(0, 20);
+            this.btnOverview.ImageOffset = new System.Drawing.Point(-3, 0);
+            this.btnOverview.Location = new System.Drawing.Point(15, 20);
             this.btnOverview.Name = "btnOverview";
             this.btnOverview.PressedColor = System.Drawing.Color.White;
             this.btnOverview.PressedDepth = 20;
-            this.btnOverview.Size = new System.Drawing.Size(170, 46);
+            this.btnOverview.Size = new System.Drawing.Size(140, 32);
             this.btnOverview.TabIndex = 0;
             this.btnOverview.Text = "Overview";
-            this.btnOverview.TextOffset = new System.Drawing.Point(-10, 0);
-            this.btnOverview.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
             // 
             // btnNewOrder
             // 
@@ -186,21 +175,19 @@ namespace PBL3.View
             this.btnNewOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnNewOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnNewOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnNewOrder.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNewOrder.FillColor = System.Drawing.Color.Transparent;
             this.btnNewOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewOrder.ForeColor = System.Drawing.Color.White;
             this.btnNewOrder.Image = global::PBL3.Properties.Resources.newOrder;
-            this.btnNewOrder.ImageOffset = new System.Drawing.Point(-11, 0);
-            this.btnNewOrder.Location = new System.Drawing.Point(0, 66);
+            this.btnNewOrder.ImageOffset = new System.Drawing.Point(-3, 0);
+            this.btnNewOrder.Location = new System.Drawing.Point(15, 64);
             this.btnNewOrder.Name = "btnNewOrder";
             this.btnNewOrder.PressedColor = System.Drawing.Color.White;
             this.btnNewOrder.PressedDepth = 20;
-            this.btnNewOrder.Size = new System.Drawing.Size(170, 46);
+            this.btnNewOrder.Size = new System.Drawing.Size(140, 32);
             this.btnNewOrder.TabIndex = 1;
             this.btnNewOrder.Text = "New Order";
-            this.btnNewOrder.TextOffset = new System.Drawing.Point(-8, 0);
-            this.btnNewOrder.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.btnNewOrder.Click += new System.EventHandler(this.btnNewOrder_Click);
             // 
             // btnManageOrder
             // 
@@ -209,21 +196,19 @@ namespace PBL3.View
             this.btnManageOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnManageOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnManageOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnManageOrder.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnManageOrder.FillColor = System.Drawing.Color.Transparent;
             this.btnManageOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageOrder.ForeColor = System.Drawing.Color.White;
             this.btnManageOrder.Image = global::PBL3.Properties.Resources.manageOrder;
-            this.btnManageOrder.ImageOffset = new System.Drawing.Point(-10, 0);
-            this.btnManageOrder.Location = new System.Drawing.Point(0, 112);
+            this.btnManageOrder.ImageOffset = new System.Drawing.Point(-3, 0);
+            this.btnManageOrder.Location = new System.Drawing.Point(15, 110);
             this.btnManageOrder.Name = "btnManageOrder";
             this.btnManageOrder.PressedColor = System.Drawing.Color.White;
             this.btnManageOrder.PressedDepth = 20;
-            this.btnManageOrder.Size = new System.Drawing.Size(170, 46);
+            this.btnManageOrder.Size = new System.Drawing.Size(140, 32);
             this.btnManageOrder.TabIndex = 2;
-            this.btnManageOrder.Text = "View Order";
-            this.btnManageOrder.TextOffset = new System.Drawing.Point(-6, 0);
-            this.btnManageOrder.Click += new System.EventHandler(this.guna2Button3_Click);
+            this.btnManageOrder.Text = "View Orders";
+            this.btnManageOrder.Click += new System.EventHandler(this.btnViewOrders_Click);
             // 
             // pnLeft
             // 
@@ -251,8 +236,8 @@ namespace PBL3.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(914, 531);
-            this.Controls.Add(this.pnLeft);
             this.Controls.Add(this.pnRight);
+            this.Controls.Add(this.pnLeft);
             this.Controls.Add(this.pnTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

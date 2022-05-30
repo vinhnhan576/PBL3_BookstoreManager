@@ -12,7 +12,7 @@ using PBL3.DTO;
 using PBL3.BLL;
 using PBL3.View.CustomMessageBox;
 
-namespace PBL3
+namespace PBL3.View.AdminChildForms.DiscountForms
 {
     public partial class ApplyDiscountForm : Form
     {

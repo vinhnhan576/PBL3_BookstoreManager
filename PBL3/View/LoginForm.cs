@@ -18,7 +18,7 @@ namespace PBL3.View
         public LoginForm()
         {
             InitializeComponent();
-            List<Account> accounts = QLNS.Instance.Accounts.ToList();
+            //List<Account> accounts = QLNS.Instance.Accounts.ToList();
         }
 
         private void pbShowPass_Click(object sender, EventArgs e)

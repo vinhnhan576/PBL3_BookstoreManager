@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label9 = new System.Windows.Forms.Label();
             this.lbNoCustomer = new System.Windows.Forms.Label();
@@ -67,6 +71,12 @@
             this.btnThisWeek = new Guna.UI2.WinForms.Guna2Button();
             this.btnLast30days = new Guna.UI2.WinForms.Guna2Button();
             this.btnLast7days = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).BeginInit();
             this.pnInfo.SuspendLayout();
             this.pnProfile.SuspendLayout();
@@ -79,41 +89,46 @@
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.pnTime.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
+            this.guna2Panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            this.guna2Panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // chartRevenue
             // 
             this.chartRevenue.BackColor = System.Drawing.Color.Transparent;
             this.chartRevenue.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisX.IsLabelAutoFit = false;
-            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(149)))));
-            chartArea2.AxisX.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisY.IsLabelAutoFit = false;
-            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI Historic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(149)))));
-            chartArea2.AxisY.LineColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.chartRevenue.ChartAreas.Add(chartArea2);
+            chartArea4.AxisX.IsLabelAutoFit = false;
+            chartArea4.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(149)))));
+            chartArea4.AxisX.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea4.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea4.AxisY.IsLabelAutoFit = false;
+            chartArea4.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI Historic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(149)))));
+            chartArea4.AxisY.LineColor = System.Drawing.Color.Transparent;
+            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea4.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea4.BackColor = System.Drawing.Color.Transparent;
+            chartArea4.Name = "ChartArea1";
+            this.chartRevenue.ChartAreas.Add(chartArea4);
             this.chartRevenue.Location = new System.Drawing.Point(3, 23);
             this.chartRevenue.Name = "chartRevenue";
             this.chartRevenue.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chartRevenue.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.Black};
-            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(224)))), ((int)(((byte)(239)))));
-            series2.BorderColor = System.Drawing.Color.Blue;
-            series2.BorderWidth = 0;
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartRevenue.Series.Add(series2);
+            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            series4.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(224)))), ((int)(((byte)(239)))));
+            series4.BorderColor = System.Drawing.Color.Blue;
+            series4.BorderWidth = 0;
+            series4.ChartArea = "ChartArea1";
+            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartRevenue.Series.Add(series4);
             this.chartRevenue.Size = new System.Drawing.Size(460, 258);
             this.chartRevenue.TabIndex = 5;
             this.chartRevenue.Text = "chart1";
@@ -153,13 +168,14 @@
             this.pnInfo.Controls.Add(this.label5);
             this.pnInfo.Controls.Add(this.lbGender);
             this.pnInfo.Controls.Add(this.label7);
+            this.pnInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnInfo.FillColor = System.Drawing.Color.White;
-            this.pnInfo.Location = new System.Drawing.Point(540, 222);
+            this.pnInfo.Location = new System.Drawing.Point(20, 221);
             this.pnInfo.Name = "pnInfo";
             this.pnInfo.ShadowDecoration.Depth = 7;
             this.pnInfo.ShadowDecoration.Enabled = true;
             this.pnInfo.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
-            this.pnInfo.Size = new System.Drawing.Size(216, 231);
+            this.pnInfo.Size = new System.Drawing.Size(216, 414);
             this.pnInfo.TabIndex = 20;
             // 
             // lbEmail
@@ -257,8 +273,9 @@
             this.pnProfile.Controls.Add(this.lbRole);
             this.pnProfile.Controls.Add(this.lbName);
             this.pnProfile.Controls.Add(this.guna2CirclePictureBox1);
+            this.pnProfile.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnProfile.FillColor = System.Drawing.Color.White;
-            this.pnProfile.Location = new System.Drawing.Point(540, 20);
+            this.pnProfile.Location = new System.Drawing.Point(20, 20);
             this.pnProfile.Name = "pnProfile";
             this.pnProfile.ShadowDecoration.Depth = 7;
             this.pnProfile.ShadowDecoration.Enabled = true;
@@ -311,7 +328,7 @@
             this.pnStatistics.Controls.Add(this.label8);
             this.pnStatistics.Controls.Add(this.chartRevenue);
             this.pnStatistics.FillColor = System.Drawing.Color.White;
-            this.pnStatistics.Location = new System.Drawing.Point(19, 178);
+            this.pnStatistics.Location = new System.Drawing.Point(255, 177);
             this.pnStatistics.Name = "pnStatistics";
             this.pnStatistics.ShadowDecoration.Depth = 7;
             this.pnStatistics.ShadowDecoration.Enabled = true;
@@ -363,7 +380,7 @@
             this.guna2Panel3.Controls.Add(this.label13);
             this.guna2Panel3.Controls.Add(this.guna2PictureBox3);
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(367, 72);
+            this.guna2Panel3.Location = new System.Drawing.Point(603, 71);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.Depth = 7;
             this.guna2Panel3.ShadowDecoration.Enabled = true;
@@ -427,7 +444,7 @@
             this.guna2Panel1.Controls.Add(this.label10);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(193, 72);
+            this.guna2Panel1.Location = new System.Drawing.Point(429, 71);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Depth = 7;
             this.guna2Panel1.ShadowDecoration.Enabled = true;
@@ -479,7 +496,7 @@
             this.guna2Panel4.Controls.Add(this.lbNoCustomer);
             this.guna2Panel4.Controls.Add(this.pbVisitors);
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(19, 72);
+            this.guna2Panel4.Location = new System.Drawing.Point(255, 71);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.Depth = 7;
             this.guna2Panel4.ShadowDecoration.Enabled = true;
@@ -509,7 +526,7 @@
             this.pnTime.Controls.Add(this.btnLast30days);
             this.pnTime.Controls.Add(this.btnLast7days);
             this.pnTime.FillColor = System.Drawing.Color.White;
-            this.pnTime.Location = new System.Drawing.Point(19, 20);
+            this.pnTime.Location = new System.Drawing.Point(255, 19);
             this.pnTime.Name = "pnTime";
             this.pnTime.ShadowDecoration.Depth = 7;
             this.pnTime.ShadowDecoration.Enabled = true;
@@ -653,19 +670,152 @@
             this.btnLast7days.Text = "Last 7 days";
             this.btnLast7days.Click += new System.EventHandler(this.btnLast7days_Click);
             // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel2.Controls.Add(this.pnInfo);
+            this.guna2Panel2.Controls.Add(this.guna2Panel5);
+            this.guna2Panel2.Controls.Add(this.pnProfile);
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Padding = new System.Windows.Forms.Padding(20);
+            this.guna2Panel2.Size = new System.Drawing.Size(256, 655);
+            this.guna2Panel2.TabIndex = 26;
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel5.Location = new System.Drawing.Point(20, 205);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Size = new System.Drawing.Size(216, 16);
+            this.guna2Panel5.TabIndex = 21;
+            // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel6.BorderRadius = 12;
+            this.guna2Panel6.Controls.Add(this.chart2);
+            this.guna2Panel6.FillColor = System.Drawing.Color.White;
+            this.guna2Panel6.Location = new System.Drawing.Point(775, 21);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.ShadowDecoration.Depth = 7;
+            this.guna2Panel6.ShadowDecoration.Enabled = true;
+            this.guna2Panel6.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
+            this.guna2Panel6.Size = new System.Drawing.Size(280, 201);
+            this.guna2Panel6.TabIndex = 27;
+            // 
+            // chart2
+            // 
+            this.chart2.BackColor = System.Drawing.Color.Transparent;
+            this.chart2.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea5.AxisX.IsLabelAutoFit = false;
+            chartArea5.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(149)))));
+            chartArea5.AxisX.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea5.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea5.AxisY.IsLabelAutoFit = false;
+            chartArea5.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI Historic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea5.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(149)))));
+            chartArea5.AxisY.LineColor = System.Drawing.Color.Transparent;
+            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea5.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea5.BackColor = System.Drawing.Color.Transparent;
+            chartArea5.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea5);
+            this.chart2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.chart2.Location = new System.Drawing.Point(0, 15);
+            this.chart2.Name = "chart2";
+            this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chart2.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Black};
+            series5.BorderColor = System.Drawing.Color.DodgerBlue;
+            series5.BorderWidth = 0;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series5.Color = System.Drawing.Color.Aqua;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            series5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            series5.ShadowColor = System.Drawing.Color.Silver;
+            series5.ShadowOffset = 5;
+            series5.YValuesPerPoint = 6;
+            this.chart2.Series.Add(series5);
+            this.chart2.Size = new System.Drawing.Size(280, 186);
+            this.chart2.TabIndex = 6;
+            this.chart2.Text = "chart2";
+            // 
+            // guna2Panel7
+            // 
+            this.guna2Panel7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel7.BorderRadius = 12;
+            this.guna2Panel7.Controls.Add(this.chart1);
+            this.guna2Panel7.FillColor = System.Drawing.Color.White;
+            this.guna2Panel7.Location = new System.Drawing.Point(775, 242);
+            this.guna2Panel7.Name = "guna2Panel7";
+            this.guna2Panel7.ShadowDecoration.Depth = 7;
+            this.guna2Panel7.ShadowDecoration.Enabled = true;
+            this.guna2Panel7.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
+            this.guna2Panel7.Size = new System.Drawing.Size(280, 211);
+            this.guna2Panel7.TabIndex = 28;
+            // 
+            // chart1
+            // 
+            this.chart1.BackColor = System.Drawing.Color.Transparent;
+            this.chart1.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea6.AxisX.IsLabelAutoFit = false;
+            chartArea6.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea6.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(149)))));
+            chartArea6.AxisX.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea6.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea6.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea6.AxisY.IsLabelAutoFit = false;
+            chartArea6.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI Historic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea6.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(148)))), ((int)(((byte)(149)))));
+            chartArea6.AxisY.LineColor = System.Drawing.Color.Transparent;
+            chartArea6.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea6.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea6.BackColor = System.Drawing.Color.Transparent;
+            chartArea6.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea6);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.chart1.Location = new System.Drawing.Point(0, 25);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Black};
+            series6.BorderColor = System.Drawing.Color.DodgerBlue;
+            series6.BorderWidth = 0;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series6.Color = System.Drawing.Color.Aqua;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            series6.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            series6.ShadowColor = System.Drawing.Color.Silver;
+            series6.ShadowOffset = 5;
+            series6.YValuesPerPoint = 6;
+            this.chart1.Series.Add(series6);
+            this.chart1.Size = new System.Drawing.Size(280, 186);
+            this.chart1.TabIndex = 6;
+            this.chart1.Text = "chart1";
+            // 
             // OverviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(774, 471);
+            this.ClientSize = new System.Drawing.Size(1319, 655);
+            this.Controls.Add(this.guna2Panel7);
+            this.Controls.Add(this.guna2Panel6);
+            this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.pnTime);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.pnStatistics);
-            this.Controls.Add(this.pnInfo);
-            this.Controls.Add(this.pnProfile);
             this.Name = "OverviewForm";
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).EndInit();
             this.pnInfo.ResumeLayout(false);
@@ -683,6 +833,11 @@
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
             this.pnTime.ResumeLayout(false);
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            this.guna2Panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -725,5 +880,11 @@
         private Guna.UI2.WinForms.Guna2Button btnThisWeek;
         private Guna.UI2.WinForms.Guna2Button btnThisYear;
         private Guna.UI2.WinForms.Guna2Button btnThisMonth;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

@@ -65,6 +65,9 @@
             this.dgvCustomer.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvCustomer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCustomer.BackgroundColor = System.Drawing.Color.White;
             this.dgvCustomer.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -295,7 +298,6 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 3;

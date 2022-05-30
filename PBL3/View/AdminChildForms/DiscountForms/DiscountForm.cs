@@ -11,7 +11,7 @@ using PBL3.BLL;
 using PBL3.Model;
 using PBL3.View.AdminChildForms;
 
-namespace PBL3.View.AdminChildForms
+namespace PBL3.View.AdminChildForms.DiscountForms
 {
     public partial class DiscountForm : Form
     {
