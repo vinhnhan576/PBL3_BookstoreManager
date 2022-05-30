@@ -29,7 +29,6 @@ namespace PBL3.View
             currentButton = btnDiscount;
             openChildForm(new AdminChildForms.OverviewForm(account.Person), btnOverview);
 
-
             string name = account.Person.PersonName.Split()[account.Person.PersonName.Split().Count() - 1];
             lbWelcome.Text = "Welcome, " + name;
             lbDate.Text = DateTime.Now.ToShortDateString();
@@ -131,10 +130,19 @@ namespace PBL3.View
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
             DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (result != DialogResult.Yes)
             {
-                this.Close();
+                e.Cancel = true;
             }
         }
 
@@ -160,7 +168,7 @@ namespace PBL3.View
 
         private void btnDiscount_Click(object sender, EventArgs e)
         {
-            openChildForm(new AdminChildForms.DiscountForm(), sender);
+            openChildForm(new AdminChildForms.DiscountForms.DiscountForm(), sender);
         }
 
         private void btnAccount_Click(object sender, EventArgs e)

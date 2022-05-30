@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockkeeperForm));
             this.pnTop = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.lbDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnLogout = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.lbWelcome = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnSettings = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnMenu = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -39,8 +41,6 @@
             this.btnNewStock = new Guna.UI2.WinForms.Guna2Button();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
             this.pnRight = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.lbDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lbWelcome = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.pnMenu.SuspendLayout();
@@ -58,6 +58,17 @@
             this.pnTop.Name = "pnTop";
             this.pnTop.Size = new System.Drawing.Size(914, 60);
             this.pnTop.TabIndex = 1;
+            // 
+            // lbDate
+            // 
+            this.lbDate.BackColor = System.Drawing.Color.Transparent;
+            this.lbDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            this.lbDate.Location = new System.Drawing.Point(182, 34);
+            this.lbDate.Name = "lbDate";
+            this.lbDate.Size = new System.Drawing.Size(67, 22);
+            this.lbDate.TabIndex = 9;
+            this.lbDate.Text = "03/31/2022";
             // 
             // btnLogout
             // 
@@ -80,6 +91,17 @@
             this.btnLogout.Size = new System.Drawing.Size(30, 30);
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // lbWelcome
+            // 
+            this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
+            this.lbWelcome.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            this.lbWelcome.Location = new System.Drawing.Point(180, 8);
+            this.lbWelcome.Name = "lbWelcome";
+            this.lbWelcome.Size = new System.Drawing.Size(134, 32);
+            this.lbWelcome.TabIndex = 8;
+            this.lbWelcome.Text = "Welcome, Y/N";
             // 
             // btnSettings
             // 
@@ -143,20 +165,18 @@
             this.btnStoreImport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnStoreImport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnStoreImport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnStoreImport.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnStoreImport.FillColor = System.Drawing.Color.Transparent;
             this.btnStoreImport.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStoreImport.ForeColor = System.Drawing.Color.White;
             this.btnStoreImport.Image = global::PBL3.Properties.Resources.iconStore;
-            this.btnStoreImport.ImageOffset = new System.Drawing.Point(-8, 0);
-            this.btnStoreImport.Location = new System.Drawing.Point(0, 158);
+            this.btnStoreImport.ImageOffset = new System.Drawing.Point(-3, 0);
+            this.btnStoreImport.Location = new System.Drawing.Point(8, 158);
             this.btnStoreImport.Name = "btnStoreImport";
             this.btnStoreImport.PressedColor = System.Drawing.Color.White;
             this.btnStoreImport.PressedDepth = 20;
-            this.btnStoreImport.Size = new System.Drawing.Size(170, 46);
+            this.btnStoreImport.Size = new System.Drawing.Size(155, 32);
             this.btnStoreImport.TabIndex = 3;
             this.btnStoreImport.Text = "Store Import";
-            this.btnStoreImport.TextOffset = new System.Drawing.Point(-5, 0);
             this.btnStoreImport.Click += new System.EventHandler(this.btnStoreImport_Click);
             // 
             // btnManageStock
@@ -166,21 +186,19 @@
             this.btnManageStock.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnManageStock.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnManageStock.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnManageStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnManageStock.FillColor = System.Drawing.Color.Transparent;
             this.btnManageStock.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageStock.ForeColor = System.Drawing.Color.White;
             this.btnManageStock.Image = global::PBL3.Properties.Resources.manageOrder;
-            this.btnManageStock.ImageOffset = new System.Drawing.Point(-10, 0);
-            this.btnManageStock.Location = new System.Drawing.Point(0, 112);
+            this.btnManageStock.ImageOffset = new System.Drawing.Point(-3, 0);
+            this.btnManageStock.Location = new System.Drawing.Point(8, 112);
             this.btnManageStock.Name = "btnManageStock";
             this.btnManageStock.PressedColor = System.Drawing.Color.White;
             this.btnManageStock.PressedDepth = 20;
-            this.btnManageStock.Size = new System.Drawing.Size(170, 46);
+            this.btnManageStock.Size = new System.Drawing.Size(155, 32);
             this.btnManageStock.TabIndex = 2;
             this.btnManageStock.Text = "View Stock";
-            this.btnManageStock.TextOffset = new System.Drawing.Point(-7, 0);
-            this.btnManageStock.Click += new System.EventHandler(this.guna2Button3_Click);
+            this.btnManageStock.Click += new System.EventHandler(this.btnViewStock_Click);
             // 
             // btnNewStock
             // 
@@ -189,21 +207,18 @@
             this.btnNewStock.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnNewStock.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnNewStock.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnNewStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNewStock.FillColor = System.Drawing.Color.Transparent;
             this.btnNewStock.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewStock.ForeColor = System.Drawing.Color.White;
             this.btnNewStock.Image = global::PBL3.Properties.Resources.newOrder;
-            this.btnNewStock.ImageOffset = new System.Drawing.Point(-1, 0);
-            this.btnNewStock.Location = new System.Drawing.Point(0, 66);
+            this.btnNewStock.Location = new System.Drawing.Point(8, 66);
             this.btnNewStock.Name = "btnNewStock";
             this.btnNewStock.PressedColor = System.Drawing.Color.White;
             this.btnNewStock.PressedDepth = 20;
-            this.btnNewStock.Size = new System.Drawing.Size(170, 46);
+            this.btnNewStock.Size = new System.Drawing.Size(155, 32);
             this.btnNewStock.TabIndex = 1;
             this.btnNewStock.Text = "New Stock Item";
-            this.btnNewStock.TextOffset = new System.Drawing.Point(1, 0);
-            this.btnNewStock.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.btnNewStock.Click += new System.EventHandler(this.btnNewStockItem_Click);
             // 
             // btnOverview
             // 
@@ -212,57 +227,28 @@
             this.btnOverview.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnOverview.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnOverview.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOverview.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOverview.FillColor = System.Drawing.Color.Transparent;
             this.btnOverview.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOverview.ForeColor = System.Drawing.Color.White;
             this.btnOverview.Image = global::PBL3.Properties.Resources.overview;
-            this.btnOverview.ImageOffset = new System.Drawing.Point(-12, 0);
-            this.btnOverview.Location = new System.Drawing.Point(0, 20);
+            this.btnOverview.ImageOffset = new System.Drawing.Point(-3, 0);
+            this.btnOverview.Location = new System.Drawing.Point(8, 20);
             this.btnOverview.Name = "btnOverview";
             this.btnOverview.PressedColor = System.Drawing.Color.White;
             this.btnOverview.PressedDepth = 20;
-            this.btnOverview.Size = new System.Drawing.Size(170, 46);
+            this.btnOverview.Size = new System.Drawing.Size(155, 32);
             this.btnOverview.TabIndex = 0;
             this.btnOverview.Text = "Overview";
-            this.btnOverview.TextOffset = new System.Drawing.Point(-10, 0);
-            this.btnOverview.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
             // 
             // pnRight
             // 
             this.pnRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.pnRight.Location = new System.Drawing.Point(170, 62);
+            this.pnRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnRight.Location = new System.Drawing.Point(170, 60);
             this.pnRight.Name = "pnRight";
-            this.pnRight.Size = new System.Drawing.Size(744, 469);
+            this.pnRight.Size = new System.Drawing.Size(744, 471);
             this.pnRight.TabIndex = 4;
-            // 
-            // lbDate
-            // 
-            this.lbDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbDate.BackColor = System.Drawing.Color.Transparent;
-            this.lbDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.lbDate.Location = new System.Drawing.Point(182, 34);
-            this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(67, 22);
-            this.lbDate.TabIndex = 9;
-            this.lbDate.Text = "03/31/2022";
-            // 
-            // lbWelcome
-            // 
-            this.lbWelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.lbWelcome.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.lbWelcome.Location = new System.Drawing.Point(180, 8);
-            this.lbWelcome.Name = "lbWelcome";
-            this.lbWelcome.Size = new System.Drawing.Size(134, 32);
-            this.lbWelcome.TabIndex = 8;
-            this.lbWelcome.Text = "Welcome, Y/N";
             // 
             // StockkeeperForm
             // 

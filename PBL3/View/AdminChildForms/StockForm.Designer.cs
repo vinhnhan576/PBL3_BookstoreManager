@@ -68,16 +68,15 @@
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(15, -2);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(11, -2);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(58, 27);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(48, 21);
             this.guna2HtmlLabel4.TabIndex = 1;
             this.guna2HtmlLabel4.Text = "Stock";
             // 
             // tbSearch
             // 
-            this.tbSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.tbSearch.BorderRadius = 9;
             this.tbSearch.BorderThickness = 0;
@@ -94,13 +93,13 @@
             this.tbSearch.IconRight = global::PBL3.Properties.Resources.icons8_search_60;
             this.tbSearch.IconRightOffset = new System.Drawing.Point(10, 0);
             this.tbSearch.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbSearch.Location = new System.Drawing.Point(28, 37);
+            this.tbSearch.Location = new System.Drawing.Point(21, 30);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.PasswordChar = '\0';
             this.tbSearch.PlaceholderText = "";
             this.tbSearch.SelectedText = "";
-            this.tbSearch.Size = new System.Drawing.Size(267, 31);
+            this.tbSearch.Size = new System.Drawing.Size(200, 25);
             this.tbSearch.TabIndex = 3;
             this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             // 
@@ -122,13 +121,13 @@
             this.tbID.IconLeftSize = new System.Drawing.Size(0, 0);
             this.tbID.IconRightOffset = new System.Drawing.Point(10, 0);
             this.tbID.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbID.Location = new System.Drawing.Point(173, 23);
+            this.tbID.Location = new System.Drawing.Point(130, 19);
             this.tbID.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbID.Name = "tbID";
             this.tbID.PasswordChar = '\0';
             this.tbID.PlaceholderText = "";
             this.tbID.SelectedText = "";
-            this.tbID.Size = new System.Drawing.Size(206, 27);
+            this.tbID.Size = new System.Drawing.Size(154, 22);
             this.tbID.TabIndex = 19;
             // 
             // tbTotal
@@ -149,13 +148,13 @@
             this.tbTotal.IconLeftSize = new System.Drawing.Size(0, 0);
             this.tbTotal.IconRightOffset = new System.Drawing.Point(10, 0);
             this.tbTotal.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbTotal.Location = new System.Drawing.Point(173, 148);
+            this.tbTotal.Location = new System.Drawing.Point(130, 120);
             this.tbTotal.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbTotal.Name = "tbTotal";
             this.tbTotal.PasswordChar = '\0';
             this.tbTotal.PlaceholderText = "";
             this.tbTotal.SelectedText = "";
-            this.tbTotal.Size = new System.Drawing.Size(206, 27);
+            this.tbTotal.Size = new System.Drawing.Size(154, 22);
             this.tbTotal.TabIndex = 18;
             // 
             // tbStockkeeperID
@@ -176,18 +175,17 @@
             this.tbStockkeeperID.IconLeftSize = new System.Drawing.Size(0, 0);
             this.tbStockkeeperID.IconRightOffset = new System.Drawing.Point(10, 0);
             this.tbStockkeeperID.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbStockkeeperID.Location = new System.Drawing.Point(173, 63);
+            this.tbStockkeeperID.Location = new System.Drawing.Point(130, 51);
             this.tbStockkeeperID.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbStockkeeperID.Name = "tbStockkeeperID";
             this.tbStockkeeperID.PasswordChar = '\0';
             this.tbStockkeeperID.PlaceholderText = "";
             this.tbStockkeeperID.SelectedText = "";
-            this.tbStockkeeperID.Size = new System.Drawing.Size(206, 27);
+            this.tbStockkeeperID.Size = new System.Drawing.Size(154, 22);
             this.tbStockkeeperID.TabIndex = 17;
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 3;
@@ -201,10 +199,10 @@
             this.guna2Panel1.Controls.Add(this.tbStockkeeperID);
             this.guna2Panel1.Controls.Add(this.tbTotal);
             this.guna2Panel1.Controls.Add(this.tbID);
-            this.guna2Panel1.Location = new System.Drawing.Point(28, 97);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2Panel1.Location = new System.Drawing.Point(21, 79);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(977, 197);
+            this.guna2Panel1.Size = new System.Drawing.Size(733, 160);
             this.guna2Panel1.TabIndex = 15;
             // 
             // label4
@@ -212,9 +210,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label4.Location = new System.Drawing.Point(114, 152);
+            this.label4.Location = new System.Drawing.Point(86, 124);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 23);
+            this.label4.Size = new System.Drawing.Size(45, 19);
             this.label4.TabIndex = 71;
             this.label4.Text = "Total";
             // 
@@ -223,9 +222,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label3.Location = new System.Drawing.Point(44, 110);
+            this.label3.Location = new System.Drawing.Point(33, 89);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 23);
+            this.label3.Size = new System.Drawing.Size(99, 19);
             this.label3.TabIndex = 70;
             this.label3.Text = "Import Date";
             // 
@@ -234,9 +234,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label2.Location = new System.Drawing.Point(29, 63);
+            this.label2.Location = new System.Drawing.Point(22, 51);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 23);
+            this.label2.Size = new System.Drawing.Size(109, 19);
             this.label2.TabIndex = 69;
             this.label2.Text = "Stockkeeper ";
             // 
@@ -245,9 +246,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label1.Location = new System.Drawing.Point(55, 23);
+            this.label1.Location = new System.Drawing.Point(41, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 23);
+            this.label1.Size = new System.Drawing.Size(86, 19);
             this.label1.TabIndex = 68;
             this.label1.Text = "Restock ID";
             // 
@@ -256,10 +258,10 @@
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(425, 10);
-            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(319, 8);
+            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(86, 25);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(68, 21);
             this.guna2HtmlLabel8.TabIndex = 67;
             this.guna2HtmlLabel8.Text = "Products";
             // 
@@ -271,12 +273,11 @@
             this.dtpImport.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpImport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtpImport.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpImport.Location = new System.Drawing.Point(173, 110);
-            this.dtpImport.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpImport.Location = new System.Drawing.Point(130, 89);
             this.dtpImport.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpImport.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpImport.Name = "dtpImport";
-            this.dtpImport.Size = new System.Drawing.Size(206, 26);
+            this.dtpImport.Size = new System.Drawing.Size(154, 21);
             this.dtpImport.TabIndex = 66;
             this.dtpImport.Value = new System.DateTime(2022, 4, 1, 12, 4, 50, 99);
             // 
@@ -309,8 +310,8 @@
             this.dgvProduct.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProduct.EnableHeadersVisualStyles = false;
             this.dgvProduct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvProduct.Location = new System.Drawing.Point(425, 39);
-            this.dgvProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvProduct.Location = new System.Drawing.Point(319, 32);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.ReadOnly = true;
             this.dgvProduct.RowHeadersVisible = false;
@@ -318,7 +319,7 @@
             this.dgvProduct.RowTemplate.Height = 28;
             this.dgvProduct.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduct.Size = new System.Drawing.Size(520, 134);
+            this.dgvProduct.Size = new System.Drawing.Size(390, 109);
             this.dgvProduct.TabIndex = 63;
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -344,12 +345,10 @@
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel4);
-            this.guna2Panel2.Location = new System.Drawing.Point(59, 89);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Panel2.Location = new System.Drawing.Point(44, 72);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(89, 25);
+            this.guna2Panel2.Size = new System.Drawing.Size(67, 20);
             this.guna2Panel2.TabIndex = 0;
             // 
             // cbbSortOrder
@@ -369,10 +368,10 @@
             this.cbbSortOrder.Items.AddRange(new object[] {
             "Ascending",
             "Descending"});
-            this.cbbSortOrder.Location = new System.Drawing.Point(491, 39);
-            this.cbbSortOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbSortOrder.Location = new System.Drawing.Point(368, 32);
+            this.cbbSortOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbbSortOrder.Name = "cbbSortOrder";
-            this.cbbSortOrder.Size = new System.Drawing.Size(160, 29);
+            this.cbbSortOrder.Size = new System.Drawing.Size(121, 29);
             this.cbbSortOrder.TabIndex = 59;
             this.cbbSortOrder.TextOffset = new System.Drawing.Point(25, 0);
             // 
@@ -394,10 +393,10 @@
             "RestockID",
             "ImportDate",
             "Total"});
-            this.cbbSortCategory.Location = new System.Drawing.Point(328, 39);
-            this.cbbSortCategory.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
+            this.cbbSortCategory.Location = new System.Drawing.Point(246, 32);
+            this.cbbSortCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
             this.cbbSortCategory.Name = "cbbSortCategory";
-            this.cbbSortCategory.Size = new System.Drawing.Size(193, 29);
+            this.cbbSortCategory.Size = new System.Drawing.Size(146, 29);
             this.cbbSortCategory.TabIndex = 58;
             // 
             // dgvStock
@@ -405,6 +404,9 @@
             this.dgvStock.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dgvStock.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvStock.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvStock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStock.BackgroundColor = System.Drawing.Color.White;
             this.dgvStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -429,8 +431,8 @@
             this.dgvStock.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvStock.EnableHeadersVisualStyles = false;
             this.dgvStock.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvStock.Location = new System.Drawing.Point(28, 312);
-            this.dgvStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvStock.Location = new System.Drawing.Point(21, 254);
+            this.dgvStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvStock.Name = "dgvStock";
             this.dgvStock.ReadOnly = true;
             this.dgvStock.RowHeadersVisible = false;
@@ -438,7 +440,7 @@
             this.dgvStock.RowTemplate.Height = 28;
             this.dgvStock.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStock.Size = new System.Drawing.Size(968, 238);
+            this.dgvStock.Size = new System.Drawing.Size(726, 193);
             this.dgvStock.TabIndex = 61;
             this.dgvStock.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvStock.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -484,13 +486,13 @@
             this.tbYear.IconRight = global::PBL3.Properties.Resources.filterIcon;
             this.tbYear.IconRightCursor = System.Windows.Forms.Cursors.Hand;
             this.tbYear.IconRightOffset = new System.Drawing.Point(3, 1);
-            this.tbYear.Location = new System.Drawing.Point(862, 39);
+            this.tbYear.Location = new System.Drawing.Point(646, 32);
             this.tbYear.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbYear.Name = "tbYear";
             this.tbYear.PasswordChar = '\0';
             this.tbYear.PlaceholderText = "YYYY";
             this.tbYear.SelectedText = "";
-            this.tbYear.Size = new System.Drawing.Size(143, 36);
+            this.tbYear.Size = new System.Drawing.Size(107, 29);
             this.tbYear.TabIndex = 62;
             this.tbYear.IconLeftClick += new System.EventHandler(this.tbYear_IconLeftClick);
             this.tbYear.IconRightClick += new System.EventHandler(this.tbYear_IconRightClick);
@@ -515,13 +517,13 @@
             this.tbMonth.IconLeftSize = new System.Drawing.Size(0, 0);
             this.tbMonth.IconRightOffset = new System.Drawing.Point(10, 0);
             this.tbMonth.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbMonth.Location = new System.Drawing.Point(680, 39);
+            this.tbMonth.Location = new System.Drawing.Point(510, 32);
             this.tbMonth.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbMonth.Name = "tbMonth";
             this.tbMonth.PasswordChar = '\0';
             this.tbMonth.PlaceholderText = "MM";
             this.tbMonth.SelectedText = "";
-            this.tbMonth.Size = new System.Drawing.Size(87, 36);
+            this.tbMonth.Size = new System.Drawing.Size(65, 29);
             this.tbMonth.TabIndex = 61;
             // 
             // tbDay
@@ -546,13 +548,13 @@
             this.tbDay.IconLeftSize = new System.Drawing.Size(0, 0);
             this.tbDay.IconRightOffset = new System.Drawing.Point(10, 0);
             this.tbDay.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbDay.Location = new System.Drawing.Point(769, 39);
+            this.tbDay.Location = new System.Drawing.Point(577, 32);
             this.tbDay.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbDay.Name = "tbDay";
             this.tbDay.PasswordChar = '\0';
             this.tbDay.PlaceholderText = "DD";
             this.tbDay.SelectedText = "";
-            this.tbDay.Size = new System.Drawing.Size(91, 36);
+            this.tbDay.Size = new System.Drawing.Size(68, 29);
             this.tbDay.TabIndex = 60;
             // 
             // Search
@@ -560,9 +562,10 @@
             this.Search.AutoSize = true;
             this.Search.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.Search.Location = new System.Drawing.Point(24, 12);
+            this.Search.Location = new System.Drawing.Point(18, 10);
+            this.Search.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(77, 23);
+            this.Search.Size = new System.Drawing.Size(63, 19);
             this.Search.TabIndex = 63;
             this.Search.Text = "Search";
             // 
@@ -571,9 +574,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label5.Location = new System.Drawing.Point(324, 12);
+            this.label5.Location = new System.Drawing.Point(243, 10);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 23);
+            this.label5.Size = new System.Drawing.Size(36, 19);
             this.label5.TabIndex = 64;
             this.label5.Text = "Sort";
             // 
@@ -582,18 +586,19 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label6.Location = new System.Drawing.Point(676, 14);
+            this.label6.Location = new System.Drawing.Point(507, 11);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 23);
+            this.label6.Size = new System.Drawing.Size(44, 19);
             this.label6.TabIndex = 65;
             this.label6.Text = "Filter";
             // 
             // StockForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(1032, 561);
+            this.ClientSize = new System.Drawing.Size(774, 456);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Search);
@@ -606,7 +611,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.tbSearch);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "StockForm";
             this.Text = "Stock";
             this.guna2Panel1.ResumeLayout(false);

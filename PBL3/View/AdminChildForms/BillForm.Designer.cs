@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.Searchtxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -60,6 +59,7 @@
             this.cbbSortOrder = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbbFilterCategory = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbbFilterValue = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.Searchtxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Productdgv)).BeginInit();
@@ -78,39 +78,8 @@
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Search";
             // 
-            // Searchtxt
-            // 
-            this.Searchtxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
-            this.Searchtxt.BorderRadius = 9;
-            this.Searchtxt.BorderThickness = 0;
-            this.Searchtxt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Searchtxt.DefaultText = "";
-            this.Searchtxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Searchtxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Searchtxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Searchtxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Searchtxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Searchtxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
-            this.Searchtxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.Searchtxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Searchtxt.IconLeft = global::PBL3.Properties.Resources.produtIcon;
-            this.Searchtxt.IconLeftSize = new System.Drawing.Size(0, 0);
-            this.Searchtxt.IconRight = global::PBL3.Properties.Resources.icons8_search_60;
-            this.Searchtxt.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.Searchtxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.Searchtxt.Location = new System.Drawing.Point(18, 32);
-            this.Searchtxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.Searchtxt.Name = "Searchtxt";
-            this.Searchtxt.PasswordChar = '\0';
-            this.Searchtxt.PlaceholderText = "";
-            this.Searchtxt.SelectedText = "";
-            this.Searchtxt.Size = new System.Drawing.Size(312, 29);
-            this.Searchtxt.TabIndex = 3;
-            this.Searchtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Searchtxt_KeyPress);
-            // 
             // guna2Panel2
             // 
-            this.guna2Panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel2.Controls.Add(this.label8);
             this.guna2Panel2.Location = new System.Drawing.Point(41, 64);
             this.guna2Panel2.Name = "guna2Panel2";
@@ -130,7 +99,6 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 3;
@@ -148,9 +116,9 @@
             this.guna2Panel1.Controls.Add(this.statustxt);
             this.guna2Panel1.Controls.Add(this.totaltxt);
             this.guna2Panel1.Controls.Add(this.IDtxt);
-            this.guna2Panel1.Location = new System.Drawing.Point(9, 77);
+            this.guna2Panel1.Location = new System.Drawing.Point(18, 77);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(727, 136);
+            this.guna2Panel1.Size = new System.Drawing.Size(714, 136);
             this.guna2Panel1.TabIndex = 47;
             // 
             // guna2TextBox1
@@ -230,7 +198,7 @@
             this.Productdgv.RowTemplate.Height = 28;
             this.Productdgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Productdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Productdgv.Size = new System.Drawing.Size(276, 90);
+            this.Productdgv.Size = new System.Drawing.Size(266, 90);
             this.Productdgv.TabIndex = 55;
             this.Productdgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.Productdgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -453,6 +421,9 @@
             this.Receiptdgv.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.Receiptdgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.Receiptdgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Receiptdgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Receiptdgv.BackgroundColor = System.Drawing.Color.White;
             this.Receiptdgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -477,7 +448,7 @@
             this.Receiptdgv.DefaultCellStyle = dataGridViewCellStyle6;
             this.Receiptdgv.EnableHeadersVisualStyles = false;
             this.Receiptdgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.Receiptdgv.Location = new System.Drawing.Point(19, 238);
+            this.Receiptdgv.Location = new System.Drawing.Point(18, 225);
             this.Receiptdgv.Margin = new System.Windows.Forms.Padding(2);
             this.Receiptdgv.Name = "Receiptdgv";
             this.Receiptdgv.ReadOnly = true;
@@ -486,7 +457,7 @@
             this.Receiptdgv.RowTemplate.Height = 28;
             this.Receiptdgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Receiptdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Receiptdgv.Size = new System.Drawing.Size(725, 213);
+            this.Receiptdgv.Size = new System.Drawing.Size(714, 220);
             this.Receiptdgv.TabIndex = 56;
             this.Receiptdgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.Receiptdgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -626,8 +597,38 @@
             this.cbbFilterValue.Location = new System.Drawing.Point(653, 31);
             this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterValue.Name = "cbbFilterValue";
-            this.cbbFilterValue.Size = new System.Drawing.Size(84, 29);
+            this.cbbFilterValue.Size = new System.Drawing.Size(80, 29);
             this.cbbFilterValue.TabIndex = 62;
+            // 
+            // Searchtxt
+            // 
+            this.Searchtxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.Searchtxt.BorderRadius = 9;
+            this.Searchtxt.BorderThickness = 0;
+            this.Searchtxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Searchtxt.DefaultText = "";
+            this.Searchtxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Searchtxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.Searchtxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Searchtxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Searchtxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Searchtxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.Searchtxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            this.Searchtxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Searchtxt.IconLeft = global::PBL3.Properties.Resources.produtIcon;
+            this.Searchtxt.IconLeftSize = new System.Drawing.Size(0, 0);
+            this.Searchtxt.IconRight = global::PBL3.Properties.Resources.icons8_search_60;
+            this.Searchtxt.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.Searchtxt.IconRightSize = new System.Drawing.Size(23, 23);
+            this.Searchtxt.Location = new System.Drawing.Point(18, 32);
+            this.Searchtxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.Searchtxt.Name = "Searchtxt";
+            this.Searchtxt.PasswordChar = '\0';
+            this.Searchtxt.PlaceholderText = "";
+            this.Searchtxt.SelectedText = "";
+            this.Searchtxt.Size = new System.Drawing.Size(312, 29);
+            this.Searchtxt.TabIndex = 3;
+            this.Searchtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Searchtxt_KeyPress);
             // 
             // BillForm
             // 

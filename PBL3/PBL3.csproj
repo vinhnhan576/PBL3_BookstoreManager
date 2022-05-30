@@ -65,16 +65,16 @@
     <Compile Include="DTO\DiscountStrategy\PromotedStrategy.cs" />
     <Compile Include="DTO\DiscountStrategy\SingleDiscount.cs" />
     <Compile Include="DTO\Product_Discount_View.cs" />
-    <Compile Include="View\AdminChildForms\AppliedProductsForm.cs">
+    <Compile Include="View\AdminChildForms\DiscountForms\AppliedProductsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\AppliedProductsForm.Designer.cs">
+    <Compile Include="View\AdminChildForms\DiscountForms\AppliedProductsForm.Designer.cs">
       <DependentUpon>AppliedProductsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\ApplyDiscountForm.cs">
+    <Compile Include="View\AdminChildForms\DiscountForms\ApplyDiscountForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\ApplyDiscountForm.Designer.cs">
+    <Compile Include="View\AdminChildForms\DiscountForms\ApplyDiscountForm.Designer.cs">
       <DependentUpon>ApplyDiscountForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BLL\BLLAccountManagement.cs" />
@@ -128,10 +128,10 @@
     <Compile Include="View\AdminChildForms\CustomerForm.Designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminChildForms\DiscountForm.cs">
+    <Compile Include="View\AdminChildForms\DiscountForms\DiscountForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminChildForms\DiscountForm.Designer.cs">
+    <Compile Include="View\AdminChildForms\DiscountForms\DiscountForm.Designer.cs">
       <DependentUpon>DiscountForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminChildForms\ProductForms\ImportHistory.cs">
@@ -296,13 +296,13 @@
     <EmbeddedResource Include="View\AdminChildForms\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\AppliedProductsForm.resx">
+    <EmbeddedResource Include="View\AdminChildForms\DiscountForms\AppliedProductsForm.resx">
       <DependentUpon>AppliedProductsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\ApplyDiscountForm.resx">
+    <EmbeddedResource Include="View\AdminChildForms\DiscountForms\ApplyDiscountForm.resx">
       <DependentUpon>ApplyDiscountForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminChildForms\DiscountForm.resx">
+    <EmbeddedResource Include="View\AdminChildForms\DiscountForms\DiscountForm.resx">
       <DependentUpon>DiscountForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminChildForms\ProductForms\ImportHistory.resx">
@@ -343,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StaffChildForms\ManageOrder.resx">
       <DependentUpon>ManageOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StaffChildForms\NewCustomerForm.resx">
+      <DependentUpon>NewCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StaffChildForms\NewOrder.resx">
       <DependentUpon>NewOrder.cs</DependentUpon>
@@ -494,9 +497,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\AdminChildForms\DiscountForms\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\iconWhiteDiscount.png" />
     <None Include="Resources\iconBlueBook.png" />

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
 
-namespace PBL3.View.AdminChildForms
+namespace PBL3.View.AdminChildForms.DiscountForms
 {
     public partial class AppliedProductsForm : Form
     {
