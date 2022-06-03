@@ -35,7 +35,9 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void butAdd_Click(object sender, EventArgs e)
         {
-            if (dgvProducts.SelectedRows.Count == 1)
+            if (tbImportPrice.Text == "" || tbQuantity.Text == "" || DataCheck.IsNumber(tbImportPrice.Text) != true || DataCheck.IsNumber(tbQuantity.Text) != true)
+                CustomMessageBox.MessageBox.Show("Invalid \n   Please re-enter quantity and price", "Wrong input", MessageBoxIcon.Error);
+            else if (dgvProducts.SelectedRows.Count == 1)
             {
                 string productID = dgvProducts.SelectedRows[0].Cells["ProductID"].Value.ToString();
                 int quantity = Convert.ToInt32(tbQuantity.Text.ToString());

@@ -38,23 +38,29 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            var random = new RandomGenerator();
-            Product p = new Product
+            if (tbPublishYear.IconRightSize == new System.Drawing.Size(7, 7) || tbQuantity.IconRightSize == new System.Drawing.Size(7, 7) || tbName.IconRightSize == new System.Drawing.Size(7, 7) 
+                || tbAuthor.IconRightSize == new System.Drawing.Size(7, 7) || tbImportPrice.IconRightSize == new System.Drawing.Size(7, 7) || cbbCatogory.SelectedItem == null||cbbPublisher.SelectedItem == null)
+                CustomMessageBox.MessageBox.Show("Enter missing product information", "Wrong input", MessageBoxIcon.Error);
+            else
             {
-                ProductID = "r00" + BLL.BLLProductManagement.Instance.CountProduct(),
-                ProductName = tbName.Text,
-                Author = tbAuthor.Text,
-                Category = cbbCatogory.SelectedItem.ToString(),
-                StockQuantity = Convert.ToInt32(tbQuantity.Text),
-                StoreQuantity = 0,
-                Publisher = cbbPublisher.SelectedItem.ToString(),
-                PublishYear = Convert.ToInt32(tbPublishYear.Text),
-                Status = "Available",
-                SellingPrice = Convert.ToInt32(tbImportPrice.Text)*1.2,
-                DiscountID = null,
-            };
-            MyDel(p, Convert.ToDouble(tbImportPrice.Text));
-            this.Close();
+                var random = new RandomGenerator();
+                Product p = new Product
+                {
+                    ProductID = "r00" + BLL.BLLProductManagement.Instance.CountProduct(),
+                    ProductName = tbName.Text,
+                    Author = tbAuthor.Text,
+                    Category = cbbCatogory.SelectedItem.ToString(),
+                    StockQuantity = Convert.ToInt32(tbQuantity.Text),
+                    StoreQuantity = 0,
+                    Publisher = cbbPublisher.SelectedItem.ToString(),
+                    PublishYear = Convert.ToInt32(tbPublishYear.Text),
+                    Status = "Available",
+                    SellingPrice = Convert.ToInt32(tbImportPrice.Text) * 1.2,
+                    DiscountID = null,
+                };
+                MyDel(p, Convert.ToDouble(tbImportPrice.Text));
+                this.Close();
+            }
         }
         public void AddNewItem(string NewCatogory,string NewPublisher)
         {
@@ -89,9 +95,22 @@ namespace PBL3.View.StockkeeperChildForms
         private void tbAdd_Click(object sender, EventArgs e)
         {
             AddNewItem form = new AddNewItem();
-            form.FormBorderStyle = FormBorderStyle.None;
             form.MyDel = AddNewItem;
             form.Show();
+        }
+
+        private void tb_TextChanged(object sender, EventArgs e)
+        {
+            if (tbPublishYear.Text == "" || tbPublishYear.Text.Length != 4 || DataCheck.IsNumber(tbPublishYear.Text) != true ) tbPublishYear.IconRightSize = new System.Drawing.Size(7, 7);
+            else tbPublishYear.IconRightSize = new System.Drawing.Size(0, 0);
+            if (tbQuantity.Text == "" ||DataCheck.IsNumber(tbQuantity.Text) != true) tbQuantity.IconRightSize = new System.Drawing.Size(7, 7);
+            else tbQuantity.IconRightSize = new System.Drawing.Size(0, 0);
+            if (tbName.Text == "" || DataCheck.IsString_1(tbName.Text) != true) tbName.IconRightSize = new System.Drawing.Size(7, 7);
+            else tbName.IconRightSize = new System.Drawing.Size(0, 0);
+            if (tbAuthor.Text == "" || DataCheck.IsString(tbAuthor.Text) != true) tbAuthor.IconRightSize = new System.Drawing.Size(7, 7);
+            else tbAuthor.IconRightSize = new System.Drawing.Size(0, 0);
+            if (tbImportPrice.Text == "" || DataCheck.IsNumber(tbImportPrice.Text) != true) tbImportPrice.IconRightSize = new System.Drawing.Size(7, 7);
+            else tbImportPrice.IconRightSize = new System.Drawing.Size(0, 0);
         }
     }
 }
