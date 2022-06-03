@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using PBL3.DTO;
 using PBL3.Model;
-using PBL3.DTO.DiscountStrategy;
 
 namespace PBL3.BLL
 {
@@ -202,10 +201,6 @@ namespace PBL3.BLL
             }
             var newList = data.Select(p => new { p.ReceiptID, p.Person.PersonName, p.Date, p.Total, p.Status }).ToList();
             return newList;
-        }
-        public List<ReceiptDetailView> GetListAfterVoucher(List<ReceiptDetailView> list,PromotedStrategy p)
-        { 
-            return p.GetAll(list);
         }
         public void ChangeStatusReceipt(List<string> receiptids)
         {

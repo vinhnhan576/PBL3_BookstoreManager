@@ -10,13 +10,11 @@ using System.Windows.Forms;
 using PBL3.BLL;
 using PBL3.DTO;
 using PBL3.Model;
-using PBL3.DTO.DiscountStrategy;
 namespace PBL3.View.StaffChildForms
 {
     public partial class NewOrder : Form
     {
         private List<ReceiptDetailView> rd_list;
-        private PromotedStrategy p=new SingleDiscount();
         private Account account;
         public NewOrder(Account acc)
         {
