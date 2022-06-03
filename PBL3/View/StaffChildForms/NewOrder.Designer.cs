@@ -69,6 +69,8 @@ namespace PBL3.View.StaffChildForms
             this.Deletebtn = new Guna.UI2.WinForms.Guna2Button();
             this.Clearbtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.discountxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
@@ -96,6 +98,7 @@ namespace PBL3.View.StaffChildForms
             this.OrderIDtxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.OrderIDtxt.IconRightSize = new System.Drawing.Size(23, 23);
             this.OrderIDtxt.Location = new System.Drawing.Point(39, 37);
+            this.OrderIDtxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.OrderIDtxt.Name = "OrderIDtxt";
             this.OrderIDtxt.PasswordChar = '\0';
             this.OrderIDtxt.PlaceholderText = "";
@@ -122,6 +125,7 @@ namespace PBL3.View.StaffChildForms
             this.SalesmanIDtxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.SalesmanIDtxt.IconRightSize = new System.Drawing.Size(23, 23);
             this.SalesmanIDtxt.Location = new System.Drawing.Point(39, 83);
+            this.SalesmanIDtxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SalesmanIDtxt.Name = "SalesmanIDtxt";
             this.SalesmanIDtxt.PasswordChar = '\0';
             this.SalesmanIDtxt.PlaceholderText = "";
@@ -180,7 +184,7 @@ namespace PBL3.View.StaffChildForms
             this.guna2Panel1.Controls.Add(this.SalesmanIDtxt);
             this.guna2Panel1.Controls.Add(this.OrderIDtxt);
             this.guna2Panel1.Location = new System.Drawing.Point(14, 14);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(429, 167);
             this.guna2Panel1.TabIndex = 17;
@@ -232,6 +236,7 @@ namespace PBL3.View.StaffChildForms
             this.CustomerTeltxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.CustomerTeltxt.IconRightSize = new System.Drawing.Size(23, 23);
             this.CustomerTeltxt.Location = new System.Drawing.Point(225, 83);
+            this.CustomerTeltxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustomerTeltxt.Name = "CustomerTeltxt";
             this.CustomerTeltxt.PasswordChar = '\0';
             this.CustomerTeltxt.PlaceholderText = "";
@@ -346,7 +351,7 @@ namespace PBL3.View.StaffChildForms
             this.guna2Panel4.Controls.Add(this.Quantitytxt);
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel4.Location = new System.Drawing.Point(15, 15);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(265, 426);
             this.guna2Panel4.TabIndex = 20;
@@ -384,7 +389,7 @@ namespace PBL3.View.StaffChildForms
             this.dgvProduct.EnableHeadersVisualStyles = false;
             this.dgvProduct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvProduct.Location = new System.Drawing.Point(18, 126);
-            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.ReadOnly = true;
             this.dgvProduct.RowHeadersVisible = false;
@@ -423,7 +428,7 @@ namespace PBL3.View.StaffChildForms
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(35, 58);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(38, 21);
             this.guna2HtmlLabel3.TabIndex = 30;
@@ -448,7 +453,7 @@ namespace PBL3.View.StaffChildForms
             "Category",
             "Status"});
             this.cbbFilterCategory.Location = new System.Drawing.Point(22, 81);
-            this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterCategory.Name = "cbbFilterCategory";
             this.cbbFilterCategory.Size = new System.Drawing.Size(111, 29);
             this.cbbFilterCategory.TabIndex = 31;
@@ -469,7 +474,7 @@ namespace PBL3.View.StaffChildForms
             this.cbbFilterValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbFilterValue.ItemHeight = 23;
             this.cbbFilterValue.Location = new System.Drawing.Point(127, 81);
-            this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterValue.Name = "cbbFilterValue";
             this.cbbFilterValue.Size = new System.Drawing.Size(116, 29);
             this.cbbFilterValue.TabIndex = 32;
@@ -508,6 +513,7 @@ namespace PBL3.View.StaffChildForms
             this.productSearchtxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.productSearchtxt.IconRightSize = new System.Drawing.Size(23, 23);
             this.productSearchtxt.Location = new System.Drawing.Point(25, 24);
+            this.productSearchtxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.productSearchtxt.Name = "productSearchtxt";
             this.productSearchtxt.PasswordChar = '\0';
             this.productSearchtxt.PlaceholderText = "";
@@ -554,6 +560,7 @@ namespace PBL3.View.StaffChildForms
             this.Quantitytxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.Quantitytxt.IconRightSize = new System.Drawing.Size(23, 23);
             this.Quantitytxt.Location = new System.Drawing.Point(107, 344);
+            this.Quantitytxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Quantitytxt.Name = "Quantitytxt";
             this.Quantitytxt.PasswordChar = '\0';
             this.Quantitytxt.PlaceholderText = "";
@@ -663,7 +670,7 @@ namespace PBL3.View.StaffChildForms
             this.dgvOrder.EnableHeadersVisualStyles = false;
             this.dgvOrder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvOrder.Location = new System.Drawing.Point(14, 194);
-            this.dgvOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvOrder.Margin = new System.Windows.Forms.Padding(2);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.ReadOnly = true;
             this.dgvOrder.RowHeadersVisible = false;
@@ -671,7 +678,7 @@ namespace PBL3.View.StaffChildForms
             this.dgvOrder.RowTemplate.Height = 28;
             this.dgvOrder.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrder.Size = new System.Drawing.Size(429, 212);
+            this.dgvOrder.Size = new System.Drawing.Size(429, 186);
             this.dgvOrder.TabIndex = 29;
             this.dgvOrder.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvOrder.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -714,12 +721,13 @@ namespace PBL3.View.StaffChildForms
             this.TotalOrdertxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.TotalOrdertxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.TotalOrdertxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.TotalOrdertxt.Location = new System.Drawing.Point(286, 419);
+            this.TotalOrdertxt.Location = new System.Drawing.Point(354, 419);
+            this.TotalOrdertxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TotalOrdertxt.Name = "TotalOrdertxt";
             this.TotalOrdertxt.PasswordChar = '\0';
             this.TotalOrdertxt.PlaceholderText = "";
             this.TotalOrdertxt.SelectedText = "";
-            this.TotalOrdertxt.Size = new System.Drawing.Size(157, 22);
+            this.TotalOrdertxt.Size = new System.Drawing.Size(89, 22);
             this.TotalOrdertxt.TabIndex = 30;
             // 
             // label10
@@ -728,7 +736,7 @@ namespace PBL3.View.StaffChildForms
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label10.Location = new System.Drawing.Point(235, 421);
+            this.label10.Location = new System.Drawing.Point(303, 422);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 19);
             this.label10.TabIndex = 31;
@@ -781,12 +789,54 @@ namespace PBL3.View.StaffChildForms
             this.guna2Panel5.Size = new System.Drawing.Size(295, 456);
             this.guna2Panel5.TabIndex = 36;
             // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.label11.Location = new System.Drawing.Point(274, 391);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(74, 19);
+            this.label11.TabIndex = 37;
+            this.label11.Text = "Discount";
+            // 
+            // discountxt
+            // 
+            this.discountxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.discountxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.discountxt.BorderRadius = 9;
+            this.discountxt.BorderThickness = 0;
+            this.discountxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.discountxt.DefaultText = "";
+            this.discountxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.discountxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.discountxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.discountxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.discountxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.discountxt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discountxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            this.discountxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.discountxt.IconLeftSize = new System.Drawing.Size(0, 0);
+            this.discountxt.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.discountxt.IconRightSize = new System.Drawing.Size(23, 23);
+            this.discountxt.Location = new System.Drawing.Point(354, 389);
+            this.discountxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.discountxt.Name = "discountxt";
+            this.discountxt.PasswordChar = '\0';
+            this.discountxt.PlaceholderText = "";
+            this.discountxt.SelectedText = "";
+            this.discountxt.Size = new System.Drawing.Size(89, 22);
+            this.discountxt.TabIndex = 38;
+            // 
             // NewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(744, 456);
+            this.Controls.Add(this.discountxt);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.guna2Panel5);
             this.Controls.Add(this.Deletebtn);
             this.Controls.Add(this.Clearbtn);
@@ -852,5 +902,7 @@ namespace PBL3.View.StaffChildForms
         private Guna.UI2.WinForms.Guna2Button Deletebtn;
         private Guna.UI2.WinForms.Guna2Button Clearbtn;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private System.Windows.Forms.Label label11;
+        private Guna.UI2.WinForms.Guna2TextBox discountxt;
     }
 }

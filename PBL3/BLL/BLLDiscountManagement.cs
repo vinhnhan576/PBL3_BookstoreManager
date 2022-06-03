@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PBL3.Model;
 using PBL3.DTO;
-
+using System.Windows.Forms;
 namespace PBL3.BLL
 {
     public class BLLDiscountManagement
@@ -143,6 +143,18 @@ namespace PBL3.BLL
             }
             return products;
         }
+        public int CountProductByDiscountID(List<Product_Discount_View> list,string discountid)
+        {
+            int count = 0;
+            foreach(var product in list)
+            {
+                if(product.DiscountID == discountid)
+                {
+                    count += 1;
+                }
+            }
+            return count;
+        }
         public void Delete(List<string> id)
         {
             QLNS demo = new QLNS();
@@ -199,6 +211,86 @@ namespace PBL3.BLL
             var discount = QLNS.Instance.Discounts.Find(ID);
             return discount;
         }
+        public List<ReceiptDetailView> GetListAfterSingleDiscount(List<ReceiptDetailView> list)
+        {
+
+            foreach (ReceiptDetailView item in list)
+            {
+                if (item.GetDiscount() != null)
+                {
+                    if (item.GetDiscount().DiscountType == "Single")
+                    {
+                        item.Voucher = item.GetDiscount().DiscountApply * item.Quantity;
+                    }
+                    item.Total = item.SellingPrice*item.Quantity-item.Voucher;
+                }
+            }
+            return list;
+        }
+        public List<string> GetAllDiscountIDByTypeCombo()
+        {
+            List<String> list = new List<string>();
+            var listDiscount = QLNS.Instance.Discounts.Select(p => p);
+            foreach(var discount in listDiscount)
+            {
+                if (discount.DiscountType == "Combo")
+                {
+                    list.Add(discount.DiscountID);
+                }
+            }
+            return list;
+        }
+        public Discount GetDiscountByDiscountID(string DiscountID)
+        {
+            return QLNS.Instance.Discounts.Find(DiscountID);
+        }
+        public int GetCoeficcient(IGrouping<string,ReceiptDetailView> group)
+        {
+            int count = group.ElementAt(0).Quantity;
+            foreach(var i in group)
+            {
+                if (count >= i.Quantity)
+                {
+                    count = i.Quantity;
+                }
+            }
+            return count;
+        }
+        public double GetTotalDiscount_ComboDiscount(List<ReceiptDetailView> list)
+        {
+            var GroupByMS = list.GroupBy(s=>s.GetDiscount().DiscountID);
+            double result = 0;
+            //Using Query Syntax
+            //It will iterate through each groups
+            foreach (var group in GroupByMS)
+            {
+                Discount d = GetDiscountByDiscountID(group.Key);
+                if (group.Count() ==d.AmmountApply)
+                {
+                    int coeficient = GetCoeficcient(group);
+                    //MessageBox.Show(coeficient.ToString());
+                    result += coeficient * d.DiscountApply;
+                    //MessageBox.Show(result.ToString());
+                }
+            }
+            return result;
+        }
+        public dynamic SearchProductDiscountView(string searchValue)
+        {
+            List<Product_Discount_View> data = new List<Product_Discount_View>();
+            foreach (Product_Discount_View i in GetAllProduct_Discount_View())
+            {
+                bool contains = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                if (contains)
+                {
+                    data.Add(i);
+                }
+            }
+            return data;
+        }
+
+
+
 
 
     }
