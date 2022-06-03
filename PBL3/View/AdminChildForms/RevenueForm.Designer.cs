@@ -60,6 +60,9 @@
             this.dgvRevenue.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvRevenue.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvRevenue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRevenue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRevenue.BackgroundColor = System.Drawing.Color.White;
             this.dgvRevenue.BorderStyle = System.Windows.Forms.BorderStyle.None;

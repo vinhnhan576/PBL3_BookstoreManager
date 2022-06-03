@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.Searchtxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -60,6 +59,7 @@
             this.cbbSortOrder = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbbFilterCategory = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbbFilterValue = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.Searchtxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Productdgv)).BeginInit();
@@ -78,39 +78,8 @@
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Search";
             // 
-            // Searchtxt
-            // 
-            this.Searchtxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
-            this.Searchtxt.BorderRadius = 9;
-            this.Searchtxt.BorderThickness = 0;
-            this.Searchtxt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Searchtxt.DefaultText = "";
-            this.Searchtxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Searchtxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Searchtxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Searchtxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Searchtxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Searchtxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
-            this.Searchtxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.Searchtxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Searchtxt.IconLeft = global::PBL3.Properties.Resources.produtIcon;
-            this.Searchtxt.IconLeftSize = new System.Drawing.Size(0, 0);
-            this.Searchtxt.IconRight = global::PBL3.Properties.Resources.icons8_search_60;
-            this.Searchtxt.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.Searchtxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.Searchtxt.Location = new System.Drawing.Point(18, 32);
-            this.Searchtxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.Searchtxt.Name = "Searchtxt";
-            this.Searchtxt.PasswordChar = '\0';
-            this.Searchtxt.PlaceholderText = "";
-            this.Searchtxt.SelectedText = "";
-            this.Searchtxt.Size = new System.Drawing.Size(312, 29);
-            this.Searchtxt.TabIndex = 3;
-            this.Searchtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Searchtxt_KeyPress);
-            // 
             // guna2Panel2
             // 
-            this.guna2Panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel2.Controls.Add(this.label8);
             this.guna2Panel2.Location = new System.Drawing.Point(41, 64);
             this.guna2Panel2.Name = "guna2Panel2";
@@ -130,7 +99,6 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 3;
@@ -148,9 +116,9 @@
             this.guna2Panel1.Controls.Add(this.statustxt);
             this.guna2Panel1.Controls.Add(this.totaltxt);
             this.guna2Panel1.Controls.Add(this.IDtxt);
-            this.guna2Panel1.Location = new System.Drawing.Point(9, 77);
+            this.guna2Panel1.Location = new System.Drawing.Point(18, 77);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(727, 136);
+            this.guna2Panel1.Size = new System.Drawing.Size(711, 137);
             this.guna2Panel1.TabIndex = 47;
             // 
             // guna2TextBox1
@@ -171,13 +139,13 @@
             this.guna2TextBox1.IconLeftSize = new System.Drawing.Size(0, 0);
             this.guna2TextBox1.IconRightOffset = new System.Drawing.Point(10, 0);
             this.guna2TextBox1.IconRightSize = new System.Drawing.Size(23, 23);
-            this.guna2TextBox1.Location = new System.Drawing.Point(287, 28);
+            this.guna2TextBox1.Location = new System.Drawing.Point(259, 28);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(130, 22);
+            this.guna2TextBox1.Size = new System.Drawing.Size(110, 22);
             this.guna2TextBox1.TabIndex = 57;
             // 
             // label3
@@ -185,7 +153,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label3.Location = new System.Drawing.Point(207, 59);
+            this.label3.Location = new System.Drawing.Point(179, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 20);
             this.label3.TabIndex = 56;
@@ -221,7 +189,7 @@
             this.Productdgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.Productdgv.EnableHeadersVisualStyles = false;
             this.Productdgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.Productdgv.Location = new System.Drawing.Point(434, 30);
+            this.Productdgv.Location = new System.Drawing.Point(388, 30);
             this.Productdgv.Margin = new System.Windows.Forms.Padding(2);
             this.Productdgv.Name = "Productdgv";
             this.Productdgv.ReadOnly = true;
@@ -230,7 +198,7 @@
             this.Productdgv.RowTemplate.Height = 28;
             this.Productdgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Productdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Productdgv.Size = new System.Drawing.Size(276, 90);
+            this.Productdgv.Size = new System.Drawing.Size(303, 90);
             this.Productdgv.TabIndex = 55;
             this.Productdgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.Productdgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -259,7 +227,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label2.Location = new System.Drawing.Point(435, 8);
+            this.label2.Location = new System.Drawing.Point(394, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 20);
             this.label2.TabIndex = 54;
@@ -271,7 +239,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label1.Location = new System.Drawing.Point(209, 30);
+            this.label1.Location = new System.Drawing.Point(181, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 20);
             this.label1.TabIndex = 53;
@@ -296,13 +264,13 @@
             this.salesmannametxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.salesmannametxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.salesmannametxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.salesmannametxt.Location = new System.Drawing.Point(288, 59);
+            this.salesmannametxt.Location = new System.Drawing.Point(259, 60);
             this.salesmannametxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.salesmannametxt.Name = "salesmannametxt";
             this.salesmannametxt.PasswordChar = '\0';
             this.salesmannametxt.PlaceholderText = "";
             this.salesmannametxt.SelectedText = "";
-            this.salesmannametxt.Size = new System.Drawing.Size(130, 22);
+            this.salesmannametxt.Size = new System.Drawing.Size(110, 22);
             this.salesmannametxt.TabIndex = 52;
             // 
             // DateTimePicker
@@ -313,11 +281,11 @@
             this.DateTimePicker.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DateTimePicker.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DateTimePicker.Location = new System.Drawing.Point(255, 94);
+            this.DateTimePicker.Location = new System.Drawing.Point(227, 94);
             this.DateTimePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DateTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(162, 21);
+            this.DateTimePicker.Size = new System.Drawing.Size(142, 21);
             this.DateTimePicker.TabIndex = 51;
             this.DateTimePicker.Value = new System.DateTime(2022, 4, 1, 12, 4, 50, 99);
             // 
@@ -326,7 +294,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label9.Location = new System.Drawing.Point(42, 29);
+            this.label9.Location = new System.Drawing.Point(39, 29);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(25, 20);
             this.label9.TabIndex = 49;
@@ -338,7 +306,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label4.Location = new System.Drawing.Point(207, 90);
+            this.label4.Location = new System.Drawing.Point(179, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 20);
             this.label4.TabIndex = 44;
@@ -349,7 +317,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(17, 60);
+            this.label7.Location = new System.Drawing.Point(14, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 20);
             this.label7.TabIndex = 47;
@@ -361,7 +329,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label10.Location = new System.Drawing.Point(23, 94);
+            this.label10.Location = new System.Drawing.Point(20, 94);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 20);
             this.label10.TabIndex = 50;
@@ -385,13 +353,13 @@
             this.statustxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.statustxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.statustxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.statustxt.Location = new System.Drawing.Point(75, 61);
+            this.statustxt.Location = new System.Drawing.Point(72, 61);
             this.statustxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.statustxt.Name = "statustxt";
             this.statustxt.PasswordChar = '\0';
             this.statustxt.PlaceholderText = "";
             this.statustxt.SelectedText = "";
-            this.statustxt.Size = new System.Drawing.Size(118, 22);
+            this.statustxt.Size = new System.Drawing.Size(97, 22);
             this.statustxt.TabIndex = 31;
             // 
             // totaltxt
@@ -412,13 +380,13 @@
             this.totaltxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.totaltxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.totaltxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.totaltxt.Location = new System.Drawing.Point(75, 94);
+            this.totaltxt.Location = new System.Drawing.Point(72, 94);
             this.totaltxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.totaltxt.Name = "totaltxt";
             this.totaltxt.PasswordChar = '\0';
             this.totaltxt.PlaceholderText = "";
             this.totaltxt.SelectedText = "";
-            this.totaltxt.Size = new System.Drawing.Size(118, 22);
+            this.totaltxt.Size = new System.Drawing.Size(97, 22);
             this.totaltxt.TabIndex = 28;
             // 
             // IDtxt
@@ -439,13 +407,13 @@
             this.IDtxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.IDtxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.IDtxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.IDtxt.Location = new System.Drawing.Point(75, 28);
+            this.IDtxt.Location = new System.Drawing.Point(72, 28);
             this.IDtxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.IDtxt.Name = "IDtxt";
             this.IDtxt.PasswordChar = '\0';
             this.IDtxt.PlaceholderText = "";
             this.IDtxt.SelectedText = "";
-            this.IDtxt.Size = new System.Drawing.Size(118, 22);
+            this.IDtxt.Size = new System.Drawing.Size(97, 22);
             this.IDtxt.TabIndex = 23;
             // 
             // Receiptdgv
@@ -453,6 +421,9 @@
             this.Receiptdgv.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.Receiptdgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.Receiptdgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Receiptdgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Receiptdgv.BackgroundColor = System.Drawing.Color.White;
             this.Receiptdgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -477,7 +448,7 @@
             this.Receiptdgv.DefaultCellStyle = dataGridViewCellStyle6;
             this.Receiptdgv.EnableHeadersVisualStyles = false;
             this.Receiptdgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.Receiptdgv.Location = new System.Drawing.Point(19, 238);
+            this.Receiptdgv.Location = new System.Drawing.Point(18, 230);
             this.Receiptdgv.Margin = new System.Windows.Forms.Padding(2);
             this.Receiptdgv.Name = "Receiptdgv";
             this.Receiptdgv.ReadOnly = true;
@@ -486,7 +457,7 @@
             this.Receiptdgv.RowTemplate.Height = 28;
             this.Receiptdgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Receiptdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Receiptdgv.Size = new System.Drawing.Size(725, 213);
+            this.Receiptdgv.Size = new System.Drawing.Size(714, 215);
             this.Receiptdgv.TabIndex = 56;
             this.Receiptdgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.Receiptdgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -626,8 +597,38 @@
             this.cbbFilterValue.Location = new System.Drawing.Point(653, 31);
             this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterValue.Name = "cbbFilterValue";
-            this.cbbFilterValue.Size = new System.Drawing.Size(84, 29);
+            this.cbbFilterValue.Size = new System.Drawing.Size(80, 29);
             this.cbbFilterValue.TabIndex = 62;
+            // 
+            // Searchtxt
+            // 
+            this.Searchtxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.Searchtxt.BorderRadius = 9;
+            this.Searchtxt.BorderThickness = 0;
+            this.Searchtxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Searchtxt.DefaultText = "";
+            this.Searchtxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Searchtxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.Searchtxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Searchtxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Searchtxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Searchtxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.Searchtxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            this.Searchtxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Searchtxt.IconLeft = global::PBL3.Properties.Resources.produtIcon;
+            this.Searchtxt.IconLeftSize = new System.Drawing.Size(0, 0);
+            this.Searchtxt.IconRight = global::PBL3.Properties.Resources.icons8_search_60;
+            this.Searchtxt.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.Searchtxt.IconRightSize = new System.Drawing.Size(23, 23);
+            this.Searchtxt.Location = new System.Drawing.Point(18, 32);
+            this.Searchtxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.Searchtxt.Name = "Searchtxt";
+            this.Searchtxt.PasswordChar = '\0';
+            this.Searchtxt.PlaceholderText = "";
+            this.Searchtxt.SelectedText = "";
+            this.Searchtxt.Size = new System.Drawing.Size(312, 29);
+            this.Searchtxt.TabIndex = 3;
+            this.Searchtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Searchtxt_KeyPress);
             // 
             // BillForm
             // 
@@ -649,6 +650,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BillForm";
             this.Text = "Product";
+            //this.Load += new System.EventHandler(this.BillForm_Load);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);

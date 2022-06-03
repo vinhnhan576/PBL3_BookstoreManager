@@ -11,7 +11,7 @@ using PBL3.BLL;
 using PBL3.Model;
 using PBL3.View.AdminChildForms;
 
-namespace PBL3.View.AdminChildForms
+namespace PBL3.View.AdminChildForms.DiscountForms
 {
     public partial class DiscountForm : Form
     {
@@ -75,27 +75,34 @@ namespace PBL3.View.AdminChildForms
         }
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            if (BLLDiscountManagement.Instance.Check(IDtxt.Text)==true)
+            try
             {
-                ApplyDiscountForm form = new ApplyDiscountForm(IDtxt.Text);
-                form.ShowDialog();
-            }
-            else
-            {
-                Discount discount = new Discount();
-                discount.DiscountID = IDtxt.Text;
-                discount.DiscountName = Nametxt.Text;
-                if (Typecbb.SelectedIndex == 1)
+                if (BLLDiscountManagement.Instance.Check(IDtxt.Text) == true)
                 {
-                    discount.AmmountApply = Convert.ToInt32(AmountApplytxt.Text);
+                    ApplyDiscountForm form = new ApplyDiscountForm(BLLDiscountManagement.Instance.GetDiscountByDiscountID(IDtxt.Text));
+                    form.ShowDialog();
                 }
-                discount.DiscountType = Typecbb.SelectedItem.ToString();
-                discount.StartingDate = dgvFrom.Value;
-                discount.ExpirationDate = dgvTo.Value;
-                discount.DiscountApply = Convert.ToDouble(DiscountApplytxt.Text);
-                BLLDiscountManagement.Instance.AddNewDiscount(discount);
-                ApplyDiscountForm form = new ApplyDiscountForm(IDtxt.Text);
-                form.ShowDialog();
+                else
+                {
+                    Discount discount = new Discount();
+                    discount.DiscountID = IDtxt.Text;
+                    discount.DiscountName = Nametxt.Text;
+                    if (Typecbb.SelectedIndex == 1)
+                    {
+                        discount.AmmountApply = Convert.ToInt32(AmountApplytxt.Text);
+                    }
+                    discount.DiscountType = Typecbb.SelectedItem.ToString();
+                    discount.StartingDate = dgvFrom.Value;
+                    discount.ExpirationDate = dgvTo.Value;
+                    discount.DiscountApply = Convert.ToDouble(DiscountApplytxt.Text);
+                    BLLDiscountManagement.Instance.AddNewDiscount(discount);
+                    ApplyDiscountForm form = new ApplyDiscountForm(BLLDiscountManagement.Instance.GetDiscountByDiscountID(IDtxt.Text));
+                    form.ShowDialog();
+                }
+            }
+            catch(FormatException ex)
+            {
+                View.CustomMessageBox.MessageBox.Show(ex.Message.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

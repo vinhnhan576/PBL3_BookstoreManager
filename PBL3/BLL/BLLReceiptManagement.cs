@@ -24,9 +24,6 @@ namespace PBL3.BLL
             }
             private set
             {
-
-
-
             }
         }
         public void AddNewReceipt(Receipt r)
@@ -118,14 +115,14 @@ namespace PBL3.BLL
                 return QLNS.Instance.ReceiptDetails.Where(p => p.ReceiptID == ID_Receipt).ToList();
         }
 
-        public double CalculateReceiptToTal(List<ReceiptDetailView> list,PromotedStrategy p)
+        public double CalculateReceiptToTal(List<ReceiptDetailView> list)
         {
             double total = 0;
             for (int i = 0; i < list.Count; i++)
             {
                 total += list[i].Total;
             }
-            total = total - p.GetPromotedDiscount(list);
+            total = total - BLLDiscountManagement.Instance.GetTotalDiscount_ComboDiscount(list);
             return total;
         }
         public int ReceiptDetailView_Check(List<ReceiptDetailView> list, string product_id)
@@ -209,6 +206,25 @@ namespace PBL3.BLL
         public List<ReceiptDetailView> GetListAfterVoucher(List<ReceiptDetailView> list,PromotedStrategy p)
         { 
             return p.GetAll(list);
+        }
+        public void ChangeStatusReceipt(List<string> receiptids)
+        {
+            foreach (string receiptid in receiptids)
+            {
+                Receipt r = QLNS.Instance.Receipts.Find(receiptid);
+                r.Status = false;
+                if (r.PhoneNumber != null)
+                {
+                    Customer c = QLNS.Instance.Customers.Find(r.PhoneNumber);
+                    c.TotalSpending = c.TotalSpending - r.Total;
+                }
+                foreach (ReceiptDetail i in getReceiptDetailByReceiptID(r.ReceiptID))
+                {
+                    Product p = QLNS.Instance.Products.Find(i.ProductID);
+                    p.StoreQuantity += i.SellingQuantity;
+                }
+                QLNS.Instance.SaveChanges();
+            }
         }
 
 

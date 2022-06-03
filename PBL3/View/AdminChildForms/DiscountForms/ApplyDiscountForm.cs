@@ -12,23 +12,23 @@ using PBL3.DTO;
 using PBL3.BLL;
 using PBL3.View.CustomMessageBox;
 
-namespace PBL3
+namespace PBL3.View.AdminChildForms.DiscountForms
 {
     public partial class ApplyDiscountForm : Form
     {
-        private string id;
+        private Discount discount;
         private List<Product_Discount_View> productlist=new List<Product_Discount_View>();
-        public ApplyDiscountForm(string id)
+        public ApplyDiscountForm(Discount discount)
         {
             InitializeComponent();
-            this.id = id;
+            this.discount = discount;
             this.dgvProduct.DataSource = BLLDiscountManagement.Instance.GetAllProduct_Discount_View();
         }
 
         private void btnApply_Click(object sender, EventArgs e)
         {
             Product_Discount_View obj = (Product_Discount_View)dgvProduct.CurrentRow.DataBoundItem;
-            obj.DiscountID = this.id;
+            obj.DiscountID = this.discount.DiscountID;
             int index = dgvProduct.SelectedRows[0].Index;
             dgvProduct.Rows[index].Selected = false;
             dgvProduct.Rows[index].Selected = true;
@@ -46,15 +46,24 @@ namespace PBL3
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            BLLDiscountManagement.Instance.UpdateProductDiscountIDList(this.id,productlist);
-            View.CustomMessageBox.MessageBox.Show("Discount applied Successfully","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            int count = BLLDiscountManagement.Instance.CountProductByDiscountID(productlist, this.discount.DiscountID);
+            if (count == this.discount.AmmountApply)
+            {
+                BLLDiscountManagement.Instance.UpdateProductDiscountIDList(this.discount.DiscountID, productlist);
+                View.CustomMessageBox.MessageBox.Show("Discount applied Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                View.CustomMessageBox.MessageBox.Show("Not enough discounts applied", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
         }
 
         private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
-                
+                dgvProduct.DataSource =BLLDiscountManagement.Instance.SearchProductDiscountView(tbSearch.Text);
             }
         }
     }

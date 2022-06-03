@@ -17,8 +17,15 @@ namespace PBL3.View
     {
         public LoginForm()
         {
+            QLNS ins = new QLNS();
+/*            ins.Accounts.AddRange(new Account[]
+            {
+                new Account { PersonID = "ad01", Username = "ad01", Password = "123456" },
+                new Account { PersonID = "sm01", Username = "sm01", Password = "123456" },
+                new Account { PersonID = "sk01", Username = "sk01", Password = "123456" },
+            });*/
             InitializeComponent();
-            List<Account> accounts = QLNS.Instance.Accounts.ToList();
+            
         }
 
         private void pbShowPass_Click(object sender, EventArgs e)

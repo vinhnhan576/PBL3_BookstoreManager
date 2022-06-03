@@ -1,4 +1,4 @@
-﻿namespace PBL3
+﻿namespace PBL3.View.AdminChildForms.DiscountForms
 {
     partial class ApplyDiscountForm
     {
@@ -45,18 +45,19 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label2.Location = new System.Drawing.Point(146, 115);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(97, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 28);
+            this.label2.Size = new System.Drawing.Size(68, 19);
             this.label2.TabIndex = 56;
             this.label2.Text = "Product";
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancel.BorderRadius = 9;
             this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -65,15 +66,15 @@
             this.btnCancel.FillColor = System.Drawing.Color.White;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.btnCancel.Location = new System.Drawing.Point(508, 645);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancel.Location = new System.Drawing.Point(339, 419);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(166, 49);
+            this.btnCancel.Size = new System.Drawing.Size(111, 32);
             this.btnCancel.TabIndex = 54;
             this.btnCancel.Text = "Cancel";
             // 
             // btnOK
             // 
+            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOK.BorderRadius = 9;
             this.btnOK.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnOK.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -82,23 +83,22 @@
             this.btnOK.FillColor = System.Drawing.Color.White;
             this.btnOK.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.btnOK.Location = new System.Drawing.Point(260, 643);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOK.Location = new System.Drawing.Point(173, 418);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(166, 49);
+            this.btnOK.Size = new System.Drawing.Size(111, 32);
             this.btnOK.TabIndex = 53;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label1.Location = new System.Drawing.Point(216, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(144, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(529, 38);
+            this.label1.Size = new System.Drawing.Size(352, 25);
             this.label1.TabIndex = 52;
             this.label1.Text = "PRODUCT DISCOUNT APPLY FORM";
             // 
@@ -108,6 +108,9 @@
             this.dgvProduct.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProduct.BackgroundColor = System.Drawing.Color.White;
             this.dgvProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -132,7 +135,8 @@
             this.dgvProduct.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProduct.EnableHeadersVisualStyles = false;
             this.dgvProduct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvProduct.Location = new System.Drawing.Point(45, 237);
+            this.dgvProduct.Location = new System.Drawing.Point(30, 154);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.ReadOnly = true;
             this.dgvProduct.RowHeadersVisible = false;
@@ -140,7 +144,7 @@
             this.dgvProduct.RowTemplate.Height = 28;
             this.dgvProduct.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduct.Size = new System.Drawing.Size(844, 382);
+            this.dgvProduct.Size = new System.Drawing.Size(563, 248);
             this.dgvProduct.TabIndex = 51;
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -166,18 +170,19 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label3.Location = new System.Drawing.Point(66, 172);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(44, 112);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(179, 28);
+            this.label3.Size = new System.Drawing.Size(121, 19);
             this.label3.TabIndex = 50;
             this.label3.Text = "Product Name";
             // 
             // btnApply
             // 
+            this.btnApply.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnApply.BorderRadius = 9;
             this.btnApply.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnApply.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -186,16 +191,16 @@
             this.btnApply.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.btnApply.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnApply.ForeColor = System.Drawing.Color.White;
-            this.btnApply.Location = new System.Drawing.Point(621, 165);
-            this.btnApply.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnApply.Location = new System.Drawing.Point(414, 107);
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(166, 49);
+            this.btnApply.Size = new System.Drawing.Size(111, 32);
             this.btnApply.TabIndex = 49;
             this.btnApply.Text = "Apply";
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // ProductNametxt
             // 
+            this.ProductNametxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ProductNametxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.ProductNametxt.BorderRadius = 9;
             this.ProductNametxt.BorderThickness = 0;
@@ -212,18 +217,19 @@
             this.ProductNametxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.ProductNametxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.ProductNametxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.ProductNametxt.Location = new System.Drawing.Point(286, 172);
-            this.ProductNametxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.ProductNametxt.Location = new System.Drawing.Point(191, 112);
+            this.ProductNametxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.ProductNametxt.Name = "ProductNametxt";
             this.ProductNametxt.PasswordChar = '\0';
             this.ProductNametxt.PlaceholderText = "";
             this.ProductNametxt.SelectedText = "";
-            this.ProductNametxt.Size = new System.Drawing.Size(302, 34);
+            this.ProductNametxt.Size = new System.Drawing.Size(201, 22);
             this.ProductNametxt.TabIndex = 48;
             this.ProductNametxt.TextChanged += new System.EventHandler(this.ProductNametxt_TextChanged);
             // 
             // tbSearch
             // 
+            this.tbSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tbSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.tbSearch.BorderRadius = 9;
             this.tbSearch.BorderThickness = 0;
@@ -243,22 +249,23 @@
             this.tbSearch.IconRightCursor = System.Windows.Forms.Cursors.Hand;
             this.tbSearch.IconRightOffset = new System.Drawing.Point(10, 0);
             this.tbSearch.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbSearch.Location = new System.Drawing.Point(286, 111);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tbSearch.Location = new System.Drawing.Point(191, 72);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.PasswordChar = '\0';
             this.tbSearch.PlaceholderText = "";
             this.tbSearch.SelectedText = "";
-            this.tbSearch.Size = new System.Drawing.Size(501, 40);
+            this.tbSearch.Size = new System.Drawing.Size(334, 26);
             this.tbSearch.TabIndex = 55;
+            //this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             // 
             // ApplyDiscountForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(934, 742);
+            this.ClientSize = new System.Drawing.Size(623, 482);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.btnCancel);
@@ -268,9 +275,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.ProductNametxt);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ApplyDiscountForm";
-            this.Text = "ApplyDiscountForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

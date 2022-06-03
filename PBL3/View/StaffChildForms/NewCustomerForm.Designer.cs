@@ -42,46 +42,43 @@
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // label9
-            //
+            // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label9.Location = new System.Drawing.Point(141, 41);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(63, 36);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(155, 28);
+            this.label9.Size = new System.Drawing.Size(101, 19);
             this.label9.TabIndex = 49;
             this.label9.Text = "Customer ID";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            //
+            // 
             // label7
-            //
+            // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(93, 120);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(31, 127);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(203, 28);
+            this.label7.Size = new System.Drawing.Size(135, 19);
             this.label7.TabIndex = 47;
             this.label7.Text = "Customer Name";
-            //
+            // 
             // label10
-            //
+            // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label10.Location = new System.Drawing.Point(612, 37);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(134, 84);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 28);
+            this.label10.Size = new System.Drawing.Size(30, 19);
             this.label10.TabIndex = 50;
             this.label10.Text = "Tel";
-            //
+            // 
             // CustomerNametxt
-            //
+            // 
             this.CustomerNametxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.CustomerNametxt.BorderRadius = 9;
             this.CustomerNametxt.BorderThickness = 0;
@@ -97,17 +94,17 @@
             this.CustomerNametxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.CustomerNametxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.CustomerNametxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.CustomerNametxt.Location = new System.Drawing.Point(332, 114);
-            this.CustomerNametxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.CustomerNametxt.Location = new System.Drawing.Point(190, 127);
+            this.CustomerNametxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.CustomerNametxt.Name = "CustomerNametxt";
             this.CustomerNametxt.PasswordChar = '\0';
             this.CustomerNametxt.PlaceholderText = "";
             this.CustomerNametxt.SelectedText = "";
-            this.CustomerNametxt.Size = new System.Drawing.Size(250, 34);
+            this.CustomerNametxt.Size = new System.Drawing.Size(203, 22);
             this.CustomerNametxt.TabIndex = 31;
-            //
+            // 
             // Teltxt
-            //
+            // 
             this.Teltxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.Teltxt.BorderRadius = 9;
             this.Teltxt.BorderThickness = 0;
@@ -123,17 +120,17 @@
             this.Teltxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.Teltxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.Teltxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.Teltxt.Location = new System.Drawing.Point(675, 35);
-            this.Teltxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Teltxt.Location = new System.Drawing.Point(190, 81);
+            this.Teltxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.Teltxt.Name = "Teltxt";
             this.Teltxt.PasswordChar = '\0';
             this.Teltxt.PlaceholderText = "";
             this.Teltxt.SelectedText = "";
-            this.Teltxt.Size = new System.Drawing.Size(304, 34);
+            this.Teltxt.Size = new System.Drawing.Size(203, 22);
             this.Teltxt.TabIndex = 28;
-            //
+            // 
             // CustomerIDtxt
-            //
+            // 
             this.CustomerIDtxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.CustomerIDtxt.BorderRadius = 9;
             this.CustomerIDtxt.BorderThickness = 0;
@@ -149,103 +146,97 @@
             this.CustomerIDtxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.CustomerIDtxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.CustomerIDtxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.CustomerIDtxt.Location = new System.Drawing.Point(332, 38);
-            this.CustomerIDtxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.CustomerIDtxt.Location = new System.Drawing.Point(190, 34);
+            this.CustomerIDtxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.CustomerIDtxt.Name = "CustomerIDtxt";
             this.CustomerIDtxt.PasswordChar = '\0';
             this.CustomerIDtxt.PlaceholderText = "";
             this.CustomerIDtxt.SelectedText = "";
-            this.CustomerIDtxt.Size = new System.Drawing.Size(250, 34);
+            this.CustomerIDtxt.Size = new System.Drawing.Size(203, 22);
             this.CustomerIDtxt.TabIndex = 23;
-            //
+            // 
             // guna2Panel2
-            //
+            // 
             this.guna2Panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel2.Controls.Add(this.label8);
-            this.guna2Panel2.Location = new System.Drawing.Point(69, 60);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Panel2.Location = new System.Drawing.Point(44, 20);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(161, 51);
+            this.guna2Panel2.Size = new System.Drawing.Size(107, 33);
             this.guna2Panel2.TabIndex = 44;
-            //
+            // 
             // label8
-            //
+            // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(12, 9);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(8, 6);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(136, 28);
+            this.label8.Size = new System.Drawing.Size(92, 19);
             this.label8.TabIndex = 48;
             this.label8.Text = "Infomation";
-            //
+            // 
             // guna2Panel1
-            //
+            // 
             this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 3;
-            this.guna2Panel1.Controls.Add(this.SaveButton);
-            this.guna2Panel1.Controls.Add(this.CancelButton);
             this.guna2Panel1.Controls.Add(this.label9);
             this.guna2Panel1.Controls.Add(this.label7);
             this.guna2Panel1.Controls.Add(this.label10);
             this.guna2Panel1.Controls.Add(this.CustomerNametxt);
             this.guna2Panel1.Controls.Add(this.Teltxt);
             this.guna2Panel1.Controls.Add(this.CustomerIDtxt);
-            this.guna2Panel1.Location = new System.Drawing.Point(43, 80);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Panel1.Location = new System.Drawing.Point(27, 33);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1030, 244);
+            this.guna2Panel1.Size = new System.Drawing.Size(442, 189);
             this.guna2Panel1.TabIndex = 43;
-            //
+            // 
             // SaveButton
-            //
+            // 
             this.SaveButton.BorderRadius = 9;
             this.SaveButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.SaveButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.SaveButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.SaveButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.SaveButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.SaveButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.ForeColor = System.Drawing.Color.White;
-            this.SaveButton.Location = new System.Drawing.Point(705, 169);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SaveButton.FillColor = System.Drawing.Color.White;
+            this.SaveButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
+            this.SaveButton.Location = new System.Drawing.Point(104, 271);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(131, 49);
+            this.SaveButton.Size = new System.Drawing.Size(110, 32);
             this.SaveButton.TabIndex = 52;
             this.SaveButton.Text = "Save";
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            //
+            // 
             // CancelButton
-            //
+            // 
             this.CancelButton.BorderRadius = 9;
             this.CancelButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.CancelButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.CancelButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.CancelButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.CancelButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.CancelButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.ForeColor = System.Drawing.Color.White;
-            this.CancelButton.Location = new System.Drawing.Point(854, 169);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CancelButton.FillColor = System.Drawing.Color.White;
+            this.CancelButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
+            this.CancelButton.Location = new System.Drawing.Point(283, 271);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(125, 49);
+            this.CancelButton.Size = new System.Drawing.Size(110, 32);
             this.CancelButton.TabIndex = 51;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            //
-            // NewCustomer
-            //
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            // 
+            // NewCustomerForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(1116, 479);
+            this.ClientSize = new System.Drawing.Size(497, 334);
+            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.guna2Panel2);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.guna2Panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "NewCustomer";
+            this.Name = "NewCustomerForm";
             this.Text = "Overview";
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();

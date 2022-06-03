@@ -27,13 +27,8 @@ namespace PBL3.View
 
         private void InitializeGUI()
         {
-            Overview overviewForm = new Overview(account.Person);
-            overviewForm.TopLevel = false;
-            overviewForm.FormBorderStyle = FormBorderStyle.None;
-            overviewForm.Dock = DockStyle.Fill;
-            this.pnRight.Controls.Add(overviewForm);
-            overviewForm.BringToFront();
-            overviewForm.Show();
+            currentButton = btnNewOrder;
+            openChildForm(new Overview(account.Person), btnOverview);
 
             string name = account.Person.PersonName.Split()[account.Person.PersonName.Split().Count() - 1];
             lbWelcome.Text = "Welcome, " + name;
@@ -64,24 +59,11 @@ namespace PBL3.View
                 {
                     disableButton();
                     currentButton = (Guna.UI2.WinForms.Guna2Button)sender;
-                    currentButton.BackColor = Color.White;
+                    currentButton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    currentButton.FillColor = Color.FromArgb(198, 232, 229);
+                    currentButton.ForeColor = Color.FromArgb(1, 79, 134);
                 }
             }
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            openChildForm(new Overview(account.Person), sender);
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            openChildForm(new NewOrder(account), sender);
-        }
-
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-            openChildForm(new ManageOrder(), sender);
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
@@ -103,12 +85,22 @@ namespace PBL3.View
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
             DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to log out", "Log out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (result != DialogResult.Yes)
             {
-                this.Close();
+                e.Cancel = true;
             }
         }
+
 
         private void disableButton()
         {
@@ -116,10 +108,26 @@ namespace PBL3.View
             {
                 if (prevButton.GetType() == typeof(Guna.UI2.WinForms.Guna2Button))
                 {
-                    prevButton.BackColor = Color.Transparent;
-                    prevButton.ForeColor = Color.Gainsboro;
+                    ((Guna.UI2.WinForms.Guna2Button)prevButton).FillColor = Color.Transparent;
+                    prevButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    prevButton.ForeColor = Color.White;
                 }
             }
+        }
+
+        private void btnOverview_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Overview(account.Person), sender);
+        }
+
+        private void btnNewOrder_Click(object sender, EventArgs e)
+        {
+            openChildForm(new NewOrder(account), sender);
+        }
+
+        private void btnViewOrders_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ManageOrder(), sender);
         }
     }
 }

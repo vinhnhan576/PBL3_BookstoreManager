@@ -68,7 +68,5 @@ namespace PBL3.View.AdminChildForms
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(sortCategory, sortOrder);
         }
-
-      
     }
 }

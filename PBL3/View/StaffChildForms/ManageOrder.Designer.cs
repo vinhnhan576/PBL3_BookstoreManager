@@ -60,6 +60,7 @@
             this.cbbFilterValue = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Searchtxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.statusbtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Productdgv)).BeginInit();
@@ -68,9 +69,8 @@
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel2.Controls.Add(this.label8);
-            this.guna2Panel2.Location = new System.Drawing.Point(41, 64);
+            this.guna2Panel2.Location = new System.Drawing.Point(41, 87);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(77, 35);
             this.guna2Panel2.TabIndex = 48;
@@ -88,7 +88,6 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 3;
@@ -106,7 +105,7 @@
             this.guna2Panel1.Controls.Add(this.statustxt);
             this.guna2Panel1.Controls.Add(this.totaltxt);
             this.guna2Panel1.Controls.Add(this.IDtxt);
-            this.guna2Panel1.Location = new System.Drawing.Point(9, 77);
+            this.guna2Panel1.Location = new System.Drawing.Point(9, 100);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(727, 133);
             this.guna2Panel1.TabIndex = 47;
@@ -411,6 +410,9 @@
             this.Receiptdgv.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.Receiptdgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.Receiptdgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Receiptdgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Receiptdgv.BackgroundColor = System.Drawing.Color.White;
             this.Receiptdgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -435,7 +437,7 @@
             this.Receiptdgv.DefaultCellStyle = dataGridViewCellStyle6;
             this.Receiptdgv.EnableHeadersVisualStyles = false;
             this.Receiptdgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.Receiptdgv.Location = new System.Drawing.Point(11, 229);
+            this.Receiptdgv.Location = new System.Drawing.Point(11, 251);
             this.Receiptdgv.Margin = new System.Windows.Forms.Padding(2);
             this.Receiptdgv.Name = "Receiptdgv";
             this.Receiptdgv.ReadOnly = true;
@@ -444,7 +446,7 @@
             this.Receiptdgv.RowTemplate.Height = 28;
             this.Receiptdgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Receiptdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Receiptdgv.Size = new System.Drawing.Size(725, 212);
+            this.Receiptdgv.Size = new System.Drawing.Size(725, 187);
             this.Receiptdgv.TabIndex = 56;
             this.Receiptdgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.Receiptdgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -628,12 +630,30 @@
             this.guna2HtmlLabel1.TabIndex = 63;
             this.guna2HtmlLabel1.Text = "Search";
             // 
+            // statusbtn
+            // 
+            this.statusbtn.BorderRadius = 8;
+            this.statusbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.statusbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.statusbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.statusbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.statusbtn.FillColor = System.Drawing.Color.White;
+            this.statusbtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.statusbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
+            this.statusbtn.Location = new System.Drawing.Point(582, 63);
+            this.statusbtn.Name = "statusbtn";
+            this.statusbtn.Size = new System.Drawing.Size(149, 31);
+            this.statusbtn.TabIndex = 71;
+            this.statusbtn.Text = "Change Status";
+            this.statusbtn.Click += new System.EventHandler(this.statusbtn_Click);
+            // 
             // ManageOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(744, 456);
+            this.Controls.Add(this.statusbtn);
             this.Controls.Add(this.cbbSortCategory);
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.guna2HtmlLabel2);
@@ -686,5 +706,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbbFilterValue;
         private Guna.UI2.WinForms.Guna2TextBox Searchtxt;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2Button statusbtn;
     }
 }

@@ -48,6 +48,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
@@ -62,7 +63,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label3.Location = new System.Drawing.Point(46, 131);
+            this.label3.Location = new System.Drawing.Point(29, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 19);
             this.label3.TabIndex = 34;
@@ -86,7 +87,7 @@
             this.tbProduct.IconLeftSize = new System.Drawing.Size(0, 0);
             this.tbProduct.IconRightOffset = new System.Drawing.Point(10, 0);
             this.tbProduct.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbProduct.Location = new System.Drawing.Point(121, 129);
+            this.tbProduct.Location = new System.Drawing.Point(104, 129);
             this.tbProduct.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbProduct.Name = "tbProduct";
             this.tbProduct.PasswordChar = '\0';
@@ -102,6 +103,9 @@
             this.dgvProduct.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProduct.BackgroundColor = System.Drawing.Color.White;
             this.dgvProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -162,6 +166,7 @@
             // 
             // btnOK
             // 
+            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOK.BorderRadius = 9;
             this.btnOK.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnOK.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -182,7 +187,7 @@
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(342, 60);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(323, 60);
             this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(30, 21);
@@ -206,7 +211,7 @@
             this.cbbSortOrder.Items.AddRange(new object[] {
             "Ascending",
             "Descending"});
-            this.cbbSortOrder.Location = new System.Drawing.Point(468, 85);
+            this.cbbSortOrder.Location = new System.Drawing.Point(449, 85);
             this.cbbSortOrder.Margin = new System.Windows.Forms.Padding(2);
             this.cbbSortOrder.Name = "cbbSortOrder";
             this.cbbSortOrder.Size = new System.Drawing.Size(125, 29);
@@ -231,7 +236,7 @@
             "ImportDate",
             "ImportQuantity",
             "StoreQuantity"});
-            this.cbbSortCategory.Location = new System.Drawing.Point(336, 85);
+            this.cbbSortCategory.Location = new System.Drawing.Point(317, 85);
             this.cbbSortCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
             this.cbbSortCategory.Name = "cbbSortCategory";
             this.cbbSortCategory.Size = new System.Drawing.Size(148, 29);
@@ -242,7 +247,7 @@
             this.btnFilter.BackColor = System.Drawing.Color.Transparent;
             this.btnFilter.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.btnFilter.Location = new System.Drawing.Point(53, 60);
+            this.btnFilter.Location = new System.Drawing.Point(34, 60);
             this.btnFilter.Margin = new System.Windows.Forms.Padding(2);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(38, 21);
@@ -271,7 +276,7 @@
             this.tbDay.IconLeftSize = new System.Drawing.Size(0, 0);
             this.tbDay.IconRightOffset = new System.Drawing.Point(10, 0);
             this.tbDay.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbDay.Location = new System.Drawing.Point(130, 85);
+            this.tbDay.Location = new System.Drawing.Point(111, 85);
             this.tbDay.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbDay.Name = "tbDay";
             this.tbDay.PasswordChar = '\0';
@@ -300,7 +305,7 @@
             this.tbMonth.IconLeftSize = new System.Drawing.Size(0, 0);
             this.tbMonth.IconRightOffset = new System.Drawing.Point(10, 0);
             this.tbMonth.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbMonth.Location = new System.Drawing.Point(48, 85);
+            this.tbMonth.Location = new System.Drawing.Point(29, 85);
             this.tbMonth.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbMonth.Name = "tbMonth";
             this.tbMonth.PasswordChar = '\0';
@@ -330,7 +335,7 @@
             this.tbYear.IconRight = global::PBL3.Properties.Resources.filterIcon;
             this.tbYear.IconRightCursor = System.Windows.Forms.Cursors.Hand;
             this.tbYear.IconRightOffset = new System.Drawing.Point(3, 1);
-            this.tbYear.Location = new System.Drawing.Point(212, 85);
+            this.tbYear.Location = new System.Drawing.Point(193, 85);
             this.tbYear.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbYear.Name = "tbYear";
             this.tbYear.PasswordChar = '\0';

@@ -72,7 +72,6 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 3;
@@ -509,7 +508,6 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.tbSearch.BorderRadius = 9;
             this.tbSearch.BorderThickness = 0;
@@ -540,7 +538,6 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAdd.BorderRadius = 9;
             this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -569,7 +566,6 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEdit.BorderRadius = 9;
             this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -587,7 +583,6 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDelete.BorderRadius = 9;
             this.btnDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -605,7 +600,6 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
@@ -617,7 +611,6 @@
             // 
             // label11
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
@@ -629,7 +622,6 @@
             // 
             // cbbSortCategory
             // 
-            this.cbbSortCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbSortCategory.BackColor = System.Drawing.Color.Transparent;
             this.cbbSortCategory.BorderRadius = 10;
             this.cbbSortCategory.BorderThickness = 0;
@@ -655,7 +647,6 @@
             // 
             // cbbFilterValue
             // 
-            this.cbbFilterValue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbFilterValue.BackColor = System.Drawing.Color.Transparent;
             this.cbbFilterValue.BorderRadius = 10;
             this.cbbFilterValue.BorderThickness = 0;
@@ -676,7 +667,6 @@
             // 
             // cbbFilterCategory
             // 
-            this.cbbFilterCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbFilterCategory.BackColor = System.Drawing.Color.Transparent;
             this.cbbFilterCategory.BorderRadius = 10;
             this.cbbFilterCategory.BorderThickness = 0;
@@ -701,7 +691,6 @@
             // 
             // cbbSortOrder
             // 
-            this.cbbSortOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbSortOrder.BackColor = System.Drawing.Color.Transparent;
             this.cbbSortOrder.BorderRadius = 10;
             this.cbbSortOrder.BorderThickness = 0;
@@ -724,7 +713,6 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
@@ -736,7 +724,6 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
