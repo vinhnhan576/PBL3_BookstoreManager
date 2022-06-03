@@ -14,17 +14,6 @@ namespace PBL3
     {
         protected override void Seed(QLNS context)
         {
-
-
-
-            //context.Accounts.AddRange(new Account[]
-            //{
-            //    new Account { PersonID = "ad01", Username = "ad01", Password = "123456" },
-            //    new Account { PersonID = "sm01", Username = "sm01", Password = "123456" },
-            //});
-
-
-
             context.People.AddRange(new Person[]
             {
                 new Person { PersonID = "ad01", PersonName = "Lê Văn Vĩnh Nhân", Address = "Huế", Email = "vinhnhan576@gmail.com", Gender = true, PhoneNumber = "0708182526", Role = "Admin" },
@@ -33,10 +22,15 @@ namespace PBL3
             });
 
 
-
             context.Products.AddRange(new Product[]
             {
-                new Product { ProductID = "p001", ProductName = "Diary of a wimpy kid", Category = "Realistic Fiction" , SellingPrice = 50000},
+                new Product { ProductID = "p001", ProductName = "Diary of a wimpy kid", Category = "Realistic Fiction" , SellingPrice = 45000},
+                new Product { ProductID = "p002", ProductName = "Diary of a wimpy kid: Hard Luck", Category = "Realistic Fiction" , SellingPrice = 50000},
+                new Product { ProductID = "p003", ProductName = "Percy Jackson and the Olympians: The Lightning Thief", Category = "Mythological Adventure Fiction" , SellingPrice = 180000},
+                new Product { ProductID = "p004", ProductName = "Percy Jackson and the Olympians: The Sea of Monsters", Category = "Mythological Adventure Fiction" , SellingPrice = 133000},
+                new Product { ProductID = "p005", ProductName = "Percy Jackson and the Olympians: The Titan's Curse", Category = "Mythological Adventure Fiction" , SellingPrice = 139000},
+                new Product { ProductID = "p006", ProductName = "Percy Jackson and the Olympians: The Battle of the Labyrinth", Category = "Mythological Adventure Fiction" , SellingPrice = 175000},
+                new Product { ProductID = "p007", ProductName = "Percy Jackson and the Olympians: The Last Olympian", Category = "Mythological Adventure Fiction" , SellingPrice = 161000},
             });
 
 

@@ -60,6 +60,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\Charts\TopProductChartView.cs" />
+    <Compile Include="DTO\Charts\TopStaffsChartView.cs" />
     <Compile Include="DTO\DiscountStrategy\ComboDiscount.cs" />
     <Compile Include="DTO\DiscountStrategy\NoDiscount.cs" />
     <Compile Include="DTO\DiscountStrategy\PromotedStrategy.cs" />
@@ -95,7 +97,7 @@
     <Compile Include="DTO\ReceiptDetailView.cs" />
     <Compile Include="DTO\RestockDetailView.cs" />
     <Compile Include="DTO\StoreImportDetailView.cs" />
-    <Compile Include="DTO\RevenueChartView.cs" />
+    <Compile Include="DTO\Charts\RevenueChartView.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Discount.cs" />
@@ -497,7 +499,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Achievement-bro.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconWhiteDiscount.png" />
     <None Include="Resources\iconBlueBook.png" />
