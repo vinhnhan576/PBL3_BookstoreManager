@@ -23,6 +23,7 @@ namespace PBL3.View.AdminChildForms
         public int noCustomers { get; private set; }
         public int noProducts { get; private set; }
 
+
         public OverviewForm(Person p)
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace PBL3.View.AdminChildForms
 
         private void InitializeGUI()
         {
+            //
             lbName.Text = person.PersonName;
             lbRole.Text = person.Role;
             lbGender.Text = (person.Gender ? "Male" : "Female");
@@ -39,12 +41,41 @@ namespace PBL3.View.AdminChildForms
             lbAddress.Text = person.Address;
             lbEmail.Text = (person.Email != null) ? person.Email : "N/A";
 
+            LoadTopStaffs();
+
+            //chartRevenue
             activateButton(btnThisYear);
             startDate = BLLRevenueManagement.Instance.GetFirstDate();
             endDate = DateTime.Now;
             chartType = "Year";
             LoadChart();
             setNoItems();
+
+            //chartTopProducts
+            var points = BLLRevenueManagement.Instance.GetTop5Products(true);
+            string[] N = new string[points.Count];
+            int[] M = new int[points.Count];
+            int i = 0;
+            foreach (var item in points)
+            {
+                N[i] = item.ProductName;
+                M[i] = item.ProductQuantity;
+                i++;
+            }
+            chartBestProducts.Series[0].Points.DataBindXY(N, M);
+
+            //chartWorstProducts
+            var points2 = BLLRevenueManagement.Instance.GetTop5Products(false);
+            string[] A = new string[points.Count];
+            int[] B = new int[points.Count];
+            int j = 0;
+            foreach (var item in points2)
+            {
+                A[j] = item.ProductName;
+                B[j] = item.ProductQuantity;
+                j++;
+            }
+            chartWorstProducts.Series[0].Points.DataBindXY(A, B);
         }
 
         private void setNoItems()
@@ -154,7 +185,37 @@ namespace PBL3.View.AdminChildForms
                 chartRevenue.Series[0].Points.DataBindXY(N, M);
             }
         }
+
+        private void LoadTopStaffs()
+        {
+            List<DTO.Charts.TopStaffsChartView> topStaffs = new List<DTO.Charts.TopStaffsChartView>();
+            topStaffs = BLLRevenueManagement.Instance.GetTop5Staffs();
+            int i = 4, ranking = 1;
+            foreach (var item in topStaffs)
+            {
+                string text = ranking.ToString() + ". " + item.StaffName + ": " + item.GrossRevenue.ToString();
+                pnTopStaffs.Controls[i].Text = text;
+                i--;
+                ranking++;
+            }
+
+        }
+
+        private void InitializeLabel(Label l, string text)
+        {
+            //l.Dock = System.Windows.Forms.DockStyle.Top;
+            //l.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //l.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            //l.Location = new System.Drawing.Point(0, 0);
+            //l.Name = "lbStaff" + (pnTopStaffs.Controls.Count - 1).ToString();
+            //l.Size = new System.Drawing.Size(291, 50);
+            //l.TabIndex = 12;
+            //l.Text = text;
+            //l.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        }
     }
+
+    
 
     public static class DateTimeExtensions
     {

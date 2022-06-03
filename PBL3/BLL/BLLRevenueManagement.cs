@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PBL3.DTO;
+using PBL3.DTO.Charts;
 using System.Windows.Forms;
 using PBL3.Model;
 
@@ -170,7 +170,7 @@ namespace PBL3.BLL
         public List<RevenueChartView> GetAllRevenueByDate_ChartView(DateTime startDate, DateTime endDate)
         {
             List<RevenueChartView> revenues = new List<RevenueChartView>();
-            int noDays = (endDate - startDate).Days;
+            int noDays = (endDate - startDate).Days + 1;
             if (noDays <= 31)
             {
                 DateTime[] days = new DateTime[noDays];
@@ -182,8 +182,7 @@ namespace PBL3.BLL
                     DateTime date = i.ReceiptDetail.Receipt.Date;
                     if (date >= startDate && date <= endDate)
                     {
-                        
-                        if (i.ReceiptDetail.Receipt.Date.Day != day)
+                        if (date.Day != day)
                         {
                             day = date.Day;
                             temp++;
@@ -227,6 +226,62 @@ namespace PBL3.BLL
                 }
             }
             return revenues;
+        }
+
+        public List<TopStaffsChartView> GetTop5Staffs()
+        {
+            List<TopStaffsChartView> topStaffs = new List<TopStaffsChartView>();
+            foreach (Person i in QLNS.Instance.People.Where(p => p.Role == "Salesman").ToList())
+            {
+                double grossRevenue = 0;
+                foreach (Receipt j in i.Receipts)
+                {
+                    grossRevenue += j.Total;
+                }
+                topStaffs.Add(new TopStaffsChartView
+                {
+                    StaffName = i.PersonName,
+                    GrossRevenue = grossRevenue,
+                });
+            }
+            topStaffs = topStaffs.OrderByDescending(x => x.GrossRevenue).ToList();
+            int k = topStaffs.Count - 1;
+            while (k > 4)
+            {
+                topStaffs.RemoveAt(k);
+                k--;
+            }
+            return topStaffs;
+        }
+
+        public List<TopProductChartView> GetTop5Products(bool topDown)
+        {
+            List<TopProductChartView> topProducts = new List<TopProductChartView>();
+            foreach (var i in QLNS.Instance.Products.ToList())
+            {
+                int quantity = 0;
+                foreach (var j in i.Receipt_Details)
+                {
+                    quantity += j.SellingQuantity;
+                }
+                TopProductChartView topProductChartView = new TopProductChartView
+                {
+                    ProductName = i.ProductName,
+                    ProductQuantity = quantity,
+                };
+                topProducts.Add(topProductChartView);
+            }
+            if(topDown)
+                topProducts = topProducts.OrderByDescending(x => x.ProductQuantity).ToList();
+            else
+                topProducts = topProducts.OrderBy(x => x.ProductQuantity).ToList();
+            int k = topProducts.Count - 1;
+            while(k > 4)
+            {
+                topProducts.RemoveAt(k);
+                k--;
+            }
+            return topProducts;
         }
 
         public DateTime GetFirstDate()
