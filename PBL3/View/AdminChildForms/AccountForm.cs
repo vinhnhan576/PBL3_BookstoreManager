@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.Model;
+using System.Text.RegularExpressions;
+using PBL3.DTO;
 
 using PBL3.BLL;
 
@@ -33,7 +35,7 @@ namespace PBL3.View.AdminChildForms
         private void btnAdd_Click(object sender, EventArgs e)
         {
             int count = QLNS.Instance.Accounts.Count() + 1;
-            tbID.Text = count.ToString();
+            tbID.Text = "0"+count.ToString();
             tbID.Enabled = false;
             tbUsername.Text = "";
             tbUsername.Enabled = true;
@@ -45,6 +47,7 @@ namespace PBL3.View.AdminChildForms
             tbTel.Enabled = true;
             tbAddress.Text = "";
             tbAddress.Enabled = true;
+            rbFemale.Checked = false;rbMale.Checked = false;
             cbbRole.Text = null;
             cbbRole.Enabled = true;
             btnSave.Visible = true;
@@ -52,15 +55,27 @@ namespace PBL3.View.AdminChildForms
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            List<string> del = new List<string>();
-            if (dgvAccount.SelectedRows.Count > 0)
+
+            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to delete this account?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                foreach (DataGridViewRow i in dgvAccount.SelectedRows)
+                List<string> del = new List<string>();
+                if (dgvAccount.SelectedRows.Count > 0)
                 {
-                    del.Add(i.Cells[0].Value.ToString());
+                    foreach (DataGridViewRow i in dgvAccount.SelectedRows)
+                    {
+                        del.Add(i.Cells[0].Value.ToString());
+                    }
+                    BLLAccountManagement.Instance.DelAccount(del);
+                    tbID.Text = "";
+                    tbUsername.Text = "";
+                    tbPassword.Text = "";
+                    tbName.Text = "";
+                    tbTel.Text = "";
+                    tbAddress.Text = "";
+                    cbbRole.Text = null;
+                    Reload();
                 }
-                BLLAccountManagement.Instance.DelAccount(del);
-                Reload();
             }
         }
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -88,20 +103,19 @@ namespace PBL3.View.AdminChildForms
                 {
                     rbFemale.Checked = true;
                 }
-                tbName.Text = ac.Person.PersonName.ToString();
-                tbTel.Text = (Convert.ToInt32(ac.Person.PhoneNumber)).ToString();
-                tbAddress.Text = ac.Person.Address.ToString();
-                cbbRole.SelectedItem = ac.Person.Role.ToString();
-                tbID.Enabled = false;
-                tbUsername.Enabled = false;
-                tbTel.Enabled = false;
-                tbPassword.Enabled = false;
-                tbAddress.Enabled = false;
-                cbbRole.Enabled = false;
-                tbName.Enabled = false;
-                cbbRole.Enabled = false;
+                tbName.Text = ac.Person.PersonName;
+                tbTel.Text = ac.Person.PhoneNumber;
+                tbAddress.Text = ac.Person.Address;
+                cbbRole.SelectedItem = ac.Person.Role;
                 btnSave.Visible = false;
                 btnClear.Visible = false;
+                tbID.Enabled = true;
+                tbUsername.Enabled = true;
+                tbPassword.Enabled = true;
+                tbName.Enabled = true;
+                tbTel.Enabled = true;
+                tbAddress.Enabled = true;
+                cbbRole.Enabled = true;
             }
 
         }
@@ -115,7 +129,13 @@ namespace PBL3.View.AdminChildForms
             tbName.Text = "";
             tbTel.Text = "";
             tbAddress.Text = "";
+            rbMale.Checked = false;rbFemale.Checked = false;
             cbbRole.Text = null;
+            tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
+            tbPassword.IconRightSize = new System.Drawing.Size(0, 0);
+            tbName.IconRightSize = new System.Drawing.Size(0, 0);
+            tbTel.IconRightSize = new System.Drawing.Size(0, 0);
+            tbAddress.IconRightSize = new System.Drawing.Size(0, 0);
         }
         private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -172,11 +192,11 @@ namespace PBL3.View.AdminChildForms
             {
                 string ID = dgvAccount.SelectedRows[0].Cells[0].Value.ToString();
                 Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
-                tbID.Text = ac.PersonID.ToString();
+                tbID.Text = ac.PersonID;
                 tbID.Enabled = false;
-                tbUsername.Text = ac.Username.ToString();
+                tbUsername.Text = ac.Username;
                 tbUsername.Enabled = true;
-                tbPassword.Text = ac.Password.ToString();
+                tbPassword.Text = ac.Password;
                 tbPassword.Enabled = true;
                 if (ac.Person.Gender == true)
                 {
@@ -186,13 +206,13 @@ namespace PBL3.View.AdminChildForms
                 {
                     rbFemale.Checked = true;
                 }
-                tbName.Text = ac.Person.PersonName.ToString();
+                tbName.Text = ac.Person.PersonName;
                 tbName.Enabled = false;
-                tbTel.Text = (Convert.ToInt32(ac.Person.PhoneNumber)).ToString();
+                tbTel.Text = ac.Person.PhoneNumber;
                 tbTel.Enabled = false;
-                tbAddress.Text = ac.Person.Address.ToString();
+                tbAddress.Text = ac.Person.Address;
                 tbAddress.Enabled = false;
-                cbbRole.SelectedItem = ac.Person.Role.ToString();
+                cbbRole.SelectedItem = ac.Person.Role;
                 cbbRole.Enabled = false;
                 btnSave.Visible = true;
                 btnClear.Visible = true;
@@ -200,18 +220,19 @@ namespace PBL3.View.AdminChildForms
         }
         public string SetID(string role)
         {
-            string id = "";
-            if (role == "Admin") id = "ad00" + tbID.Text;
-            if (role == "Stockkeeper") id = "ad00" + tbID.Text;
-            if(role == "Salesman") id = "ad00" + tbID.Text;
-            return id;
+            if (role == "Admin") tbID.Text = "ad" + tbID.Text;
+            if (role == "Stockkeeper") tbID.Text = "sk" + tbID.Text;
+            if(role == "Salesman") tbID.Text = "sm" + tbID.Text;
+            return tbID.Text;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (tbAddress.Text == "" || tbName.Text == "" || tbTel.Text == "" || tbPassword.Text == "" || tbUsername.Text == "" )
+            if (tbAddress.Text == "" || tbName.Text == "" || tbTel.Text == "" || tbPassword.Text == "" || tbUsername.Text == ""
+                || rbFemale.Checked == false && rbMale.Checked == false || cbbRole.SelectedItem == null)
                 CustomMessageBox.MessageBox.Show("Enter missing account information", "Wrong input", MessageBoxIcon.Error);
             else
             {
+                bool checkID = false;
                 Account a = new Account();
                 Person p = new Person();
                 p.PersonName = tbName.Text;
@@ -223,33 +244,50 @@ namespace PBL3.View.AdminChildForms
                     p.Gender = true;
                 }
                 else p.Gender = true;
-                p.PersonID = a.PersonID = SetID(cbbRole.SelectedItem.ToString());
+                foreach(Account ac in BLLAccountManagement.Instance.GetAllAccount())
+                {
+                    if(tbID.Text == ac.PersonID)
+                    {
+                        checkID = true;
+                    }
+                }
+                if (checkID) a.PersonID = p.PersonID = tbID.Text;
+                else a.PersonID = p.PersonID = SetID(cbbRole.SelectedItem.ToString());
                 a.Username = tbUsername.Text;
                 a.Password = tbPassword.Text;
                 a.Person = p;
                 BLLAccountManagement.Instance.Execute(a);
                 CustomMessageBox.MessageBox.Show("", "Success", MessageBoxIcon.Information);
+                dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
+                tbID.Text = "";tbID.Enabled = true;
+                tbUsername.Text = "";tbUsername.Enabled = true; 
+                tbPassword.Text = "";tbPassword.Enabled = true; 
+                tbName.Text = "";tbName.Enabled = true; 
+                tbTel.Text = "";tbTel.Enabled = true; 
+                tbAddress.Text = "";tbAddress.Enabled = true; 
+                cbbRole.Text = null;cbbRole.Enabled = true;
+                btnSave.Visible = false;
+                btnClear.Visible = false;
+                tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
+                tbPassword.IconRightSize = new System.Drawing.Size(0, 0);
+                tbName.IconRightSize = new System.Drawing.Size(0, 0);
+                tbTel.IconRightSize = new System.Drawing.Size(0, 0);
+                tbAddress.IconRightSize = new System.Drawing.Size(0, 0);
             }
-            dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
-            tbID.Text = "";
-            tbUsername.Text = "";
-            tbPassword.Text = "";
-            tbName.Text = "";
-            tbTel.Text = "";
-            tbAddress.Text = "";
-            cbbRole.Text = null;
-            tbID.Enabled = true;
-            tbUsername.Enabled = true;
-            tbTel.Enabled = true;
-            tbPassword.Enabled = true;
-            tbAddress.Enabled = true;
-            cbbRole.Enabled = true;
-            tbName.Enabled = true;
-            btnSave.Visible = false;
-            btnClear.Visible = false;
-
         }
-
-
+       
+        private void tb_TextChanged(object sender, EventArgs e)
+        {
+            if (tbTel.Text == ""||tbTel.Text.Length != 10||DataCheck.IsNumber(tbTel.Text)!= true|| tbTel.Text[0] != '0') tbTel.IconRightSize = new System.Drawing.Size(7,7);
+            else tbTel.IconRightSize = new System.Drawing.Size(0,0);
+            if (tbName.Text == ""|| DataCheck.IsString(tbName.Text) != true) tbName.IconRightSize = new System.Drawing.Size(7, 7);
+            else tbName.IconRightSize = new System.Drawing.Size(0, 0);
+            if (tbUsername.Text == ""|| DataCheck.IsString_1(tbUsername.Text) != true) tbUsername.IconRightSize = new System.Drawing.Size(7, 7);
+            else tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
+            if (tbAddress.Text == ""||DataCheck.IsString(tbAddress.Text) != true) tbAddress.IconRightSize = new System.Drawing.Size(7, 7);
+            else tbAddress.IconRightSize = new System.Drawing.Size(0, 0);
+            if (tbPassword.Text == "" || tbPassword.Text.Length < 6) tbPassword.IconRightSize = new System.Drawing.Size(7, 7);
+            else tbPassword.IconRightSize = new System.Drawing.Size(0, 0);
+        }
     }
 }

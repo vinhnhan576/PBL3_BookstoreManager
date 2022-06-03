@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.cbbRole = new Guna.UI2.WinForms.Guna2ComboBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
@@ -116,7 +117,7 @@
             "Salesman",
             "Stockkeeper"});
             this.cbbRole.Location = new System.Drawing.Point(117, 89);
-            this.cbbRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbRole.Margin = new System.Windows.Forms.Padding(2);
             this.cbbRole.Name = "cbbRole";
             this.cbbRole.Size = new System.Drawing.Size(167, 23);
             this.cbbRole.TabIndex = 53;
@@ -127,7 +128,7 @@
             this.rbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFemale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.rbFemale.Location = new System.Drawing.Point(478, 53);
-            this.rbFemale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbFemale.Margin = new System.Windows.Forms.Padding(2);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(80, 24);
             this.rbFemale.TabIndex = 62;
@@ -141,7 +142,7 @@
             this.rbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.rbMale.Location = new System.Drawing.Point(387, 53);
-            this.rbMale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbMale.Margin = new System.Windows.Forms.Padding(2);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(61, 24);
             this.rbMale.TabIndex = 61;
@@ -176,8 +177,9 @@
             this.tbAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.tbAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbAddress.IconLeftSize = new System.Drawing.Size(0, 0);
-            this.tbAddress.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.tbAddress.IconRightSize = new System.Drawing.Size(23, 23);
+            this.tbAddress.IconRight = ((System.Drawing.Image)(resources.GetObject("tbAddress.IconRight")));
+            this.tbAddress.IconRightOffset = new System.Drawing.Point(5, 0);
+            this.tbAddress.IconRightSize = new System.Drawing.Size(0, 0);
             this.tbAddress.Location = new System.Drawing.Point(385, 89);
             this.tbAddress.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbAddress.Name = "tbAddress";
@@ -186,6 +188,7 @@
             this.tbAddress.SelectedText = "";
             this.tbAddress.Size = new System.Drawing.Size(203, 22);
             this.tbAddress.TabIndex = 54;
+            this.tbAddress.TextChanged += new System.EventHandler(this.tb_TextChanged);
             // 
             // label13
             // 
@@ -314,8 +317,9 @@
             this.tbTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.tbTel.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbTel.IconLeftSize = new System.Drawing.Size(0, 0);
-            this.tbTel.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.tbTel.IconRightSize = new System.Drawing.Size(23, 23);
+            this.tbTel.IconRight = ((System.Drawing.Image)(resources.GetObject("tbTel.IconRight")));
+            this.tbTel.IconRightOffset = new System.Drawing.Point(5, 0);
+            this.tbTel.IconRightSize = new System.Drawing.Size(0, 0);
             this.tbTel.Location = new System.Drawing.Point(117, 51);
             this.tbTel.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbTel.Name = "tbTel";
@@ -324,6 +328,7 @@
             this.tbTel.SelectedText = "";
             this.tbTel.Size = new System.Drawing.Size(167, 22);
             this.tbTel.TabIndex = 31;
+            this.tbTel.TextChanged += new System.EventHandler(this.tb_TextChanged);
             // 
             // tbUsername
             // 
@@ -340,8 +345,9 @@
             this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.tbUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbUsername.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.tbUsername.IconRightSize = new System.Drawing.Size(23, 23);
+            this.tbUsername.IconRight = ((System.Drawing.Image)(resources.GetObject("tbUsername.IconRight")));
+            this.tbUsername.IconRightOffset = new System.Drawing.Point(5, 0);
+            this.tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             this.tbUsername.Location = new System.Drawing.Point(117, 125);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbUsername.Name = "tbUsername";
@@ -350,6 +356,7 @@
             this.tbUsername.SelectedText = "";
             this.tbUsername.Size = new System.Drawing.Size(167, 22);
             this.tbUsername.TabIndex = 30;
+            this.tbUsername.TextChanged += new System.EventHandler(this.tb_TextChanged);
             // 
             // tbName
             // 
@@ -367,8 +374,9 @@
             this.tbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.tbName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbName.IconLeftSize = new System.Drawing.Size(0, 0);
-            this.tbName.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.tbName.IconRightSize = new System.Drawing.Size(23, 23);
+            this.tbName.IconRight = ((System.Drawing.Image)(resources.GetObject("tbName.IconRight")));
+            this.tbName.IconRightOffset = new System.Drawing.Point(5, 0);
+            this.tbName.IconRightSize = new System.Drawing.Size(0, 0);
             this.tbName.Location = new System.Drawing.Point(386, 15);
             this.tbName.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbName.Name = "tbName";
@@ -377,6 +385,7 @@
             this.tbName.SelectedText = "";
             this.tbName.Size = new System.Drawing.Size(203, 22);
             this.tbName.TabIndex = 28;
+            this.tbName.TextChanged += new System.EventHandler(this.tb_TextChanged);
             // 
             // tbPassword
             // 
@@ -394,8 +403,9 @@
             this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.tbPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbPassword.IconLeftSize = new System.Drawing.Size(0, 0);
-            this.tbPassword.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.tbPassword.IconRightSize = new System.Drawing.Size(23, 23);
+            this.tbPassword.IconRight = ((System.Drawing.Image)(resources.GetObject("tbPassword.IconRight")));
+            this.tbPassword.IconRightOffset = new System.Drawing.Point(5, 0);
+            this.tbPassword.IconRightSize = new System.Drawing.Size(0, 0);
             this.tbPassword.Location = new System.Drawing.Point(385, 125);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbPassword.Name = "tbPassword";
@@ -404,6 +414,7 @@
             this.tbPassword.SelectedText = "";
             this.tbPassword.Size = new System.Drawing.Size(203, 22);
             this.tbPassword.TabIndex = 27;
+            this.tbPassword.TextChanged += new System.EventHandler(this.tb_TextChanged);
             // 
             // tbID
             // 
@@ -421,8 +432,8 @@
             this.tbID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.tbID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbID.IconLeftSize = new System.Drawing.Size(0, 0);
-            this.tbID.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.tbID.IconRightSize = new System.Drawing.Size(23, 23);
+            this.tbID.IconRightOffset = new System.Drawing.Point(5, 0);
+            this.tbID.IconRightSize = new System.Drawing.Size(10, 10);
             this.tbID.Location = new System.Drawing.Point(117, 17);
             this.tbID.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbID.Name = "tbID";
@@ -435,37 +446,34 @@
             // dgvAccount
             // 
             this.dgvAccount.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAccount.BackgroundColor = System.Drawing.Color.White;
             this.dgvAccount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAccount.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvAccount.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvAccount.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAccount.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAccount.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvAccount.EnableHeadersVisualStyles = false;
             this.dgvAccount.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvAccount.Location = new System.Drawing.Point(18, 314);
-            this.dgvAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvAccount.Location = new System.Drawing.Point(18, 322);
+            this.dgvAccount.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.ReadOnly = true;
             this.dgvAccount.RowHeadersVisible = false;
@@ -550,7 +558,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(51, 71);
+            this.label8.Location = new System.Drawing.Point(54, 77);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(107, 19);
             this.label8.TabIndex = 48;
@@ -606,7 +614,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label11.Location = new System.Drawing.Point(21, 289);
+            this.label11.Location = new System.Drawing.Point(21, 291);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 19);
             this.label11.TabIndex = 51;
@@ -632,7 +640,7 @@
             "Address",
             "Role"});
             this.cbbSortCategory.Location = new System.Drawing.Point(313, 32);
-            this.cbbSortCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbSortCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbbSortCategory.Name = "cbbSortCategory";
             this.cbbSortCategory.Size = new System.Drawing.Size(102, 29);
             this.cbbSortCategory.TabIndex = 6;
@@ -650,7 +658,7 @@
             this.cbbFilterValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbFilterValue.ItemHeight = 23;
             this.cbbFilterValue.Location = new System.Drawing.Point(634, 32);
-            this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterValue.Name = "cbbFilterValue";
             this.cbbFilterValue.Size = new System.Drawing.Size(132, 29);
             this.cbbFilterValue.TabIndex = 7;
@@ -675,7 +683,7 @@
             "Role",
             "Address"});
             this.cbbFilterCategory.Location = new System.Drawing.Point(542, 32);
-            this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterCategory.Name = "cbbFilterCategory";
             this.cbbFilterCategory.Size = new System.Drawing.Size(116, 29);
             this.cbbFilterCategory.TabIndex = 11;
@@ -697,7 +705,7 @@
             "Ascending",
             "Descending"});
             this.cbbSortOrder.Location = new System.Drawing.Point(400, 32);
-            this.cbbSortOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbSortOrder.Margin = new System.Windows.Forms.Padding(2);
             this.cbbSortOrder.Name = "cbbSortOrder";
             this.cbbSortOrder.Size = new System.Drawing.Size(122, 29);
             this.cbbSortOrder.TabIndex = 12;
@@ -746,7 +754,7 @@
             this.Controls.Add(this.cbbFilterCategory);
             this.Controls.Add(this.cbbFilterValue);
             this.Controls.Add(this.tbSearch);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AccountForm";
             this.Text = "Account";
             this.guna2Panel1.ResumeLayout(false);
