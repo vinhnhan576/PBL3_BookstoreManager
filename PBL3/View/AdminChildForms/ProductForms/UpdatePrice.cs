@@ -67,6 +67,7 @@ namespace PBL3.View.AdminChildForms.ProductForms
                 dgvProduct.DataSource = BLLProductManagement.Instance.SearchProductPriceView(tbSearch.Text);
             }
         }
+
     }
 
 }

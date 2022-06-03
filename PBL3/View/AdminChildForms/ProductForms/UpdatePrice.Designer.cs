@@ -246,6 +246,7 @@
             this.tbSearch.Size = new System.Drawing.Size(334, 26);
             this.tbSearch.TabIndex = 46;
             this.tbSearch.IconRightClick += new System.EventHandler(this.tbSearch_IconRightClick);
+            //this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // label2
             // 

@@ -38,6 +38,12 @@ namespace PBL3.View.StaffChildForms
                 DateTimePicker.Value = Convert.ToDateTime(Receiptdgv.SelectedRows[0].Cells[2].Value);
                 totaltxt.Text = Receiptdgv.SelectedRows[0].Cells[3].Value.ToString();
                 Productdgv.DataSource = BLLReceiptManagement.Instance.GetProductInReceiptByID(IDtxt.Text.ToString());
+                if ((bool)Receiptdgv.SelectedRows[0].Cells["Status"].Value)
+                    statustxt.Text = "Valid";
+                else
+                {
+                    statustxt.Text = "Invalid";
+                }
             }
         }
 
@@ -66,6 +72,21 @@ namespace PBL3.View.StaffChildForms
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(sortCategory, sortOrder);
+        }
+
+        private void statusbtn_Click(object sender, EventArgs e)
+        {
+            List<string> del = new List<string>();
+            if (Receiptdgv.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow i in Receiptdgv.SelectedRows)
+                {
+                    del.Add(i.Cells[0].Value.ToString());
+                }
+                BLLReceiptManagement.Instance.ChangeStatusReceipt(del);
+                //cbLopSH.SelectedIndex = 0;
+                Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+            }
         }
     }
 }

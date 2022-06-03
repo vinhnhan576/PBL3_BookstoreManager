@@ -136,7 +136,7 @@
             this.dgvProduct.EnableHeadersVisualStyles = false;
             this.dgvProduct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvProduct.Location = new System.Drawing.Point(30, 154);
-            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.ReadOnly = true;
             this.dgvProduct.RowHeadersVisible = false;
@@ -257,6 +257,7 @@
             this.tbSearch.SelectedText = "";
             this.tbSearch.Size = new System.Drawing.Size(334, 26);
             this.tbSearch.TabIndex = 55;
+            //this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             // 
             // ApplyDiscountForm
@@ -275,7 +276,6 @@
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.ProductNametxt);
             this.Name = "ApplyDiscountForm";
-            this.Text = "ApplyDiscountForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
