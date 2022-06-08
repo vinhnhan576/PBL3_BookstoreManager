@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label9 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewCustomerForm));
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.CustomerNametxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.Teltxt = new Guna.UI2.WinForms.Guna2TextBox();
-            this.CustomerIDtxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -43,24 +42,12 @@
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label9.Location = new System.Drawing.Point(63, 36);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(101, 19);
-            this.label9.TabIndex = 49;
-            this.label9.Text = "Customer ID";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(31, 127);
+            this.label7.Location = new System.Drawing.Point(31, 97);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(135, 19);
             this.label7.TabIndex = 47;
@@ -71,7 +58,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label10.Location = new System.Drawing.Point(134, 84);
+            this.label10.Location = new System.Drawing.Point(134, 54);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 19);
             this.label10.TabIndex = 50;
@@ -92,9 +79,10 @@
             this.CustomerNametxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
             this.CustomerNametxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CustomerNametxt.IconLeftSize = new System.Drawing.Size(0, 0);
+            this.CustomerNametxt.IconRight = ((System.Drawing.Image)(resources.GetObject("CustomerNametxt.IconRight")));
             this.CustomerNametxt.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.CustomerNametxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.CustomerNametxt.Location = new System.Drawing.Point(190, 127);
+            this.CustomerNametxt.IconRightSize = new System.Drawing.Size(0, 0);
+            this.CustomerNametxt.Location = new System.Drawing.Point(190, 97);
             this.CustomerNametxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.CustomerNametxt.Name = "CustomerNametxt";
             this.CustomerNametxt.PasswordChar = '\0';
@@ -102,6 +90,7 @@
             this.CustomerNametxt.SelectedText = "";
             this.CustomerNametxt.Size = new System.Drawing.Size(203, 22);
             this.CustomerNametxt.TabIndex = 31;
+            this.CustomerNametxt.TextChanged += new System.EventHandler(this.tb_TextChanged);
             // 
             // Teltxt
             // 
@@ -118,9 +107,10 @@
             this.Teltxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
             this.Teltxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Teltxt.IconLeftSize = new System.Drawing.Size(0, 0);
+            this.Teltxt.IconRight = ((System.Drawing.Image)(resources.GetObject("Teltxt.IconRight")));
             this.Teltxt.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.Teltxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.Teltxt.Location = new System.Drawing.Point(190, 81);
+            this.Teltxt.IconRightSize = new System.Drawing.Size(0, 0);
+            this.Teltxt.Location = new System.Drawing.Point(190, 51);
             this.Teltxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.Teltxt.Name = "Teltxt";
             this.Teltxt.PasswordChar = '\0';
@@ -128,32 +118,7 @@
             this.Teltxt.SelectedText = "";
             this.Teltxt.Size = new System.Drawing.Size(203, 22);
             this.Teltxt.TabIndex = 28;
-            // 
-            // CustomerIDtxt
-            // 
-            this.CustomerIDtxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
-            this.CustomerIDtxt.BorderRadius = 9;
-            this.CustomerIDtxt.BorderThickness = 0;
-            this.CustomerIDtxt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.CustomerIDtxt.DefaultText = "";
-            this.CustomerIDtxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.CustomerIDtxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.CustomerIDtxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.CustomerIDtxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.CustomerIDtxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CustomerIDtxt.Font = new System.Drawing.Font("Arial Narrow", 9F);
-            this.CustomerIDtxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CustomerIDtxt.IconLeftSize = new System.Drawing.Size(0, 0);
-            this.CustomerIDtxt.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.CustomerIDtxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.CustomerIDtxt.Location = new System.Drawing.Point(190, 34);
-            this.CustomerIDtxt.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.CustomerIDtxt.Name = "CustomerIDtxt";
-            this.CustomerIDtxt.PasswordChar = '\0';
-            this.CustomerIDtxt.PlaceholderText = "";
-            this.CustomerIDtxt.SelectedText = "";
-            this.CustomerIDtxt.Size = new System.Drawing.Size(203, 22);
-            this.CustomerIDtxt.TabIndex = 23;
+            this.Teltxt.TextChanged += new System.EventHandler(this.tb_TextChanged);
             // 
             // guna2Panel2
             // 
@@ -181,15 +146,13 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 3;
-            this.guna2Panel1.Controls.Add(this.label9);
             this.guna2Panel1.Controls.Add(this.label7);
             this.guna2Panel1.Controls.Add(this.label10);
             this.guna2Panel1.Controls.Add(this.CustomerNametxt);
             this.guna2Panel1.Controls.Add(this.Teltxt);
-            this.guna2Panel1.Controls.Add(this.CustomerIDtxt);
             this.guna2Panel1.Location = new System.Drawing.Point(27, 33);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(442, 189);
+            this.guna2Panel1.Size = new System.Drawing.Size(442, 183);
             this.guna2Panel1.TabIndex = 43;
             // 
             // SaveButton
@@ -247,13 +210,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox CustomerNametxt;
         private Guna.UI2.WinForms.Guna2TextBox Teltxt;
-        private Guna.UI2.WinForms.Guna2TextBox CustomerIDtxt;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;

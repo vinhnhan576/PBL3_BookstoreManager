@@ -26,7 +26,6 @@ namespace PBL3.BLL
 
             }
         }
-
         public List<Discount> GetAllDiscount()
         {
             List<Discount> discountList = new List<Discount>();
@@ -36,7 +35,6 @@ namespace PBL3.BLL
             }
             return discountList;
         }
-
         public dynamic GetAllDiscount_View()
         {
             var discountList = QLNS.Instance.Discounts.Select(p => new {p.DiscountID, p.DiscountName, p.DiscountType, p.AmmountApply,p.DiscountApply, p.StartingDate, p.ExpirationDate });
@@ -121,27 +119,34 @@ namespace PBL3.BLL
         }*/
         public void UpdateProductDiscountIDList(string discountid, List<Product_Discount_View> productlist)
         {
-            QLNS db = new QLNS();
             foreach (Product_Discount_View i in productlist.Distinct())
             {
-                Product p = db.Products.Find(i.ProductID);
-                p.DiscountID = i.DiscountID;
+                var Product = QLNS.Instance.Products.Find(i.ProductID);
+                Product.DiscountID = i.DiscountID;
             }
-            db.SaveChanges();
+            QLNS.Instance.SaveChanges();
+        }
+        public List<Product> GetProductbyDiscountID(string discountid)
+        {
+            return QLNS.Instance.Products.Where(i => i.DiscountID == discountid).Select(p => p).ToList(); 
         }
         public List<Product_Discount_View> GetAllProduct_Discount_View()
         {
             List<Product_Discount_View> products = new List<Product_Discount_View>();
             var list = QLNS.Instance.Products.Select(p => p).ToList();
-            foreach(var i in list)
+            for (int i = 0; i < list.Count; i++)
             {
                 Product_Discount_View temp = new Product_Discount_View();
-                temp.ProductID = i.ProductID;
-                temp.ProductName = i.ProductName;
-                temp.DiscountID = i.DiscountID;
+                temp.ProductID = list[i].ProductID;
+                temp.ProductName = list[i].ProductName;
+                temp.DiscountID = list[i].DiscountID;
                 products.Add(temp);
             }
             return products;
+        }
+        public dynamic GetAllProduct_DiscountView()
+        {
+            return QLNS.Instance.Products.Select(p => new { p.ProductID,p.ProductName,p.DiscountID}).ToList();
         }
         public int CountProductByDiscountID(List<Product_Discount_View> list,string discountid)
         {
@@ -155,14 +160,18 @@ namespace PBL3.BLL
             }
             return count;
         }
-        public void Delete(List<string> id)
+        public void Delete(List<string> ids)
         {
-            QLNS demo = new QLNS();
-            foreach (string i in id)
+            foreach (string i in ids)
             {
-                Discount temp = demo.Discounts.Find(i);
-                demo.Discounts.Remove(temp);
-                demo.SaveChanges();
+                Discount temp = QLNS.Instance.Discounts.Find(i);
+                foreach (Product d in GetProductbyDiscountID(i))
+                {
+                    Product p = QLNS.Instance.Products.Find(d.ProductID);
+                    p.DiscountID =null;
+                }
+                QLNS.Instance.Discounts.Remove(temp);
+                QLNS.Instance.SaveChanges();
             }
         }
         public void Edit(Discount d)
@@ -213,14 +222,13 @@ namespace PBL3.BLL
         }
         public List<ReceiptDetailView> GetListAfterSingleDiscount(List<ReceiptDetailView> list)
         {
-
             foreach (ReceiptDetailView item in list)
             {
                 if (item.GetDiscount() != null)
                 {
                     if (item.GetDiscount().DiscountType == "Single")
                     {
-                        item.Voucher = item.GetDiscount().DiscountApply * item.Quantity;
+                        item.Voucher = (item.GetDiscount().DiscountApply/100) * item.Quantity*item.SellingPrice;
                     }
                     item.Total = item.SellingPrice*item.Quantity-item.Voucher;
                 }
@@ -257,20 +265,23 @@ namespace PBL3.BLL
             return count;
         }
         public double GetTotalDiscount_ComboDiscount(List<ReceiptDetailView> list)
-        {
-            var GroupByMS = list.GroupBy(s=>s.GetDiscount().DiscountID);
+        {            
+            var GroupByMS = list.Where(p=>p.GetDiscount()!=null).GroupBy(s=>s.GetDiscount().DiscountID);
             double result = 0;
+            double totalgroup = 0;
             //Using Query Syntax
             //It will iterate through each groups
             foreach (var group in GroupByMS)
             {
                 Discount d = GetDiscountByDiscountID(group.Key);
-                if (group.Count() ==d.AmmountApply)
-                {
+                if (group.Count() ==d.AmmountApply&&d.StartingDate<=DateTime.Now&&d.ExpirationDate>=DateTime.Now)
+                { 
                     int coeficient = GetCoeficcient(group);
-                    //MessageBox.Show(coeficient.ToString());
-                    result += coeficient * d.DiscountApply;
-                    //MessageBox.Show(result.ToString());
+                    foreach (var item in group)
+                    {
+                        totalgroup += coeficient * item.SellingPrice;
+                    }
+                    result += totalgroup*(coeficient *d.DiscountApply)/100;
                 }
             }
             return result;
@@ -288,10 +299,39 @@ namespace PBL3.BLL
             }
             return data;
         }
-
-
-
-
+        public void RemoveDiscountIDInProducts(List<string> ids)
+        {
+            foreach (string id in ids)
+            {
+                Product p = QLNS.Instance.Products.Find(id);
+                p.DiscountID= null;
+            }
+            QLNS.Instance.SaveChanges();
+        }
+        public void AddDiscount_ProductDiscountView(List<Product_Discount_View> list, Product_Discount_View p, string discountid)
+        {
+            int index = list.IndexOf(p);
+            if (index != -1)
+            {
+                if (list[index].DiscountID ==null)
+                {
+                    list[index].DiscountID = discountid;
+                }
+            }
+        }
+        public void RemoveDiscount_ProductDiscountView(List<Product_Discount_View> list, List<string> productids)
+        {
+            foreach (string id in productids)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].ProductID == id)
+                    {
+                            list[i].DiscountID = null;
+                    }
+                }
+            }
+        }
 
     }
 }
