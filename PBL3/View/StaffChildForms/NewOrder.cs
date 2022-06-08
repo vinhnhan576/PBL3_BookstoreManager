@@ -76,7 +76,7 @@ namespace PBL3.View.StaffChildForms
                     double grossRevenue = rd_list[i].Total;
                     double profit = (grossRevenue / expenses - 1) * 100;
                     profit = (double)Math.Round(profit * 100f) / 100f;
-                    //BLLRevenueManagement.Instance.AddRevenue(rd_list[i].ReceiptDetailID, expenses, grossRevenue, profit);
+                    BLLRevenueManagement.Instance.AddRevenue(rd_list[i].ReceiptDetailID, expenses, grossRevenue, profit);
                 }
             //rd_list.Clear();
             //rdDataGridView.DataSource = rd_list.ToList();

@@ -163,6 +163,12 @@
     <Compile Include="View\AdminChildForms\RankForm.Designer.cs">
       <DependentUpon>RankForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\LoginForms\ResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginForms\ResetPassword.Designer.cs">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SettingsForms\ChangePasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,16 +194,16 @@
     <Compile Include="View\CustomMessageBox\MessageBoxForm.Designer.cs">
       <DependentUpon>MessageBoxForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ForgotPasswordForm.cs">
+    <Compile Include="View\LoginForms\ForgotPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ForgotPasswordForm.Designer.cs">
+    <Compile Include="View\LoginForms\ForgotPasswordForm.Designer.cs">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\LoginForm.cs">
+    <Compile Include="View\LoginForms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\LoginForm.Designer.cs">
+    <Compile Include="View\LoginForms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminChildForms\RevenueForm.cs">
@@ -236,16 +242,16 @@
     <Compile Include="View\StaffChildForms\NewOrder.Designer.cs">
       <DependentUpon>NewOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\CashierForm.cs">
+    <Compile Include="View\LoginForms\CashierForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CashierForm.Designer.cs">
+    <Compile Include="View\LoginForms\CashierForm.Designer.cs">
       <DependentUpon>CashierForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminForm.cs">
+    <Compile Include="View\LoginForms\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminForm.Designer.cs">
+    <Compile Include="View\LoginForms\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -286,10 +292,10 @@
     <Compile Include="View\StockkeeperChildForms\Overview.Designer.cs">
       <DependentUpon>Overview.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\StockkeeperForm.cs">
+    <Compile Include="View\LoginForms\StockkeeperForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\StockkeeperForm.Designer.cs">
+    <Compile Include="View\LoginForms\StockkeeperForm.Designer.cs">
       <DependentUpon>StockkeeperForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="View\AdminChildForms\AccountForm.resx">
@@ -322,6 +328,9 @@
     <EmbeddedResource Include="View\AdminChildForms\ProductForms\UpdatePrice.resx">
       <DependentUpon>UpdatePrice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginForms\ResetPassword.resx">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdminChildForms\RankForm.resx">
       <DependentUpon>RankForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -337,10 +346,10 @@
     <EmbeddedResource Include="View\CustomMessageBox\MessageBoxForm.resx">
       <DependentUpon>MessageBoxForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ForgotPasswordForm.resx">
+    <EmbeddedResource Include="View\LoginForms\ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\LoginForm.resx">
+    <EmbeddedResource Include="View\LoginForms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminChildForms\RevenueForm.resx">
@@ -358,10 +367,10 @@
     <EmbeddedResource Include="View\StaffChildForms\NewOrder.resx">
       <DependentUpon>NewOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CashierForm.resx">
+    <EmbeddedResource Include="View\LoginForms\CashierForm.resx">
       <DependentUpon>CashierForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminForm.resx">
+    <EmbeddedResource Include="View\LoginForms\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -395,7 +404,7 @@
     <EmbeddedResource Include="View\StockkeeperChildForms\Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\StockkeeperForm.resx">
+    <EmbeddedResource Include="View\LoginForms\StockkeeperForm.resx">
       <DependentUpon>StockkeeperForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -537,6 +546,9 @@
     <None Include="Resources\iconRefresh.png" />
     <None Include="Resources\filterIcon.png" />
     <None Include="Resources\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="View\ResetEmail.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -167,11 +167,11 @@ namespace PBL3.BLL
             return filteredList.ToList();
         }
 
-        public List<RevenueChartView> GetAllRevenueByDate_ChartView(DateTime startDate, DateTime endDate)
+        public List<RevenueChartView> GetAllRevenueByDate_ChartView(DateTime startDate, DateTime endDate, string charttype)
         {
             List<RevenueChartView> revenues = new List<RevenueChartView>();
             int noDays = (endDate - startDate).Days + 1;
-            if (noDays <= 31)
+            if (charttype == "Month")
             {
                 DateTime[] days = new DateTime[noDays];
                 double[] totals = new double[noDays];
@@ -201,7 +201,7 @@ namespace PBL3.BLL
                     revenues.Add(rcv);
                 }
             }
-            else if (noDays <= 365)
+            else if (charttype == "Year")
             {
                 DateTime[] months = new DateTime[12];
                 double[] totals = new double[12];

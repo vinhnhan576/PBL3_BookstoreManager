@@ -25,6 +25,16 @@ namespace PBL3.BLL
 
             }
         }
+
+        public List<Person> GetAllPeople()
+        {
+            List<Person> people = new List<Person>();
+            foreach (Person person in QLNS.Instance.People.ToList())
+            {
+                people.Add(person);
+            }
+            return people;
+        }
         public void AddNewPerson(Person ps)
         {
             QLNS qLSPEntities = new QLNS();
@@ -56,6 +66,32 @@ namespace PBL3.BLL
             p.Email = newPerson.Email;
             p.Gender = newPerson.Gender;
             QLNS.Instance.SaveChanges();
+        }
+
+        public bool CheckEmail(string email)
+        {
+            foreach(Person i in QLNS.Instance.People)
+            {
+                if (i.Email != null)
+                {
+                    if (i.Email.Trim() == email)
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        public Person GetPersonByEmail(string email)
+        {
+            foreach (Person i in QLNS.Instance.People)
+            {
+                if (i.Email != null)
+                {
+                    if (i.Email.Trim() == email)
+                        return i;
+                }
+            }
+            return null;
         }
     }
 }

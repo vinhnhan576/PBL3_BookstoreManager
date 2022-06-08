@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using PBL3.BLL;
 using PBL3.Model;
 
-namespace PBL3.View
+namespace PBL3.View.LoginForms
 {
     public partial class LoginForm : Form
     {
@@ -108,9 +108,9 @@ namespace PBL3.View
 
         private void lbForgotPassword_Click(object sender, EventArgs e)
         {
-            //this.Visible = false;
+            this.Visible = false;
             new ForgotPasswordForm().ShowDialog();
-            //this.Visible = true;
+            this.Visible = true;
         }
 
         private void tbUsername_Enter(object sender, EventArgs e)
