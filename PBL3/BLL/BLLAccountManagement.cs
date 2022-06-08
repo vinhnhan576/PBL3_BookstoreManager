@@ -194,6 +194,7 @@ namespace PBL3.BLL
             acc.Password = newPassword;
             QLNS.Instance.SaveChanges();
         }
+
     }
  }
 

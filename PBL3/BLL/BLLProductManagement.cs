@@ -52,7 +52,6 @@ namespace PBL3.BLL
 
         public dynamic GetAllProduct_Order_View()
         {
-
             var product = (QLNS.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.SellingPrice })).ToList();
             return product;
         }

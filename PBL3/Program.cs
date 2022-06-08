@@ -24,7 +24,7 @@ namespace PBL3
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             BLLCustomerManagement.Instance.Refresh();
-            Application.Run(new LoginForm());
+            Application.Run(new View.LoginForms.LoginForm());
         }
 
     }

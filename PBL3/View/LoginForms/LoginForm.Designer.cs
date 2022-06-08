@@ -1,4 +1,4 @@
-﻿namespace PBL3.View
+﻿namespace PBL3.View.LoginForms
 {
     partial class LoginForm
     {
