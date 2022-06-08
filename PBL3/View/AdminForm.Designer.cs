@@ -47,6 +47,7 @@ namespace PBL3.View
             this.btnCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.btnProduct = new Guna.UI2.WinForms.Guna2Button();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
+            this.Rankbutton = new Guna.UI2.WinForms.Guna2Button();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.pnMenu.SuspendLayout();
@@ -165,6 +166,7 @@ namespace PBL3.View
             // 
             this.pnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.pnMenu.BorderRadius = 25;
+            this.pnMenu.Controls.Add(this.Rankbutton);
             this.pnMenu.Controls.Add(this.btnRevenue);
             this.pnMenu.Controls.Add(this.btnAccount);
             this.pnMenu.Controls.Add(this.btnDiscount);
@@ -376,6 +378,30 @@ namespace PBL3.View
             this.btnOverview.Text = "Overview";
             this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
             // 
+            // Rankbutton
+            // 
+            this.Rankbutton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Rankbutton.BackColor = System.Drawing.Color.Transparent;
+            this.Rankbutton.BorderRadius = 3;
+            this.Rankbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Rankbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Rankbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Rankbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Rankbutton.FillColor = System.Drawing.Color.Transparent;
+            this.Rankbutton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rankbutton.ForeColor = System.Drawing.Color.White;
+            this.Rankbutton.Image = global::PBL3.Properties.Resources.revenue;
+            this.Rankbutton.ImageOffset = new System.Drawing.Point(-4, 0);
+            this.Rankbutton.Location = new System.Drawing.Point(-2, 412);
+            this.Rankbutton.Name = "Rankbutton";
+            this.Rankbutton.PressedColor = System.Drawing.Color.White;
+            this.Rankbutton.PressedDepth = 20;
+            this.Rankbutton.Size = new System.Drawing.Size(120, 32);
+            this.Rankbutton.TabIndex = 8;
+            this.Rankbutton.Text = "Rank";
+            this.Rankbutton.TextOffset = new System.Drawing.Point(-2, 0);
+            this.Rankbutton.Click += new System.EventHandler(this.Rankbutton_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,6 +441,7 @@ namespace PBL3.View
         private Guna.UI2.WinForms.Guna2GradientPanel pnMenu;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbDate;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbWelcome;
+        private Guna.UI2.WinForms.Guna2Button Rankbutton;
     }
 }
 

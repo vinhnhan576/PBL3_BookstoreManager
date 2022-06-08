@@ -23,7 +23,6 @@ namespace PBL3.BLL
             }
             private set { }
         }
-
         public List<Customer> GetAllCustomer()
         {
             List<Customer> customerList = new List<Customer>();
@@ -31,7 +30,16 @@ namespace PBL3.BLL
                 customerList.Add(customer);
             return customerList;
         }
-
+        public List<Customer> GetAllCustomerByRankID(string rankid)
+        {
+            List<Customer> customerList = new List<Customer>();
+            foreach (Customer customer in GetAllCustomer().ToList())
+            {
+                if(customer.RankID == rankid)
+                    customerList.Add(customer);
+            }        
+            return customerList;
+        }
         public dynamic GetAllCustomer_View()
         {
             var customerList = QLNS.Instance.Customers.Select(p => new

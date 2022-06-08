@@ -34,11 +34,9 @@ namespace PBL3.BLL
         }
         public void AddNewReceiptDetail(ReceiptDetail r)
         {
-
             QLNS.Instance.ReceiptDetails.Add(r);
             QLNS.Instance.SaveChanges();
         }
-     
         public dynamic GetProductInReceiptByID(string ID_Receipt)
         {
 
@@ -50,7 +48,6 @@ namespace PBL3.BLL
             var product = QLNS.Instance.ReceiptDetails.Where(p => p.ReceiptID == ID_Receipt).Select(p => new { p.Product.ProductName, p.SellingQuantity, p.Total }).ToList();
             return product;
         }
-
         public Receipt GetReceiptByReceiptDetailID(string rdID)
         {
             Receipt receipt = new Receipt();
@@ -113,7 +110,6 @@ namespace PBL3.BLL
             else
                 return QLNS.Instance.ReceiptDetails.Where(p => p.ReceiptID == ID_Receipt).ToList();
         }
-
         public double CalculateReceiptToTal(List<ReceiptDetailView> list)
         {
             double total = 0;

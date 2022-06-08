@@ -28,6 +28,7 @@ namespace PBL3.View.StaffChildForms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewOrder));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -233,8 +234,9 @@ namespace PBL3.View.StaffChildForms
             this.CustomerTeltxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.CustomerTeltxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CustomerTeltxt.IconLeftSize = new System.Drawing.Size(0, 0);
-            this.CustomerTeltxt.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.CustomerTeltxt.IconRightSize = new System.Drawing.Size(23, 23);
+            this.CustomerTeltxt.IconRight = ((System.Drawing.Image)(resources.GetObject("CustomerTeltxt.IconRight")));
+            this.CustomerTeltxt.IconRightOffset = new System.Drawing.Point(5, 0);
+            this.CustomerTeltxt.IconRightSize = new System.Drawing.Size(0, 0);
             this.CustomerTeltxt.Location = new System.Drawing.Point(225, 83);
             this.CustomerTeltxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustomerTeltxt.Name = "CustomerTeltxt";
@@ -243,6 +245,7 @@ namespace PBL3.View.StaffChildForms
             this.CustomerTeltxt.SelectedText = "";
             this.CustomerTeltxt.Size = new System.Drawing.Size(177, 22);
             this.CustomerTeltxt.TabIndex = 29;
+            this.CustomerTeltxt.TextChanged += new System.EventHandler(this.tb_TextChanged);
             this.CustomerTeltxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CustomerTeltxt_KeyPress);
             // 
             // OrderDateTimePicker

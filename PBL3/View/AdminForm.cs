@@ -185,5 +185,10 @@ namespace PBL3.View
         {
             openChildForm(new AdminChildForms.CustomerForm(), sender);
         }
+
+        private void Rankbutton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AdminChildForms.RankForm(), sender); 
+        }
     }
 }
