@@ -271,6 +271,7 @@
             this.Searchtxt.SelectedText = "";
             this.Searchtxt.Size = new System.Drawing.Size(230, 29);
             this.Searchtxt.TabIndex = 17;
+            //this.Searchtxt.TextChanged += new System.EventHandler(this.Searchtxt_TextChanged);
             this.Searchtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Searchtxt_KeyPress);
             // 
             // guna2HtmlLabel1

@@ -94,7 +94,7 @@ namespace PBL3.View.StaffChildForms
                 double total = Convert.ToDouble(TotalOrdertxt.Text);
                 if (customer != null)
                 {
-                    total = total = customer.Rank.CustomerDiscount;
+                    total = total - customer.Rank.CustomerDiscount;
                     if (total < 0) total = 0;
                     if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r0")
                     {
@@ -260,6 +260,11 @@ namespace PBL3.View.StaffChildForms
             rd_list.Clear();
             dgvOrder.DataSource = rd_list.ToList();
             TotalOrdertxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
+        }
+        private void tb_TextChanged(object sender, EventArgs e)
+        {
+            if (CustomerTeltxt.Text == "" || CustomerTeltxt.Text.Length != 10 || DataCheck.IsNumber(CustomerTeltxt.Text) != true || CustomerTeltxt.Text[0] != '0') CustomerTeltxt.IconRightSize = new System.Drawing.Size(7, 7);
+            else CustomerTeltxt.IconRightSize = new System.Drawing.Size(0, 0);
         }
     }
 }
