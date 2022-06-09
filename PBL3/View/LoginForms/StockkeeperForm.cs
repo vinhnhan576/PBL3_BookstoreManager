@@ -54,6 +54,7 @@ namespace PBL3.View
         {
             if (sender != null)
             {
+                btnSettings.Visible = true;
                 if (currentButton != (Guna.UI2.WinForms.Guna2Button)sender)
                 {
                     disableButton();
@@ -86,6 +87,7 @@ namespace PBL3.View
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            btnSettings.Visible = false;
             SettingsForms.SettingsForm childForm = new SettingsForms.SettingsForm(account);
             if (activeForm != null)
             {
