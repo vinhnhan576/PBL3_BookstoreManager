@@ -39,6 +39,7 @@ namespace PBL3.View
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnRight = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.pnMenu = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.Rankbutton = new Guna.UI2.WinForms.Guna2Button();
             this.btnRevenue = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
             this.btnDiscount = new Guna.UI2.WinForms.Guna2Button();
@@ -47,7 +48,6 @@ namespace PBL3.View
             this.btnCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.btnProduct = new Guna.UI2.WinForms.Guna2Button();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
-            this.Rankbutton = new Guna.UI2.WinForms.Guna2Button();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.pnMenu.SuspendLayout();
@@ -188,6 +188,30 @@ namespace PBL3.View
             this.pnMenu.Size = new System.Drawing.Size(140, 471);
             this.pnMenu.TabIndex = 1;
             // 
+            // Rankbutton
+            // 
+            this.Rankbutton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Rankbutton.BackColor = System.Drawing.Color.Transparent;
+            this.Rankbutton.BorderRadius = 3;
+            this.Rankbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Rankbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Rankbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Rankbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Rankbutton.FillColor = System.Drawing.Color.Transparent;
+            this.Rankbutton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rankbutton.ForeColor = System.Drawing.Color.White;
+            this.Rankbutton.Image = global::PBL3.Properties.Resources.revenue;
+            this.Rankbutton.ImageOffset = new System.Drawing.Point(-4, 0);
+            this.Rankbutton.Location = new System.Drawing.Point(-2, 412);
+            this.Rankbutton.Name = "Rankbutton";
+            this.Rankbutton.PressedColor = System.Drawing.Color.White;
+            this.Rankbutton.PressedDepth = 20;
+            this.Rankbutton.Size = new System.Drawing.Size(120, 32);
+            this.Rankbutton.TabIndex = 8;
+            this.Rankbutton.Text = "Rank";
+            this.Rankbutton.TextOffset = new System.Drawing.Point(-2, 0);
+            this.Rankbutton.Click += new System.EventHandler(this.Rankbutton_Click);
+            // 
             // btnRevenue
             // 
             this.btnRevenue.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -297,15 +321,15 @@ namespace PBL3.View
             this.btnBill.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBill.ForeColor = System.Drawing.Color.White;
             this.btnBill.Image = global::PBL3.Properties.Resources.bill;
-            this.btnBill.ImageOffset = new System.Drawing.Point(-15, 0);
+            this.btnBill.ImageOffset = new System.Drawing.Point(-6, 0);
             this.btnBill.Location = new System.Drawing.Point(10, 167);
             this.btnBill.Name = "btnBill";
             this.btnBill.PressedColor = System.Drawing.Color.White;
             this.btnBill.PressedDepth = 20;
             this.btnBill.Size = new System.Drawing.Size(120, 32);
             this.btnBill.TabIndex = 3;
-            this.btnBill.Text = "Bill";
-            this.btnBill.TextOffset = new System.Drawing.Point(-12, 0);
+            this.btnBill.Text = "Receipt";
+            this.btnBill.TextOffset = new System.Drawing.Point(-3, 0);
             this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
             // 
             // btnCustomer
@@ -377,30 +401,6 @@ namespace PBL3.View
             this.btnOverview.TabIndex = 0;
             this.btnOverview.Text = "Overview";
             this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
-            // 
-            // Rankbutton
-            // 
-            this.Rankbutton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Rankbutton.BackColor = System.Drawing.Color.Transparent;
-            this.Rankbutton.BorderRadius = 3;
-            this.Rankbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Rankbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Rankbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Rankbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Rankbutton.FillColor = System.Drawing.Color.Transparent;
-            this.Rankbutton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Rankbutton.ForeColor = System.Drawing.Color.White;
-            this.Rankbutton.Image = global::PBL3.Properties.Resources.revenue;
-            this.Rankbutton.ImageOffset = new System.Drawing.Point(-4, 0);
-            this.Rankbutton.Location = new System.Drawing.Point(-2, 412);
-            this.Rankbutton.Name = "Rankbutton";
-            this.Rankbutton.PressedColor = System.Drawing.Color.White;
-            this.Rankbutton.PressedDepth = 20;
-            this.Rankbutton.Size = new System.Drawing.Size(120, 32);
-            this.Rankbutton.TabIndex = 8;
-            this.Rankbutton.Text = "Rank";
-            this.Rankbutton.TextOffset = new System.Drawing.Point(-2, 0);
-            this.Rankbutton.Click += new System.EventHandler(this.Rankbutton_Click);
             // 
             // AdminForm
             // 
