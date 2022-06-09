@@ -18,17 +18,24 @@ namespace PBL3.View.StockkeeperChildForms
         public delegate void My_Del(Product product, double importPrice);
         
         public My_Del MyDel { get; set; }
+        bool addCategory = true;
+        bool addPublisher = true;
         public AddNewProduct()
         {
             InitializeComponent();
-            foreach (string i in BLLProductManagement.Instance.GetAllProductCategory())
+            foreach (string i in BLLProductManagement.Instance.GetAllProductCategory().Distinct())
             {
                 cbbCatogory.Items.Add(i);
             }
-            foreach (string i in BLLProductManagement.Instance.GetAllProductPublisher())
+            foreach (string i in BLLProductManagement.Instance.GetAllProductPublisher().Distinct())
             {
-                cbbPublisher.Items.Add(i);
+                if(i != null)
+                {
+                    cbbPublisher.Items.Add(i);
+                }
             }
+            tbCategory.Visible = false;
+            tbPublisher.Visible = false;
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -43,16 +50,18 @@ namespace PBL3.View.StockkeeperChildForms
                 CustomMessageBox.MessageBox.Show("Enter missing product information", "Wrong input", MessageBoxIcon.Error);
             else
             {
+                if(tbCategory.Visible) AddNewCategory(tbCategory.Text);
+                if(tbPublisher.Visible) AddNewPublisher(tbPublisher.Text);
                 var random = new RandomGenerator();
                 Product p = new Product
                 {
                     ProductID = "r00" + BLL.BLLProductManagement.Instance.CountProduct(),
                     ProductName = tbName.Text,
                     Author = tbAuthor.Text,
-                    Category = cbbCatogory.SelectedItem.ToString(),
+                    Category = (tbCategory.Visible == false ? cbbCatogory.SelectedItem.ToString() : tbCategory.Text),
                     StockQuantity = Convert.ToInt32(tbQuantity.Text),
                     StoreQuantity = 0,
-                    Publisher = cbbPublisher.SelectedItem.ToString(),
+                    Publisher = (tbPublisher.Visible == false ? cbbPublisher.SelectedItem.ToString() : tbPublisher.Text),
                     PublishYear = Convert.ToInt32(tbPublishYear.Text),
                     Status = "Available",
                     SellingPrice = Convert.ToInt32(tbImportPrice.Text) * 1.2,
@@ -62,41 +71,43 @@ namespace PBL3.View.StockkeeperChildForms
                 this.Close();
             }
         }
-        public void AddNewItem(string NewCatogory,string NewPublisher)
+
+        public void AddNewCategory(string newCategory)
         {
-            bool Check_1 = true,Check_2=true;
-            List<string> listCatogory = new List<string>(); 
-            List<string> listPublisher = new List<string>();
+            bool categoryExist = false;
+            List<string> listCategory = new List<string>(); 
             foreach (string i in cbbCatogory.Items)
             {
-                listCatogory.Add(i);
+                listCategory.Add(i);
             }
-            foreach (string s in listCatogory)
+            foreach (string s in listCategory)
             {
-                if (NewCatogory == s || NewCatogory == "")
+                if (newCategory == s || newCategory == "")
                 {
-                    Check_1 = false;
+                    categoryExist = true;
                 }
             }
-            if(Check_1)cbbCatogory.Items.Add(NewCatogory);
+            if(!categoryExist)
+                cbbCatogory.Items.Add(newCategory);
+        }
+
+        public void AddNewPublisher(string newPublisher)
+        {
+            List<string> listPublisher = new List<string>();
+            bool publisherExist = true;
             foreach (string i in cbbPublisher.Items)
             {
                 listPublisher.Add(i);
             }
             foreach (string s in listPublisher)
             {
-                if (NewPublisher == s || NewPublisher == "")
+                if (newPublisher == s || newPublisher == "")
                 {
-                    Check_2 = false;
+                    publisherExist = false;
                 }
             }
-            if (Check_2) cbbPublisher.Items.Add(NewPublisher);
-        }
-        private void tbAdd_Click(object sender, EventArgs e)
-        {
-            AddNewItem form = new AddNewItem();
-            form.MyDel = AddNewItem;
-            form.Show();
+            if (publisherExist) 
+                cbbPublisher.Items.Add(newPublisher);
         }
 
         private void tb_TextChanged(object sender, EventArgs e)
@@ -111,6 +122,38 @@ namespace PBL3.View.StockkeeperChildForms
             else tbAuthor.IconRightSize = new System.Drawing.Size(0, 0);
             if (tbImportPrice.Text == "" || DataCheck.IsNumber(tbImportPrice.Text) != true) tbImportPrice.IconRightSize = new System.Drawing.Size(7, 7);
             else tbImportPrice.IconRightSize = new System.Drawing.Size(0, 0);
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            if (addCategory)
+            {
+                ((Guna.UI2.WinForms.Guna2Button)sender).Image = Properties.Resources.iconClose;
+                tbCategory.Visible = true;
+                addCategory = false;
+            }
+            else
+            {
+                ((Guna.UI2.WinForms.Guna2Button)sender).Image = Properties.Resources.icons8_plus_48;
+                tbCategory.Visible = false;
+                addCategory = true;
+            }
+        }
+
+        private void btnAddPublisher_Click(object sender, EventArgs e)
+        {
+            if (addPublisher)
+            {
+                ((Guna.UI2.WinForms.Guna2Button)sender).Image = Properties.Resources.iconClose;
+                tbPublisher.Visible = true;
+                addPublisher = false;
+            }
+            else
+            {
+                ((Guna.UI2.WinForms.Guna2Button)sender).Image = Properties.Resources.icons8_plus_48;
+                tbPublisher.Visible = false;
+                addPublisher = true;
+            }
         }
     }
 }
