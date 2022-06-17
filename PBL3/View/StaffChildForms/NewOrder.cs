@@ -15,6 +15,7 @@ namespace PBL3.View.StaffChildForms
     public partial class NewOrder : Form
     {
         private List<ReceiptDetailView> rd_list;
+        private Order order = new Order();
         private Account account;
         public NewOrder(Account acc)
         {
@@ -66,7 +67,7 @@ namespace PBL3.View.StaffChildForms
                 }
                 //receipt.CustomerID = (QLSPEntities.Instance.Customers.Count() + 1).ToString();
                 BLLReceiptManagement.Instance.AddNewReceipt(receipt);
-                BLLReceiptManagement.Instance.AddNewReceiptDetail(rd_list, OrderIDtxt.Text);
+                BLLReceiptManagement.Instance.AddNewReceiptDetail(this.order, OrderIDtxt.Text);
                 for (int i = 0; i < rd_list.Count; i++)
                 {
                     string productID = rd_list[i].ProductID;
@@ -146,17 +147,18 @@ namespace PBL3.View.StaffChildForms
             try
             {
                 Customer customer = BLLCustomerManagement.Instance.getCustomer(CustomerTeltxt.Text.Trim());
-                string product_temp;
+                Product product_temp;
                 if (dgvProduct.SelectedRows.Count == 1)
                 {
                     string productName = dgvProduct.SelectedRows[0].Cells["ProductName"].Value.ToString();
-                    product_temp = BLLProductManagement.Instance.GetProductByProductName(productName).ProductID;
-                    rd_list = BLLReceiptManagement.Instance.CreateReceiptDetailView(rd_list, product_temp, Convert.ToInt32(Quantitytxt.Text));
+                    product_temp = BLLProductManagement.Instance.GetProductByProductName(productName);
+                    BLLReceiptManagement.Instance.CreateReceiptDetailView(order, product_temp, Convert.ToInt32(Quantitytxt.Text));
                 }
-                dgvOrder.DataSource = this.rd_list.ToList();
-                dgvOrder.DataSource = BLLDiscountManagement.Instance.GetListAfterSingleDiscount(rd_list);
-                TotalOrdertxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
-                discountxt.Text = BLLDiscountManagement.Instance.GetTotalDiscount_ComboDiscount(rd_list).ToString();
+                double total = BLLReceiptManagement.Instance.CalculateReceiptToTal(order);
+                dgvOrder.DataSource = this.order.Rdv_List.ToList();
+                //dgvOrder.DataSource = BLLDiscountManagement.Instance.GetListAfterSingleDiscount(rd_list);
+                TotalOrdertxt.Text = total.ToString();
+                discountxt.Text = BLLReceiptManagement.Instance.getPromotedDiscount(order).ToString();
                 Quantitytxt.Text = "";
                 //
             }
@@ -248,18 +250,18 @@ namespace PBL3.View.StaffChildForms
             {
                 for (int i = 0; i < dgvOrder.SelectedRows.Count; i++)
                 {
-                    rd_list.RemoveAt(i);
-
+                    this.order.RemoveAt(i);
                 }
             }
-            dgvOrder.DataSource = rd_list.ToList();
-            TotalOrdertxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
+            dgvOrder.DataSource = this.order.Rdv_List.ToList();
+            TotalOrdertxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(order).ToString();
+            discountxt.Text=BLLReceiptManagement.Instance.getPromotedDiscount(order).ToString();
         }
         private void Clearbtn_Click(object sender, EventArgs e)
         {
             rd_list.Clear();
             dgvOrder.DataSource = rd_list.ToList();
-            TotalOrdertxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(rd_list).ToString();
+            TotalOrdertxt.Text="";
         }
         private void tb_TextChanged(object sender, EventArgs e)
         {
