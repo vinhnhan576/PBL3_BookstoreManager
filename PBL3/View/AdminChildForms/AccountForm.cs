@@ -47,7 +47,7 @@ namespace PBL3.View.AdminChildForms
             tbTel.Enabled = true;
             tbAddress.Text = "";
             tbAddress.Enabled = true;
-            rbFemale.Checked = false;rbMale.Checked = false;
+            rbFemale.Checked = false;
             cbbRole.Text = null;
             cbbRole.Enabled = true;
             btnSave.Visible = true;
@@ -110,12 +110,14 @@ namespace PBL3.View.AdminChildForms
                 btnSave.Visible = false;
                 btnClear.Visible = false;
                 tbID.Enabled = true;
-                tbUsername.Enabled = true;
-                tbPassword.Enabled = true;
-                tbName.Enabled = true;
-                tbTel.Enabled = true;
-                tbAddress.Enabled = true;
+                tbID.ReadOnly = true;
+                tbUsername.ReadOnly = true;
+                tbPassword.ReadOnly = true;
+                tbName.ReadOnly = true;
+                tbTel.ReadOnly = true;
+                tbAddress.ReadOnly = true;
                 cbbRole.Enabled = true;
+                tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             }
 
         }
@@ -216,6 +218,7 @@ namespace PBL3.View.AdminChildForms
                 cbbRole.Enabled = false;
                 btnSave.Visible = true;
                 btnClear.Visible = true;
+                tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             }
         }
         public string SetID(string role)
@@ -282,7 +285,7 @@ namespace PBL3.View.AdminChildForms
             else tbTel.IconRightSize = new System.Drawing.Size(0,0);
             if (tbName.Text == ""|| DataCheck.IsString(tbName.Text) != true) tbName.IconRightSize = new System.Drawing.Size(7, 7);
             else tbName.IconRightSize = new System.Drawing.Size(0, 0);
-            if (tbUsername.Text == ""|| DataCheck.IsString_1(tbUsername.Text) != true) tbUsername.IconRightSize = new System.Drawing.Size(7, 7);
+            if (tbUsername.Text == ""|| DataCheck.IsString_1(tbUsername.Text) != true || BLLAccountManagement.Instance.Check_Usename(tbUsername.Text) == false) tbUsername.IconRightSize = new System.Drawing.Size(7, 7);
             else tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             if (tbAddress.Text == ""||DataCheck.IsString(tbAddress.Text) != true) tbAddress.IconRightSize = new System.Drawing.Size(7, 7);
             else tbAddress.IconRightSize = new System.Drawing.Size(0, 0);

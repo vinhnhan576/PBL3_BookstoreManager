@@ -194,6 +194,18 @@ namespace PBL3.BLL
             acc.Password = newPassword;
             QLNS.Instance.SaveChanges();
         }
+        public bool Check_Usename(string usename)
+        {
+            bool check = true;
+            foreach(Account ac in QLNS.Instance.Accounts.Select(p => p).ToList())
+            {
+                if(usename == ac.Username)
+                {
+                    check = false;
+                }
+            }
+            return check;
+        }
 
     }
  }

@@ -23,11 +23,6 @@ namespace PBL3.View.StockkeeperChildForms
             InitializeComponent();
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_View();
             account = acc;
-            tbStoreImportID.Text = "is00" + (QLNS.Instance.StoreImports.Count() + 1).ToString();
-            tbStoreImportID.Enabled = false;
-            tbStockkeperID.Text = account.PersonID.ToString();
-            tbStockkeperID.Enabled = false;
-            dtpRestock.Value = DateTime.Now;
         }
         private void butAdd_Click(object sender, EventArgs e)
         {
@@ -95,7 +90,9 @@ namespace PBL3.View.StockkeeperChildForms
         {
             int count = (QLNS.Instance.Restocks.Count() + 1);
             tbStoreImportID.Text = "rs" + count.ToString();
-            tbStockkeperID.Text = "sk001";//account.PersonID;
+            tbStoreImportID.Enabled = false;
+            tbStockkeperID.Text = account.PersonID;
+            tbStockkeperID.Enabled = false;
             dtpRestock.Value = DateTime.Now;
         }
 
