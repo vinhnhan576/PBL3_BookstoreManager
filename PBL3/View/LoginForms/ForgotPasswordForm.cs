@@ -38,25 +38,33 @@ namespace PBL3.View.LoginForms
 
         private void btnVerify_Click(object sender, EventArgs e)
         {
-            if (BLLPersonManagement.Instance.CheckEmail(tbEmail.Text))
+            try
             {
-                person = BLLPersonManagement.Instance.GetPersonByEmail(tbEmail.Text);
+                if (BLLPersonManagement.Instance.CheckEmail(tbEmail.Text))
+                {
+                    person = BLLPersonManagement.Instance.GetPersonByEmail(tbEmail.Text);
 
-                string fromEmail = "bookwormofficial1@gmail.com";
-                code = GenerateVerificationCode();
-                string body = GenerateEmailBody();
-                MailMessage mailMessage = new MailMessage(fromEmail, tbEmail.Text, "Verification code for resetting password", body);
-                mailMessage.IsBodyHtml = true;
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-                smtpClient.EnableSsl = true;
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential(fromEmail, "ippbaflgipgirume");
-                smtpClient.Send(mailMessage);
-                refreshTimer(sender, e);
+                    string fromEmail = "bookwormofficial1@gmail.com";
+                    code = GenerateVerificationCode();
+                    string body = GenerateEmailBody();
+                    MailMessage mailMessage = new MailMessage(fromEmail, tbEmail.Text, "Verification code for resetting password", body);
+                    mailMessage.IsBodyHtml = true;
+                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                    smtpClient.EnableSsl = true;
+                    smtpClient.UseDefaultCredentials = false;
+                    smtpClient.Credentials = new NetworkCredential(fromEmail, "ippbaflgipgirume");
+                    smtpClient.Send(mailMessage);
+                    refreshTimer(sender, e);
+                }
+                else throw new Exception("Email doesn't exist");
             }
-            else
+            catch (SmtpException) 
+            { 
+                CustomMessageBox.MessageBox.Show("Network failure", "Error", MessageBoxIcon.Error); 
+            }
+            catch (Exception ex)
             {
-                CustomMessageBox.MessageBox.Show("Email doesn't exist", "Error", MessageBoxIcon.Error);
+                CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxIcon.Error);
             }
         }
 
@@ -91,30 +99,36 @@ namespace PBL3.View.LoginForms
 
         private void btnCode_Click(object sender, EventArgs e)
         {
-            if(tbCode.Text == code)
+            try
             {
-                if ((DateTime.Now - start).TotalSeconds > 60 * 5)
+                if (tbCode.Text == code)
                 {
-                    CustomMessageBox.MessageBox.Show("Code expired./nPlease get another verification code", "Error", MessageBoxIcon.Error);
-                    lbCode.Visible = false;
-                    tbCode.Visible = false;
-                    btnCode.Visible = false;
+                    if ((DateTime.Now - start).TotalSeconds > 60 * 5)
+                    {
+                        CustomMessageBox.MessageBox.Show("Code expired./nPlease get another verification code", "Error", MessageBoxIcon.Error);
+                        lbCode.Visible = false;
+                        tbCode.Visible = false;
+                        btnCode.Visible = false;
+                    }
+                    else
+                    {
+                        ResetPassword resetForm = new ResetPassword(person.Account);
+                        resetForm.TopLevel = false;
+                        resetForm.FormBorderStyle = FormBorderStyle.None;
+                        resetForm.Dock = DockStyle.Fill;
+                        pn.Controls.Add(resetForm);
+                        resetForm.BringToFront();
+                        resetForm.myDelegate += ResetSuccess;
+                        resetForm.Show();
+                    }
                 }
-                else
-                {
-                    ResetPassword resetForm = new ResetPassword(person.Account);
-                    resetForm.TopLevel = false;
-                    resetForm.FormBorderStyle = FormBorderStyle.None;
-                    resetForm.Dock = DockStyle.Fill;
-                    pn.Controls.Add(resetForm);
-                    resetForm.BringToFront();
-                    resetForm.myDelegate += ResetSuccess;
-                    resetForm.Show();
-                }
+                else if (tbCode.Text.Length != 6) throw new Exception("Invalid code length");
+                else throw new Exception("Wrong code");
             }
-            else
+            catch (Exception ex)
             {
-                CustomMessageBox.MessageBox.Show("Wrong code", "Error", MessageBoxIcon.Error);
+                CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxIcon.Error);
+
             }
         }
 

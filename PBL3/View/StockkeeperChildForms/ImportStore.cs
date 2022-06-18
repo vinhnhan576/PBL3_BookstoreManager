@@ -98,25 +98,6 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbbFilterValue.Text = "";
-            cbbFilterValue.Items.Clear();
-            string filterCategory = cbbFilterCategory.SelectedItem.ToString();
-            if (filterCategory == "Category")
-            {
-                foreach (string i in BLLProductManagement.Instance.GetAllProductCategory().Distinct())
-                {
-                    cbbFilterValue.Items.Add(i);
-                    //MessageBox.Show("i");
-                }
-            }
-            if (filterCategory == "Author")
-            {
-                foreach (string i in BLLProductManagement.Instance.GetAllProductAuthor().Distinct())
-                {
-                    cbbFilterValue.Items.Add(i);
-                }
-            }
-
 
         }
 
@@ -124,14 +105,6 @@ namespace PBL3.View.StockkeeperChildForms
         {
             dgvProducts.DataSource = BLLProductManagement.Instance.SearchProduct_Restock(cbbFilterValue.SelectedItem.ToString());
 
-        }
-
-        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                dgvProducts.DataSource = BLLProductManagement.Instance.SearchProduct_Restock(tbSearch.Text);
-            }
         }
     }
 }

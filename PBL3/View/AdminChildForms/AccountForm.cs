@@ -67,12 +67,12 @@ namespace PBL3.View.AdminChildForms
                         del.Add(i.Cells[0].Value.ToString());
                     }
                     BLLAccountManagement.Instance.DelAccount(del);
-                    tbID.Text = "";
-                    tbUsername.Text = "";
-                    tbPassword.Text = "";
-                    tbName.Text = "";
-                    tbTel.Text = "";
-                    tbAddress.Text = "";
+                    tbID.Text = null;
+                    tbUsername.Text = null;
+                    tbPassword.Text = null;
+                    tbName.Text = null;
+                    tbTel.Text = null;
+                    tbAddress.Text = null;
                     cbbRole.Text = null;
                     Reload();
                 }
@@ -125,12 +125,12 @@ namespace PBL3.View.AdminChildForms
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            tbID.Text = "";
-            tbUsername.Text = "";
-            tbPassword.Text = "";
-            tbName.Text = "";
-            tbTel.Text = "";
-            tbAddress.Text = "";
+            tbID.Text = null;
+            tbUsername.Text = null;
+            tbPassword.Text = null;
+            tbName.Text = null;
+            tbTel.Text = null;
+            tbAddress.Text = null;
             rbMale.Checked = false;rbFemale.Checked = false;
             cbbRole.Text = null;
             tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
@@ -141,21 +141,21 @@ namespace PBL3.View.AdminChildForms
         }
         private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tbSearch.Text = "";
+            tbSearch.Text = null;
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
             dgvAccount.DataSource = BLLAccountManagement.Instance.SortAcount(sortCategory, sortOrder);
         }        
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tbSearch.Text = "";
+            tbSearch.Text = null;
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
             dgvAccount.DataSource = BLLAccountManagement.Instance.SortAcount(sortCategory, sortOrder);
         }
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbbFilterValue.Text = "";
+            cbbFilterValue.Text = null;
             cbbFilterValue.Items.Clear();
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
             if (filterCategory == "Role")
@@ -230,52 +230,59 @@ namespace PBL3.View.AdminChildForms
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (tbAddress.Text == "" || tbName.Text == "" || tbTel.Text == "" || tbPassword.Text == "" || tbUsername.Text == ""
-                || rbFemale.Checked == false && rbMale.Checked == false || cbbRole.SelectedItem == null)
-                CustomMessageBox.MessageBox.Show("Enter missing account information", "Wrong input", MessageBoxIcon.Error);
-            else
+            try
             {
-                bool checkID = false;
-                Account a = new Account();
-                Person p = new Person();
-                p.PersonName = tbName.Text;
-                p.PhoneNumber = tbTel.Text;
-                p.Address = tbAddress.Text;
-                p.Role = cbbRole.SelectedItem.ToString();
-                if (rbMale.Checked)
+                if (tbAddress.Text == "" || tbName.Text == "" || tbTel.Text == "" || tbPassword.Text == "" || tbUsername.Text == ""
+                || rbFemale.Checked == false && rbMale.Checked == false || cbbRole.SelectedItem == null)
+                    throw new Exception("Enter missing account information");
+                else
                 {
-                    p.Gender = true;
-                }
-                else p.Gender = true;
-                foreach(Account ac in BLLAccountManagement.Instance.GetAllAccount())
-                {
-                    if(tbID.Text == ac.PersonID)
+                    bool checkID = false;
+                    Account a = new Account();
+                    Person p = new Person();
+                    p.PersonName = tbName.Text;
+                    p.PhoneNumber = tbTel.Text;
+                    p.Address = tbAddress.Text;
+                    p.Role = cbbRole.SelectedItem.ToString();
+                    if (rbMale.Checked)
                     {
-                        checkID = true;
+                        p.Gender = true;
                     }
+                    else p.Gender = true;
+                    foreach (Account ac in BLLAccountManagement.Instance.GetAllAccount())
+                    {
+                        if (tbID.Text == ac.PersonID)
+                        {
+                            checkID = true;
+                        }
+                    }
+                    if (checkID) a.PersonID = p.PersonID = tbID.Text;
+                    else a.PersonID = p.PersonID = SetID(cbbRole.SelectedItem.ToString());
+                    a.Username = tbUsername.Text;
+                    a.Password = tbPassword.Text;
+                    a.Person = p;
+                    BLLAccountManagement.Instance.Execute(a);
+                    CustomMessageBox.MessageBox.Show("", "Success", MessageBoxIcon.Information);
+                    dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
+                    tbID.Text = ""; tbID.Enabled = true;
+                    tbUsername.Text = ""; tbUsername.Enabled = true;
+                    tbPassword.Text = ""; tbPassword.Enabled = true;
+                    tbName.Text = ""; tbName.Enabled = true;
+                    tbTel.Text = ""; tbTel.Enabled = true;
+                    tbAddress.Text = ""; tbAddress.Enabled = true;
+                    cbbRole.Text = null; cbbRole.Enabled = true;
+                    btnSave.Visible = false;
+                    btnClear.Visible = false;
+                    tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
+                    tbPassword.IconRightSize = new System.Drawing.Size(0, 0);
+                    tbName.IconRightSize = new System.Drawing.Size(0, 0);
+                    tbTel.IconRightSize = new System.Drawing.Size(0, 0);
+                    tbAddress.IconRightSize = new System.Drawing.Size(0, 0);
                 }
-                if (checkID) a.PersonID = p.PersonID = tbID.Text;
-                else a.PersonID = p.PersonID = SetID(cbbRole.SelectedItem.ToString());
-                a.Username = tbUsername.Text;
-                a.Password = tbPassword.Text;
-                a.Person = p;
-                BLLAccountManagement.Instance.Execute(a);
-                CustomMessageBox.MessageBox.Show("", "Success", MessageBoxIcon.Information);
-                dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
-                tbID.Text = "";tbID.Enabled = true;
-                tbUsername.Text = "";tbUsername.Enabled = true; 
-                tbPassword.Text = "";tbPassword.Enabled = true; 
-                tbName.Text = "";tbName.Enabled = true; 
-                tbTel.Text = "";tbTel.Enabled = true; 
-                tbAddress.Text = "";tbAddress.Enabled = true; 
-                cbbRole.Text = null;cbbRole.Enabled = true;
-                btnSave.Visible = false;
-                btnClear.Visible = false;
-                tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
-                tbPassword.IconRightSize = new System.Drawing.Size(0, 0);
-                tbName.IconRightSize = new System.Drawing.Size(0, 0);
-                tbTel.IconRightSize = new System.Drawing.Size(0, 0);
-                tbAddress.IconRightSize = new System.Drawing.Size(0, 0);
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MessageBox.Show(ex.Message, "Invalid input", MessageBoxIcon.Error);
             }
         }
        

@@ -28,7 +28,7 @@ namespace PBL3.View
         private void InitializeGUI()
         {
             currentButton = btnNewOrder;
-            openChildForm(new Overview(account.Person), btnOverview);
+            openChildForm(new Overview(account.Person), btnViewOrder);
 
             string name = account.Person.PersonName.Split()[account.Person.PersonName.Split().Count() - 1];
             lbWelcome.Text = "Welcome, " + name;
@@ -55,6 +55,7 @@ namespace PBL3.View
         {
             if (sender != null)
             {
+                btnSettings.Visible = true;
                 if (currentButton != (Guna.UI2.WinForms.Guna2Button)sender)
                 {
                     disableButton();
@@ -68,6 +69,7 @@ namespace PBL3.View
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            btnSettings.Visible = false;
             SettingsForms.SettingsForm childForm = new SettingsForms.SettingsForm(account);
             if (activeForm != null)
             {
@@ -113,11 +115,6 @@ namespace PBL3.View
                     prevButton.ForeColor = Color.White;
                 }
             }
-        }
-
-        private void btnOverview_Click(object sender, EventArgs e)
-        {
-            openChildForm(new Overview(account.Person), sender);
         }
 
         private void btnNewOrder_Click(object sender, EventArgs e)

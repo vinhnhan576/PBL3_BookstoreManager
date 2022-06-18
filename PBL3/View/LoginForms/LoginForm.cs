@@ -18,19 +18,13 @@ namespace PBL3.View.LoginForms
         public LoginForm()
         {
             QLNS ins = new QLNS();
-/*            ins.Accounts.AddRange(new Account[]
-            {
-                new Account { PersonID = "ad01", Username = "ad01", Password = "123456" },
-                new Account { PersonID = "sm01", Username = "sm01", Password = "123456" },
-                new Account { PersonID = "sk01", Username = "sk01", Password = "123456" },
-            });*/
             InitializeComponent();
             
         }
 
         private void pbShowPass_Click(object sender, EventArgs e)
         {
-            if(tbPassword.Text != "")
+            if(tbPassword.Text != null)
             {
                 if (tbPassword.PasswordChar == '*')
                 {
@@ -86,7 +80,7 @@ namespace PBL3.View.LoginForms
                     else
                     {
                         CustomMessageBox.MessageBox.Show("Wrong password", "Wrong input", MessageBoxIcon.Error);
-                        tbPassword.Text = "";
+                        tbPassword.Text = null;
                         tbPassword.Focus();
                         break;
                     }
@@ -94,7 +88,7 @@ namespace PBL3.View.LoginForms
             }
             if(!usernameExist)
             {
-                tbPassword.Text = "";
+                tbPassword.Text = null;
                 CustomMessageBox.MessageBox.Show("Account username doesn't exist", "Wrong input", MessageBoxIcon.Error);
                 tbUsername.Focus();
             }
@@ -102,8 +96,8 @@ namespace PBL3.View.LoginForms
 
         private void ClearTextboxes()
         {
-            tbUsername.Text = "";
-            tbPassword.Text = "";
+            tbUsername.Text = null;
+            tbPassword.Text = null;
         }
 
         private void lbForgotPassword_Click(object sender, EventArgs e)

@@ -19,10 +19,10 @@ namespace PBL3.View.AdminChildForms.DiscountForms
         public DiscountForm()
         {
             InitializeComponent();
-            InitializeData();
+            InitializeGUI();
         }
 
-        private void InitializeData()
+        private void InitializeGUI()
         {
             dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
             cbbSortOrder.SelectedIndex = 0;
@@ -34,6 +34,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             Typecbb.SelectedIndex = 1;
             Savebutton.Visible = false;
             ClearButton.Visible = false;
+            startTimer(this, new EventArgs());
         }
 
         private void tbSearch_IconRightClick(object sender, EventArgs e)
@@ -192,11 +193,11 @@ namespace PBL3.View.AdminChildForms.DiscountForms
         {
             if (dgvDiscount.SelectedRows.Count == 1)
             {
-                IDtxt.Text=dgvDiscount.SelectedRows[0].Cells["DiscountID"].Value.ToString();
+                IDtxt.Text = dgvDiscount.SelectedRows[0].Cells["DiscountID"].Value.ToString();
                 Nametxt.Text = dgvDiscount.SelectedRows[0].Cells["DiscountName"].Value.ToString();
                 AmountApplytxt.Text = dgvDiscount.SelectedRows[0].Cells["AmmountApply"].Value.ToString();
                 DiscountApplytxt.Text = dgvDiscount.SelectedRows[0].Cells["DiscountApply"].Value.ToString();
-                dgvFrom.Value= Convert.ToDateTime(dgvDiscount.SelectedRows[0].Cells["StartingDate"].Value);
+                dgvFrom.Value = Convert.ToDateTime(dgvDiscount.SelectedRows[0].Cells["StartingDate"].Value);
                 dgvTo.Value = Convert.ToDateTime(dgvDiscount.SelectedRows[0].Cells["ExpirationDate"].Value);
                 if (dgvDiscount.SelectedRows[0].Cells["DiscountType"].Value.ToString() == "Combo")
                 {
@@ -304,6 +305,34 @@ namespace PBL3.View.AdminChildForms.DiscountForms
         private void cbbSortOrder_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private Timer timer;
+        DateTime currentDay;
+
+        private void startTimer(object sender, EventArgs e)
+        {
+            timer = new Timer();
+            timer.Interval = (1 * 1000); // 1 sec
+            timer.Tick += new EventHandler(timer_Tick);
+            currentDay = DateTime.Now;
+            timer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (DateTime.Now != currentDay)
+            {
+                List<Discount> expiredDiscounts = BLLDiscountManagement.Instance.GetExpiredDiscounts();
+                if(expiredDiscounts != null)
+                    BLLDiscountManagement.Instance.RenewDiscounts(expiredDiscounts);
+                currentDay = DateTime.Now.Date;
+            }
+        }
+
+        private void DiscountForm_Load(object sender, EventArgs e)
+        {
+            startTimer(sender, e);
         }
     }
 }

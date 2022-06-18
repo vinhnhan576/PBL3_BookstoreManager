@@ -51,30 +51,29 @@ namespace PBL3.BLL
             return storeImportList.ToList();
         }
 
-        public dynamic SortStoreImportDetail(string sortCategory, bool ascending)
+        public dynamic SortStoreImportDetail(string productID, string sortCategory, bool ascending)
         {
-            QLNS db = new QLNS();
-            List<StoreImportDetail> data = new List<StoreImportDetail>();
+            List<StoreImportDetail> data = QLNS.Instance.StoreImportDetails.Where(p => (p.ProductID == productID)).ToList();
             if (sortCategory == "ImportDate")
             {
                 if (ascending)
-                    data = db.StoreImportDetails.OrderBy(p => p.StoreImport.ImportDate).ToList();
+                    data = data.OrderBy(p => p.StoreImport.ImportDate).ToList();
                 else
-                    data = db.StoreImportDetails.OrderByDescending(p => p.StoreImport.ImportDate).ToList();
+                    data = data.OrderByDescending(p => p.StoreImport.ImportDate).ToList();
             }
             if (sortCategory == "ImportQuantity")
             {
                 if (ascending)
-                    data = db.StoreImportDetails.OrderBy(p => p.ImportQuantity).ToList();
+                    data = data.OrderBy(p => p.ImportQuantity).ToList();
                 else
-                    data = db.StoreImportDetails.OrderByDescending(p => p.ImportQuantity).ToList();
+                    data = data.OrderByDescending(p => p.ImportQuantity).ToList();
             }
             if (sortCategory == "StoreQuantity")
             {
                 if (ascending)
-                    data = db.StoreImportDetails.OrderBy(p => p.Product.StoreQuantity).ToList();
+                    data = data.OrderBy(p => p.Product.StoreQuantity).ToList();
                 else
-                    data = db.StoreImportDetails.OrderByDescending(p => p.Product.StoreQuantity).ToList();
+                    data = data.OrderByDescending(p => p.Product.StoreQuantity).ToList();
             }
             var sortedList = data.Select(p => new { p.StoreImport.ImportDate, p.ImportQuantity, p.Product.StoreQuantity }).ToList();
             return sortedList;

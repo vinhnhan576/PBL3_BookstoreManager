@@ -44,14 +44,22 @@ namespace PBL3.View.AdminChildForms
         }
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (dgvRank.SelectedRows.Count == 1)
+            try
             {
-                IDtxt.Text = dgvRank.SelectedRows[0].Cells["RankID"].Value.ToString();
-                Nametxt.Text = dgvRank.SelectedRows[0].Cells["RankName"].Value.ToString();
-                Requirementtxt.Text = dgvRank.SelectedRows[0].Cells["Requirement"].Value.ToString();
-                applytxt.Text = dgvRank.SelectedRows[0].Cells[3].Value.ToString();
-                Savebutton.Visible = true;
-                ClearButton.Visible = true;
+                if (dgvRank.SelectedRows.Count == 1)
+                {
+                    IDtxt.Text = dgvRank.SelectedRows[0].Cells["RankID"].Value.ToString();
+                    Nametxt.Text = dgvRank.SelectedRows[0].Cells["RankName"].Value.ToString();
+                    Requirementtxt.Text = dgvRank.SelectedRows[0].Cells["Requirement"].Value.ToString();
+                    applytxt.Text = dgvRank.SelectedRows[0].Cells[3].Value.ToString();
+                    Savebutton.Visible = true;
+                    ClearButton.Visible = true;
+                }
+                else throw new Exception();
+            }
+            catch (Exception)
+            {
+                CustomMessageBox.MessageBox.Show("Please choose only 1 rank to edit", "Error", MessageBoxIcon.Error);
             }
         }
 

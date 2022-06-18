@@ -26,7 +26,7 @@ namespace PBL3.BLL
             {
                 if (total >= i.Requirement)
                 {
-                    rank = i.RankID;                
+                    rank = i.RankID.Trim();                
                 }
             }
             return rank;

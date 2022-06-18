@@ -54,6 +54,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
@@ -65,6 +66,7 @@
             // 
             // Cancel
             // 
+            this.Cancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Cancel.BorderRadius = 9;
             this.Cancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Cancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -82,6 +84,7 @@
             // 
             // SaveButton
             // 
+            this.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.SaveButton.BorderRadius = 9;
             this.SaveButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.SaveButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -99,6 +102,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
@@ -110,6 +114,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
@@ -121,6 +126,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
@@ -132,6 +138,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
@@ -143,6 +150,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
@@ -154,6 +162,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
@@ -165,6 +174,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
@@ -176,6 +186,7 @@
             // 
             // cbbCatogory
             // 
+            this.cbbCatogory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbCatogory.BackColor = System.Drawing.Color.Transparent;
             this.cbbCatogory.BorderRadius = 8;
             this.cbbCatogory.BorderThickness = 0;
@@ -194,6 +205,7 @@
             // 
             // cbbPublisher
             // 
+            this.cbbPublisher.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbbPublisher.BackColor = System.Drawing.Color.Transparent;
             this.cbbPublisher.BorderRadius = 8;
             this.cbbPublisher.BorderThickness = 0;
@@ -212,6 +224,7 @@
             // 
             // btnAddCategory
             // 
+            this.btnAddCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddCategory.BorderRadius = 6;
             this.btnAddCategory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddCategory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -230,6 +243,7 @@
             // 
             // tbPublishYear
             // 
+            this.tbPublishYear.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbPublishYear.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.tbPublishYear.BorderRadius = 8;
             this.tbPublishYear.BorderThickness = 0;
@@ -259,6 +273,7 @@
             // 
             // tbImportPrice
             // 
+            this.tbImportPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbImportPrice.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.tbImportPrice.BorderRadius = 8;
             this.tbImportPrice.BorderThickness = 0;
@@ -288,6 +303,7 @@
             // 
             // tbAuthor
             // 
+            this.tbAuthor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbAuthor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.tbAuthor.BorderRadius = 8;
             this.tbAuthor.BorderThickness = 0;
@@ -317,6 +333,7 @@
             // 
             // tbQuantity
             // 
+            this.tbQuantity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbQuantity.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.tbQuantity.BorderRadius = 8;
             this.tbQuantity.BorderThickness = 0;
@@ -346,6 +363,7 @@
             // 
             // tbName
             // 
+            this.tbName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.tbName.BorderRadius = 8;
             this.tbName.BorderThickness = 0;
@@ -375,6 +393,7 @@
             // 
             // tbCategory
             // 
+            this.tbCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbCategory.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.tbCategory.BorderRadius = 8;
             this.tbCategory.BorderThickness = 0;
@@ -403,6 +422,7 @@
             // 
             // btnAddPublisher
             // 
+            this.btnAddPublisher.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddPublisher.BorderRadius = 6;
             this.btnAddPublisher.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddPublisher.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -421,6 +441,7 @@
             // 
             // tbPublisher
             // 
+            this.tbPublisher.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbPublisher.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.tbPublisher.BorderRadius = 8;
             this.tbPublisher.BorderThickness = 0;

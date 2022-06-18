@@ -25,6 +25,10 @@ namespace PBL3.BLL
             {
             }
         }
+        public string GetRandomReceiptID()
+        {
+            return "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
+        }
         public void AddNewReceipt(Receipt r)
         {
 
@@ -65,29 +69,10 @@ namespace PBL3.BLL
             return receipt;
         }
 
-        public List<ReceiptDetailView> CreateReceiptDetailView(List<ReceiptDetailView> list, string productid, int quantity)
+        public void CreateReceiptDetailView(Order order, Product p, int quantity)
         {
-            int check = ReceiptDetailView_Check(list, productid);
-            if (check != -1)
-            {
-                list[check].Quantity += quantity;
-                list[check].Total = list[check].Quantity * list[check].SellingPrice;
-                return list;
-            }
-            else
-            {
-                ReceiptDetailView temp = new ReceiptDetailView();
-                var Product = QLNS.Instance.Products.Find(productid);
-                temp.ReceiptDetailID = (QLNS.Instance.ReceiptDetails.Count()+list.Count()).ToString();
-                temp.ProductID = productid;
-                temp.ProductName = Product.ProductName;
-                temp.SellingPrice = Product.SellingPrice;
-                temp.Quantity = quantity;
-                temp.Total = temp.SellingPrice * quantity;
-                temp.SetDiscount(Product.Discount);
-                list.Add(temp);
-                return list;
-            }
+            string receiptid ="r"+Convert.ToString(QLNS.Instance.ReceiptDetails.Count() + 1)+Convert.ToString(order.Rdv_List.Count());
+            order.CreateReceiptDetailView(p, quantity, receiptid);
         }
         public void AddNewReceiptDetail(List<ReceiptDetailView> list, string receipt_id)
         {
@@ -102,6 +87,19 @@ namespace PBL3.BLL
                 AddNewReceiptDetail(r);
             }
         }
+        public void AddNewReceiptDetail(Order order, string receipt_id)
+        {
+            for (int i = 0; i < order.Rdv_List.Count; i++)
+            {
+                ReceiptDetail r = new ReceiptDetail();
+                r.ReceiptDetailID = order.Rdv_List[i].ReceiptDetailID;
+                r.ProductID = order.Rdv_List[i].ProductID;
+                r.SellingQuantity = order.Rdv_List[i].Quantity;
+                r.Total = order.Rdv_List[i].Total;
+                r.ReceiptID = receipt_id;
+                AddNewReceiptDetail(r);
+            }
+        }
         public List<ReceiptDetail> getReceiptDetailByReceiptID(string ID_Receipt)
         {
 
@@ -110,27 +108,20 @@ namespace PBL3.BLL
             else
                 return QLNS.Instance.ReceiptDetails.Where(p => p.ReceiptID == ID_Receipt).ToList();
         }
-        public double CalculateReceiptToTal(List<ReceiptDetailView> list)
+        public double CalculateReceiptToTal(Order order)
         {
-            double total = 0;
-            for (int i = 0; i < list.Count; i++)
-            {
-                total += list[i].Total;
-            }
-            total = total - BLLDiscountManagement.Instance.GetTotalDiscount_ComboDiscount(list);
-            return total;
+            SingleDiscount d = new SingleDiscount();
+            order.SetDiscountStrategy(d);
+            order.CalculateReceiptToTal();
+            ComboDiscount combo = new ComboDiscount();
+            order.SetDiscountStrategy(combo);
+            return order.CalculateReceiptToTal();
         }
-        public int ReceiptDetailView_Check(List<ReceiptDetailView> list, string product_id)
+        public double getPromotedDiscount(Order order)
         {
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i].ProductID == product_id)
-                {
-                    return i;
-                }
-
-            }
-            return -1;
+            ComboDiscount combo = new ComboDiscount();
+            order.SetDiscountStrategy(combo);
+            return order.getPromotedDiscount();
         }
 
         public dynamic GetAllBill_View()
@@ -217,7 +208,5 @@ namespace PBL3.BLL
                 QLNS.Instance.SaveChanges();
             }
         }
-
-
     }
 }

@@ -20,7 +20,6 @@ namespace PBL3
 
         static void Main()
         {
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             BLLCustomerManagement.Instance.Refresh();

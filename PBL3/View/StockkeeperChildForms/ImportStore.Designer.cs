@@ -58,11 +58,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvImport = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label11 = new System.Windows.Forms.Label();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImport)).BeginInit();
+            this.guna2Panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbbFilterValue
@@ -115,6 +117,7 @@
             // 
             // butDelete
             // 
+            this.butDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.butDelete.BorderRadius = 9;
             this.butDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.butDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -123,7 +126,7 @@
             this.butDelete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.butDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butDelete.ForeColor = System.Drawing.Color.White;
-            this.butDelete.Location = new System.Drawing.Point(159, 433);
+            this.butDelete.Location = new System.Drawing.Point(150, 430);
             this.butDelete.Name = "butDelete";
             this.butDelete.Size = new System.Drawing.Size(111, 32);
             this.butDelete.TabIndex = 37;
@@ -132,6 +135,7 @@
             // 
             // butClear
             // 
+            this.butClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.butClear.BorderRadius = 9;
             this.butClear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.butClear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -140,7 +144,7 @@
             this.butClear.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.butClear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butClear.ForeColor = System.Drawing.Color.White;
-            this.butClear.Location = new System.Drawing.Point(18, 433);
+            this.butClear.Location = new System.Drawing.Point(17, 430);
             this.butClear.Name = "butClear";
             this.butClear.Size = new System.Drawing.Size(111, 32);
             this.butClear.TabIndex = 34;
@@ -157,9 +161,9 @@
             this.butAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.butAdd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butAdd.ForeColor = System.Drawing.Color.White;
-            this.butAdd.Location = new System.Drawing.Point(80, 375);
+            this.butAdd.Location = new System.Drawing.Point(78, 388);
             this.butAdd.Name = "butAdd";
-            this.butAdd.Size = new System.Drawing.Size(95, 38);
+            this.butAdd.Size = new System.Drawing.Size(111, 32);
             this.butAdd.TabIndex = 22;
             this.butAdd.Text = "Add";
             this.butAdd.Click += new System.EventHandler(this.butAdd_Click);
@@ -182,7 +186,7 @@
             this.tbQuantity.IconLeftSize = new System.Drawing.Size(0, 0);
             this.tbQuantity.IconRightOffset = new System.Drawing.Point(10, 0);
             this.tbQuantity.IconRightSize = new System.Drawing.Size(23, 23);
-            this.tbQuantity.Location = new System.Drawing.Point(127, 323);
+            this.tbQuantity.Location = new System.Drawing.Point(119, 354);
             this.tbQuantity.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.PasswordChar = '\0';
@@ -216,7 +220,6 @@
             // 
             // guna2Panel4
             // 
-            this.guna2Panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2Panel4.BorderRadius = 10;
             this.guna2Panel4.BorderThickness = 3;
@@ -228,10 +231,11 @@
             this.guna2Panel4.Controls.Add(this.tbSearch);
             this.guna2Panel4.Controls.Add(this.butAdd);
             this.guna2Panel4.Controls.Add(this.tbQuantity);
-            this.guna2Panel4.Location = new System.Drawing.Point(464, 22);
+            this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel4.Location = new System.Drawing.Point(15, 15);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(264, 440);
+            this.guna2Panel4.Size = new System.Drawing.Size(265, 441);
             this.guna2Panel4.TabIndex = 33;
             // 
             // dgvProducts
@@ -263,7 +267,7 @@
             this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProducts.EnableHeadersVisualStyles = false;
             this.dgvProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvProducts.Location = new System.Drawing.Point(18, 117);
+            this.dgvProducts.Location = new System.Drawing.Point(18, 120);
             this.dgvProducts.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
@@ -272,7 +276,7 @@
             this.dgvProducts.RowTemplate.Height = 28;
             this.dgvProducts.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProducts.Size = new System.Drawing.Size(229, 187);
+            this.dgvProducts.Size = new System.Drawing.Size(229, 221);
             this.dgvProducts.TabIndex = 49;
             this.dgvProducts.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvProducts.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -301,7 +305,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label5.Location = new System.Drawing.Point(34, 326);
+            this.label5.Location = new System.Drawing.Point(38, 355);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 19);
@@ -322,7 +326,6 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 3;
@@ -568,12 +571,22 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label11.Location = new System.Drawing.Point(487, 14);
+            this.label11.Location = new System.Drawing.Point(487, 8);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(79, 19);
             this.label11.TabIndex = 39;
             this.label11.Text = "Products";
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.Controls.Add(this.guna2Panel4);
+            this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2Panel5.Location = new System.Drawing.Point(449, 0);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Padding = new System.Windows.Forms.Padding(15);
+            this.guna2Panel5.Size = new System.Drawing.Size(295, 471);
+            this.guna2Panel5.TabIndex = 52;
             // 
             // ImportStore
             // 
@@ -586,8 +599,8 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.butDelete);
             this.Controls.Add(this.butClear);
-            this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.guna2Panel5);
             this.Name = "ImportStore";
             this.Text = "NewStockItem";
             this.guna2Panel4.ResumeLayout(false);
@@ -598,6 +611,7 @@
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImport)).EndInit();
+            this.guna2Panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -628,5 +642,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvProducts;
         private Guna.UI2.WinForms.Guna2DataGridView dgvImport;
         private System.Windows.Forms.Label label11;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
     }
 }
