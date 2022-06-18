@@ -25,9 +25,15 @@ namespace PBL3.View.AdminChildForms
         {
             if (e.KeyChar == (char)13)
             {
-                Receiptdgv.DataSource = BLLReceiptManagement.Instance.SearchReceipt(Searchtxt.Text);
+                if(Searchtxt.Text == "")
+                {
+                    Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+                }
+                else
+                {
+                    Receiptdgv.DataSource = BLLReceiptManagement.Instance.SearchReceipt(Searchtxt.Text);
+                }
             }
-
         }
 
         private void Receiptdgv_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -99,7 +99,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
         }
         private void Removebtn_Click(object sender, EventArgs e)
         {
-            List<string> del = new List<string>();
+            List<Product> del = new List<Product>();
             if (dgvProduct.SelectedRows.Count > 0)
             {
                 foreach (DataGridViewRow i in dgvProduct.SelectedRows)
@@ -107,7 +107,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
                     if (i.Cells["DiscountID"].Value != null)
                     {
                         if (i.Cells["DiscountID"].Value.ToString() == this.discount.DiscountID)
-                            del.Add(i.Cells[0].Value.ToString());
+                            del.Add(QLNS.Instance.Products.Find(i.Cells[0].Value.ToString()));
                     }
                 }
                 BLLDiscountManagement.Instance.RemoveDiscountIDInProducts(del);

@@ -69,7 +69,7 @@
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(11, -2);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(48, 21);
             this.guna2HtmlLabel4.TabIndex = 1;
@@ -200,7 +200,7 @@
             this.guna2Panel1.Controls.Add(this.tbTotal);
             this.guna2Panel1.Controls.Add(this.tbID);
             this.guna2Panel1.Location = new System.Drawing.Point(21, 79);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(733, 160);
             this.guna2Panel1.TabIndex = 15;
@@ -259,7 +259,7 @@
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(319, 8);
-            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(68, 21);
             this.guna2HtmlLabel8.TabIndex = 67;
@@ -311,7 +311,7 @@
             this.dgvProduct.EnableHeadersVisualStyles = false;
             this.dgvProduct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvProduct.Location = new System.Drawing.Point(319, 32);
-            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.ReadOnly = true;
             this.dgvProduct.RowHeadersVisible = false;
@@ -369,7 +369,7 @@
             "Ascending",
             "Descending"});
             this.cbbSortOrder.Location = new System.Drawing.Point(368, 32);
-            this.cbbSortOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbSortOrder.Margin = new System.Windows.Forms.Padding(2);
             this.cbbSortOrder.Name = "cbbSortOrder";
             this.cbbSortOrder.Size = new System.Drawing.Size(121, 29);
             this.cbbSortOrder.TabIndex = 59;
@@ -432,7 +432,7 @@
             this.dgvStock.EnableHeadersVisualStyles = false;
             this.dgvStock.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvStock.Location = new System.Drawing.Point(21, 254);
-            this.dgvStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvStock.Margin = new System.Windows.Forms.Padding(2);
             this.dgvStock.Name = "dgvStock";
             this.dgvStock.ReadOnly = true;
             this.dgvStock.RowHeadersVisible = false;
@@ -494,7 +494,6 @@
             this.tbYear.SelectedText = "";
             this.tbYear.Size = new System.Drawing.Size(107, 29);
             this.tbYear.TabIndex = 62;
-            this.tbYear.IconLeftClick += new System.EventHandler(this.tbYear_IconLeftClick);
             this.tbYear.IconRightClick += new System.EventHandler(this.tbYear_IconRightClick);
             // 
             // tbMonth
@@ -611,7 +610,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.tbSearch);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StockForm";
             this.Text = "Stock";
             this.guna2Panel1.ResumeLayout(false);

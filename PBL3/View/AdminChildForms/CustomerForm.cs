@@ -81,7 +81,14 @@ namespace PBL3.View.AdminChildForms
         {
             if (e.KeyChar == (char)13)
             {
-                dgvCustomer.DataSource = BLLCustomerManagement.Instance.SearchCustomer(Searchtxt.Text);
+                if (string.IsNullOrWhiteSpace(Searchtxt.Text))
+                {
+                    dgvCustomer.DataSource = BLLCustomerManagement.Instance.SearchCustomer(Searchtxt.Text);
+                }
+                else
+                {
+                    dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
+                }
             }
         }
 
@@ -91,6 +98,18 @@ namespace PBL3.View.AdminChildForms
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
             dgvCustomer.DataSource = BLLCustomerManagement.Instance.SortCustomer(sortCategory, sortOrder);
+        }
+
+        private void Searchtxt_IconRightClick(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(Searchtxt.Text))
+            {
+                dgvCustomer.DataSource = BLLCustomerManagement.Instance.SearchCustomer(Searchtxt.Text);
+            }
+            else
+            {
+                dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
+            }
         }
     }
 }

@@ -38,9 +38,13 @@ namespace PBL3.View.AdminChildForms.ProductForms
 
         private void tbSearch_IconLeftClick(object sender, EventArgs e)
         {
-            if(tbSearch.Text != "")
+            if (string.IsNullOrWhiteSpace(tbSearch.Text))
             {
                 dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct(tbSearch.Text);
+            }
+            else
+            {
+                dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
             }
         }
 
@@ -93,5 +97,19 @@ namespace PBL3.View.AdminChildForms.ProductForms
             dgvProduct.DataSource = BLLProductManagement.Instance.FilterProduct(cbbFilterValue.SelectedItem.ToString());
         }
 
+        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                if (string.IsNullOrWhiteSpace(tbSearch.Text))
+                {
+                    dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct(tbSearch.Text);
+                }
+                else
+                {
+                    dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
+                }
+            }
+        }
     }
 }
