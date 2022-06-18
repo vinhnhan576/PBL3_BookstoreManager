@@ -618,6 +618,7 @@
             this.Searchtxt.SelectedText = "";
             this.Searchtxt.Size = new System.Drawing.Size(312, 29);
             this.Searchtxt.TabIndex = 3;
+            this.Searchtxt.IconRightClick += new System.EventHandler(this.Searchtxt_IconRightClick);
             this.Searchtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Searchtxt_KeyPress);
             // 
             // BillForm

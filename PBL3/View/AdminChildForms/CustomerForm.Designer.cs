@@ -141,7 +141,6 @@
             this.cbbSortCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbSortCategory.ItemHeight = 23;
             this.cbbSortCategory.Items.AddRange(new object[] {
-            "Customer ID",
             "Customer Name",
             "TotalSpending"});
             this.cbbSortCategory.Location = new System.Drawing.Point(268, 30);

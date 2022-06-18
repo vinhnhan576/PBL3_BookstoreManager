@@ -77,6 +77,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
         {
             dgvDiscount.DataSource = BLLDiscountManagement.Instance.FilterDiscount(cbbFilterValue.SelectedItem.ToString());
         }
+
         private void ApplyButton_Click(object sender, EventArgs e)
         {
             try
@@ -121,8 +122,8 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             {
                 View.CustomMessageBox.MessageBox.Show("Enter missing information \n or information is not in the right format ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
         }
+
         private void ShowButton_Click(object sender, EventArgs e)
         {
             AppliedProductsForm form = new AppliedProductsForm(IDtxt.Text);
@@ -175,6 +176,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
                 View.CustomMessageBox.MessageBox.Show("Enter missing information \n or information is not in the right format ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
         private void Typecbb_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Typecbb.SelectedIndex == 0)
@@ -246,29 +248,36 @@ namespace PBL3.View.AdminChildForms.DiscountForms
         }
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (dgvDiscount.SelectedRows.Count == 1)
+            try
             {
-                IDtxt.Text = dgvDiscount.SelectedRows[0].Cells["DiscountID"].Value.ToString();
-                Nametxt.Text = dgvDiscount.SelectedRows[0].Cells["DiscountName"].Value.ToString();
-                Nametxt.Enabled = true;
-                AmountApplytxt.Text = dgvDiscount.SelectedRows[0].Cells["AmmountApply"].Value.ToString();
-                AmountApplytxt.Enabled=false;
-                DiscountApplytxt.Text = dgvDiscount.SelectedRows[0].Cells["DiscountApply"].Value.ToString();
-                dgvFrom.Value = Convert.ToDateTime(dgvDiscount.SelectedRows[0].Cells["StartingDate"].Value);
-                dgvTo.Value = Convert.ToDateTime(dgvDiscount.SelectedRows[0].Cells["ExpirationDate"].Value);
-                if (dgvDiscount.SelectedRows[0].Cells["DiscountType"].Value.ToString() == "Combo")
+                if (dgvDiscount.SelectedRows.Count == 1)
                 {
-                    Typecbb.SelectedIndex = 1;
-                }
-                else
-                {
+                    IDtxt.Text = dgvDiscount.SelectedRows[0].Cells["DiscountID"].Value.ToString();
+                    Nametxt.Text = dgvDiscount.SelectedRows[0].Cells["DiscountName"].Value.ToString();
+                    Nametxt.Enabled = true;
+                    AmountApplytxt.Text = dgvDiscount.SelectedRows[0].Cells["AmmountApply"].Value.ToString();
                     AmountApplytxt.Enabled = false;
-                    Typecbb.SelectedIndex = 0;
+                    DiscountApplytxt.Text = dgvDiscount.SelectedRows[0].Cells["DiscountApply"].Value.ToString();
+                    dgvFrom.Value = Convert.ToDateTime(dgvDiscount.SelectedRows[0].Cells["StartingDate"].Value);
+                    dgvTo.Value = Convert.ToDateTime(dgvDiscount.SelectedRows[0].Cells["ExpirationDate"].Value);
+                    if (dgvDiscount.SelectedRows[0].Cells["DiscountType"].Value.ToString() == "Combo")
+                    {
+                        Typecbb.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        AmountApplytxt.Enabled = false;
+                        Typecbb.SelectedIndex = 0;
+                    }
+                    Savebutton.Visible = true;
+                    ClearButton.Visible = true;
                 }
-                Savebutton.Visible = true;
-                ClearButton.Visible = true;
+                else throw new Exception("Please choose only 1 discount to edit");
             }
-
+            catch (Exception ex)
+            {
+                CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxIcon.Error);
+            }
         }
 
         private void Addbutton_Click(object sender, EventArgs e)
@@ -290,7 +299,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             //    Typecbb.SelectedIndex = 0;
             //}
             Savebutton.Visible = true;
-           ClearButton.Visible = true;
+            ClearButton.Visible = true;
         }
          private void tb_TextChanged(object sender, EventArgs e)
         {
@@ -330,9 +339,9 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             }
         }
 
-        private void DiscountForm_Load(object sender, EventArgs e)
-        {
-            startTimer(sender, e);
-        }
+        //private void DiscountForm_Load(object sender, EventArgs e)
+        //{
+        //    startTimer(sender, e);
+        //}
     }
 }

@@ -55,8 +55,7 @@ namespace PBL3.View.AdminChildForms
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
-            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to delete this account?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to delete this account(s)?", "Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 List<string> del = new List<string>();
@@ -119,9 +118,7 @@ namespace PBL3.View.AdminChildForms
                 cbbRole.Enabled = true;
                 tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             }
-
         }
-
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -184,43 +181,54 @@ namespace PBL3.View.AdminChildForms
             if (tbSearch != null)
             {
                 dgvAccount.DataSource = BLLAccountManagement.Instance.SearchAccount(tbSearch.Text);
-
+            }
+            else
+            {
+                Reload();
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvAccount.SelectedRows.Count == 1)
+            try 
             {
-                string ID = dgvAccount.SelectedRows[0].Cells[0].Value.ToString();
-                Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
-                tbID.Text = ac.PersonID;
-                tbID.Enabled = false;
-                tbUsername.Text = ac.Username;
-                tbUsername.Enabled = true;
-                tbPassword.Text = ac.Password;
-                tbPassword.Enabled = true;
-                if (ac.Person.Gender == true)
+                if (dgvAccount.SelectedRows.Count == 1)
                 {
-                    rbMale.Checked = true;
+                    string ID = dgvAccount.SelectedRows[0].Cells[0].Value.ToString();
+                    Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
+                    tbID.Text = ac.PersonID;
+                    tbID.Enabled = false;
+                    tbUsername.Text = ac.Username;
+                    tbUsername.Enabled = true;
+                    tbPassword.Text = ac.Password;
+                    tbPassword.Enabled = true;
+                    if (ac.Person.Gender == true)
+                    {
+                        rbMale.Checked = true;
+                    }
+                    else
+                    {
+                        rbFemale.Checked = true;
+                    }
+                    tbName.Text = ac.Person.PersonName;
+                    tbName.Enabled = false;
+                    tbTel.Text = ac.Person.PhoneNumber;
+                    tbTel.Enabled = false;
+                    tbAddress.Text = ac.Person.Address;
+                    tbAddress.Enabled = false;
+                    cbbRole.SelectedItem = ac.Person.Role;
+                    cbbRole.Enabled = false;
+                    btnSave.Visible = true;
+                    btnClear.Visible = true;
                 }
-                else
-                {
-                    rbFemale.Checked = true;
-                }
-                tbName.Text = ac.Person.PersonName;
-                tbName.Enabled = false;
-                tbTel.Text = ac.Person.PhoneNumber;
-                tbTel.Enabled = false;
-                tbAddress.Text = ac.Person.Address;
-                tbAddress.Enabled = false;
-                cbbRole.SelectedItem = ac.Person.Role;
-                cbbRole.Enabled = false;
-                btnSave.Visible = true;
-                btnClear.Visible = true;
-                tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
+                else throw new Exception("Please choose only 1 account to edit");
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxIcon.Error);
             }
         }
+
         public string SetID(string role)
         {
             if (role == "Admin") tbID.Text = "ad" + tbID.Text;
@@ -228,6 +236,7 @@ namespace PBL3.View.AdminChildForms
             if(role == "Salesman") tbID.Text = "sm" + tbID.Text;
             return tbID.Text;
         }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             try

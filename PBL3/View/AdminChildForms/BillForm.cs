@@ -21,21 +21,7 @@ namespace PBL3.View.AdminChildForms
 
         }
 
-        private void Searchtxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                if(Searchtxt.Text == "")
-                {
-                    Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
-                }
-                else
-                {
-                    Receiptdgv.DataSource = BLLReceiptManagement.Instance.SearchReceipt(Searchtxt.Text);
-                }
-            }
-        }
-
+        //View receipt info
         private void Receiptdgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (Receiptdgv.SelectedRows.Count == 1)
@@ -48,9 +34,38 @@ namespace PBL3.View.AdminChildForms
             }
         }
 
+        //Search receipt
+        private void Searchtxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                if(Searchtxt.Text == null)
+                {
+                    Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+                }
+                else
+                {
+                    Receiptdgv.DataSource = BLLReceiptManagement.Instance.SearchReceipt(Searchtxt.Text);
+                }
+            }
+        }
+
+        private void Searchtxt_IconRightClick(object sender, EventArgs e)
+        {
+            if (Searchtxt.Text == null)
+            {
+                Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+            }
+            else
+            {
+                Receiptdgv.DataSource = BLLReceiptManagement.Instance.SearchReceipt(Searchtxt.Text);
+            }
+        }
+
+        //Fitler receipt
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbbFilterValue.Text = "";
+            cbbFilterValue.Text = null;
             cbbFilterValue.Items.Clear();
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
             if (filterCategory == "Status")
@@ -67,6 +82,7 @@ namespace PBL3.View.AdminChildForms
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.SearchReceipt(cbbFilterValue.SelectedItem.ToString());
         }
 
+        //Sort receipt
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             Searchtxt.Text = "";
@@ -74,5 +90,6 @@ namespace PBL3.View.AdminChildForms
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(sortCategory, sortOrder);
         }
+
     }
 }

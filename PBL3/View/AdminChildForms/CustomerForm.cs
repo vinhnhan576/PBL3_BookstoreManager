@@ -29,6 +29,7 @@ namespace PBL3.View.AdminChildForms
             dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
         }
 
+        //Show customer info
         private void dgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvCustomer.SelectedRows.Count == 1)
@@ -49,17 +50,56 @@ namespace PBL3.View.AdminChildForms
             }
 
         }
+        
+        //Search customer
+        private void Searchtxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                if (string.IsNullOrWhiteSpace(Searchtxt.Text))
+                {
+                    dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
+                }
+                else
+                {
+                    dgvCustomer.DataSource = BLLCustomerManagement.Instance.SearchCustomer(Searchtxt.Text);
+                }
+            }
+        }
+
+        private void Searchtxt_IconRightClick(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(Searchtxt.Text))
+            {
+                dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
+            }
+            else
+            {
+                dgvCustomer.DataSource = BLLCustomerManagement.Instance.SearchCustomer(Searchtxt.Text);
+            }
+        }
+
+        //Sort customer
+        private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Searchtxt.Text = null;
+            cbbFilterValue.SelectedItem = null;
+            cbbFilterCategory.SelectedItem = null;
+            string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            dgvCustomer.DataSource = BLLCustomerManagement.Instance.SortCustomer(sortCategory, sortOrder);
+        }
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Searchtxt.Text = "";
+            Searchtxt.Text = null;
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
             dgvCustomer.DataSource = BLLCustomerManagement.Instance.SortCustomer(sortCategory, sortOrder);
         }
 
+        //Filter customer
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbbFilterValue.Text = "";
             cbbFilterValue.Items.Clear();
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
             if (filterCategory == "Rank")
@@ -69,47 +109,14 @@ namespace PBL3.View.AdminChildForms
                     cbbFilterValue.Items.Add(i);
                 }
             }
-
         }
 
         private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Searchtxt.Text = null;
+            cbbSortCategory.SelectedItem = 0;
+            cbbSortOrder.SelectedItem = 0;
             dgvCustomer.DataSource = BLLCustomerManagement.Instance.FilterCustomer(cbbFilterValue.SelectedItem.ToString());
-        }
-
-        private void Searchtxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                if (string.IsNullOrWhiteSpace(Searchtxt.Text))
-                {
-                    dgvCustomer.DataSource = BLLCustomerManagement.Instance.SearchCustomer(Searchtxt.Text);
-                }
-                else
-                {
-                    dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
-                }
-            }
-        }
-
-        private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Searchtxt.Text = "";
-            string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            dgvCustomer.DataSource = BLLCustomerManagement.Instance.SortCustomer(sortCategory, sortOrder);
-        }
-
-        private void Searchtxt_IconRightClick(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(Searchtxt.Text))
-            {
-                dgvCustomer.DataSource = BLLCustomerManagement.Instance.SearchCustomer(Searchtxt.Text);
-            }
-            else
-            {
-                dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
-            }
         }
     }
 }

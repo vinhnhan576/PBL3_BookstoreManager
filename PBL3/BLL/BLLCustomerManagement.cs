@@ -144,7 +144,6 @@ namespace PBL3.BLL
                 {
                     data.Add(i);
                 }
-
             }
             var List = data.Select(p => new { p.CustomerName, p.PhoneNumber, p.Rank.RankName, p.TotalSpending });
             return List.ToList();
