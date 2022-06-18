@@ -299,15 +299,15 @@ namespace PBL3.BLL
             }
             return data;
         }
-        public void RemoveDiscountIDInProducts(List<string> ids)
+        public void RemoveDiscountIDInProducts(List<Product> products)
         {
-            foreach (string id in ids)
+            foreach (Product p in products)
             {
-                Product p = QLNS.Instance.Products.Find(id);
-                p.DiscountID= null;
+                p.DiscountID = null;
             }
             QLNS.Instance.SaveChanges();
         }
+
         public void AddDiscount_ProductDiscountView(List<Product_Discount_View> list, Product_Discount_View p, string discountid)
         {
             int index = list.IndexOf(p);
@@ -319,13 +319,14 @@ namespace PBL3.BLL
                 }
             }
         }
-        public void RemoveDiscount_ProductDiscountView(List<Product_Discount_View> list, List<string> productids)
+
+        public void RemoveDiscount_ProductDiscountView(List<Product_Discount_View> list, List<Product> products)
         {
-            foreach (string id in productids)
+            foreach (Product p in products)
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    if (list[i].ProductID == id)
+                    if (list[i].ProductID == p.ProductID)
                     {
                             list[i].DiscountID = null;
                     }
@@ -333,5 +334,27 @@ namespace PBL3.BLL
             }
         }
 
+        public List<Discount> GetExpiredDiscounts()
+        {
+            List<Discount> expiredDiscounts = new List<Discount>();
+            foreach(Discount i in GetAllDiscount())
+            {
+                if(i.ExpirationDate == DateTime.Now)
+                {
+                    expiredDiscounts.Add(i);
+                }
+            }
+            return expiredDiscounts;
+        }
+
+        public void RenewDiscounts(List<Discount> discounts)
+        {
+            foreach (Discount i in discounts)
+            {
+                RemoveDiscountIDInProducts(i.Products.ToList());
+                i.StartingDate = default;
+                i.ExpirationDate = default;
+            }
+        }
     }
 }

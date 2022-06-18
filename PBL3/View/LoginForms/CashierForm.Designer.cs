@@ -38,9 +38,8 @@ namespace PBL3.View
             this.btnSettings = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnRight = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
             this.btnNewOrder = new Guna.UI2.WinForms.Guna2Button();
-            this.btnManageOrder = new Guna.UI2.WinForms.Guna2Button();
+            this.btnViewOrder = new Guna.UI2.WinForms.Guna2Button();
             this.pnLeft = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -147,27 +146,6 @@ namespace PBL3.View
             this.pnRight.Size = new System.Drawing.Size(744, 471);
             this.pnRight.TabIndex = 2;
             // 
-            // btnOverview
-            // 
-            this.btnOverview.BackColor = System.Drawing.Color.Transparent;
-            this.btnOverview.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnOverview.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnOverview.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnOverview.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOverview.FillColor = System.Drawing.Color.Transparent;
-            this.btnOverview.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOverview.ForeColor = System.Drawing.Color.White;
-            this.btnOverview.Image = global::PBL3.Properties.Resources.overview;
-            this.btnOverview.ImageOffset = new System.Drawing.Point(-3, 0);
-            this.btnOverview.Location = new System.Drawing.Point(15, 20);
-            this.btnOverview.Name = "btnOverview";
-            this.btnOverview.PressedColor = System.Drawing.Color.White;
-            this.btnOverview.PressedDepth = 20;
-            this.btnOverview.Size = new System.Drawing.Size(140, 32);
-            this.btnOverview.TabIndex = 0;
-            this.btnOverview.Text = "Overview";
-            this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
-            // 
             // btnNewOrder
             // 
             this.btnNewOrder.BackColor = System.Drawing.Color.Transparent;
@@ -180,7 +158,7 @@ namespace PBL3.View
             this.btnNewOrder.ForeColor = System.Drawing.Color.White;
             this.btnNewOrder.Image = global::PBL3.Properties.Resources.newOrder;
             this.btnNewOrder.ImageOffset = new System.Drawing.Point(-3, 0);
-            this.btnNewOrder.Location = new System.Drawing.Point(15, 64);
+            this.btnNewOrder.Location = new System.Drawing.Point(15, 18);
             this.btnNewOrder.Name = "btnNewOrder";
             this.btnNewOrder.PressedColor = System.Drawing.Color.White;
             this.btnNewOrder.PressedDepth = 20;
@@ -189,34 +167,33 @@ namespace PBL3.View
             this.btnNewOrder.Text = "New Order";
             this.btnNewOrder.Click += new System.EventHandler(this.btnNewOrder_Click);
             // 
-            // btnManageOrder
+            // btnViewOrder
             // 
-            this.btnManageOrder.BackColor = System.Drawing.Color.Transparent;
-            this.btnManageOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnManageOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnManageOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnManageOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnManageOrder.FillColor = System.Drawing.Color.Transparent;
-            this.btnManageOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageOrder.ForeColor = System.Drawing.Color.White;
-            this.btnManageOrder.Image = global::PBL3.Properties.Resources.manageOrder;
-            this.btnManageOrder.ImageOffset = new System.Drawing.Point(-3, 0);
-            this.btnManageOrder.Location = new System.Drawing.Point(15, 110);
-            this.btnManageOrder.Name = "btnManageOrder";
-            this.btnManageOrder.PressedColor = System.Drawing.Color.White;
-            this.btnManageOrder.PressedDepth = 20;
-            this.btnManageOrder.Size = new System.Drawing.Size(140, 32);
-            this.btnManageOrder.TabIndex = 2;
-            this.btnManageOrder.Text = "View Orders";
-            this.btnManageOrder.Click += new System.EventHandler(this.btnViewOrders_Click);
+            this.btnViewOrder.BackColor = System.Drawing.Color.Transparent;
+            this.btnViewOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnViewOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnViewOrder.FillColor = System.Drawing.Color.Transparent;
+            this.btnViewOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewOrder.ForeColor = System.Drawing.Color.White;
+            this.btnViewOrder.Image = global::PBL3.Properties.Resources.manageOrder;
+            this.btnViewOrder.ImageOffset = new System.Drawing.Point(-3, 0);
+            this.btnViewOrder.Location = new System.Drawing.Point(15, 64);
+            this.btnViewOrder.Name = "btnViewOrder";
+            this.btnViewOrder.PressedColor = System.Drawing.Color.White;
+            this.btnViewOrder.PressedDepth = 20;
+            this.btnViewOrder.Size = new System.Drawing.Size(140, 32);
+            this.btnViewOrder.TabIndex = 2;
+            this.btnViewOrder.Text = "View Orders";
+            this.btnViewOrder.Click += new System.EventHandler(this.btnViewOrders_Click);
             // 
             // pnLeft
             // 
             this.pnLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.pnLeft.BorderRadius = 25;
-            this.pnLeft.Controls.Add(this.btnManageOrder);
+            this.pnLeft.Controls.Add(this.btnViewOrder);
             this.pnLeft.Controls.Add(this.btnNewOrder);
-            this.pnLeft.Controls.Add(this.btnOverview);
             this.pnLeft.CustomizableEdges.BottomLeft = false;
             this.pnLeft.CustomizableEdges.BottomRight = false;
             this.pnLeft.CustomizableEdges.TopLeft = false;
@@ -260,9 +237,8 @@ namespace PBL3.View
         private Guna.UI2.WinForms.Guna2ImageButton btnLogout;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbDate;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbWelcome;
-        private Guna.UI2.WinForms.Guna2Button btnManageOrder;
+        private Guna.UI2.WinForms.Guna2Button btnViewOrder;
         private Guna.UI2.WinForms.Guna2Button btnNewOrder;
-        private Guna.UI2.WinForms.Guna2Button btnOverview;
         private Guna.UI2.WinForms.Guna2GradientPanel pnLeft;
     }
 }

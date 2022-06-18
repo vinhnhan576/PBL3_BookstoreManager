@@ -24,16 +24,20 @@ namespace PBL3.View.LoginForms
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            if(tbNewPassword.Text != tbConfirmPassword.Text)
+            try
             {
-                CustomMessageBox.MessageBox.Show("Wrong confirmation", "Error", MessageBoxIcon.Error);
+                if (tbNewPassword.Text != tbConfirmPassword.Text) throw new Exception("Wrong confirmation");
+                else
+                {
+                    BLL.BLLAccountManagement.Instance.ChangePassword(account.Username, tbNewPassword.Text);
+                    DialogResult result = CustomMessageBox.MessageBox.Show("Reset password successfully", "Congratulations", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    myDelegate();
+                    //this.Close();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                BLL.BLLAccountManagement.Instance.ChangePassword(account.Username, tbNewPassword.Text);
-                DialogResult result = CustomMessageBox.MessageBox.Show("Reset password successfully", "Congratulations", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                myDelegate();
-                //this.Close();
+                CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxIcon.Error);
             }
         }
     }
