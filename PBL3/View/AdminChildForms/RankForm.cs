@@ -22,6 +22,7 @@ namespace PBL3.View.AdminChildForms
             ClearButton.Visible = false;
         }
 
+        //Show rank info
         private void dgvRank_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvRank.SelectedRows.Count == 1)
@@ -32,6 +33,8 @@ namespace PBL3.View.AdminChildForms
                 applytxt.Text = dgvRank.SelectedRows[0].Cells[3].Value.ToString();
             }
         }        
+
+        //Add rank
         private void Addbutton_Click(object sender, EventArgs e)
         {
             string idtemp = (QLNS.Instance.Ranks.Count() + 1).ToString();
@@ -42,6 +45,8 @@ namespace PBL3.View.AdminChildForms
             Savebutton.Visible = true;
             ClearButton.Visible = true;
         }
+
+        //Edit rank
         private void EditButton_Click(object sender, EventArgs e)
         {
             try
@@ -63,46 +68,7 @@ namespace PBL3.View.AdminChildForms
             }
         }
 
-        private void Savebutton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Rank rank = new Rank();
-                rank.RankID = IDtxt.Text;
-                rank.RankName = Nametxt.Text;
-                rank.Requirement = Convert.ToDouble(Requirementtxt.Text);
-                rank.CustomerDiscount = Convert.ToDouble(applytxt.Text);
-                BLLRankManagement.Instance.Execute(rank);
-                dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
-                View.CustomMessageBox.MessageBox.Show("Rank is added successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch
-            {
-                View.CustomMessageBox.MessageBox.Show("Enter missing information \n or information is not in the right format ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void ClearButton_Click(object sender, EventArgs e)
-        {
-            Nametxt.Text = "";
-            Requirementtxt.Text = "";
-            applytxt.Text = "";
-        } 
-        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                dgvRank.DataSource = BLLRankManagement.Instance.SearchRank(tbSearch.Text);
-            }
-        }
-        private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tbSearch.Text = "";
-            string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            dgvRank.DataSource = BLLRankManagement.Instance.SortRank(sortCategory, sortOrder);
-        }
-
+        //Delete rank(s)
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             List<string> del = new List<string>();
@@ -117,6 +83,73 @@ namespace PBL3.View.AdminChildForms
                 dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
             }
         }
+
+        //Save rank addition/update
+        private void Savebutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Rank rank = new Rank();
+                rank.RankID = IDtxt.Text;
+                rank.RankName = Nametxt.Text;
+                rank.Requirement = Convert.ToDouble(Requirementtxt.Text);
+                rank.CustomerDiscount = Convert.ToDouble(applytxt.Text);
+                BLLRankManagement.Instance.Execute(rank);
+                dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
+                CustomMessageBox.MessageBox.Show("Rank is added successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                CustomMessageBox.MessageBox.Show("Enter missing information \n or information is not in the right format ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        //Clear textboxes
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            Nametxt.Text = "";
+            Requirementtxt.Text = "";
+            applytxt.Text = "";
+        } 
+
+        //Search rank
+        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                if (string.IsNullOrWhiteSpace(tbSearch.Text))
+                {
+                    dgvRank.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+                }
+                else
+                {
+                    dgvRank.DataSource = BLLReceiptManagement.Instance.SearchReceipt(tbSearch.Text);
+                }
+            }
+        }
+
+        private void tbSearch_IconRightClick(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                dgvRank.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+            }
+            else
+            {
+                dgvRank.DataSource = BLLReceiptManagement.Instance.SearchReceipt(tbSearch.Text);
+            }
+        }
+
+        //Sort rank
+        private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbSearch.Text = "";
+            string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            dgvRank.DataSource = BLLRankManagement.Instance.SortRank(sortCategory, sortOrder);
+        }
+
+        //
         private void tb_TextChanged(object sender, EventArgs e)
         {
             if (Nametxt.Text == "" || DataCheck.IsString(Nametxt.Text) != true) Nametxt.IconRightSize = new System.Drawing.Size(7, 7);
