@@ -28,6 +28,11 @@ namespace PBL3.View.AdminChildForms
             cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
         }
 
+        /// <summary>
+        /// SEARCH SORT FILTER
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         //Sort revenue
         private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -35,7 +40,6 @@ namespace PBL3.View.AdminChildForms
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
             dgvRevenue.DataSource = BLLRevenueManagement.Instance.SortRevenue(sortCategory, sortOrder);
         }
-
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
