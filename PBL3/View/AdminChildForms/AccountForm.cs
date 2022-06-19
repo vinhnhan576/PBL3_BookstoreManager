@@ -66,23 +66,28 @@ namespace PBL3.View.AdminChildForms
                 btnSave.Visible = false;
                 btnClear.Visible = false;
                 tbID.Enabled = true;
-                tbUsername.Enabled = true;
-                tbPassword.Enabled = true;
-                tbName.Enabled = true;
-                tbTel.Enabled = true;
-                tbAddress.Enabled = true;
+                tbID.ReadOnly = true;
+                tbUsername.ReadOnly = true;
+                tbPassword.ReadOnly = true;
+                tbName.ReadOnly = true;
+                tbTel.ReadOnly = true;
+                tbAddress.ReadOnly = true;
                 cbbRole.Enabled = true;
+                tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             }
         }
 
-        //
-        //CRUD
-        //
+
+        /// <summary>
+        /// CRUD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         //Add account
         private void btnAdd_Click(object sender, EventArgs e)
         {
             int count = QLNS.Instance.Accounts.Count() + 1;
-            tbID.Text = "0"+count.ToString();
+            tbID.Text = "0" + count.ToString();
             tbID.Enabled = false;
             tbUsername.Text = "";
             tbUsername.Enabled = true;
@@ -94,7 +99,7 @@ namespace PBL3.View.AdminChildForms
             tbTel.Enabled = true;
             tbAddress.Text = "";
             tbAddress.Enabled = true;
-            rbFemale.Checked = false;rbMale.Checked = false;
+            rbFemale.Checked = false;
             cbbRole.Text = null;
             cbbRole.Enabled = true;
             btnSave.Visible = true;
@@ -246,9 +251,12 @@ namespace PBL3.View.AdminChildForms
             tbAddress.IconRightSize = new System.Drawing.Size(0, 0);
         }
 
-        //
-        //SEARCH SORT FILTER
-        //
+
+        /// <summary>
+        /// SEARCH SORT FILTER
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         //Search account
         private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -319,9 +327,11 @@ namespace PBL3.View.AdminChildForms
         }
 
 
-        //
-        //Components
-        //
+        /// <summary>
+        /// OTHER COMPONENTs
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
         public string SetID(string role)
         {
             if (role == "Admin") tbID.Text = "ad" + tbID.Text;
@@ -335,7 +345,7 @@ namespace PBL3.View.AdminChildForms
             else tbTel.IconRightSize = new System.Drawing.Size(0,0);
             if (tbName.Text == ""|| DataCheck.IsString(tbName.Text) != true) tbName.IconRightSize = new System.Drawing.Size(7, 7);
             else tbName.IconRightSize = new System.Drawing.Size(0, 0);
-            if (tbUsername.Text == ""|| DataCheck.IsString_1(tbUsername.Text) != true) tbUsername.IconRightSize = new System.Drawing.Size(7, 7);
+            if (tbUsername.Text == ""|| DataCheck.IsString_1(tbUsername.Text) != true || BLLAccountManagement.Instance.Check_Usename(tbUsername.Text) == false) tbUsername.IconRightSize = new System.Drawing.Size(7, 7);
             else tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             if (tbAddress.Text == ""||DataCheck.IsString(tbAddress.Text) != true) tbAddress.IconRightSize = new System.Drawing.Size(7, 7);
             else tbAddress.IconRightSize = new System.Drawing.Size(0, 0);
