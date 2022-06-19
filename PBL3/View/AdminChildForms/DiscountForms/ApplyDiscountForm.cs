@@ -17,8 +17,9 @@ namespace PBL3.View.AdminChildForms.DiscountForms
     public partial class ApplyDiscountForm : Form
     {
         private Discount discount;
-        //private List<Product_Discount_View> productlist = new List<Product_Discount_View>();
         private List<Product_Discount_View> productlist;
+
+        /// Initialize
         public ApplyDiscountForm(Discount discount)
         {
             InitializeComponent();
@@ -34,6 +35,16 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             dgvProduct.DataSource = productlist.ToList();
         }
 
+        //Show selected product name
+        private void dgvProduct_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvProduct.SelectedRows.Count == 1)
+            {
+                ProductNametxt.Text = dgvProduct.SelectedRows[0].Cells["ProductName"].Value.ToString();
+            }
+        }
+
+        //Apply discount
         private void btnApply_Click(object sender, EventArgs e)
         {
             Product_Discount_View obj = (Product_Discount_View)dgvProduct.CurrentRow.DataBoundItem;
@@ -48,11 +59,35 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             Reload();
         }
 
-        private void ProductNametxt_TextChanged(object sender, EventArgs e)
+        //Remove discount
+        private void Removebtn_Click(object sender, EventArgs e)
         {
-           
+            try
+            {
+                if (dgvProduct.SelectedRows.Count > 0)
+                {
+                    List<Product> del = new List<Product>();
+                    foreach (DataGridViewRow i in dgvProduct.SelectedRows)
+                    {
+                        if (i.Cells["DiscountID"].Value != null)
+                        {
+                            if (i.Cells["DiscountID"].Value.ToString() == this.discount.DiscountID)
+                                del.Add(QLNS.Instance.Products.Find(i.Cells[0].Value.ToString()));
+                        }
+                    }
+                    BLLDiscountManagement.Instance.RemoveDiscountIDInProducts(del);
+                    BLLDiscountManagement.Instance.RemoveDiscount_ProductDiscountView(productlist, del);
+                    Reload();
+                }
+                else throw new Exception("Please choose at least 1 product");
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxIcon.Error);
+            }
         }
 
+        //OK
         private void btnOK_Click(object sender, EventArgs e)
         {
             try
@@ -94,6 +129,14 @@ namespace PBL3.View.AdminChildForms.DiscountForms
 
             }
         }
+
+        //Cancel
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //Search product
         private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
@@ -101,43 +144,12 @@ namespace PBL3.View.AdminChildForms.DiscountForms
                 dgvProduct.DataSource = BLLDiscountManagement.Instance.SearchProductDiscountView(tbSearch.Text);
             }
         }
-        private void Removebtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dgvProduct.SelectedRows.Count > 0)
-                {
-                    List<Product> del = new List<Product>();
-                    foreach (DataGridViewRow i in dgvProduct.SelectedRows)
-                    {
-                        if (i.Cells["DiscountID"].Value != null)
-                        {
-                            if (i.Cells["DiscountID"].Value.ToString() == this.discount.DiscountID)
-                                del.Add(QLNS.Instance.Products.Find(i.Cells[0].Value.ToString()));
-                        }
-                    }
-                    BLLDiscountManagement.Instance.RemoveDiscountIDInProducts(del);
-                    BLLDiscountManagement.Instance.RemoveDiscount_ProductDiscountView(productlist, del);
-                    Reload();
-                }
-                else throw new Exception("Please choose at least 1 product");
-            }
-            catch (Exception ex)
-            {
-                CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxIcon.Error);
-            }
-        }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        //UNDONE: textchanged
+        //Other components
+        private void ProductNametxt_TextChanged(object sender, EventArgs e)
         {
-            this.Close();
-        }
-        private void dgvProduct_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvProduct.SelectedRows.Count == 1)
-            {
-                ProductNametxt.Text = dgvProduct.SelectedRows[0].Cells["ProductName"].Value.ToString();
-            }
+           
         }
     }
 }

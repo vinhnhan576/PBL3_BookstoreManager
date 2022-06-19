@@ -505,6 +505,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             this.tbSearch.Size = new System.Drawing.Size(230, 29);
             this.tbSearch.TabIndex = 18;
             this.tbSearch.IconRightClick += new System.EventHandler(this.tbSearch_IconRightClick);
+            this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             // 
             // guna2HtmlLabel12
             // 
@@ -591,7 +592,6 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             this.cbbSortOrder.Size = new System.Drawing.Size(111, 29);
             this.cbbSortOrder.TabIndex = 20;
             this.cbbSortOrder.TextOffset = new System.Drawing.Point(15, 0);
-            this.cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged_1);
             // 
             // cbbFilterCategory
             // 

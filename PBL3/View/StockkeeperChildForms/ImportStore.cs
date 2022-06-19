@@ -50,7 +50,7 @@ namespace PBL3.View.StockkeeperChildForms
             }
             var Restock = this.list.Select(p => new { p.ProductID, p.ProductName, p.ImportQuantity, });
             dgvImport.DataSource = this.list.ToList();
-            tbQuantity.Text = "";
+            tbQuantity.Text = null;
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_View();
         }
         private void butSave_Click(object sender, EventArgs e)
@@ -71,9 +71,11 @@ namespace PBL3.View.StockkeeperChildForms
             }
             list.Clear();
             dgvImport.DataSource = list.ToList();
-            tbStoreImportID.Text = "";
-            tbStockkeperID.Text = "";
+            tbStoreImportID.Text = null;
+            tbStockkeperID.Text = null;
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_View();
+
+            NewImport();
         }
 
         private void butDelete_Click(object sender, EventArgs e)
@@ -91,11 +93,11 @@ namespace PBL3.View.StockkeeperChildForms
             dgvImport.DataSource = list.ToList();
         }
 
-        private void butNewImport_Click(object sender, EventArgs e)
+        private void NewImport()
         {
             int count = (QLNS.Instance.Restocks.Count() + 1);
             tbStoreImportID.Text = "rs" + count.ToString();
-            tbStockkeperID.Text = "sk001";//account.PersonID;
+            tbStockkeperID.Text = account.PersonID;
             dtpRestock.Value = DateTime.Now;
         }
 
