@@ -448,6 +448,9 @@
             this.dgvAccount.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dgvAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAccount.BackgroundColor = System.Drawing.Color.White;
             this.dgvAccount.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -534,6 +537,7 @@
             this.tbSearch.SelectedText = "";
             this.tbSearch.Size = new System.Drawing.Size(269, 28);
             this.tbSearch.TabIndex = 3;
+            this.tbSearch.IconRightClick += new System.EventHandler(this.tbSearch_IconRightClick);
             this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             // 
             // btnAdd

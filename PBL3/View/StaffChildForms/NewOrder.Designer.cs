@@ -37,7 +37,6 @@ namespace PBL3.View.StaffChildForms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OrderIDtxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.SalesmanIDtxt = new Guna.UI2.WinForms.Guna2TextBox();
-            this.NewOrderButton = new Guna.UI2.WinForms.Guna2Button();
             this.SaveButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.NewCustomerButton = new Guna.UI2.WinForms.Guna2Button();
@@ -134,23 +133,6 @@ namespace PBL3.View.StaffChildForms
             this.SalesmanIDtxt.Size = new System.Drawing.Size(164, 22);
             this.SalesmanIDtxt.TabIndex = 18;
             // 
-            // NewOrderButton
-            // 
-            this.NewOrderButton.BorderRadius = 9;
-            this.NewOrderButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.NewOrderButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.NewOrderButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.NewOrderButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.NewOrderButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.NewOrderButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewOrderButton.ForeColor = System.Drawing.Color.White;
-            this.NewOrderButton.Location = new System.Drawing.Point(197, 117);
-            this.NewOrderButton.Name = "NewOrderButton";
-            this.NewOrderButton.Size = new System.Drawing.Size(108, 32);
-            this.NewOrderButton.TabIndex = 22;
-            this.NewOrderButton.Text = "New order";
-            this.NewOrderButton.Click += new System.EventHandler(this.NewOrderButton_Click);
-            // 
             // SaveButton
             // 
             this.SaveButton.BorderRadius = 9;
@@ -181,7 +163,6 @@ namespace PBL3.View.StaffChildForms
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.SaveButton);
-            this.guna2Panel1.Controls.Add(this.NewOrderButton);
             this.guna2Panel1.Controls.Add(this.SalesmanIDtxt);
             this.guna2Panel1.Controls.Add(this.OrderIDtxt);
             this.guna2Panel1.Location = new System.Drawing.Point(14, 14);
@@ -200,7 +181,7 @@ namespace PBL3.View.StaffChildForms
             this.NewCustomerButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.NewCustomerButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewCustomerButton.ForeColor = System.Drawing.Color.White;
-            this.NewCustomerButton.Location = new System.Drawing.Point(40, 117);
+            this.NewCustomerButton.Location = new System.Drawing.Point(165, 117);
             this.NewCustomerButton.Name = "NewCustomerButton";
             this.NewCustomerButton.Size = new System.Drawing.Size(139, 32);
             this.NewCustomerButton.TabIndex = 31;
@@ -872,7 +853,6 @@ namespace PBL3.View.StaffChildForms
         #endregion
         private Guna.UI2.WinForms.Guna2TextBox OrderIDtxt;
         private Guna.UI2.WinForms.Guna2TextBox SalesmanIDtxt;
-        private Guna.UI2.WinForms.Guna2Button NewOrderButton;
         private Guna.UI2.WinForms.Guna2Button SaveButton;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
