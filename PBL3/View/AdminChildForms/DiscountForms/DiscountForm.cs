@@ -22,6 +22,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             InitializeGUI();
         }
 
+
         /// <summary>
         /// Initialize
         /// </summary>
