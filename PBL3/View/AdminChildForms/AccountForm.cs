@@ -32,7 +32,13 @@ namespace PBL3.View.AdminChildForms
         {
             dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
         }
+        
 
+        /// <summary>
+        /// CRUD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         //Show account info
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -77,12 +83,6 @@ namespace PBL3.View.AdminChildForms
             }
         }
 
-
-        /// <summary>
-        /// CRUD
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         //Add account
         private void btnAdd_Click(object sender, EventArgs e)
         {
