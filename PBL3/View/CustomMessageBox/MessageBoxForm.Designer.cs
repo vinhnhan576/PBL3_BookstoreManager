@@ -72,7 +72,7 @@
             // 
             // lbTitle
             // 
-            this.lbTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(176)))), ((int)(((byte)(210)))));
             this.lbTitle.Location = new System.Drawing.Point(0, 0);
@@ -84,6 +84,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -104,6 +105,7 @@
             // 
             // pnFill
             // 
+            this.pnFill.AutoSize = true;
             this.pnFill.Controls.Add(this.lbContext);
             this.pnFill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnFill.Location = new System.Drawing.Point(190, 64);
@@ -115,6 +117,7 @@
             // lbContext
             // 
             this.lbContext.AutoSize = true;
+            this.lbContext.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbContext.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbContext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(193)))), ((int)(((byte)(217)))));
             this.lbContext.Location = new System.Drawing.Point(10, 10);
@@ -136,6 +139,7 @@
             // 
             // btn2
             // 
+            this.btn2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn2.BorderRadius = 7;
             this.btn2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -153,6 +157,7 @@
             // 
             // btn1
             // 
+            this.btn1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn1.BorderRadius = 7;
             this.btn1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -232,6 +237,7 @@
             this.pbSideBG.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

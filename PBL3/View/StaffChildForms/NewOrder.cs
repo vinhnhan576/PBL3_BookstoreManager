@@ -45,13 +45,17 @@ namespace PBL3.View.StaffChildForms
         
         private void Save(double total)
         {
+            try
+            {
                 Receipt receipt = new Receipt();
                 receipt.ReceiptID = OrderIDtxt.Text;
                 receipt.PersonID = account.PersonID;
                 receipt.Date = DateTime.Now;
                 receipt.Total = total;
                 receipt.Status = true;
-                if (CustomerTeltxt.Text != "")
+                if (!CustomerTeltxt.Text.All(c => c >= '0' && c <= '9'))
+                    throw new Exception("Invalid phone number input");
+                else if(!string.IsNullOrWhiteSpace(CustomerTeltxt.Text))
                 {
                     Customer customer = BLLCustomerManagement.Instance.getCustomer(CustomerTeltxt.Text.Trim());
                     receipt.PhoneNumber = customer.PhoneNumber;
@@ -71,6 +75,15 @@ namespace PBL3.View.StaffChildForms
                     profit = (double)Math.Round(profit * 100f) / 100f;
                     BLLRevenueManagement.Instance.AddRevenue(this.order.Rdv_List[i].ReceiptDetailID, expenses, grossRevenue, profit);
                 }
+            }
+            catch (FormatException)
+            {
+                CustomMessageBox.MessageBox.Show("Please re-enter phone number", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             //rd_list.Clear();
             //rdDataGridView.DataSource = rd_list.ToList();
             //OrderIDtxt.Text = "";
@@ -147,7 +160,7 @@ namespace PBL3.View.StaffChildForms
                     if (!Quantitytxt.Text.All(c => c >= '0' && c <= '9'))
                         throw new Exception("Invalid quantity input");
                     else if (Convert.ToInt32(Quantitytxt.Text) > product_temp.StoreQuantity)
-                        throw new Exception("Input quantity exceeds product's store quantity");
+                        throw new Exception("Input quantity exceeds product's store quantity!");
                     else
                         BLLReceiptManagement.Instance.CreateReceiptDetailView(order, product_temp, Convert.ToInt32(Quantitytxt.Text));
                 }
@@ -167,6 +180,7 @@ namespace PBL3.View.StaffChildForms
             catch(Exception ex)
             {
                 CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Quantitytxt.Text = null;
             }
         }
 
