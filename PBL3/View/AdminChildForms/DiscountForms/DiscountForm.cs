@@ -34,6 +34,10 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             Typecbb.SelectedIndex = 1;
             Savebutton.Visible = false;
             ClearButton.Visible = false;
+            IDtxt.ReadOnly = true;
+            Nametxt.ReadOnly = true;
+            AmountApplytxt.ReadOnly = true;
+            DiscountApplytxt.ReadOnly = true;
         }
 
         private void tbSearch_IconRightClick(object sender, EventArgs e)
@@ -148,6 +152,10 @@ namespace PBL3.View.AdminChildForms.DiscountForms
                     BLLDiscountManagement.Instance.Edit(discount);
                     Savebutton.Visible = false;
                     ClearButton.Visible = false;
+                    IDtxt.ReadOnly = true;
+                    Nametxt.ReadOnly = true;
+                    AmountApplytxt.ReadOnly = true;
+                    DiscountApplytxt.ReadOnly = true;
                     dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
                 }
                 else
@@ -166,6 +174,10 @@ namespace PBL3.View.AdminChildForms.DiscountForms
                     BLLDiscountManagement.Instance.AddNewDiscount(discount);
                     Savebutton.Visible = false;
                     ClearButton.Visible = false;
+                    IDtxt.ReadOnly = true;
+                    Nametxt.ReadOnly = true;
+                    AmountApplytxt.ReadOnly = true;
+                    DiscountApplytxt.ReadOnly = true;
                     dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
                 }
             }
@@ -245,6 +257,10 @@ namespace PBL3.View.AdminChildForms.DiscountForms
         }
         private void EditButton_Click(object sender, EventArgs e)
         {
+            IDtxt.ReadOnly = false;
+            Nametxt.ReadOnly = false;
+            AmountApplytxt.ReadOnly = false;
+            DiscountApplytxt.ReadOnly = false;
             if (dgvDiscount.SelectedRows.Count == 1)
             {
                 IDtxt.Text = dgvDiscount.SelectedRows[0].Cells["DiscountID"].Value.ToString();
@@ -279,6 +295,10 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             DiscountApplytxt.Text = "";
             dgvFrom.Value = DateTime.Now;
             dgvTo.Value = DateTime.Now;
+            IDtxt.ReadOnly = false;
+            Nametxt.ReadOnly = false;
+            AmountApplytxt.ReadOnly = false;
+            DiscountApplytxt.ReadOnly = false;
             //if (dgvDiscount.SelectedRows[0].Cells["DiscountType"].Value.ToString() == "Combo")
             //{
             //    Typecbb.SelectedIndex = 1;

@@ -20,6 +20,10 @@ namespace PBL3.View.AdminChildForms
             dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
             Savebutton.Visible = false;
             ClearButton.Visible = false;
+            IDtxt.ReadOnly=true;
+            Nametxt.ReadOnly=true;
+            Requirementtxt.ReadOnly=true;
+            applytxt.ReadOnly=true;
         }
 
         private void dgvRank_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -41,6 +45,11 @@ namespace PBL3.View.AdminChildForms
             applytxt.Text = "";
             Savebutton.Visible = true;
             ClearButton.Visible = true;
+            IDtxt.ReadOnly = false;
+            Nametxt.ReadOnly = false;
+            Requirementtxt.ReadOnly = false;
+            applytxt.ReadOnly = false;
+
         }
         private void EditButton_Click(object sender, EventArgs e)
         {
@@ -52,6 +61,10 @@ namespace PBL3.View.AdminChildForms
                 applytxt.Text = dgvRank.SelectedRows[0].Cells[3].Value.ToString();
                 Savebutton.Visible = true;
                 ClearButton.Visible = true;
+                IDtxt.ReadOnly = false;
+                Nametxt.ReadOnly = false;
+                Requirementtxt.ReadOnly = false;
+                applytxt.ReadOnly = false;
             }
         }
 

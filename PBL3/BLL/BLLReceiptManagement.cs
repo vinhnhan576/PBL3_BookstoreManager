@@ -29,6 +29,10 @@ namespace PBL3.BLL
         {
             return "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
         }
+        public List<Receipt> GetAllReceipt()
+        {
+            return QLNS.Instance.Receipts.Select(p => p).ToList();   
+        }
         public void AddNewReceipt(Receipt r)
         {
 
@@ -123,71 +127,84 @@ namespace PBL3.BLL
             order.SetDiscountStrategy(combo);
             return order.getPromotedDiscount();
         }
-
-        public dynamic GetAllBill_View()
+        public List<ReceiptView> FilterReceipt(string filterValue)
         {
-            var billList = QLNS.Instance.Receipts.Select(p => new
-            {
-                p.ReceiptID,
-                p.Person.PersonName,
-                p.Date,
-                p.Total
-            });
-            return billList.ToList();
-        }
-        public dynamic SearchReceipt(string searchValue)
-        {
-            List<Receipt> data = new List<Receipt>();
-            foreach (Receipt i in QLNS.Instance.Receipts.Select(p => p).ToList())
-            {
-                bool containID = i.ReceiptID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool containSalesmanName = i.Person.PersonName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                //bool containCustomer = i.Customer.CustomerName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                //bool containCustomerID = i.Customer.CustomerName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool containSalemansID = i.PersonID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                string dateTemp = i.Date.ToShortDateString();
-                bool containDate = dateTemp.IndexOf(searchValue) >= 0;
-                if (containID || containSalesmanName || containSalemansID || containDate)
+            List<ReceiptView> data = new List<ReceiptView>();
+            foreach (ReceiptView i in GetAllReceipt_View())
+            { 
+                if (filterValue=="Valid")
+                {
+                    data = FilterReceiptStatus(true);
+                }
+                if (filterValue == "Invalid")
+                {
+                    data = FilterReceiptStatus(false);
+                }
+                if (i.Salesman == filterValue)
                 {
                     data.Add(i);
                 }
             }
-            var ReceiptList = data.Select(p => new { p.ReceiptID, p.Person.PersonName, p.Date, p.Total, p.Status });
-            return ReceiptList.ToList();
+            return data;
         }
-        public dynamic GetAllReceipt_View()
+        public List<ReceiptView> FilterReceiptStatus(bool filterValue)
         {
-            QLNS db = new QLNS();
-            var product = db.Receipts.Select(p => new { p.ReceiptID, p.Person.PersonName, p.Date, p.Total, p.Status });
-            return product.ToList();
+            List<ReceiptView> data = new List<ReceiptView>();
+            foreach (ReceiptView i in GetAllReceipt_View())
+            {
+                if (i.Status == filterValue)
+                {
+                    data.Add(i);
+                }    
+            }
+            return data;
+        }
+        public List<ReceiptView> GetAllReceipt_View()
+        {
+            List<ReceiptView> list = new List<ReceiptView>();
+            foreach(Receipt i in GetAllReceipt())
+            {
+                ReceiptView r = new ReceiptView();
+                r.ReceiptID = i.ReceiptID;
+                r.Salesman = i.Person.PersonName;
+                if (i.PhoneNumber == null)
+                    r.Customer = "";
+                else
+                {
+                    r.Customer = i.Customer.CustomerName;
+                }
+                r.Date = i.Date;
+                r.Total = i.Total;
+                r.Status = i.Status;
+                list.Add(r);
+            }
+            return list;
         }
         public dynamic SortReceipt(string sortCategory, bool ascending)
         {
-            QLNS db = new QLNS();
-            List<Receipt> data = new List<Receipt>();
+            List<ReceiptView> data = GetAllReceipt_View();
             if (sortCategory == "Receipt ID")
             {
                 if (ascending)
-                    data = db.Receipts.OrderBy(p => p.ReceiptID).ToList();
+                    data = data.OrderBy(p => p.ReceiptID).ToList();
                 else
-                    data = db.Receipts.OrderByDescending(p => p.ReceiptID).ToList();
+                    data.OrderByDescending(p => p.ReceiptID).ToList();
             }
             if (sortCategory == "Date")
             {
                 if (ascending)
-                    data = db.Receipts.OrderBy(p => p.Date).ToList();
+                    data = data.OrderBy(p => p.Date).ToList();
                 else
-                    data = db.Receipts.OrderByDescending(p => p.Date).ToList();
+                    data = data.OrderByDescending(p => p.Date).ToList();
             }
             if (sortCategory == "Total")
             {
                 if (ascending)
-                    data = db.Receipts.OrderBy(p => p.Total).ToList();
+                    data = data.OrderBy(p => p.Total).ToList();
                 else
-                    data = db.Receipts.OrderByDescending(p => p.Total).ToList();
+                    data = data.OrderByDescending(p => p.Total).ToList();
             }
-            var newList = data.Select(p => new { p.ReceiptID, p.Person.PersonName, p.Date, p.Total, p.Status }).ToList();
-            return newList;
+            return data;
         }
         public void ChangeStatusReceipt(List<string> receiptids)
         {
@@ -208,5 +225,97 @@ namespace PBL3.BLL
                 QLNS.Instance.SaveChanges();
             }
         }
+        public dynamic FilterReceiptByDate(string day, string month, string year)
+        {
+            int Day = 0, Month = 0, Year = 0;
+            if (day != "")
+                Day = Convert.ToInt32(day);
+            if (month != "")
+                Month = Convert.ToInt32(month);
+            if (year != "")
+                Year = Convert.ToInt32(year);
+            List<ReceiptView> data = new List<ReceiptView>();
+            foreach (ReceiptView i in GetAllReceipt_View())
+            {
+                if (day != "")
+                {
+                    if (month != "")
+                    {
+                        if (year != "")
+                        {
+                            if (i.Date.Day == Day && i.Date.Month == Month && i.Date.Year == Year)
+                                data.Add(i);
+                        }
+                        else
+                        {
+                            if (i.Date.Day == Day && i.Date.Month == Month)
+                                data.Add(i);
+                        }
+                    }
+                    else
+                    {
+                        if (year != "")
+                        {
+                            if (i.Date.Day == Day && i.Date.Year == Year)
+                                data.Add(i);
+                        }
+                        else
+                        {
+                            if (i.Date.Day == Day)
+                                data.Add(i);
+                        }
+                    }
+                }
+                else
+                {
+                    if (month != "")
+                    {
+                        if (year != "")
+                        {
+                            if (i.Date.Month == Month && i.Date.Year == Year)
+                                data.Add(i);
+                        }
+                        else
+                        {
+                            if (i.Date.Month == Month)
+                                data.Add(i);
+                        }
+                    }
+                    else
+                    {
+                        if (year != "")
+                        {
+                            if (i.Date.Year == Year)
+                                data.Add(i);
+                        }
+                    }
+                }
+            }
+            return data;
+        }
+        public List<string> GetAllReceiptStatus()
+        {
+            List<string> ReceiptStatusList = new List<string>();
+            foreach (ReceiptView i in GetAllReceipt_View())
+            {
+                if (i.Status == true)
+                    ReceiptStatusList.Add("Valid");
+                else if(i.Status==false)
+                {
+                    ReceiptStatusList.Add("Invalid");
+                }
+            }
+            return ReceiptStatusList;
+        }
+        public List<string> GetAllReceiptSalesman()
+        {
+            List<string> ReceiptSalesmanList = new List<string>();
+            foreach (ReceiptView i in GetAllReceipt_View())
+            {
+                    ReceiptSalesmanList.Add(i.Salesman);
+            }
+            return ReceiptSalesmanList;
+        }
+
     }
 }

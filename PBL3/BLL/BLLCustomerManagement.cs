@@ -178,7 +178,7 @@ namespace PBL3.BLL
                 else
                     data = db.Customers.OrderByDescending(p => p.CustomerName).ToList();
             }
-            if (sortCategory == "TotalSpending")
+            if (sortCategory == "Total Spending")
             {
                 if (ascending)
                     data = db.Customers.OrderBy(p => p.TotalSpending).ToList();

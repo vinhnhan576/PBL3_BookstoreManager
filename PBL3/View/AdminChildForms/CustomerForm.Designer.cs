@@ -141,9 +141,8 @@
             this.cbbSortCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbSortCategory.ItemHeight = 23;
             this.cbbSortCategory.Items.AddRange(new object[] {
-            "Customer ID",
             "Customer Name",
-            "TotalSpending"});
+            "Total Spending"});
             this.cbbSortCategory.Location = new System.Drawing.Point(268, 30);
             this.cbbSortCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
             this.cbbSortCategory.Name = "cbbSortCategory";
@@ -271,7 +270,6 @@
             this.Searchtxt.SelectedText = "";
             this.Searchtxt.Size = new System.Drawing.Size(230, 29);
             this.Searchtxt.TabIndex = 17;
-            //this.Searchtxt.TextChanged += new System.EventHandler(this.Searchtxt_TextChanged);
             this.Searchtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Searchtxt_KeyPress);
             // 
             // guna2HtmlLabel1

@@ -69,7 +69,8 @@
     <Compile Include="DTO\Charts\TopStaffsChartView.cs" />
     <Compile Include="DTO\Order.cs" />
     <Compile Include="DTO\Product_Discount_View.cs" />
-    <Compile Include="DTO\DiscountStrategy.cs" />
+    <Compile Include="DTO\IDiscountStrategy.cs" />
+    <Compile Include="DTO\ReceiptView.cs" />
     <Compile Include="DTO\SingleDiscount.cs" />
     <Compile Include="View\AdminChildForms\DiscountForms\AppliedProductsForm.cs">
       <SubType>Form</SubType>

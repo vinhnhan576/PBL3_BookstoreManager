@@ -7,7 +7,7 @@ using PBL3.Model;
 
 namespace PBL3.DTO
 {
-    public class ComboDiscount:DiscountStrategy
+    public class ComboDiscount:IDiscountStrategy
     {
         public double DoDiscount(List<ReceiptDetailView> list)
         {

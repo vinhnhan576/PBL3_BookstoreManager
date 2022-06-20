@@ -129,7 +129,7 @@ namespace PBL3.View
 
         private void btnViewOrders_Click(object sender, EventArgs e)
         {
-            openChildForm(new ManageOrder(), sender);
+            openChildForm(new ManageOrder(account), sender);
         }
     }
 }

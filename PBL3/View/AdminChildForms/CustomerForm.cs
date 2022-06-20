@@ -22,6 +22,10 @@ namespace PBL3.View.AdminChildForms
             this.cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;
             this.cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
+            CustomerNametxt.ReadOnly = true;
+            Ranktxt.ReadOnly = true;
+            Teltxt.ReadOnly = true;
+            TotalSpendingtxt.ReadOnly = true;
         }
 
         private void InitializeGUI()
@@ -39,7 +43,7 @@ namespace PBL3.View.AdminChildForms
                 Teltxt.Text = dgvCustomer.SelectedRows[0].Cells["PhoneNumber"].Value.ToString();
                 if (dgvCustomer.SelectedRows[0].Cells[3].Value != null)
                 {
-                    Ranktxt.Text = dgvCustomer.SelectedRows[0].Cells[3].Value.ToString();
+                    Ranktxt.Text = dgvCustomer.SelectedRows[0].Cells["RankName"].Value.ToString();
                 }
                 if (dgvCustomer.SelectedRows[0].Cells["TotalSpending"].Value != null)
                 {

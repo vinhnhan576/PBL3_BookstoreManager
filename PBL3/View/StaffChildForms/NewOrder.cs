@@ -35,13 +35,13 @@ namespace PBL3.View.StaffChildForms
             rd_list = new List<ReceiptDetailView>();
             var random = new RandomGenerator();
             OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
-            OrderIDtxt.Enabled = false;
+            OrderIDtxt.ReadOnly = true;
             SalesmanIDtxt.Text = account.PersonID.Trim();
-            SalesmanIDtxt.Enabled = false;
+            SalesmanIDtxt.ReadOnly = true;
             TotalOrdertxt.Text = "0";
-            TotalOrdertxt.Enabled = false;
+            TotalOrdertxt.ReadOnly = true;
             OrderDateTimePicker.Value = DateTime.Now;
-            discountxt.Enabled = false;
+            discountxt.ReadOnly = true;
         }
         private void SaveCustomer(Customer customer,double total)
         {
@@ -70,14 +70,14 @@ namespace PBL3.View.StaffChildForms
                 BLLReceiptManagement.Instance.AddNewReceiptDetail(this.order, OrderIDtxt.Text);
                 for (int i = 0; i < rd_list.Count; i++)
                 {
-                    string productID = rd_list[i].ProductID;
-                    int prodQuantity = rd_list[i].Quantity;
+                    string productID = this.order.Rdv_List[i].ProductID;
+                    int prodQuantity = this.order.Rdv_List[i].Quantity;
                     BLLProductManagement.Instance.DecreaseStoreQuantity(productID, prodQuantity);
                     double expenses = BLLRestockManagement.Instance.GetRestockDetailByProductID(productID).ImportPrice * prodQuantity;
-                    double grossRevenue = rd_list[i].Total;
+                    double grossRevenue = this.order.Rdv_List[i].Total;
                     double profit = (grossRevenue / expenses - 1) * 100;
                     profit = (double)Math.Round(profit * 100f) / 100f;
-                    BLLRevenueManagement.Instance.AddRevenue(rd_list[i].ReceiptDetailID, expenses, grossRevenue, profit);
+                    BLLRevenueManagement.Instance.AddRevenue(this.order.Rdv_List[i].ReceiptDetailID, expenses, grossRevenue, profit);
                 }
             //rd_list.Clear();
             //rdDataGridView.DataSource = rd_list.ToList();
