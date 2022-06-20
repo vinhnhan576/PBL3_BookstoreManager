@@ -24,6 +24,7 @@ namespace PBL3.View.AdminChildForms
             Nametxt.ReadOnly=true;
             Requirementtxt.ReadOnly=true;
             applytxt.ReadOnly=true;
+            dgvRank_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
 
         //Show rank info

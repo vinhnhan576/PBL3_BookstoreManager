@@ -25,6 +25,11 @@ namespace PBL3.BLL
             {
             }
         }
+
+        /// <summary>
+        /// CRUD
+        /// </summary>
+        /// <param name="r"></param>
         public string GetRandomReceiptID()
         {
             return "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
@@ -35,11 +40,10 @@ namespace PBL3.BLL
         }
         public void AddNewReceipt(Receipt r)
         {
-
             QLNS.Instance.Receipts.Add(r);
             QLNS.Instance.SaveChanges();
-
         }
+
         public void AddNewReceiptDetail(ReceiptDetail r)
         {
             QLNS.Instance.ReceiptDetails.Add(r);
@@ -58,7 +62,7 @@ namespace PBL3.BLL
         }
         public void CreateReceiptDetailView(Order order, Product p, int quantity)
         {
-            string receiptid ="r"+Convert.ToString(QLNS.Instance.ReceiptDetails.Count() + 1)+Convert.ToString(order.Rdv_List.Count());
+            string receiptid ="r"+Convert.ToString(QLNS.Instance.Receipts.Count() + 1)+Convert.ToString(order.Rdv_List.Count() + 1);
             order.CreateReceiptDetailView(p, quantity, receiptid);
         }
         public void AddNewReceiptDetail(Order order, string receipt_id)

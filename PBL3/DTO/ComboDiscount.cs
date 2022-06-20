@@ -37,7 +37,7 @@ namespace PBL3.DTO
             var GroupByMS = list.Where(p => p.GetDiscount() != null).GroupBy(s => s.GetDiscount().DiscountID);
             double result = 0;
             double totalgroup = 0;
-            double totalall = 0;
+            //double totalall = 0;
             //Using Query Syntax
             //It will iterate through each groups
             foreach (var group in GroupByMS)

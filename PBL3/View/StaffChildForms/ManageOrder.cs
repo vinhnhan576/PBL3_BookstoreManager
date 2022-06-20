@@ -23,6 +23,7 @@ namespace PBL3.View.StaffChildForms
             salesmannametxt.ReadOnly = true;
             statustxt.ReadOnly = true;
             totaltxt.ReadOnly = true;
+            Receiptdgv_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
         private void Receiptdgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {

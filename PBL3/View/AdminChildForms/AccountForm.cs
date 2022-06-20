@@ -27,19 +27,12 @@ namespace PBL3.View.AdminChildForms
             cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
             btnSave.Visible = false;
             btnClear.Visible = false;
+            dgvAccount_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
         public void Reload()
         {
             dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
         }
-        
-
-        /// <summary>
-        /// CRUD
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //Show account info
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvAccount.SelectedRows.Count == 1)
@@ -82,12 +75,14 @@ namespace PBL3.View.AdminChildForms
                 tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             }
         }
-
+        //
+        //CRUD
+        //
         //Add account
         private void btnAdd_Click(object sender, EventArgs e)
         {
             int count = QLNS.Instance.Accounts.Count() + 1;
-            tbID.Text = "0" + count.ToString();
+            tbID.Text = "0"+count.ToString();
             tbID.Enabled = false;
             tbUsername.Text = "";
             tbUsername.Enabled = true;
@@ -99,7 +94,7 @@ namespace PBL3.View.AdminChildForms
             tbTel.Enabled = true;
             tbAddress.Text = "";
             tbAddress.Enabled = true;
-            rbFemale.Checked = false;
+            rbFemale.Checked = false;rbMale.Checked = false;
             cbbRole.Text = null;
             cbbRole.Enabled = true;
             btnSave.Visible = true;
@@ -251,12 +246,9 @@ namespace PBL3.View.AdminChildForms
             tbAddress.IconRightSize = new System.Drawing.Size(0, 0);
         }
 
-
-        /// <summary>
-        /// SEARCH SORT FILTER
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        //
+        //SEARCH SORT FILTER
+        //
         //Search account
         private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -327,11 +319,9 @@ namespace PBL3.View.AdminChildForms
         }
 
 
-        /// <summary>
-        /// OTHER COMPONENTs
-        /// </summary>
-        /// <param name="role"></param>
-        /// <returns></returns>
+        //
+        //Components
+        //
         public string SetID(string role)
         {
             if (role == "Admin") tbID.Text = "ad" + tbID.Text;

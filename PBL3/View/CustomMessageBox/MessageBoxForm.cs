@@ -80,7 +80,9 @@ namespace PBL3.View.CustomMessageBox
 
         private void SetFormSize()
         {
-            int widht = this.pbSideBG.Width + this.pnFill.Width;
+            //    MessageBox.Show(lbContext.Width.ToString() + "  " + pnFill.Width.ToString());
+            int contextWidth = lbContext.Width + 35;
+            int widht = this.pbSideBG.Width + (contextWidth > pnTop.Width ? contextWidth : this.pnTop.Width);
             int height = this.pnTop.Height + this.pnFill.Padding.Top + this.lbContext.Height + this.pnFill.Padding.Bottom + this.pnBottom.Height;
             this.Size = new Size(widht, height);
         }

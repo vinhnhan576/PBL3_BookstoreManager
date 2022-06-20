@@ -31,6 +31,7 @@ namespace PBL3.View.AdminChildForms
         private void InitializeGUI()
         {
             dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
+            dgvCustomer_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
 
         //Show customer info

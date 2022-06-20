@@ -59,9 +59,6 @@ namespace PBL3.View.StaffChildForms
             this.productSearchtxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.AddButton = new Guna.UI2.WinForms.Guna2Button();
             this.Quantitytxt = new Guna.UI2.WinForms.Guna2TextBox();
-            //this.Totaltxt = new Guna.UI2.WinForms.Guna2TextBox();
-            //this.ClearButton = new Guna.UI2.WinForms.Guna2Button();
-            //this.DeleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvOrder = new Guna.UI2.WinForms.Guna2DataGridView();
             this.TotalOrdertxt = new Guna.UI2.WinForms.Guna2TextBox();
@@ -848,9 +845,6 @@ namespace PBL3.View.StaffChildForms
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2Button AddButton;
         private Guna.UI2.WinForms.Guna2TextBox Quantitytxt;
-        private Guna.UI2.WinForms.Guna2TextBox Totaltxt;
-        private Guna.UI2.WinForms.Guna2Button ClearButton;
-        private Guna.UI2.WinForms.Guna2Button DeleteButton;
         private Guna.UI2.WinForms.Guna2TextBox productSearchtxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
