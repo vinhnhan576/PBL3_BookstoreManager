@@ -20,6 +20,10 @@ namespace PBL3.View.AdminChildForms
             dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
             Savebutton.Visible = false;
             ClearButton.Visible = false;
+            IDtxt.ReadOnly=true;
+            Nametxt.ReadOnly=true;
+            Requirementtxt.ReadOnly=true;
+            applytxt.ReadOnly=true;
             dgvRank_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
 
@@ -45,6 +49,11 @@ namespace PBL3.View.AdminChildForms
             applytxt.Text = "";
             Savebutton.Visible = true;
             ClearButton.Visible = true;
+            IDtxt.ReadOnly = true;
+            Nametxt.ReadOnly = false;
+            Requirementtxt.ReadOnly = false;
+            applytxt.ReadOnly = false;
+
         }
 
         //Edit rank
@@ -60,6 +69,9 @@ namespace PBL3.View.AdminChildForms
                     applytxt.Text = dgvRank.SelectedRows[0].Cells[3].Value.ToString();
                     Savebutton.Visible = true;
                     ClearButton.Visible = true;
+                    Nametxt.ReadOnly = false;
+                    Requirementtxt.ReadOnly = false;
+                    applytxt.ReadOnly= false;
                 }
                 else throw new Exception();
             }
@@ -82,6 +94,19 @@ namespace PBL3.View.AdminChildForms
                 BLLRankManagement.Instance.DelRank(del);
                 //cbLopSH.SelectedIndex = 0;
                 dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
+            }
+            if (dgvRank.SelectedRows.Count == 1)
+            {
+                IDtxt.Text = dgvRank.SelectedRows[0].Cells["RankID"].Value.ToString();
+                Nametxt.Text = dgvRank.SelectedRows[0].Cells["RankName"].Value.ToString();
+                Requirementtxt.Text = dgvRank.SelectedRows[0].Cells["Requirement"].Value.ToString();
+                applytxt.Text = dgvRank.SelectedRows[0].Cells[3].Value.ToString();
+                Savebutton.Visible = true;
+                ClearButton.Visible = true;
+                IDtxt.ReadOnly = false;
+                Nametxt.ReadOnly = false;
+                Requirementtxt.ReadOnly = false;
+                applytxt.ReadOnly = false;
             }
         }
 
@@ -118,13 +143,14 @@ namespace PBL3.View.AdminChildForms
         {
             if (e.KeyChar == (char)13)
             {
+
                 if (string.IsNullOrWhiteSpace(tbSearch.Text))
                 {
-                    dgvRank.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+                    dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
                 }
                 else
                 {
-                    dgvRank.DataSource = BLLReceiptManagement.Instance.SearchReceipt(tbSearch.Text);
+                    dgvRank.DataSource = BLLRankManagement.Instance.SearchRank(tbSearch.Text);
                 }
             }
         }
@@ -133,11 +159,11 @@ namespace PBL3.View.AdminChildForms
         {
             if (string.IsNullOrWhiteSpace(tbSearch.Text))
             {
-                dgvRank.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+                dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
             }
             else
             {
-                dgvRank.DataSource = BLLReceiptManagement.Instance.SearchReceipt(tbSearch.Text);
+                dgvRank.DataSource = BLLRankManagement.Instance.SearchRank(tbSearch.Text);
             }
         }
 

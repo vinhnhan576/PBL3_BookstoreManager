@@ -26,6 +26,10 @@ namespace PBL3.BLL
 
             }
         }
+        public string GenerateID()
+        {
+            return "d"+(QLNS.Instance.Discounts.Count() + 1).ToString();
+        }
         public List<Discount> GetAllDiscount()
         {
             List<Discount> discountList = new List<Discount>();
@@ -112,6 +116,28 @@ namespace PBL3.BLL
             QLNS.Instance.Discounts.Add(discount);
             QLNS.Instance.SaveChanges();
         }
+        public void Edit(Discount d)
+        {
+            Discount temp = QLNS.Instance.Discounts.Find(d.DiscountID);
+            temp.DiscountName = d.DiscountName;
+            temp.AmmountApply = d.AmmountApply;
+            temp.DiscountApply = d.DiscountApply;
+            temp.StartingDate = d.StartingDate;
+            temp.ExpirationDate = d.ExpirationDate;
+            temp.DiscountType = d.DiscountType;
+            QLNS.Instance.SaveChanges();
+        }
+        public void Execute(Discount r)
+        {
+            if (Check(r.DiscountID) == true)
+            {
+                Edit(r);
+            }
+            else
+            {
+                AddNewDiscount(r);
+            }
+        }
         /*public UpdateDiscountID(string productid, string discountid)
         {
             var Product = QLNS.Instance.Products.Find(productid);
@@ -173,17 +199,6 @@ namespace PBL3.BLL
                 QLNS.Instance.Discounts.Remove(temp);
                 QLNS.Instance.SaveChanges();
             }
-        }
-        public void Edit(Discount d)
-        {
-            Discount temp = QLNS.Instance.Discounts.Find(d.DiscountID);
-            temp.DiscountName=d.DiscountName;
-            temp.AmmountApply = d.AmmountApply;
-            temp.DiscountApply = d.DiscountApply;
-            temp.StartingDate = d.StartingDate;
-            temp.ExpirationDate=d.ExpirationDate;
-            temp.DiscountType=d.DiscountType;
-            QLNS.Instance.SaveChanges();
         }
         public dynamic SearchDiscount(string searchValue)
         {
@@ -333,7 +348,6 @@ namespace PBL3.BLL
                 }
             }
         }
-
         public List<Discount> GetExpiredDiscounts()
         {
             List<Discount> expiredDiscounts = new List<Discount>();

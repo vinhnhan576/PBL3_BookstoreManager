@@ -18,59 +18,97 @@ namespace PBL3.View.AdminChildForms
         {
             InitializeComponent();
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+            IDtxt.ReadOnly = true;
+            customertxt.ReadOnly = true;
+            salesmannametxt.ReadOnly = true;
+            statustxt.ReadOnly = true;
+            totaltxt.ReadOnly = true;
             Receiptdgv_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
-
-        //View receipt info
         private void Receiptdgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (Receiptdgv.SelectedRows.Count == 1)
             {
                 IDtxt.Text = Receiptdgv.SelectedRows[0].Cells[0].Value.ToString();
                 salesmannametxt.Text = Receiptdgv.SelectedRows[0].Cells[1].Value.ToString();
-                DateTimePicker.Value = Convert.ToDateTime(Receiptdgv.SelectedRows[0].Cells[2].Value);
-                totaltxt.Text = Receiptdgv.SelectedRows[0].Cells[3].Value.ToString();
-                Productdgv.DataSource = BLLReceiptManagement.Instance.GetProductInReceiptByID(IDtxt.Text.ToString());
-            }
-        }
-
-        //Search receipt
-        private void Searchtxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                if(Searchtxt.Text == null)
+                if (Receiptdgv.SelectedRows[0].Cells[2].Value != null)
+                    customertxt.Text = Receiptdgv.SelectedRows[0].Cells[2].Value.ToString();
+                else
                 {
-                    Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+                    customertxt.Text = "";
+                }
+                DateTimePicker.Value = Convert.ToDateTime(Receiptdgv.SelectedRows[0].Cells[3].Value);
+                totaltxt.Text = Receiptdgv.SelectedRows[0].Cells[4].Value.ToString();
+                if ((bool)Receiptdgv.SelectedRows[0].Cells[5].Value)
+                {
+                    statustxt.Text = "Valid";
                 }
                 else
                 {
-                    Receiptdgv.DataSource = BLLReceiptManagement.Instance.SearchReceipt(Searchtxt.Text);
+                    statustxt.Text = "Invalid";
                 }
+                Productdgv.DataSource = BLLReceiptManagement.Instance.GetProductInReceiptByID(IDtxt.Text.ToString());
             }
         }
-
-        private void Searchtxt_IconRightClick(object sender, EventArgs e)
+        private void tbYear_IconRightClick(object sender, EventArgs e)
         {
-            if (Searchtxt.Text == null)
-            {
-                Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
-            }
-            else
-            {
-                Receiptdgv.DataSource = BLLReceiptManagement.Instance.SearchReceipt(Searchtxt.Text);
-            }
+            Receiptdgv.DataSource = BLLReceiptManagement.Instance.FilterReceiptByDate(tbMonth.Text, tbDay.Text, tbYear.Text);
         }
 
-        //Fitler receipt
-        private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbbFilterCategory_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            cbbFilterValue.Text = null;
+            cbbFilterValue.Text = "";
             cbbFilterValue.Items.Clear();
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
             if (filterCategory == "Status")
             {
-                foreach (string i in BLLProductManagement.Instance.GetAllProductStatus().Distinct())
+                foreach (string i in BLLReceiptManagement.Instance.GetAllReceiptStatus().Distinct())
+                {
+                    cbbFilterValue.Items.Add(i);
+                }
+            }
+            if (filterCategory == "Salesman Name")
+            {
+                foreach (string i in BLLReceiptManagement.Instance.GetAllReceiptSalesman().Distinct())
+                {
+                    cbbFilterValue.Items.Add(i);
+                }
+            }
+        }
+
+        private void cbbFilterValue_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            Receiptdgv.DataSource = BLLReceiptManagement.Instance.FilterReceipt(cbbFilterValue.SelectedItem.ToString());
+        }
+
+        private void cbbSortOrder_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(sortCategory, sortOrder);
+        }
+        private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(sortCategory, sortOrder);
+        }
+
+        private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbFilterValue.Text = "";
+            cbbFilterValue.Items.Clear();
+            string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if (filterCategory == "Status")
+            {
+                foreach (string i in BLLReceiptManagement.Instance.GetAllReceiptStatus().Distinct())
+                {
+                    cbbFilterValue.Items.Add(i);
+                }
+            }
+            if (filterCategory == "Salesman Name")
+            {
+                foreach (string i in BLLReceiptManagement.Instance.GetAllReceiptSalesman().Distinct())
                 {
                     cbbFilterValue.Items.Add(i);
                 }
@@ -79,17 +117,12 @@ namespace PBL3.View.AdminChildForms
 
         private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Receiptdgv.DataSource = BLLReceiptManagement.Instance.SearchReceipt(cbbFilterValue.SelectedItem.ToString());
+            Receiptdgv.DataSource = BLLReceiptManagement.Instance.FilterReceipt(cbbFilterValue.SelectedItem.ToString());
         }
 
-        //Sort receipt
-        private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
+        private void tbYear_IconRightClick_1(object sender, EventArgs e)
         {
-            Searchtxt.Text = "";
-            string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(sortCategory, sortOrder);
+            Receiptdgv.DataSource = BLLReceiptManagement.Instance.FilterReceiptByDate(tbMonth.Text, tbDay.Text, tbYear.Text);
         }
-
     }
 }

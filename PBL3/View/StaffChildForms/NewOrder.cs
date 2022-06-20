@@ -27,12 +27,12 @@ namespace PBL3.View.StaffChildForms
         private void InitializeGUI()
         {
             dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
-            rd_list = new List<ReceiptDetailView>();
+            //rd_list = new List<ReceiptDetailView>();
             var random = new RandomGenerator();
-            OrderIDtxt.Enabled = false;
-            SalesmanIDtxt.Enabled = false;
-            TotalOrdertxt.Enabled = false;
-            discountxt.Enabled = false;
+            OrderIDtxt.ReadOnly = true;
+            SalesmanIDtxt.ReadOnly = true;
+            TotalOrdertxt.ReadOnly = true;
+            discountxt.ReadOnly = true;
             LoadNewOrder();
         }
         private void SaveCustomer(Customer customer,double total)
@@ -60,17 +60,16 @@ namespace PBL3.View.StaffChildForms
                 //receipt.CustomerID = (QLSPEntities.Instance.Customers.Count() + 1).ToString();
                 BLLReceiptManagement.Instance.AddNewReceipt(receipt);
                 BLLReceiptManagement.Instance.AddNewReceiptDetail(this.order, OrderIDtxt.Text);
-                for (int i = 0; i < rd_list.Count; i++)
+                for (int i = 0; i < this.order.Rdv_List.Count; i++)
                 {
-                    string productID = rd_list[i].ProductID;
-                    int prodQuantity = rd_list[i].Quantity;
-                    MessageBox.Show(productID, prodQuantity.ToString());
+                    string productID = this.order.Rdv_List[i].ProductID;
+                    int prodQuantity = this.order.Rdv_List[i].Quantity;
                     BLLProductManagement.Instance.DecreaseStoreQuantity(productID, prodQuantity);
                     double expenses = BLLRestockManagement.Instance.GetRestockDetailByProductID(productID).ImportPrice * prodQuantity;
-                    double grossRevenue = rd_list[i].Total;
+                    double grossRevenue = this.order.Rdv_List[i].Total;
                     double profit = (grossRevenue / expenses - 1) * 100;
                     profit = (double)Math.Round(profit * 100f) / 100f;
-                    BLLRevenueManagement.Instance.AddRevenue(rd_list[i].ReceiptDetailID, expenses, grossRevenue, profit);
+                    BLLRevenueManagement.Instance.AddRevenue(this.order.Rdv_List[i].ReceiptDetailID, expenses, grossRevenue, profit);
                 }
             //rd_list.Clear();
             //rdDataGridView.DataSource = rd_list.ToList();
@@ -88,8 +87,8 @@ namespace PBL3.View.StaffChildForms
                     double total = Convert.ToDouble(TotalOrdertxt.Text);
                     if (customer != null)
                     {
-                        total = total - customer.Rank.CustomerDiscount;
-                        if (total < 0) total = 0;
+                    total = total - customer.Rank.CustomerDiscount;
+                    if (total < 0) total = 0;
                         if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r0")
                         {
                             string message = "You have " + (2 - customer.Used) + " voucher " + customer.Rank.CustomerDiscount + "VND" +
@@ -118,8 +117,10 @@ namespace PBL3.View.StaffChildForms
                         Save(Convert.ToDouble(TotalOrdertxt.Text));
                     }
 
-                    rd_list.Clear();
-                    dgvOrder.DataSource = rd_list.ToList();
+                    this.order.Rdv_List.Clear();
+                    dgvOrder.DataSource = this.order.Rdv_List.ToList();
+                    OrderIDtxt.Text = "";
+                    SalesmanIDtxt.Text = "";
                     TotalOrdertxt.Text = "";
                     dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
                     LoadNewOrder();
@@ -190,7 +191,6 @@ namespace PBL3.View.StaffChildForms
 
             }
         }
-
         private void GetCustomerTel(string telephone)
         {
             CustomerTeltxt.Text = telephone;
@@ -263,8 +263,8 @@ namespace PBL3.View.StaffChildForms
 
          private void Clearbtn_Click(object sender, EventArgs e)
          {
-            rd_list.Clear();
-            dgvOrder.DataSource = rd_list.ToList();
+            this.order.Rdv_List.Clear();
+            dgvOrder.DataSource = this.order.Rdv_List.ToList();
             TotalOrdertxt.Text="";
          }
 

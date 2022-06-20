@@ -10,7 +10,7 @@ namespace PBL3.DTO
     public class Order
     {
         private List<ReceiptDetailView> rdv_list;
-        private DiscountStrategy discountStrategy;
+        private IDiscountStrategy discountStrategy;
 
         public List<ReceiptDetailView> Rdv_List   // property
         {
@@ -25,11 +25,11 @@ namespace PBL3.DTO
         {
             this.rdv_list = new List<ReceiptDetailView>();
         }
-        public Order(DiscountStrategy discountStrategy)
+        public Order(IDiscountStrategy discountStrategy)
         {
             this.discountStrategy = discountStrategy;
         }
-        public void SetDiscountStrategy(DiscountStrategy discountStrategy)
+        public void SetDiscountStrategy(IDiscountStrategy discountStrategy)
         {
             this.discountStrategy=discountStrategy;
         }

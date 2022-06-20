@@ -162,6 +162,13 @@ namespace PBL3.BLL
                 BLLCustomerManagement.Instance.UpdateRankCustomer(customer.PhoneNumber, rankid);
             }
         }
+        public void RenewCustomers(List<Customer> customers)
+        {
+            foreach (Customer i in customers)
+            {
+                i.Used = 0;
+            }
+        }
     }
 
 }
