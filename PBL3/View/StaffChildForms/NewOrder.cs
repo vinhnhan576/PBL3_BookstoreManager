@@ -15,17 +15,12 @@ namespace PBL3.View.StaffChildForms
     public partial class NewOrder : Form
     {
         private List<ReceiptDetailView> rd_list;
-        private Order order = new Order();
+        private Order order;
         private Account account;
         public NewOrder(Account acc)
         {
             InitializeComponent();
             account = acc;
-            InitializeGUI();
-        }
-        public NewOrder()
-        {
-            InitializeComponent();
             InitializeGUI();
         }
 
@@ -34,14 +29,11 @@ namespace PBL3.View.StaffChildForms
             dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
             rd_list = new List<ReceiptDetailView>();
             var random = new RandomGenerator();
-            OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
             OrderIDtxt.Enabled = false;
-            SalesmanIDtxt.Text = account.PersonID.Trim();
             SalesmanIDtxt.Enabled = false;
-            TotalOrdertxt.Text = "0";
             TotalOrdertxt.Enabled = false;
-            OrderDateTimePicker.Value = DateTime.Now;
             discountxt.Enabled = false;
+            LoadNewOrder();
         }
         private void SaveCustomer(Customer customer,double total)
         {
@@ -72,6 +64,7 @@ namespace PBL3.View.StaffChildForms
                 {
                     string productID = rd_list[i].ProductID;
                     int prodQuantity = rd_list[i].Quantity;
+                    MessageBox.Show(productID, prodQuantity.ToString());
                     BLLProductManagement.Instance.DecreaseStoreQuantity(productID, prodQuantity);
                     double expenses = BLLRestockManagement.Instance.GetRestockDetailByProductID(productID).ImportPrice * prodQuantity;
                     double grossRevenue = rd_list[i].Total;
@@ -127,8 +120,6 @@ namespace PBL3.View.StaffChildForms
 
                     rd_list.Clear();
                     dgvOrder.DataSource = rd_list.ToList();
-                    OrderIDtxt.Text = "";
-                    SalesmanIDtxt.Text = "";
                     TotalOrdertxt.Text = "";
                     dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
                     LoadNewOrder();
@@ -152,28 +143,40 @@ namespace PBL3.View.StaffChildForms
                 {
                     string productName = dgvProduct.SelectedRows[0].Cells["ProductName"].Value.ToString();
                     product_temp = BLLProductManagement.Instance.GetProductByProductName(productName);
-                    BLLReceiptManagement.Instance.CreateReceiptDetailView(order, product_temp, Convert.ToInt32(Quantitytxt.Text));
+                    if (!Quantitytxt.Text.All(c => c >= '0' && c <= '9'))
+                        throw new Exception("Invalid quantity input");
+                    else if (Convert.ToInt32(Quantitytxt.Text) > product_temp.StoreQuantity)
+                        throw new Exception("Input quantity exceeds product's store quantity");
+                    else
+                        BLLReceiptManagement.Instance.CreateReceiptDetailView(order, product_temp, Convert.ToInt32(Quantitytxt.Text));
                 }
+                else 
+                    throw new Exception("Please choose only one product to add");
                 double total = BLLReceiptManagement.Instance.CalculateReceiptToTal(order);
                 dgvOrder.DataSource = this.order.Rdv_List.ToList();
                 //dgvOrder.DataSource = BLLDiscountManagement.Instance.GetListAfterSingleDiscount(rd_list);
                 TotalOrdertxt.Text = total.ToString();
                 discountxt.Text = BLLReceiptManagement.Instance.getPromotedDiscount(order).ToString();
-                Quantitytxt.Text = "";
-                //
+                Quantitytxt.Text = null;
             }
             catch (FormatException ex)
             {
-                View.CustomMessageBox.MessageBox.Show("Invalid data input", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CustomMessageBox.MessageBox.Show("Please enter product selling quantity", "Add failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch(Exception ex)
+            {
+                CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void LoadNewOrder()
         {
             OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
-            SalesmanIDtxt.Text = account.PersonID;
-            CustomerTeltxt.Text = "";
+            SalesmanIDtxt.Text = account.PersonID.Trim();
+            CustomerTeltxt.Text = null;
+            TotalOrdertxt.Text = null;
             OrderDateTimePicker.Value = DateTime.Now;
+            order = new Order();
         }
 
         private void productSearchtxt_KeyPress(object sender, KeyPressEventArgs e)

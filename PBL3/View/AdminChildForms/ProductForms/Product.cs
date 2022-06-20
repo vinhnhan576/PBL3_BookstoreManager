@@ -40,11 +40,11 @@ namespace PBL3.View.AdminChildForms.ProductForms
         {
             if (string.IsNullOrWhiteSpace(tbSearch.Text))
             {
-                dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct(tbSearch.Text);
+                dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
             }
             else
             {
-                dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
+                dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct(tbSearch.Text);
             }
         }
 
@@ -94,7 +94,7 @@ namespace PBL3.View.AdminChildForms.ProductForms
 
         private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvProduct.DataSource = BLLProductManagement.Instance.FilterProduct(cbbFilterValue.SelectedItem.ToString());
+            dgvProduct.DataSource = BLLProductManagement.Instance.FilterProduct(cbbFilterCategory.SelectedItem.ToString(), cbbFilterValue.SelectedItem.ToString());
         }
 
         private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -103,11 +103,11 @@ namespace PBL3.View.AdminChildForms.ProductForms
             {
                 if (string.IsNullOrWhiteSpace(tbSearch.Text))
                 {
-                    dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct(tbSearch.Text);
+                    dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
                 }
                 else
                 {
-                    dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
+                    dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct(tbSearch.Text);
                 }
             }
         }

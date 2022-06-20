@@ -204,20 +204,15 @@ namespace PBL3.BLL
             return newList;
         }
 
-        public dynamic FilterProduct(string filterValue)
+        public dynamic FilterProduct(string filterCategory, string filterValue)
         {
             List<Product> data = new List<Product>();
-            foreach (Product i in QLNS.Instance.Products.Select(p => p).ToList())
-            {
-                bool containStatus = i.Status.IndexOf(filterValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool containCategory = i.Category.IndexOf(filterValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                if (containStatus || containCategory)
-                {
-                    data.Add(i);
-                }
-            }
-            var prodList = data.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
-            return prodList.ToList();
+            if (filterCategory == "Status")
+                data = QLNS.Instance.Products.Where(p => p.Status == filterValue).ToList();
+            if(filterCategory == "Category")
+                data = QLNS.Instance.Products.Where(p => p.Category == filterValue).ToList();
+            var newList = data.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
+            return newList.ToList();
             /*QLSPEntities db = new QLSPEntities();
             List<Product> data = new List<Product>();
             foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
@@ -306,7 +301,6 @@ namespace PBL3.BLL
         }
         public void DecreaseStoreQuantity(string productid, int num)
         {
-
             var product = QLNS.Instance.Products.Find(productid);
             product.StoreQuantity = (Convert.ToInt32(product.StoreQuantity) - num);
             QLNS.Instance.SaveChanges();

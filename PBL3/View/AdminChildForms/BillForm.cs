@@ -18,7 +18,7 @@ namespace PBL3.View.AdminChildForms
         {
             InitializeComponent();
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
-
+            Receiptdgv_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
 
         //View receipt info

@@ -20,6 +20,7 @@ namespace PBL3.View.AdminChildForms
             dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
             Savebutton.Visible = false;
             ClearButton.Visible = false;
+            dgvRank_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
 
         //Show rank info

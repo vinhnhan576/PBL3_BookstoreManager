@@ -25,17 +25,17 @@ namespace PBL3.BLL
             {
             }
         }
-        public string GetRandomReceiptID()
-        {
-            return "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
-        }
+
+        /// <summary>
+        /// CRUD
+        /// </summary>
+        /// <param name="r"></param>
         public void AddNewReceipt(Receipt r)
         {
-
             QLNS.Instance.Receipts.Add(r);
             QLNS.Instance.SaveChanges();
-
         }
+
         public void AddNewReceiptDetail(ReceiptDetail r)
         {
             QLNS.Instance.ReceiptDetails.Add(r);
@@ -71,7 +71,7 @@ namespace PBL3.BLL
 
         public void CreateReceiptDetailView(Order order, Product p, int quantity)
         {
-            string receiptid ="r"+Convert.ToString(QLNS.Instance.ReceiptDetails.Count() + 1)+Convert.ToString(order.Rdv_List.Count());
+            string receiptid ="r"+Convert.ToString(QLNS.Instance.Receipts.Count() + 1)+Convert.ToString(order.Rdv_List.Count() + 1);
             order.CreateReceiptDetailView(p, quantity, receiptid);
         }
         public void AddNewReceiptDetail(List<ReceiptDetailView> list, string receipt_id)
@@ -158,7 +158,7 @@ namespace PBL3.BLL
         public dynamic GetAllReceipt_View()
         {
             QLNS db = new QLNS();
-            var product = db.Receipts.Select(p => new { p.ReceiptID, p.Person.PersonName, p.Date, p.Total, p.Status });
+            var product = db.Receipts.OrderBy(r => r.ReceiptID.Length).ThenBy(r => r.ReceiptID).Select(p => new { p.ReceiptID, p.Person.PersonName, p.Date, p.Total, p.Status });
             return product.ToList();
         }
         public dynamic SortReceipt(string sortCategory, bool ascending)

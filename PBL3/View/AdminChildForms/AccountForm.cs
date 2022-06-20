@@ -27,6 +27,7 @@ namespace PBL3.View.AdminChildForms
             cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
             btnSave.Visible = false;
             btnClear.Visible = false;
+            dgvAccount_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
         public void Reload()
         {
@@ -74,7 +75,6 @@ namespace PBL3.View.AdminChildForms
                 tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             }
         }
-
         //
         //CRUD
         //

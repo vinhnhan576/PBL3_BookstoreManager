@@ -17,7 +17,7 @@ namespace PBL3.View.StaffChildForms
         {
             InitializeComponent();
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
-
+            Receiptdgv_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
 
         private void Searchtxt_KeyPress(object sender, KeyPressEventArgs e)

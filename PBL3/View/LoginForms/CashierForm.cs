@@ -27,8 +27,8 @@ namespace PBL3.View
 
         private void InitializeGUI()
         {
-            currentButton = btnNewOrder;
-            openChildForm(new Overview(account.Person), btnViewOrder);
+            currentButton = btnViewOrder;
+            openChildForm(new NewOrder(account), btnNewOrder);
 
             string name = account.Person.PersonName.Split()[account.Person.PersonName.Split().Count() - 1];
             lbWelcome.Text = "Welcome, " + name;
