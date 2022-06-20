@@ -49,12 +49,28 @@ namespace PBL3.View.StaffChildForms
                 Productdgv.DataSource = BLLReceiptManagement.Instance.GetProductInReceiptByID(IDtxt.Text.ToString());
             }
         }
-        private void tbYear_IconRightClick(object sender, EventArgs e)
+        private void statusbtn_Click(object sender, EventArgs e)
         {
-            Receiptdgv.DataSource = BLLReceiptManagement.Instance.FilterReceiptByDate(tbMonth.Text, tbDay.Text, tbYear.Text);
+            List<string> del = new List<string>();
+            if (Receiptdgv.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow i in Receiptdgv.SelectedRows)
+                {
+                    del.Add(i.Cells[0].Value.ToString());
+                }
+                BLLReceiptManagement.Instance.ChangeStatusReceipt(del);
+                //cbLopSH.SelectedIndex = 0;
+                Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+            }
+        }
+        private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(sortCategory, sortOrder);
         }
 
-        private void cbbFilterCategory_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbbFilterValue.Text = "";
             cbbFilterValue.Items.Clear();
@@ -75,31 +91,14 @@ namespace PBL3.View.StaffChildForms
             }
         }
 
-        private void cbbFilterValue_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
         {
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.FilterReceipt(cbbFilterValue.SelectedItem.ToString());
         }
 
-        private void cbbSortOrder_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void tbYear_IconRightClick_1(object sender, EventArgs e)
         {
-            string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(sortCategory, sortOrder);
-        }
-
-        private void statusbtn_Click(object sender, EventArgs e)
-        {
-            List<string> del = new List<string>();
-            if (Receiptdgv.SelectedRows.Count > 0)
-            {
-                foreach (DataGridViewRow i in Receiptdgv.SelectedRows)
-                {
-                    del.Add(i.Cells[0].Value.ToString());
-                }
-                BLLReceiptManagement.Instance.ChangeStatusReceipt(del);
-                //cbLopSH.SelectedIndex = 0;
-                Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
-            }
+            Receiptdgv.DataSource = BLLReceiptManagement.Instance.FilterReceiptByDate(tbMonth.Text, tbDay.Text, tbYear.Text);
         }
     }
 }

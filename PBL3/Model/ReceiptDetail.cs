@@ -21,6 +21,7 @@ namespace PBL3.Model
         public string ProductID { get; set; }
         [Required]
         public int SellingQuantity { get; set; }
+        public double SellingPrice { get; set; }
         public double Total { get; set; }
         public string ReceiptID { get; set; }
 

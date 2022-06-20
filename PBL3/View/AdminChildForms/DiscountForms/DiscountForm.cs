@@ -33,8 +33,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;
             cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
-            string idtemp = (QLNS.Instance.Discounts.Count() + 1).ToString();
-            IDtxt.Text = "d" + idtemp;
+            IDtxt.Text = BLLDiscountManagement.Instance.GenerateID();
             Typecbb.SelectedIndex = 1;
             Savebutton.Visible = false;
             ClearButton.Visible = false;
@@ -155,12 +154,16 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             //    AmountApplytxt.Enabled = false;
             //    Typecbb.SelectedIndex = 0;
             //}
+            IDtxt.ReadOnly = true;
+            Nametxt.ReadOnly = false;
+            AmountApplytxt.ReadOnly = false;
+            DiscountApplytxt.ReadOnly = false;
             Savebutton.Visible = true;
             ClearButton.Visible = true;
         }
 
-        // Edit discount
-        private void EditButton_Click(object sender, EventArgs e)
+        //Edit discount
+        private void EditButton_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -183,16 +186,12 @@ namespace PBL3.View.AdminChildForms.DiscountForms
                         AmountApplytxt.Enabled = false;
                         Typecbb.SelectedIndex = 0;
                     }
-                    discount.DiscountType = Typecbb.SelectedItem.ToString();
-                    discount.StartingDate = dgvFrom.Value;
-                    discount.ExpirationDate = dgvTo.Value;
-                    discount.DiscountApply = Convert.ToDouble(DiscountApplytxt.Text);
-                    BLLDiscountManagement.Instance.AddNewDiscount(discount);
-                    dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
-                    ApplyDiscountForm form = new ApplyDiscountForm(BLLDiscountManagement.Instance.GetDiscountByDiscountID(IDtxt.Text));
-                    form.ShowDialog();
                 }
                 else throw new Exception("Please choose only 1 discount to edit");
+                Savebutton.Visible = true;
+                ClearButton.Visible = true;
+                Nametxt.ReadOnly = false;
+                DiscountApplytxt.ReadOnly = false;
             }
             catch (Exception ex)
             {
@@ -221,8 +220,6 @@ namespace PBL3.View.AdminChildForms.DiscountForms
         {
             try
             {
-                if (BLLDiscountManagement.Instance.Check(IDtxt.Text))
-                {
                     Discount discount = new Discount();
                     discount.DiscountID = IDtxt.Text;
                     discount.DiscountName = Nametxt.Text;
@@ -234,7 +231,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
                     discount.StartingDate = dgvFrom.Value;
                     discount.ExpirationDate = dgvTo.Value;
                     discount.DiscountApply = Convert.ToDouble(DiscountApplytxt.Text);
-                    BLLDiscountManagement.Instance.Edit(discount);
+                    BLLDiscountManagement.Instance.Execute(discount);
                     Savebutton.Visible = false;
                     ClearButton.Visible = false;
                     IDtxt.ReadOnly = true;
@@ -242,29 +239,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
                     AmountApplytxt.ReadOnly = true;
                     DiscountApplytxt.ReadOnly = true;
                     dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
-                }
-                else
-                {
-                    Discount discount = new Discount();
-                    discount.DiscountID = IDtxt.Text;
-                    discount.DiscountName = Nametxt.Text;
-                    if (Typecbb.SelectedIndex == 1)
-                    {
-                        discount.AmmountApply = Convert.ToInt32(AmountApplytxt.Text);
-                    }
-                    discount.DiscountType = Typecbb.SelectedItem.ToString();
-                    discount.StartingDate = dgvFrom.Value;
-                    discount.ExpirationDate = dgvTo.Value;
-                    discount.DiscountApply = Convert.ToDouble(DiscountApplytxt.Text);
-                    BLLDiscountManagement.Instance.AddNewDiscount(discount);
-                    Savebutton.Visible = false;
-                    ClearButton.Visible = false;
-                    IDtxt.ReadOnly = true;
-                    Nametxt.ReadOnly = true;
-                    AmountApplytxt.ReadOnly = true;
-                    DiscountApplytxt.ReadOnly = true;
-                    dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
-                }
+               
             }
             catch
             {
@@ -329,6 +304,10 @@ namespace PBL3.View.AdminChildForms.DiscountForms
                     discount.StartingDate = dgvFrom.Value;
                     discount.ExpirationDate = dgvTo.Value;
                     discount.DiscountApply = Convert.ToDouble(DiscountApplytxt.Text);
+                    IDtxt.ReadOnly = true;
+                    Nametxt.ReadOnly = true;
+                    AmountApplytxt.ReadOnly = true;
+                    DiscountApplytxt.ReadOnly = true;
                     BLLDiscountManagement.Instance.AddNewDiscount(discount);
                     dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
                     ApplyDiscountForm form = new ApplyDiscountForm(BLLDiscountManagement.Instance.GetDiscountByDiscountID(IDtxt.Text));
@@ -406,6 +385,5 @@ namespace PBL3.View.AdminChildForms.DiscountForms
                 AmountApplytxt.Enabled = true;
             }
         }
-
     }
 }

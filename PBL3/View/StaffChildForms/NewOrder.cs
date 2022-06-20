@@ -14,7 +14,7 @@ namespace PBL3.View.StaffChildForms
 {
     public partial class NewOrder : Form
     {
-        private List<ReceiptDetailView> rd_list;
+        //private List<ReceiptDetailView> rd_list;
         private Order order = new Order();
         private Account account;
         public NewOrder(Account acc)
@@ -32,7 +32,7 @@ namespace PBL3.View.StaffChildForms
         private void InitializeGUI()
         {
             dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
-            rd_list = new List<ReceiptDetailView>();
+            //rd_list = new List<ReceiptDetailView>();
             var random = new RandomGenerator();
             OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
             OrderIDtxt.ReadOnly = true;
@@ -68,7 +68,7 @@ namespace PBL3.View.StaffChildForms
                 //receipt.CustomerID = (QLSPEntities.Instance.Customers.Count() + 1).ToString();
                 BLLReceiptManagement.Instance.AddNewReceipt(receipt);
                 BLLReceiptManagement.Instance.AddNewReceiptDetail(this.order, OrderIDtxt.Text);
-                for (int i = 0; i < rd_list.Count; i++)
+                for (int i = 0; i < this.order.Rdv_List.Count; i++)
                 {
                     string productID = this.order.Rdv_List[i].ProductID;
                     int prodQuantity = this.order.Rdv_List[i].Quantity;
@@ -95,8 +95,8 @@ namespace PBL3.View.StaffChildForms
                     double total = Convert.ToDouble(TotalOrdertxt.Text);
                     if (customer != null)
                     {
-                        total = total - customer.Rank.CustomerDiscount;
-                        if (total < 0) total = 0;
+                    total = total - customer.Rank.CustomerDiscount;
+                    if (total < 0) total = 0;
                         if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r0")
                         {
                             string message = "You have " + (2 - customer.Used) + " voucher " + customer.Rank.CustomerDiscount + "VND" +
@@ -125,8 +125,8 @@ namespace PBL3.View.StaffChildForms
                         Save(Convert.ToDouble(TotalOrdertxt.Text));
                     }
 
-                    rd_list.Clear();
-                    dgvOrder.DataSource = rd_list.ToList();
+                    this.order.Rdv_List.Clear();
+                    dgvOrder.DataSource = this.order.Rdv_List.ToList();
                     OrderIDtxt.Text = "";
                     SalesmanIDtxt.Text = "";
                     TotalOrdertxt.Text = "";
@@ -187,7 +187,6 @@ namespace PBL3.View.StaffChildForms
 
             }
         }
-
         private void GetCustomerTel(string telephone)
         {
             CustomerTeltxt.Text = telephone;
@@ -260,8 +259,8 @@ namespace PBL3.View.StaffChildForms
 
          private void Clearbtn_Click(object sender, EventArgs e)
          {
-            rd_list.Clear();
-            dgvOrder.DataSource = rd_list.ToList();
+            this.order.Rdv_List.Clear();
+            dgvOrder.DataSource = this.order.Rdv_List.ToList();
             TotalOrdertxt.Text="";
          }
 

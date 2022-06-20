@@ -48,7 +48,7 @@ namespace PBL3.View.AdminChildForms
             applytxt.Text = "";
             Savebutton.Visible = true;
             ClearButton.Visible = true;
-            IDtxt.ReadOnly = false;
+            IDtxt.ReadOnly = true;
             Nametxt.ReadOnly = false;
             Requirementtxt.ReadOnly = false;
             applytxt.ReadOnly = false;
@@ -68,6 +68,9 @@ namespace PBL3.View.AdminChildForms
                     applytxt.Text = dgvRank.SelectedRows[0].Cells[3].Value.ToString();
                     Savebutton.Visible = true;
                     ClearButton.Visible = true;
+                    Nametxt.ReadOnly = false;
+                    Requirementtxt.ReadOnly = false;
+                    applytxt.ReadOnly= false;
                 }
                 else throw new Exception();
             }
@@ -139,13 +142,14 @@ namespace PBL3.View.AdminChildForms
         {
             if (e.KeyChar == (char)13)
             {
+
                 if (string.IsNullOrWhiteSpace(tbSearch.Text))
                 {
-                    dgvRank.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+                    dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
                 }
                 else
                 {
-                    dgvRank.DataSource = BLLReceiptManagement.Instance.SearchReceipt(tbSearch.Text);
+                    dgvRank.DataSource = BLLRankManagement.Instance.SearchRank(tbSearch.Text);
                 }
             }
         }
@@ -154,11 +158,11 @@ namespace PBL3.View.AdminChildForms
         {
             if (string.IsNullOrWhiteSpace(tbSearch.Text))
             {
-                dgvRank.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+                dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
             }
             else
             {
-                dgvRank.DataSource = BLLReceiptManagement.Instance.SearchReceipt(tbSearch.Text);
+                dgvRank.DataSource = BLLRankManagement.Instance.SearchRank(tbSearch.Text);
             }
         }
 

@@ -53,43 +53,13 @@ namespace PBL3.BLL
             //    temp.Total = temp.SellingQuantity * (temp.Product.SellingPrice);
             //    QLSPEntities.Instance.SaveChanges();
             //}
-            var product = QLNS.Instance.ReceiptDetails.Where(p => p.ReceiptID == ID_Receipt).Select(p => new { p.Product.ProductName, p.SellingQuantity, p.Total }).ToList();
+            var product = QLNS.Instance.ReceiptDetails.Where(p => p.ReceiptID == ID_Receipt).Select(p => new { p.Product.ProductName, p.SellingQuantity,p.SellingPrice, p.Total }).ToList();
             return product;
         }
-        public Receipt GetReceiptByReceiptDetailID(string rdID)
-        {
-            Receipt receipt = new Receipt();
-            foreach(Receipt i in QLNS.Instance.Receipts.Select(p => p).ToList())
-            {
-                foreach(ReceiptDetail rd in i.ReceiptDetails)
-                {
-                    if(rd.ReceiptDetailID == rdID)
-                    {
-                        receipt = i;
-                        break;
-                    }
-                }
-            }
-            return receipt;
-        }
-
         public void CreateReceiptDetailView(Order order, Product p, int quantity)
         {
             string receiptid ="r"+Convert.ToString(QLNS.Instance.ReceiptDetails.Count() + 1)+Convert.ToString(order.Rdv_List.Count());
             order.CreateReceiptDetailView(p, quantity, receiptid);
-        }
-        public void AddNewReceiptDetail(List<ReceiptDetailView> list, string receipt_id)
-        {
-            for(int i=0;i<list.Count;i++)
-            {
-                ReceiptDetail r = new ReceiptDetail();
-                r.ReceiptDetailID = list[i].ReceiptDetailID;
-                r.ProductID= list[i].ProductID;
-                r.SellingQuantity = list[i].Quantity;
-                r.Total=list[i].Total;
-                r.ReceiptID = receipt_id;
-                AddNewReceiptDetail(r);
-            }
         }
         public void AddNewReceiptDetail(Order order, string receipt_id)
         {
@@ -99,6 +69,7 @@ namespace PBL3.BLL
                 r.ReceiptDetailID = order.Rdv_List[i].ReceiptDetailID;
                 r.ProductID = order.Rdv_List[i].ProductID;
                 r.SellingQuantity = order.Rdv_List[i].Quantity;
+                r.SellingPrice = order.Rdv_List[i].SellingPrice;
                 r.Total = order.Rdv_List[i].Total;
                 r.ReceiptID = receipt_id;
                 AddNewReceiptDetail(r);
@@ -312,10 +283,9 @@ namespace PBL3.BLL
             List<string> ReceiptSalesmanList = new List<string>();
             foreach (ReceiptView i in GetAllReceipt_View())
             {
-                    ReceiptSalesmanList.Add(i.Salesman);
+                ReceiptSalesmanList.Add(i.Salesman);
             }
             return ReceiptSalesmanList;
         }
-
     }
 }
