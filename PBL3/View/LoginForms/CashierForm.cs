@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.View.StaffChildForms;
 using PBL3.Model;
+using PBL3.BLL;
 
 namespace PBL3.View
 {
@@ -22,6 +23,7 @@ namespace PBL3.View
         {
             InitializeComponent();
             account = acc;
+            BLLCustomerManagement.Instance.ReNewUsedCustomer();
             InitializeGUI();
         }
 
@@ -124,7 +126,32 @@ namespace PBL3.View
 
         private void btnViewOrders_Click(object sender, EventArgs e)
         {
-            openChildForm(new ManageOrder(), sender);
+            openChildForm(new ManageOrder(account), sender);
         }
+        /// <summary>
+        /// RELOAD DISCOUNTS
+        /// </summary>
+        /// Check if there is any expired discount and remove it
+        //private Timer timer;
+        //DateTime currentDay;
+
+        //private void startTimer(object sender, EventArgs e)
+        //{
+        //    timer = new Timer();
+        //    timer.Interval = (1 * 1000); // 1 sec
+        //    timer.Tick += new EventHandler(timer_Tick);
+        //    currentDay = DateTime.Now;
+        //    timer.Start();
+        //}
+        //private void timer_Tick(object sender, EventArgs e)
+        //{
+        //    if (DateTime.Now != currentDay)
+        //    {
+        //        List<Discount> expiredDiscounts = BLLDiscountManagement.Instance.GetExpiredDiscounts();
+        //        if (expiredDiscounts != null)
+        //            BLLDiscountManagement.Instance.RenewDiscounts(expiredDiscounts);
+        //        currentDay = DateTime.Now.Date;
+        //    }
+        //}
     }
 }

@@ -177,7 +177,7 @@ namespace PBL3.BLL
                 else
                     data = db.Customers.OrderByDescending(p => p.CustomerName).ToList();
             }
-            if (sortCategory == "TotalSpending")
+            if (sortCategory == "Total Spending")
             {
                 if (ascending)
                     data = db.Customers.OrderBy(p => p.TotalSpending).ToList();
@@ -196,10 +196,10 @@ namespace PBL3.BLL
             }
             return RankList;
         }
-        public void Refresh()
+        public void ReNewUsedCustomer()
         {
             DateTime now = DateTime.Now;
-            if (now.Hour==20&&now.Minute==42)
+            if (now.Day==1)
             {
                 List<Customer> list = QLNS.Instance.Customers.Select(p => p).ToList();
                 foreach (Customer c in list)

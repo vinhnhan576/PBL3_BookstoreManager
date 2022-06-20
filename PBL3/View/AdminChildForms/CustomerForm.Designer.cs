@@ -142,7 +142,7 @@
             this.cbbSortCategory.ItemHeight = 23;
             this.cbbSortCategory.Items.AddRange(new object[] {
             "Customer Name",
-            "TotalSpending"});
+            "Total Spending"});
             this.cbbSortCategory.Location = new System.Drawing.Point(268, 30);
             this.cbbSortCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
             this.cbbSortCategory.Name = "cbbSortCategory";

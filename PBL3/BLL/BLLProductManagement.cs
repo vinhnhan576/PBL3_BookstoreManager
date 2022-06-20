@@ -277,14 +277,14 @@ namespace PBL3.BLL
             {
                 bool containID = i.ProductID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containName = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool containStatus = i.Status.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool containCategory = i.Category.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                if (containID||containName || containStatus || containCategory)
+                //bool containStatus = i.Status.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                //bool containCategory = i.Category.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                if (containID||containName)
                 {
                     data.Add(i);
                 }
             }
-            var prodList = data.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
+            var prodList = data.Select(p => new {p.ProductName,p.StoreQuantity});
             return prodList.ToList();
         }
         public dynamic SearchProduct_Restock(string searchValue)
