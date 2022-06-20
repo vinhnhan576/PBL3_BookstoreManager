@@ -26,6 +26,7 @@ namespace PBL3.View.AdminChildForms
             applytxt.ReadOnly=true;
         }
 
+        //Show rank info
         private void dgvRank_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvRank.SelectedRows.Count == 1)
@@ -36,6 +37,8 @@ namespace PBL3.View.AdminChildForms
                 applytxt.Text = dgvRank.SelectedRows[0].Cells[3].Value.ToString();
             }
         }        
+
+        //Add rank
         private void Addbutton_Click(object sender, EventArgs e)
         {
             string idtemp = (QLNS.Instance.Ranks.Count() + 1).ToString();
@@ -51,8 +54,43 @@ namespace PBL3.View.AdminChildForms
             applytxt.ReadOnly = false;
 
         }
+
+        //Edit rank
         private void EditButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (dgvRank.SelectedRows.Count == 1)
+                {
+                    IDtxt.Text = dgvRank.SelectedRows[0].Cells["RankID"].Value.ToString();
+                    Nametxt.Text = dgvRank.SelectedRows[0].Cells["RankName"].Value.ToString();
+                    Requirementtxt.Text = dgvRank.SelectedRows[0].Cells["Requirement"].Value.ToString();
+                    applytxt.Text = dgvRank.SelectedRows[0].Cells[3].Value.ToString();
+                    Savebutton.Visible = true;
+                    ClearButton.Visible = true;
+                }
+                else throw new Exception();
+            }
+            catch (Exception)
+            {
+                CustomMessageBox.MessageBox.Show("Please choose only 1 rank to edit", "Error", MessageBoxIcon.Error);
+            }
+        }
+
+        //Delete rank(s)
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            List<string> del = new List<string>();
+            if (dgvRank.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow i in dgvRank.SelectedRows)
+                {
+                    del.Add(i.Cells[0].Value.ToString());
+                }
+                BLLRankManagement.Instance.DelRank(del);
+                //cbLopSH.SelectedIndex = 0;
+                dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
+            }
             if (dgvRank.SelectedRows.Count == 1)
             {
                 IDtxt.Text = dgvRank.SelectedRows[0].Cells["RankID"].Value.ToString();
@@ -68,6 +106,7 @@ namespace PBL3.View.AdminChildForms
             }
         }
 
+        //Save rank addition/update
         private void Savebutton_Click(object sender, EventArgs e)
         {
             try
@@ -79,27 +118,51 @@ namespace PBL3.View.AdminChildForms
                 rank.CustomerDiscount = Convert.ToDouble(applytxt.Text);
                 BLLRankManagement.Instance.Execute(rank);
                 dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
-                View.CustomMessageBox.MessageBox.Show("Rank is added successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CustomMessageBox.MessageBox.Show("Rank is added successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {
-                View.CustomMessageBox.MessageBox.Show("Enter missing information \n or information is not in the right format ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CustomMessageBox.MessageBox.Show("Enter missing information \n or information is not in the right format ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
+        //Clear textboxes
         private void ClearButton_Click(object sender, EventArgs e)
         {
             Nametxt.Text = "";
             Requirementtxt.Text = "";
             applytxt.Text = "";
         } 
+
+        //Search rank
         private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
-                dgvRank.DataSource = BLLRankManagement.Instance.SearchRank(tbSearch.Text);
+                if (string.IsNullOrWhiteSpace(tbSearch.Text))
+                {
+                    dgvRank.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+                }
+                else
+                {
+                    dgvRank.DataSource = BLLReceiptManagement.Instance.SearchReceipt(tbSearch.Text);
+                }
             }
         }
+
+        private void tbSearch_IconRightClick(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                dgvRank.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+            }
+            else
+            {
+                dgvRank.DataSource = BLLReceiptManagement.Instance.SearchReceipt(tbSearch.Text);
+            }
+        }
+
+        //Sort rank
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             tbSearch.Text = "";
@@ -108,20 +171,7 @@ namespace PBL3.View.AdminChildForms
             dgvRank.DataSource = BLLRankManagement.Instance.SortRank(sortCategory, sortOrder);
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
-        {
-            List<string> del = new List<string>();
-            if (dgvRank.SelectedRows.Count > 0)
-            {
-                foreach (DataGridViewRow i in dgvRank.SelectedRows)
-                {
-                    del.Add(i.Cells[0].Value.ToString());
-                }
-                BLLRankManagement.Instance.DelRank(del);
-                //cbLopSH.SelectedIndex = 0;
-                dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
-            }
-        }
+        //
         private void tb_TextChanged(object sender, EventArgs e)
         {
             if (Nametxt.Text == "" || DataCheck.IsString(Nametxt.Text) != true) Nametxt.IconRightSize = new System.Drawing.Size(7, 7);

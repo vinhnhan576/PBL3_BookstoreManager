@@ -558,7 +558,6 @@
   <ItemGroup>
     <None Include="Resources\icons8-plus-math-100.png" />
     <None Include="Resources\icons8-plus-48.png" />
-    <Content Include="View\ResetEmail.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

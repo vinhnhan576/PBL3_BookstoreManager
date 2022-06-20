@@ -90,48 +90,48 @@ namespace PBL3.View.StaffChildForms
         {
               try
               {
-                Customer customer = BLLCustomerManagement.Instance.getCustomer(CustomerTeltxt.Text.Trim());
-                //MessageBox.Show(customer.Rankid);
-                double total = Convert.ToDouble(TotalOrdertxt.Text);
-                if (customer != null)
-                {
-                    total = total - customer.Rank.CustomerDiscount;
-                    if (total < 0) total = 0;
-                    if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r0")
+                    Customer customer = BLLCustomerManagement.Instance.getCustomer(CustomerTeltxt.Text.Trim());
+                    //MessageBox.Show(customer.Rankid);
+                    double total = Convert.ToDouble(TotalOrdertxt.Text);
+                    if (customer != null)
                     {
-                        string message = "You have " + (2 - customer.Used) + " voucher " + customer.Rank.CustomerDiscount + "VND" +
-                        "\nYour total after using this discount: " + total +
-                        "\nDo you want to get a discount?";
-                        string title = "Notification";
-                        DialogResult result = CustomMessageBox.MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes)
+                        total = total - customer.Rank.CustomerDiscount;
+                        if (total < 0) total = 0;
+                        if (customer.IsValidDiscount(2) == true && customer.RankID.Trim() != "r0")
                         {
-                            Save(total);
-                            BLLCustomerManagement.Instance.UpdateUsed(customer.PhoneNumber);
+                            string message = "You have " + (2 - customer.Used) + " voucher " + customer.Rank.CustomerDiscount + "VND" +
+                            "\nYour total after using this discount: " + total +
+                            "\nDo you want to get a discount?";
+                            string title = "Notification";
+                            DialogResult result = CustomMessageBox.MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                Save(total);
+                                BLLCustomerManagement.Instance.UpdateUsed(customer.PhoneNumber);
+                            }
+                            else if (result == DialogResult.No)
+                            {
+                                Save(Convert.ToDouble(TotalOrdertxt.Text));
+                            }
                         }
-                        else if (result == DialogResult.No)
+                        else
                         {
                             Save(Convert.ToDouble(TotalOrdertxt.Text));
                         }
                     }
+
                     else
                     {
                         Save(Convert.ToDouble(TotalOrdertxt.Text));
                     }
-                }
 
-                else
-                {
-                    Save(Convert.ToDouble(TotalOrdertxt.Text));
-                }
-
-                rd_list.Clear();
-                dgvOrder.DataSource = rd_list.ToList();
-                OrderIDtxt.Text = "";
-                SalesmanIDtxt.Text = "";
-                TotalOrdertxt.Text = "";
-                dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
-                LoadNewOrder();
+                    rd_list.Clear();
+                    dgvOrder.DataSource = rd_list.ToList();
+                    OrderIDtxt.Text = "";
+                    SalesmanIDtxt.Text = "";
+                    TotalOrdertxt.Text = "";
+                    dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
+                    LoadNewOrder();
               }
               catch (FormatException ex)
             {
@@ -167,10 +167,6 @@ namespace PBL3.View.StaffChildForms
                 View.CustomMessageBox.MessageBox.Show("Invalid data input", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void NewOrderButton_Click(object sender, EventArgs e)
-        {
-            LoadNewOrder();
-        }
 
         private void LoadNewOrder()
         {
@@ -184,9 +180,14 @@ namespace PBL3.View.StaffChildForms
         {
             if (e.KeyChar == (char)13)
             {
-                dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct_Order(productSearchtxt.Text);
+                if(string.IsNullOrWhiteSpace(productSearchtxt.Text))
+                    dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
+                else
+                    dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct_Order(productSearchtxt.Text);
+
             }
         }
+
         private void GetCustomerTel(string telephone)
         {
             CustomerTeltxt.Text = telephone;
@@ -198,7 +199,6 @@ namespace PBL3.View.StaffChildForms
             form.d = new NewCustomerForm.Mydel(GetCustomerTel);
             form.ShowDialog();
         }
-
 
         private void cbbFilterCategory_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -242,10 +242,10 @@ namespace PBL3.View.StaffChildForms
                     View.CustomMessageBox.MessageBox.Show(tel,"", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+         }
 
-        }
-        private void Deletebtn_Click(object sender, EventArgs e)
-        {
+         private void Deletebtn_Click(object sender, EventArgs e)
+         {
             if (dgvOrder.SelectedRows.Count > 0)
             {
                 for (int i = 0; i < dgvOrder.SelectedRows.Count; i++)
@@ -256,17 +256,19 @@ namespace PBL3.View.StaffChildForms
             dgvOrder.DataSource = this.order.Rdv_List.ToList();
             TotalOrdertxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(order).ToString();
             discountxt.Text=BLLReceiptManagement.Instance.getPromotedDiscount(order).ToString();
-        }
-        private void Clearbtn_Click(object sender, EventArgs e)
-        {
+         }
+
+         private void Clearbtn_Click(object sender, EventArgs e)
+         {
             rd_list.Clear();
             dgvOrder.DataSource = rd_list.ToList();
             TotalOrdertxt.Text="";
-        }
-        private void tb_TextChanged(object sender, EventArgs e)
-        {
+         }
+
+         private void tb_TextChanged(object sender, EventArgs e)
+         {
             if (CustomerTeltxt.Text == "" || CustomerTeltxt.Text.Length != 10 || DataCheck.IsNumber(CustomerTeltxt.Text) != true || CustomerTeltxt.Text[0] != '0') CustomerTeltxt.IconRightSize = new System.Drawing.Size(7, 7);
             else CustomerTeltxt.IconRightSize = new System.Drawing.Size(0, 0);
-        }
+         }
     }
 }

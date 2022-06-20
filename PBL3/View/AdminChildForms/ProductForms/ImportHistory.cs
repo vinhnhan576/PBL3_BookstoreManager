@@ -13,13 +13,15 @@ namespace PBL3.View.AdminChildForms.ProductForms
 {
     public partial class ImportHistory : Form
     {
+        string productID;
         public ImportHistory(string productID)
         {
             InitializeComponent();
-            InitializeData(productID);
+            this.productID = productID;
+            InitializeData();
         }
 
-        public void InitializeData(string productID)
+        public void InitializeData()
         {
             dgvProduct.DataSource = BLLStoreImportManagement.Instance.GetStoreImportDetail_ViewByProductID(productID);
             tbProduct.Text = BLLProductManagement.Instance.GetProductByID(productID).ProductName;
@@ -38,22 +40,56 @@ namespace PBL3.View.AdminChildForms.ProductForms
         {
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            dgvProduct.DataSource = BLLStoreImportManagement.Instance.SortStoreImportDetail(sortCategory, sortOrder);
+            dgvProduct.DataSource = BLLStoreImportManagement.Instance.SortStoreImportDetail(productID, sortCategory, sortOrder);
         }
 
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false;
-            dgvProduct.DataSource = BLLStoreImportManagement.Instance.SortStoreImportDetail(sortCategory, sortOrder);
+            dgvProduct.DataSource = BLLStoreImportManagement.Instance.SortStoreImportDetail(productID, sortCategory, sortOrder);
         }
 
         private void tbYear_IconRightClick(object sender, EventArgs e)
         {
-            string day = tbDay.Text;
-            string month = tbMonth.Text;
-            string year = tbYear.Text;
-            dgvProduct.DataSource = BLLStoreImportManagement.Instance.FilterStoreImportDetailByDate(day, month, year);
+            try
+            {
+                if (!isTimeInputValid()) throw new Exception();
+                string day = tbDay.Text;
+                string month = tbMonth.Text;
+                string year = tbYear.Text;
+                dgvProduct.DataSource = BLLStoreImportManagement.Instance.FilterStoreImportDetailByDate(day, month, year);
+            }
+            catch (Exception)
+            {
+                CustomMessageBox.MessageBox.Show("Please re-enter the date", "Invalid time input", MessageBoxIcon.Error);
+                tbDay.Text = null;
+                tbMonth.Text = null;
+                tbYear.Text = null;
+            }
+        }
+
+        private bool isTimeInputValid()
+        {
+            if (!string.IsNullOrWhiteSpace(tbDay.Text))
+            {
+                if (Convert.ToInt32(tbDay.Text) > 0 && Convert.ToInt32(tbDay.Text) <= 31)
+                    return true;
+                else return false;
+            }
+            if(!string.IsNullOrWhiteSpace(tbMonth.Text))
+            {
+                if (Convert.ToInt32(tbMonth.Text) > 0 && Convert.ToInt32(tbMonth.Text) <= 12)
+                    return true;
+                else return false;
+            }
+            if(!string.IsNullOrWhiteSpace(tbYear.Text))
+            {
+                if (Convert.ToInt32(tbYear.Text) > 0 && Convert.ToInt32(tbYear.Text) <= DateTime.Now.Year)
+                    return true;
+                else return false;
+            }
+            return true;
         }
     }
 }

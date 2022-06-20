@@ -362,5 +362,17 @@ namespace PBL3.BLL
         {
             return GetAllProduct().Count();
         }
+
+        public Product_Price_View GetProduct_PriceViewByProductID(string productID)
+        {
+            Product p = QLNS.Instance.Products.Find(productID);
+            Product_Price_View priceView = new Product_Price_View
+            {
+                ProductID = p.ProductID,
+                ProductName = p.ProductName,
+                SellingPrice = p.SellingPrice
+            };
+            return priceView;
+        }
     }
 }

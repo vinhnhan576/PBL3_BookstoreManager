@@ -23,11 +23,6 @@ namespace PBL3.View.StockkeeperChildForms
             InitializeComponent();
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_View();
             account = acc;
-            tbStoreImportID.Text = "is00" + (QLNS.Instance.StoreImports.Count() + 1).ToString();
-            tbStoreImportID.Enabled = false;
-            tbStockkeperID.Text = account.PersonID.ToString();
-            tbStockkeperID.Enabled = false;
-            dtpRestock.Value = DateTime.Now;
         }
         private void butAdd_Click(object sender, EventArgs e)
         {
@@ -50,7 +45,7 @@ namespace PBL3.View.StockkeeperChildForms
             }
             var Restock = this.list.Select(p => new { p.ProductID, p.ProductName, p.ImportQuantity, });
             dgvImport.DataSource = this.list.ToList();
-            tbQuantity.Text = "";
+            tbQuantity.Text = null;
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_View();
         }
         private void butSave_Click(object sender, EventArgs e)
@@ -71,9 +66,11 @@ namespace PBL3.View.StockkeeperChildForms
             }
             list.Clear();
             dgvImport.DataSource = list.ToList();
-            tbStoreImportID.Text = "";
-            tbStockkeperID.Text = "";
+            tbStoreImportID.Text = null;
+            tbStockkeperID.Text = null;
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_View();
+
+            NewImport();
         }
 
         private void butDelete_Click(object sender, EventArgs e)
@@ -91,35 +88,18 @@ namespace PBL3.View.StockkeeperChildForms
             dgvImport.DataSource = list.ToList();
         }
 
-        private void butNewImport_Click(object sender, EventArgs e)
+        private void NewImport()
         {
             int count = (QLNS.Instance.Restocks.Count() + 1);
             tbStoreImportID.Text = "rs" + count.ToString();
-            tbStockkeperID.Text = "sk001";//account.PersonID;
+            tbStoreImportID.Enabled = false;
+            tbStockkeperID.Text = account.PersonID;
+            tbStockkeperID.Enabled = false;
             dtpRestock.Value = DateTime.Now;
         }
 
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbbFilterValue.Text = "";
-            cbbFilterValue.Items.Clear();
-            string filterCategory = cbbFilterCategory.SelectedItem.ToString();
-            if (filterCategory == "Category")
-            {
-                foreach (string i in BLLProductManagement.Instance.GetAllProductCategory().Distinct())
-                {
-                    cbbFilterValue.Items.Add(i);
-                    //MessageBox.Show("i");
-                }
-            }
-            if (filterCategory == "Author")
-            {
-                foreach (string i in BLLProductManagement.Instance.GetAllProductAuthor().Distinct())
-                {
-                    cbbFilterValue.Items.Add(i);
-                }
-            }
-
 
         }
 
@@ -127,14 +107,6 @@ namespace PBL3.View.StockkeeperChildForms
         {
             dgvProducts.DataSource = BLLProductManagement.Instance.SearchProduct_Restock(cbbFilterValue.SelectedItem.ToString());
 
-        }
-
-        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                dgvProducts.DataSource = BLLProductManagement.Instance.SearchProduct_Restock(tbSearch.Text);
-            }
         }
     }
 }

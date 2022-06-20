@@ -98,6 +98,8 @@ namespace PBL3.View.StockkeeperChildForms
             tbStockkeperID.Text = "";
             tbTotal.Text = "";
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_Views();
+
+            NewStock();
         }
 
         private void butDelete_Click(object sender, EventArgs e)
@@ -117,7 +119,7 @@ namespace PBL3.View.StockkeeperChildForms
             tbTotal.Text = BLLRestockManagement.Instance.CalculateRestockToTal(list).ToString();
         }
 
-        private void butNewStock_Click(object sender, EventArgs e)
+        private void NewStock()
         {
             int count = (QLNS.Instance.Restocks.Count() + 1);
             tbRestockID.Text = "rs"+count.ToString();
