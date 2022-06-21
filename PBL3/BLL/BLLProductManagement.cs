@@ -39,25 +39,29 @@ namespace PBL3.BLL
         }
         public dynamic GetAllProduct_Import_Views()
         {
-            var product = QLNS.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StockQuantity });
+            var product = QLNS.Instance.Products.OrderBy(p => p.ProductID.Length).ThenBy(p => p.ProductID)
+                .Select(p => new { p.ProductID, p.ProductName, p.StockQuantity });
             return product.ToList();
         }
 
         public dynamic GetAllProduct_View()
         {
             QLNS db = new QLNS();
-            var product = db.Products.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
+            var product = db.Products.OrderBy(p => p.ProductID.Length).ThenBy(p => p.ProductID)
+                .Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
             return product.ToList();
         }
 
         public dynamic GetAllProduct_Order_View()
         {
-            var product = (QLNS.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.SellingPrice })).ToList();
+            var product = (QLNS.Instance.Products.OrderBy(p => p.ProductID.Length).ThenBy(p => p.ProductID)
+                .Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.SellingPrice })).ToList();
             return product;
         }
         public dynamic GetAllProduct_Import_View()
         {
-            var product = (QLNS.Instance.Products.Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.StockQuantity })).ToList();
+            var product = (QLNS.Instance.Products.OrderBy(p => p.ProductID.Length).ThenBy(p => p.ProductID)
+                .Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.StockQuantity })).ToList();
             return product;
         }
 
@@ -74,7 +78,7 @@ namespace PBL3.BLL
                     SellingPrice = i.SellingPrice,
                 });
             }
-            return products;
+            return products.OrderBy(p => p.ProductID.Length).ThenBy(p => p.ProductID).ToList();
         }
 
         public dynamic GetAllProduct_OrderView()

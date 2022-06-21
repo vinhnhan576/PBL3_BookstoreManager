@@ -34,11 +34,11 @@ namespace PBL3.BLL
             return accountList;
         }
 
+
+
         public dynamic GetAllAccount_View()
         {
-            List<Account> accountList = new List<Account>();
-            foreach (Account i in QLNS.Instance.Accounts.Select(p => p).ToList())
-                accountList.Add(i);
+            List<Account> accountList = QLNS.Instance.Accounts.OrderBy(a => a.PersonID.Length).ThenBy(a => a.PersonID).ToList();
             var account = accountList.Select(p => new { p.PersonID, p.Person.PersonName, p.Person.Role, p.Username, p.Person.Address });
             return account.ToList();
         }

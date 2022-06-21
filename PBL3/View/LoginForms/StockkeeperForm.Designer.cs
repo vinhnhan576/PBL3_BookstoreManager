@@ -39,7 +39,6 @@
             this.btnStoreImport = new Guna.UI2.WinForms.Guna2Button();
             this.btnManageStock = new Guna.UI2.WinForms.Guna2Button();
             this.btnNewStock = new Guna.UI2.WinForms.Guna2Button();
-            this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
             this.pnRight = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -144,7 +143,6 @@
             this.pnMenu.Controls.Add(this.btnStoreImport);
             this.pnMenu.Controls.Add(this.btnManageStock);
             this.pnMenu.Controls.Add(this.btnNewStock);
-            this.pnMenu.Controls.Add(this.btnOverview);
             this.pnMenu.CustomizableEdges.BottomLeft = false;
             this.pnMenu.CustomizableEdges.BottomRight = false;
             this.pnMenu.CustomizableEdges.TopLeft = false;
@@ -170,7 +168,7 @@
             this.btnStoreImport.ForeColor = System.Drawing.Color.White;
             this.btnStoreImport.Image = global::PBL3.Properties.Resources.iconStore;
             this.btnStoreImport.ImageOffset = new System.Drawing.Point(-3, 0);
-            this.btnStoreImport.Location = new System.Drawing.Point(8, 158);
+            this.btnStoreImport.Location = new System.Drawing.Point(8, 113);
             this.btnStoreImport.Name = "btnStoreImport";
             this.btnStoreImport.PressedColor = System.Drawing.Color.White;
             this.btnStoreImport.PressedDepth = 20;
@@ -191,7 +189,7 @@
             this.btnManageStock.ForeColor = System.Drawing.Color.White;
             this.btnManageStock.Image = global::PBL3.Properties.Resources.manageOrder;
             this.btnManageStock.ImageOffset = new System.Drawing.Point(-3, 0);
-            this.btnManageStock.Location = new System.Drawing.Point(8, 112);
+            this.btnManageStock.Location = new System.Drawing.Point(8, 67);
             this.btnManageStock.Name = "btnManageStock";
             this.btnManageStock.PressedColor = System.Drawing.Color.White;
             this.btnManageStock.PressedDepth = 20;
@@ -211,7 +209,7 @@
             this.btnNewStock.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewStock.ForeColor = System.Drawing.Color.White;
             this.btnNewStock.Image = global::PBL3.Properties.Resources.newOrder;
-            this.btnNewStock.Location = new System.Drawing.Point(8, 66);
+            this.btnNewStock.Location = new System.Drawing.Point(8, 21);
             this.btnNewStock.Name = "btnNewStock";
             this.btnNewStock.PressedColor = System.Drawing.Color.White;
             this.btnNewStock.PressedDepth = 20;
@@ -219,27 +217,6 @@
             this.btnNewStock.TabIndex = 1;
             this.btnNewStock.Text = "New Stock Item";
             this.btnNewStock.Click += new System.EventHandler(this.btnNewStockItem_Click);
-            // 
-            // btnOverview
-            // 
-            this.btnOverview.BackColor = System.Drawing.Color.Transparent;
-            this.btnOverview.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnOverview.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnOverview.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnOverview.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOverview.FillColor = System.Drawing.Color.Transparent;
-            this.btnOverview.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOverview.ForeColor = System.Drawing.Color.White;
-            this.btnOverview.Image = global::PBL3.Properties.Resources.overview;
-            this.btnOverview.ImageOffset = new System.Drawing.Point(-3, 0);
-            this.btnOverview.Location = new System.Drawing.Point(8, 20);
-            this.btnOverview.Name = "btnOverview";
-            this.btnOverview.PressedColor = System.Drawing.Color.White;
-            this.btnOverview.PressedDepth = 20;
-            this.btnOverview.Size = new System.Drawing.Size(155, 32);
-            this.btnOverview.TabIndex = 0;
-            this.btnOverview.Text = "Overview";
-            this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
             // 
             // pnRight
             // 
@@ -280,7 +257,6 @@
         private Guna.UI2.WinForms.Guna2GradientPanel pnMenu;
         private Guna.UI2.WinForms.Guna2Button btnManageStock;
         private Guna.UI2.WinForms.Guna2Button btnNewStock;
-        private Guna.UI2.WinForms.Guna2Button btnOverview;
         private Guna.UI2.WinForms.Guna2GradientPanel pnRight;
         private Guna.UI2.WinForms.Guna2Button btnStoreImport;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbDate;

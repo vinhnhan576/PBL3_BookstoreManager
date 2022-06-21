@@ -27,7 +27,7 @@ namespace PBL3.View
         private void InitializeGUI()
         {
             currentButton = btnStoreImport;
-            openChildForm(new StockkeeperChildForms.Overview(account.Person), btnOverview);
+            openChildForm(new StockkeeperChildForms.NewStockItem(account), btnNewStock);
 
             string name = account.Person.PersonName.Split()[account.Person.PersonName.Split().Count() - 1];
             lbWelcome.Text = "Welcome, " + name;
@@ -114,11 +114,6 @@ namespace PBL3.View
                     prevButton.ForeColor = Color.White;
                 }
             }
-        }
-
-        private void btnOverview_Click(object sender, EventArgs e)
-        {
-            openChildForm(new StockkeeperChildForms.Overview(account.Person), sender);
         }
 
         private void btnNewStockItem_Click(object sender, EventArgs e)
