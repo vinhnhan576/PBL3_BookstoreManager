@@ -41,7 +41,7 @@ namespace PBL3.BLL
         }
         public dynamic GetAllDiscount_View()
         {
-            var discountList = QLNS.Instance.Discounts.Select(p => new {p.DiscountID, p.DiscountName, p.DiscountType, p.AmmountApply,p.DiscountApply, p.StartingDate, p.ExpirationDate });
+            var discountList = QLNS.Instance.Discounts.OrderBy(d => d.DiscountID.Length).ThenBy(d => d.DiscountID).Select(p => new {p.DiscountID, p.DiscountName, p.DiscountType, p.AmmountApply,p.DiscountApply, p.StartingDate, p.ExpirationDate });
             return discountList.ToList();
         }
         public dynamic SortDiscount(string sortCategory, bool ascending)
@@ -172,7 +172,7 @@ namespace PBL3.BLL
         }
         public dynamic GetAllProduct_DiscountView()
         {
-            return QLNS.Instance.Products.Select(p => new { p.ProductID,p.ProductName,p.DiscountID}).ToList();
+            return QLNS.Instance.Products.OrderBy(p => p.ProductID.Length).ThenBy(p => p.ProductID).Select(p => new { p.ProductID,p.ProductName,p.DiscountID}).ToList();
         }
         public int CountProductByDiscountID(List<Product_Discount_View> list,string discountid)
         {
