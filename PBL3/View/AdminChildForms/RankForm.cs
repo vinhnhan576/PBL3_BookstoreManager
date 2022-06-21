@@ -42,7 +42,7 @@ namespace PBL3.View.AdminChildForms
         //Add rank
         private void Addbutton_Click(object sender, EventArgs e)
         {
-            string idtemp = (QLNS.Instance.Ranks.Count() + 1).ToString();
+            string idtemp = (QLNS.Instance.Ranks.Count()).ToString();
             IDtxt.Text = "r" + idtemp;
             Nametxt.Text = "";
             Requirementtxt.Text = "";
@@ -101,8 +101,8 @@ namespace PBL3.View.AdminChildForms
                 Nametxt.Text = dgvRank.SelectedRows[0].Cells["RankName"].Value.ToString();
                 Requirementtxt.Text = dgvRank.SelectedRows[0].Cells["Requirement"].Value.ToString();
                 applytxt.Text = dgvRank.SelectedRows[0].Cells[3].Value.ToString();
-                Savebutton.Visible = true;
-                ClearButton.Visible = true;
+                Savebutton.Visible = false;
+                ClearButton.Visible = false;
                 IDtxt.ReadOnly = false;
                 Nametxt.ReadOnly = false;
                 Requirementtxt.ReadOnly = false;
@@ -120,9 +120,12 @@ namespace PBL3.View.AdminChildForms
                 rank.RankName = Nametxt.Text;
                 rank.Requirement = Convert.ToDouble(Requirementtxt.Text);
                 rank.CustomerDiscount = Convert.ToDouble(applytxt.Text);
-                BLLRankManagement.Instance.Execute(rank);
+                string message = BLLRankManagement.Instance.Execute(rank);
                 dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
-                CustomMessageBox.MessageBox.Show("Rank is added successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CustomMessageBox.MessageBox.Show(message, "Congratulations", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Savebutton.Visible = false;
+                ClearButton.Visible = false;
+                dgvRank_CellClick(this, new DataGridViewCellEventArgs(0, 0));
             }
             catch
             {

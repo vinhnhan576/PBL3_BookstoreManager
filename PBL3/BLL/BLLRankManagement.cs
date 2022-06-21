@@ -80,17 +80,20 @@ namespace PBL3.BLL
             }
             BLLRankManagement.Instance.UpdateAllCustomerRank();
         }
-        public void Execute(Rank r)
+        public string Execute(Rank r)
         {
             if (Check(r.RankID) == true)
             {
-               EditRank(r);
+                EditRank(r);
+                return "Rank is added successfully";
             }
             else
             {
-              AddNewRank(r);
+                AddNewRank(r);
+                return "Rank is updated successfully";
             }
         }
+
         public bool Check(string ID)
         { 
             bool Add = false;
