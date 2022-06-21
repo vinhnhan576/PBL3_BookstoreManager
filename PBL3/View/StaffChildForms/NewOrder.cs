@@ -96,7 +96,7 @@ namespace PBL3.View.StaffChildForms
                     Customer customer = BLLCustomerManagement.Instance.getCustomer(CustomerTeltxt.Text.Trim());
                     //MessageBox.Show(customer.Rankid);
                     double total = Convert.ToDouble(TotalOrdertxt.Text);
-                    if (customer != null)
+                    if (customer != null && customer.RankID != "r0")
                     {
                     total = total - customer.Rank.CustomerDiscount;
                     if (total < 0) total = 0;

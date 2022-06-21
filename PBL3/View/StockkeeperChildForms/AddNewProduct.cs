@@ -46,7 +46,7 @@ namespace PBL3.View.StockkeeperChildForms
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (tbPublishYear.IconRightSize == new System.Drawing.Size(7, 7) || tbQuantity.IconRightSize == new System.Drawing.Size(7, 7) || tbName.IconRightSize == new System.Drawing.Size(7, 7) 
-                || tbAuthor.IconRightSize == new System.Drawing.Size(7, 7) || tbImportPrice.IconRightSize == new System.Drawing.Size(7, 7) || cbbCatogory.SelectedItem == null||cbbPublisher.SelectedItem == null)
+                || tbAuthor.IconRightSize == new System.Drawing.Size(7, 7) || tbImportPrice.IconRightSize == new System.Drawing.Size(7, 7) || cbbCatogory.SelectedItem == null && tbCategory.Text == ""||cbbPublisher.SelectedItem == null && tbPublisher.Text == "")
                 CustomMessageBox.MessageBox.Show("Enter missing product information", "Wrong input", MessageBoxIcon.Error);
             else
             {
@@ -55,7 +55,7 @@ namespace PBL3.View.StockkeeperChildForms
                 var random = new RandomGenerator();
                 Product p = new Product
                 {
-                    ProductID = "r00" + BLL.BLLProductManagement.Instance.CountProduct(),
+                    ProductID = "p00" + BLL.BLLProductManagement.Instance.CountProduct(),
                     ProductName = tbName.Text,
                     Author = tbAuthor.Text,
                     Category = (tbCategory.Visible == false ? cbbCatogory.SelectedItem.ToString() : tbCategory.Text),
@@ -116,12 +116,16 @@ namespace PBL3.View.StockkeeperChildForms
             else tbPublishYear.IconRightSize = new System.Drawing.Size(0, 0);
             if (tbQuantity.Text == "" ||DataCheck.IsNumber(tbQuantity.Text) != true) tbQuantity.IconRightSize = new System.Drawing.Size(7, 7);
             else tbQuantity.IconRightSize = new System.Drawing.Size(0, 0);
-            if (tbName.Text == "" || DataCheck.IsString_1(tbName.Text) != true) tbName.IconRightSize = new System.Drawing.Size(7, 7);
+            if (tbName.Text == "" || DataCheck.IsString(tbName.Text) != true) tbName.IconRightSize = new System.Drawing.Size(7, 7);
             else tbName.IconRightSize = new System.Drawing.Size(0, 0);
             if (tbAuthor.Text == "" || DataCheck.IsString(tbAuthor.Text) != true) tbAuthor.IconRightSize = new System.Drawing.Size(7, 7);
             else tbAuthor.IconRightSize = new System.Drawing.Size(0, 0);
             if (tbImportPrice.Text == "" || DataCheck.IsNumber(tbImportPrice.Text) != true) tbImportPrice.IconRightSize = new System.Drawing.Size(7, 7);
             else tbImportPrice.IconRightSize = new System.Drawing.Size(0, 0);
+            if (DataCheck.IsString(tbCategory.Text) != true) tbCategory.IconRightSize = new System.Drawing.Size(7, 7);
+            else tbCategory.IconRightSize = new System.Drawing.Size(0, 0);
+            if (DataCheck.IsString(tbPublisher.Text) != true) tbPublisher.IconRightSize = new System.Drawing.Size(7, 7);
+            else tbPublisher.IconRightSize = new System.Drawing.Size(0, 0);
         }
 
         private void btnAddCategory_Click(object sender, EventArgs e)

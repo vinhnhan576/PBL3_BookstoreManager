@@ -58,13 +58,18 @@ namespace PBL3.BLL
                 .Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.SellingPrice })).ToList();
             return product;
         }
+        public dynamic GetAllProduct_Restock_View()
+        {
+            var product = (QLNS.Instance.Products.OrderBy(p => p.ProductID.Length).ThenBy(p => p.ProductID)
+                .Select(p => new { p.ProductID, p.ProductName,p.StockQuantity })).ToList();
+            return product;
+        }
         public dynamic GetAllProduct_Import_View()
         {
             var product = (QLNS.Instance.Products.OrderBy(p => p.ProductID.Length).ThenBy(p => p.ProductID)
                 .Select(p => new { p.ProductID, p.ProductName, p.StoreQuantity, p.StockQuantity })).ToList();
             return product;
         }
-
         public dynamic GetAllProduct_Price_View()
         {
             QLNS db = new QLNS();
@@ -228,30 +233,28 @@ namespace PBL3.BLL
                 data = QLNS.Instance.Products.Where(p => p.Category == filterValue).ToList();
             var newList = data.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
             return newList.ToList();
-            /*QLSPEntities db = new QLSPEntities();
-            List<Product> data = new List<Product>();
-            foreach (Product i in QLSPEntities.Instance.Products.Select(p => p).ToList())
-            {
-                if (filterCategory == "ProductName")
-                {
-                    if (i.ProductName == filterValue)
-                    {
-                        data.Add(i);
-                    }
-                }
-                if (filterCategory == "Status")
-                {
-                    if (i.Status == filterValue)
-                    {
-                        data.Add(i);
-                    }
-                }
-            }
-            var prodViewList = data.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
-            return prodViewList;*/
         }
 
-
+        public dynamic FilterProduct_Restock(string filterCategory, string filterValue)
+        {
+            List<Product> data = new List<Product>();
+            if (filterCategory == "Author")
+                data = QLNS.Instance.Products.Where(p => p.Author == filterValue).ToList();
+            if (filterCategory == "Category")
+                data = QLNS.Instance.Products.Where(p => p.Category == filterValue).ToList();
+            var newList = data.Select(p => new { p.ProductID, p.ProductName, p.StockQuantity });
+            return newList.ToList();
+        }
+        public dynamic FilterProduct_Import(string filterCategory, string filterValue)
+        {
+            List<Product> data = new List<Product>();
+            if (filterCategory == "Author")
+                data = QLNS.Instance.Products.Where(p => p.Author == filterValue).ToList();
+            if (filterCategory == "Category")
+                data = QLNS.Instance.Products.Where(p => p.Category == filterValue).ToList();
+            var newList = data.Select(p => new { p.ProductID, p.ProductName,p.StoreQuantity, p.StockQuantity });
+            return newList.ToList();
+        }
 
         public List<string> GetAllProductCategory()
         {
@@ -302,16 +305,27 @@ namespace PBL3.BLL
             List<Product> data = new List<Product>();
             foreach (Product i in QLNS.Instance.Products.Select(p => p).ToList())
             {
-                bool containID = i.ProductID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containName = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool containStatus = i.Status.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool containCategory = i.Category.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                if (containID || containName || containStatus || containCategory)
+                if (containName )
                 {
                     data.Add(i);
                 }
             }
             var prodList = data.Select(p => new { p.ProductID, p.ProductName, p.StockQuantity });
+            return prodList.ToList();
+        }
+        public dynamic SearchProduct_Import(string searchValue)
+        {
+            List<Product> data = new List<Product>();
+            foreach (Product i in QLNS.Instance.Products.Select(p => p).ToList())
+            {
+                bool containName = i.ProductName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                if (containName )
+                {
+                    data.Add(i);
+                }
+            }
+            var prodList = data.Select(p => new { p.ProductID, p.ProductName,p.StoreQuantity,p.StockQuantity });
             return prodList.ToList();
         }
         public void DecreaseStoreQuantity(string productid, int num)
@@ -369,7 +383,7 @@ namespace PBL3.BLL
 
         public int CountProduct()
         {
-            return GetAllProduct().Count();
+            return GetAllProduct().Count()+1;
         }
 
         public Product_Price_View GetProduct_PriceViewByProductID(string productID)

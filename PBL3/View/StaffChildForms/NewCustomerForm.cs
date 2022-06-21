@@ -26,17 +26,30 @@ namespace PBL3.View.StaffChildForms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            Customer customer = new Customer();
-            customer.CustomerName = CustomerNametxt.Text;
-            customer.PhoneNumber = Teltxt.Text;
-            customer.TotalSpending = 0;
-            customer.RankID = "r0";
-            customer.Used = 0;
-            BLLCustomerManagement.Instance.AddNewCustomer(customer);
-            d(Teltxt.Text);
-            CustomerNametxt.Text = "";
-            Teltxt.Text = "";
-            this.Close();
+            try
+            {
+                if (CustomerNametxt.IconRightSize == new System.Drawing.Size(7, 7)|| Teltxt.IconRightSize == new System.Drawing.Size(7, 7))
+                    throw new Exception("Enter missing customer information");
+                else
+                {
+                    Customer customer = new Customer();
+                    customer.CustomerName = CustomerNametxt.Text;
+                    customer.PhoneNumber = Teltxt.Text;
+                    customer.TotalSpending = 0;
+                    customer.RankID = "r0";
+                    customer.Used = 0;
+                    BLLCustomerManagement.Instance.AddNewCustomer(customer);
+                    d(Teltxt.Text);
+                    CustomerNametxt.Text = "";
+                    Teltxt.Text = "";
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MessageBox.Show(ex.Message, "Invalid input", MessageBoxIcon.Error);
+            }
+            
         }
         private void CancelButton_Click(object sender, EventArgs e)
         {
