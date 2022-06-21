@@ -18,6 +18,7 @@ namespace PBL3.View.AdminChildForms
         {
             InitializeComponent();
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+            cbbFilterCategory.SelectedIndex = 0;
             IDtxt.ReadOnly = true;
             customertxt.ReadOnly = true;
             salesmannametxt.ReadOnly = true;
@@ -84,7 +85,15 @@ namespace PBL3.View.AdminChildForms
         {
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(BLLReceiptManagement.Instance.FilterReceipt(cbbFilterCategory.SelectedItem.ToString()),sortCategory, sortOrder);
+            if (cbbFilterCategory.SelectedItem.ToString() == "All")
+            {
+                Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(BLLReceiptManagement.Instance.FilterReceipt("All"), sortCategory, sortOrder);
+            }
+            else
+            {
+                string filterValue = cbbFilterValue.SelectedItem.ToString();
+                Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(BLLReceiptManagement.Instance.FilterReceipt(filterValue), sortCategory, sortOrder);
+            }
         }
 
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,6 +101,10 @@ namespace PBL3.View.AdminChildForms
             cbbFilterValue.Text = "";
             cbbFilterValue.Items.Clear();
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if (filterCategory == "All")
+            {
+                Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+            }
             if (filterCategory == "Status")
             {
                 foreach (string i in BLLReceiptManagement.Instance.GetAllReceiptStatus().Distinct())

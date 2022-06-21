@@ -20,7 +20,7 @@ namespace PBL3.View.AdminChildForms
             InitializeGUI();
             dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
             cbbSortOrder.SelectedIndex = 0;
-            cbbSortCategory.SelectedIndex = 0;
+            cbbFilterCategory.SelectedIndex = 0;
             cbbSortCategory.Items.AddRange(BLLCustomerManagement.Instance.getAllSortCategory().ToArray());
             cbbFilterCategory.Items.AddRange(BLLCustomerManagement.Instance.getAllFilterCategory().ToArray());
             this.cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
