@@ -139,12 +139,15 @@ namespace PBL3.View.StockkeeperChildForms
             cbbFilterValue.Text = "";
             cbbFilterValue.Items.Clear();
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if (filterCategory == "All")
+            {
+                dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_View();
+            }
             if (filterCategory == "Category")
             {
                 foreach (string i in BLLProductManagement.Instance.GetAllProductCategory().Distinct())
                 {
                     cbbFilterValue.Items.Add(i);
-                    //MessageBox.Show("i");
                 }
             }
             if (filterCategory == "Author")
@@ -154,14 +157,11 @@ namespace PBL3.View.StockkeeperChildForms
                     cbbFilterValue.Items.Add(i);
                 }
             }
-
-
         }
 
         private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvProducts.DataSource = BLLProductManagement.Instance.SearchProduct_Restock(cbbFilterValue.SelectedItem.ToString());
-
         }
 
         private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)

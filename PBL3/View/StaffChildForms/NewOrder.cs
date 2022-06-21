@@ -23,7 +23,6 @@ namespace PBL3.View.StaffChildForms
             account = acc;
             InitializeGUI();
         }
-
         private void InitializeGUI()
         {
             dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
@@ -35,14 +34,13 @@ namespace PBL3.View.StaffChildForms
             discountxt.ReadOnly = true;
             LoadNewOrder();
         }
-        private void SaveCustomer(Customer customer,double total)
-        {
-            BLLCustomerManagement.Instance.UpdateTotalSpending(customer.PhoneNumber,total);
-            double totaltemp = (double)customer.TotalSpending;
-            string rankID = BLLRankManagement.Instance.GetRankIDByReQuirement(totaltemp);
-            BLLCustomerManagement.Instance.UpdateRankCustomer(customer.PhoneNumber, rankID);
-        }
+
         
+        /// <summary>
+        /// CRUD
+        /// </summary>
+        /// <param name="total"></param>
+        // Save order
         private void Save(double total)
         {
             try
@@ -53,7 +51,7 @@ namespace PBL3.View.StaffChildForms
                 receipt.Date = DateTime.Now;
                 receipt.Total = total;
                 receipt.Status = true;
-                if (!CustomerTeltxt.Text.All(c => c >= '0' && c <= '9'))
+                if (CustomerTeltxt.IconRightSize == new System.Drawing.Size(7, 7))
                     throw new Exception("Invalid phone number input");
                 else if(!string.IsNullOrWhiteSpace(CustomerTeltxt.Text))
                 {
@@ -148,6 +146,17 @@ namespace PBL3.View.StaffChildForms
                 View.CustomMessageBox.MessageBox.Show("Not enough information", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        private void LoadNewOrder()
+        {
+            OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
+            SalesmanIDtxt.Text = account.PersonID.Trim();
+            CustomerTeltxt.Text = null;
+            TotalOrdertxt.Text = null;
+            OrderDateTimePicker.Value = DateTime.Now;
+            order = new Order();
+        }
+
+        // Add product to order
         private void AddButton_Click_1(object sender, EventArgs e)
         {
             try
@@ -184,17 +193,72 @@ namespace PBL3.View.StaffChildForms
                 Quantitytxt.Text = null;
             }
         }
-
-        private void LoadNewOrder()
+        // Check phone number
+        private void tb_TextChanged(object sender, EventArgs e)
         {
-            OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
-            SalesmanIDtxt.Text = account.PersonID.Trim();
-            CustomerTeltxt.Text = null;
-            TotalOrdertxt.Text = null;
-            OrderDateTimePicker.Value = DateTime.Now;
-            order = new Order();
+            if (CustomerTeltxt.Text.Length != 10 || DataCheck.IsNumber(CustomerTeltxt.Text) != true || CustomerTeltxt.Text[0] != '0')
+                CustomerTeltxt.IconRightSize = new System.Drawing.Size(7, 7);
+            else
+                CustomerTeltxt.IconRightSize = new System.Drawing.Size(0, 0);
+        }
+        // Add new customer
+        private void NewCustomerButton_Click_1(object sender, EventArgs e)
+        {
+            NewCustomerForm form = new NewCustomerForm();
+            form.d = new NewCustomerForm.Mydel(GetCustomerTel);
+            form.ShowDialog();
+        }
+        private void GetCustomerTel(string telephone)
+        {
+            CustomerTeltxt.Text = telephone;
+        }
+        // Check phone number
+        private void CustomerTeltxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                if (!BLLCustomerManagement.Instance.Customer_Check(CustomerTeltxt.Text))
+                {
+                    View.CustomMessageBox.MessageBox.Show("Telephone number doesn't exist", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    string tel = BLLCustomerManagement.Instance.getCustomer(CustomerTeltxt.Text).CustomerName.ToString();
+                    View.CustomMessageBox.MessageBox.Show(tel, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
+        // Delete receipt details
+        private void Deletebtn_Click(object sender, EventArgs e)
+        {
+            if (dgvOrder.SelectedRows.Count > 0)
+            {
+                for (int i = 0; i < dgvOrder.SelectedRows.Count; i++)
+                {
+                    this.order.RemoveAt(i);
+                }
+            }
+            dgvOrder.DataSource = this.order.Rdv_List.ToList();
+            TotalOrdertxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(order).ToString();
+            discountxt.Text = BLLReceiptManagement.Instance.getPromotedDiscount(order).ToString();
+        }
+
+        // Clear data
+        private void Clearbtn_Click(object sender, EventArgs e)
+        {
+            this.order.Rdv_List.Clear();
+            dgvOrder.DataSource = this.order.Rdv_List.ToList();
+            TotalOrdertxt.Text = "";
+        }
+
+
+        /// <summary>
+        /// SEARCH SORT FILTER
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        // Search
         private void productSearchtxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
@@ -206,86 +270,52 @@ namespace PBL3.View.StaffChildForms
 
             }
         }
-        private void GetCustomerTel(string telephone)
+        private void productSearchtxt_IconRightClick(object sender, EventArgs e)
         {
-            CustomerTeltxt.Text = telephone;
+            if (string.IsNullOrWhiteSpace(productSearchtxt.Text))
+                dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
+            else
+                dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct_Order(productSearchtxt.Text);
         }
 
-        private void NewCustomerButton_Click_1(object sender, EventArgs e)
-        {
-            NewCustomerForm form = new NewCustomerForm();
-            form.d = new NewCustomerForm.Mydel(GetCustomerTel);
-            form.ShowDialog();
-        }
-         private void CustomerTeltxt_KeyPress(object sender, KeyPressEventArgs e)
-         {
-            if (e.KeyChar == (char)13)
-            {
-                if (!BLLCustomerManagement.Instance.Customer_Check(CustomerTeltxt.Text))
-                {
-                    View.CustomMessageBox.MessageBox.Show("Telephone number doesn't exist", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    string tel = BLLCustomerManagement.Instance.getCustomer(CustomerTeltxt.Text).CustomerName.ToString();
-                    View.CustomMessageBox.MessageBox.Show(tel,"", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-         }
-
-         private void Deletebtn_Click(object sender, EventArgs e)
-         {
-            if (dgvOrder.SelectedRows.Count > 0)
-            {
-                for (int i = 0; i < dgvOrder.SelectedRows.Count; i++)
-                {
-                    this.order.RemoveAt(i);
-                }
-            }
-            dgvOrder.DataSource = this.order.Rdv_List.ToList();
-            TotalOrdertxt.Text = BLLReceiptManagement.Instance.CalculateReceiptToTal(order).ToString();
-            discountxt.Text=BLLReceiptManagement.Instance.getPromotedDiscount(order).ToString();
-         }
-
-         private void Clearbtn_Click(object sender, EventArgs e)
-         {
-            this.order.Rdv_List.Clear();
-            dgvOrder.DataSource = this.order.Rdv_List.ToList();
-            TotalOrdertxt.Text="";
-         }
-
-         private void tb_TextChanged(object sender, EventArgs e)
-         {
-            if (CustomerTeltxt.Text == "" || CustomerTeltxt.Text.Length != 10 || DataCheck.IsNumber(CustomerTeltxt.Text) != true || CustomerTeltxt.Text[0] != '0') CustomerTeltxt.IconRightSize = new System.Drawing.Size(7, 7);
-            else CustomerTeltxt.IconRightSize = new System.Drawing.Size(0, 0);
-         }
-
+        // Filter
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbbFilterValue.Text = "";
             cbbFilterValue.Items.Clear();
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if(filterCategory == "All")
+            {
+                dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
+            }
             if (filterCategory == "Category")
             {
                 foreach (string i in BLLProductManagement.Instance.GetAllProductCategory().Distinct())
                 {
                     cbbFilterValue.Items.Add(i);
-                    //MessageBox.Show("i");
                 }
             }
             if (filterCategory == "Status")
             {
                 foreach (string i in BLLProductManagement.Instance.GetAllProductAuthor().Distinct())
                 {
-                    if(i!=null)
-                    cbbFilterValue.Items.Add(i);
+                    if(i != null)
+                        cbbFilterValue.Items.Add(i);
                 }
             }
         }
-
         private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvProduct.DataSource = BLLProductManagement.Instance.FilterProduct(cbbFilterValue.SelectedItem.ToString());
         }
+
+
+        //private void SaveCustomer(Customer customer,double total)
+        //{
+        //    BLLCustomerManagement.Instance.UpdateTotalSpending(customer.PhoneNumber,total);
+        //    double totaltemp = (double)customer.TotalSpending;
+        //    string rankID = BLLRankManagement.Instance.GetRankIDByReQuirement(totaltemp);
+        //    BLLCustomerManagement.Instance.UpdateRankCustomer(customer.PhoneNumber, rankID);
+        //}
     }
 }

@@ -14,7 +14,7 @@ namespace PBL3.View.StaffChildForms
 {
     public partial class ManageOrder : Form
     {
-        public ManageOrder(Account acc)
+        public ManageOrder()
         {
             InitializeComponent();
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
