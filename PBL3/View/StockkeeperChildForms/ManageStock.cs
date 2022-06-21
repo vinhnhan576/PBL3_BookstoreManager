@@ -26,6 +26,7 @@ namespace PBL3.View.StockkeeperChildForms
             cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;
             cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
+            dgvStock_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
 
         private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)

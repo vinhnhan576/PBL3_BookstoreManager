@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.Model;
+using PBL3.DTO;
 
 namespace PBL3.BLL
 {
@@ -32,13 +33,20 @@ namespace PBL3.BLL
         }
         public List<Customer> GetAllCustomerByRankID(string rankid)
         {
-            List<Customer> customerList = new List<Customer>();
-            foreach (Customer customer in GetAllCustomer().ToList())
+            if (rankid == "All")
             {
-                if(customer.RankID == rankid)
-                    customerList.Add(customer);
-            }        
-            return customerList;
+                return GetAllCustomer();
+            }
+            else
+            {
+                List<Customer> customerList = new List<Customer>();
+                foreach (Customer customer in GetAllCustomer().ToList())
+                {
+                    if (customer.RankID == rankid)
+                        customerList.Add(customer);
+                }
+                return customerList;
+            }
         }
         public dynamic GetAllCustomer_View()
         {
@@ -144,63 +152,69 @@ namespace PBL3.BLL
                 {
                     data.Add(i);
                 }
-
             }
             var List = data.Select(p => new { p.CustomerName, p.PhoneNumber, p.Rank.RankName, p.TotalSpending });
             return List.ToList();
         }
-
-        public dynamic FilterCustomer(string searchValue)
+        public List<CBBItem> getAllFilterCategory()
+        {
+            List<CBBItem> list = new List<CBBItem>();
+            list.Add(new CBBItem { Text = "All", Value = "0" });
+            list.Add(new CBBItem { Text = "Rank", Value = "1" });
+            return list;
+        }
+        public List<CBBItem> getAllSortCategory()
+        {
+            List<CBBItem> list = new List<CBBItem>();
+            list.Add(new CBBItem { Text = "Customer Name"});
+            list.Add(new CBBItem { Text = "Total Spending"});
+            return list;
+        }
+        public List<CBBItem> getAllCBBRank()
+        {
+            List<CBBItem> list = new List<CBBItem>();
+            foreach (Customer c in GetAllCustomer())
+            {
+                list.Add(new CBBItem {Text = c.Rank.RankName,Value = c.RankID});
+            }
+            return list;
+        }
+        public dynamic FilterCustomerByRank(string rankid)
         {
             List<Customer> data = new List<Customer>();
-            bool containRank = false;
-            foreach (Customer i in QLNS.Instance.Customers.Select(p => p).ToList())
-            {
-                containRank = i.Rank.RankName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                if (containRank)
+                foreach (Customer i in GetAllCustomer())
                 {
-                    data.Add(i);
+                    if (i.RankID==rankid)
+                    {
+                        data.Add(i);
+                    }
                 }
-
-            }
             var List = data.Select(p => new { p.CustomerName, p.PhoneNumber, p.Rank.RankName, p.TotalSpending });
             return List.ToList();
         }
-
-        public dynamic SortCustomer(string sortCategory, bool ascending)
+        public dynamic SortCustomer(List<Customer> customers,string sortCategory, bool ascending)
         {
-            QLNS db = new QLNS();
             List<Customer> data = new List<Customer>();
             if (sortCategory == "Customer Name")
             {
                 if (ascending)
-                    data = db.Customers.OrderBy(p => p.CustomerName).ToList();
+                    data = customers.OrderBy(p => p.CustomerName).ToList();
                 else
-                    data = db.Customers.OrderByDescending(p => p.CustomerName).ToList();
+                    data = customers.OrderByDescending(p => p.CustomerName).ToList();
             }
-            if (sortCategory == "TotalSpending")
+            if (sortCategory == "Total Spending")
             {
                 if (ascending)
-                    data = db.Customers.OrderBy(p => p.TotalSpending).ToList();
+                    data = customers.OrderBy(p => p.TotalSpending).ToList();
                 else
-                    data = db.Customers.OrderByDescending(p => p.TotalSpending).ToList();
+                    data = customers.OrderByDescending(p => p.TotalSpending).ToList();
             }
-            var newList = data.Select(p => new { p.CustomerName, p.PhoneNumber, p.Rank.RankName, p.TotalSpending }).ToList();
-            return newList;
+            return data.Select(p => new { p.CustomerName, p.PhoneNumber, p.Rank.RankName, p.TotalSpending }).ToList();
         }
-        public List<string> GetAllCustomerRank()
-        {
-            List<string> RankList = new List<string>();
-            foreach (Rank i in QLNS.Instance.Ranks.Select(p=>p).ToList())
-            {
-                RankList.Add(i.RankName);
-            }
-            return RankList;
-        }
-        public void Refresh()
+        public void ReNewUsedCustomer()
         {
             DateTime now = DateTime.Now;
-            if (now.Hour==20&&now.Minute==42)
+            if (now.Day==1)
             {
                 List<Customer> list = QLNS.Instance.Customers.Select(p => p).ToList();
                 foreach (Customer c in list)

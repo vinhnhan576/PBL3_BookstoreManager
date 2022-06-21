@@ -19,7 +19,6 @@ namespace PBL3.View.LoginForms
         {
             QLNS ins = new QLNS();
             InitializeComponent();
-            
         }
 
         private void pbShowPass_Click(object sender, EventArgs e)

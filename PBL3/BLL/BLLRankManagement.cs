@@ -31,27 +31,9 @@ namespace PBL3.BLL
             }
             return rank;
         }
-        public double GetDiscountByReQuirement(double total)
-        {
-            double discount = 0;
-            foreach (var i in QLNS.Instance.Ranks.Select(p => p).ToList())
-            {
-                if (total >= i.Requirement)
-                {
-                    discount = i.CustomerDiscount;
-                }
-            }
-            return discount;
-        }
-        public double GetTotalAfterDisount(string Rankid,double TotalBefore)
-        {
-            Rank rank = QLNS.Instance.Ranks.Find(Rankid);
-            double TotalAfter = Convert.ToDouble(rank.CustomerDiscount)/100 * TotalBefore;
-            return TotalAfter;
-        }
         public dynamic GetAllRank_View()
         {
-            var discountList = QLNS.Instance.Ranks.Select(p => new {p.RankID,p.RankName,p.Requirement,p.CustomerDiscount});
+            var discountList = QLNS.Instance.Ranks.OrderBy(r => r.RankID.Length).ThenBy(r => r.RankID).Select(p => new {p.RankID,p.RankName,p.Requirement,p.CustomerDiscount});
             return discountList.ToList();
         }
         public void AddNewRank(Rank rank)
@@ -80,17 +62,20 @@ namespace PBL3.BLL
             }
             BLLRankManagement.Instance.UpdateAllCustomerRank();
         }
-        public void Execute(Rank r)
+        public string Execute(Rank r)
         {
             if (Check(r.RankID) == true)
             {
-               EditRank(r);
+                EditRank(r);
+                return "Rank is added successfully";
             }
             else
             {
-              AddNewRank(r);
+                AddNewRank(r);
+                return "Rank is updated successfully";
             }
         }
+
         public bool Check(string ID)
         { 
             bool Add = false;
@@ -107,7 +92,7 @@ namespace PBL3.BLL
         public dynamic SearchRank(string searchValue)
         {
             List<Rank> data = new List<Rank>();
-            foreach (Rank i in QLNS.Instance.Ranks.Select(p => p).ToList())
+            foreach (Rank i in GetAllRank_View())
             {
                 bool containName = i.RankName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containId = i.RankID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
@@ -116,7 +101,7 @@ namespace PBL3.BLL
                     data.Add(i);
                 }
             }
-            return data.Select(p => new {p.RankID,p.RankName,p.Requirement,p.CustomerDiscount}).ToList();
+            return data;
         }
         public dynamic SortRank(string sortCategory, bool ascending)
         {
@@ -125,9 +110,13 @@ namespace PBL3.BLL
             if (sortCategory == "Rank ID")
             {
                 if (ascending)
-                    data = db.Ranks.OrderBy(p => p.RankID).ToList();
+                {
+                    data = db.Ranks.OrderBy(r => r.RankID.Length).ThenBy(r => r.RankID).ToList();
+                }
                 else
-                    data = db.Ranks.OrderByDescending(p => p.RankID).ToList();
+                {
+                    data = db.Ranks.OrderByDescending(r => r.RankID.Length).ThenByDescending(r => r.RankID).ToList();
+                }
             }
             if (sortCategory == "Rank Name")
             {
@@ -150,7 +139,7 @@ namespace PBL3.BLL
                 else
                     data = db.Ranks.OrderByDescending(p => p.CustomerDiscount).ToList();
             }
-            var sortedList = data.Select(p => p).ToList();
+            var sortedList = data.ToList();
             return sortedList;
         }
         public void UpdateAllCustomerRank()
@@ -160,6 +149,13 @@ namespace PBL3.BLL
             {
                 string rankid = GetRankIDByReQuirement(customer.TotalSpending);
                 BLLCustomerManagement.Instance.UpdateRankCustomer(customer.PhoneNumber, rankid);
+            }
+        }
+        public void RenewCustomers(List<Customer> customers)
+        {
+            foreach (Customer i in customers)
+            {
+                i.Used = 0;
             }
         }
     }

@@ -308,6 +308,7 @@
             this.tbSearch.Size = new System.Drawing.Size(230, 29);
             this.tbSearch.TabIndex = 1;
             this.tbSearch.IconRightClick += new System.EventHandler(this.tbSearch_IconLeftClick);
+            //this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             // 
             // Product

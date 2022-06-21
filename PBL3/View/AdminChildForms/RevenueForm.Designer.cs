@@ -148,6 +148,7 @@
             this.tbMonth.SelectedText = "";
             this.tbMonth.Size = new System.Drawing.Size(80, 29);
             this.tbMonth.TabIndex = 55;
+            //this.tbMonth.TextChanged += new System.EventHandler(this.tbMonth_TextChanged);
             // 
             // tbDay
             // 
@@ -179,6 +180,7 @@
             this.tbDay.SelectedText = "";
             this.tbDay.Size = new System.Drawing.Size(80, 29);
             this.tbDay.TabIndex = 54;
+            //this.tbDay.TextChanged += new System.EventHandler(this.tbDay_TextChanged);
             // 
             // cbbSortCategory
             // 
@@ -293,6 +295,7 @@
             this.tbYear.Size = new System.Drawing.Size(102, 29);
             this.tbYear.TabIndex = 56;
             this.tbYear.IconRightClick += new System.EventHandler(this.tbYear_IconRightClick);
+            //this.tbYear.TextChanged += new System.EventHandler(this.tbYear_TextChanged);
             // 
             // RevenueForm
             // 
@@ -312,6 +315,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RevenueForm";
             this.Text = "Product";
+            //this.Load += new System.EventHandler(this.RevenueForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -7,7 +7,7 @@ using PBL3.Model;
 
 namespace PBL3.DTO
 {
-    public interface DiscountStrategy
+    public interface IDiscountStrategy
     {
         double DoDiscount(List<ReceiptDetailView> list);
         double getPromotedDiscount(List<ReceiptDetailView> list);

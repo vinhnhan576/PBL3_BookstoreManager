@@ -23,17 +23,19 @@ namespace PBL3.View.AdminChildForms
         public int noCustomers { get; private set; }
         public int noProducts { get; private set; }
 
-
+        /// <summary>
+        /// INITIALIZE
+        /// </summary>
+        /// <param name="p"></param>
         public OverviewForm(Person p)
         {
             InitializeComponent();
             person = p;
             InitializeGUI();
         }   
-
         private void InitializeGUI()
         {
-            //
+            // Admin personal info
             lbName.Text = person.PersonName;
             lbRole.Text = person.Role;
             lbGender.Text = (person.Gender ? "Male" : "Female");
@@ -43,7 +45,7 @@ namespace PBL3.View.AdminChildForms
 
             LoadTopStaffs();
 
-            //chartRevenue
+            // chartRevenue
             activateButton(btnThisYear);
             startDate = BLLRevenueManagement.Instance.GetFirstDate();
             endDate = DateTime.Now;
@@ -51,6 +53,139 @@ namespace PBL3.View.AdminChildForms
             LoadChart();
             setNoItems();
 
+            // Pie Charts
+            LoadPieCharts();
+        }
+
+
+        /// <summary>
+        /// BAR GRAPH: VIEW REVENUE BY TIME
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        // Show this week revenue
+        private void btnThisWeek_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+            startDate = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
+            endDate = DateTime.Now;
+            chartType = "Month";
+            LoadChart();
+            setNoItems();
+        }
+
+        // Show this year revenue
+        private void btnThisYear_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+            startDate = BLLRevenueManagement.Instance.GetFirstDate();
+            endDate = DateTime.Now;
+            chartType = "Year";
+            LoadChart();
+            setNoItems();
+        }
+
+        // Show last 7 days revenue
+        private void btnLast7days_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+            startDate = DateTime.Now.AddDays(-7);
+            endDate = DateTime.Now;
+            chartType = "Month";
+            LoadChart();
+            setNoItems();
+        }
+
+        // Show this month revenue
+        private void btnThisMonth_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+            startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            endDate = DateTime.Now;
+            chartType = "Month";
+            LoadChart();
+            setNoItems();
+        }
+
+        // Show last 30 days revenue
+        private void btnLast30days_Click(object sender, EventArgs e)
+        {
+            activateButton(sender);
+            startDate = DateTime.Now.AddMonths(-1);
+            endDate = DateTime.Now;
+            chartType = "Month";
+            LoadChart();
+            setNoItems();
+        }
+
+        // Activate a button
+        private void activateButton(object sender)
+        {
+            disableButtons();
+            ((Guna.UI2.WinForms.Guna2Button)sender).FillColor = Color.FromArgb(21, 134, 183);
+            ((Guna.UI2.WinForms.Guna2Button)sender).ForeColor = Color.White;
+        }
+
+        // Disable other buttons
+        private void disableButtons()
+        {
+            foreach (Control otherButtons in pnTime.Controls)
+            {
+                if (otherButtons.GetType() == typeof(Guna.UI2.WinForms.Guna2Button))
+                {
+                    ((Guna.UI2.WinForms.Guna2Button)otherButtons).FillColor = Color.White;
+                    otherButtons.ForeColor = Color.FromArgb(21, 134, 183);
+                }
+            }
+        }
+
+        // Load revenue graph according to chosen time interval
+        private void LoadChart()
+        {
+            if (chartType == "Month")
+            {
+                var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate, chartType);
+                string[] N = new string[points.Count];
+                double[] M = new double[points.Count];
+                int i = 0;
+                foreach (var item in points)
+                {
+                    N[i] = item.date.Month.ToString() + "-" + item.date.Day.ToString();
+                    M[i] = item.total;
+                    i++;
+                }
+                chartRevenue.Series[0].Points.DataBindXY(N, M);
+            }
+            if (chartType == "Year")
+            {
+                var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate, chartType);
+                string[] N = new string[points.Count];
+                double[] M = new double[points.Count];
+                int i = 0;
+                foreach (var item in points)
+                {
+                    N[i] = item.date.ToString("MMMM");
+                    M[i] = item.total;
+                    i++;
+                }
+                chartRevenue.Series[0].Points.DataBindXY(N, M);
+            }
+        }
+
+        // Set items values according to chosen time interval
+        private void setNoItems()
+        {
+            lbNoCustomer.Text = BLLRevenueManagement.Instance.GetAllVisitors(startDate, endDate).ToString();
+            lbProducts.Text = BLLRevenueManagement.Instance.GetAllNOProductsSold(startDate, endDate).ToString();
+            lbGrossRevenue.Text = BLLRevenueManagement.Instance.GetTotalGrossRevenue(startDate, endDate).ToString();
+        }
+
+
+        /// <summary>
+        /// PIE CHART: VIEW TOP AND UNDERSTOCK PRODUCTS
+        /// </summary>
+        private void LoadPieCharts()
+        {
             //chartTopProducts
             var points = BLLRevenueManagement.Instance.GetTop5Products(true);
             string[] N = new string[points.Count];
@@ -78,114 +213,10 @@ namespace PBL3.View.AdminChildForms
             chartWorstProducts.Series[0].Points.DataBindXY(A, B);
         }
 
-        private void setNoItems()
-        {
-            lbNoCustomer.Text = BLLRevenueManagement.Instance.GetAllVisitors(startDate, endDate).ToString();
-            lbProducts.Text = BLLRevenueManagement.Instance.GetAllNOProductsSold(startDate, endDate).ToString();
-            lbGrossRevenue.Text = BLLRevenueManagement.Instance.GetTotalGrossRevenue(startDate, endDate).ToString();
-        }
 
-        private void activateButton(object sender)
-        {
-            disableButtons();
-            ((Guna.UI2.WinForms.Guna2Button)sender).FillColor = Color.FromArgb(21, 134, 183);
-            ((Guna.UI2.WinForms.Guna2Button)sender).ForeColor = Color.White;
-        }
-
-        private void disableButtons()
-        {
-            foreach (Control otherButtons in pnTime.Controls)
-            {
-                if (otherButtons.GetType() == typeof(Guna.UI2.WinForms.Guna2Button))
-                {
-                    ((Guna.UI2.WinForms.Guna2Button)otherButtons).FillColor = Color.White;
-                    otherButtons.ForeColor = Color.FromArgb(21, 134, 183);
-                }
-            }
-        }
-
-        private void btnThisWeek_Click(object sender, EventArgs e)
-        {
-            activateButton(sender);
-            startDate = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
-            endDate = DateTime.Now;
-            chartType = "Month";
-            LoadChart();
-            setNoItems();
-        }
-
-        private void btnThisYear_Click(object sender, EventArgs e)
-        {
-            activateButton(sender);
-            startDate = BLLRevenueManagement.Instance.GetFirstDate();
-            endDate = DateTime.Now;
-            chartType = "Year";
-            LoadChart();
-            setNoItems();
-        }
-
-        private void btnLast7days_Click(object sender, EventArgs e)
-        {
-            activateButton(sender);
-            startDate = DateTime.Now.AddDays(-7);
-            endDate = DateTime.Now;
-            chartType = "Month";
-            LoadChart();
-            setNoItems();
-        }
-
-        private void btnThisMonth_Click(object sender, EventArgs e)
-        {
-            activateButton(sender);
-            startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            endDate = DateTime.Now;
-            chartType = "Month";
-            LoadChart();
-            setNoItems();
-        }
-
-        private void btnLast30days_Click(object sender, EventArgs e)
-        {
-            activateButton(sender);
-            startDate = DateTime.Now.AddMonths(-1);
-            endDate = DateTime.Now;
-            chartType = "Month";
-            LoadChart();
-            setNoItems();
-        }
-
-        private void LoadChart()
-        {   
-            if(chartType == "Month")
-            {
-                var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate, chartType);
-                string[] N = new string[points.Count];
-                double[] M = new double[points.Count];
-                int i = 0;
-                foreach (var item in points)
-                {
-                    N[i] = item.date.Month.ToString() + "-" + item.date.Day.ToString();
-                    M[i] = item.total;
-                    i++;
-                }
-                chartRevenue.Series[0].Points.DataBindXY(N, M);
-            }
-            if(chartType == "Year")
-            {
-                var points = BLLRevenueManagement.Instance.GetAllRevenueByDate_ChartView(startDate, endDate, chartType);
-                string[] N = new string[points.Count];
-                double[] M = new double[points.Count];
-                int i = 0;
-                foreach (var item in points)
-                {
-                    N[i] = item.date.ToString("MMMM");
-                    M[i] = item.total;
-                    i++;
-                }
-                chartRevenue.Series[0].Points.DataBindXY(N, M);
-            }
-        }
-
+        /// <summary>
+        /// PANEL: VIEW TOP STAFFS
+        /// </summary>
         private void LoadTopStaffs()
         {
             List<DTO.Charts.TopStaffsChartView> topStaffs = new List<DTO.Charts.TopStaffsChartView>();
@@ -201,22 +232,12 @@ namespace PBL3.View.AdminChildForms
 
         }
 
-        private void InitializeLabel(Label l, string text)
-        {
-            //l.Dock = System.Windows.Forms.DockStyle.Top;
-            //l.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //l.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            //l.Location = new System.Drawing.Point(0, 0);
-            //l.Name = "lbStaff" + (pnTopStaffs.Controls.Count - 1).ToString();
-            //l.Size = new System.Drawing.Size(291, 50);
-            //l.TabIndex = 12;
-            //l.Text = text;
-            //l.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-        }
     }
 
     
-
+    /// <summary>
+    /// TIME CALCULATION CLASS
+    /// </summary>
     public static class DateTimeExtensions
     {
         public static DateTime StartOfWeek(this DateTime dt, DayOfWeek startOfWeek)

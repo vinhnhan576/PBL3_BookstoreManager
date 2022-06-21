@@ -37,10 +37,8 @@ namespace PBL3.BLL
         }
         public dynamic GetAllRestock_View()
         {
-            List<Restock> restockList = new List<Restock>();
-            foreach (Restock i in QLNS.Instance.Restocks.Select(p => p).ToList())
-                restockList.Add(i);
-            var list = restockList.Select(p => new { p.RestockID, p.Person.PersonName, p.ImportDate, p.TotalExpense });
+            List<Restock> restockList = GetAllRestock();
+            var list = restockList.OrderBy(r => r.RestockID.Length).ThenBy(r => r.RestockID).Select(p => new { p.RestockID, p.Person.PersonName, p.ImportDate, p.TotalExpense });
             return list.ToList();
         }
 
@@ -54,7 +52,7 @@ namespace PBL3.BLL
 
         public dynamic GetAllRestockDetail_View()
         {
-            var restockDetails = QLNS.Instance.RestockDetails.Select(p => new
+            var restockDetails = QLNS.Instance.RestockDetails.OrderBy(r => r.RestockDetailID.Length).ThenBy(r => r.RestockDetailID).Select(p => new
             {
                 p.RestockDetailID,
                 p.Product.ProductName,

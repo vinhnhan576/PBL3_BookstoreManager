@@ -27,6 +27,7 @@ namespace PBL3.View.AdminChildForms
             cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
             btnSave.Visible = false;
             btnClear.Visible = false;
+            dgvAccount_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
         public void Reload()
         {
@@ -125,75 +126,34 @@ namespace PBL3.View.AdminChildForms
                 cbbRole.Enabled = true;
                 tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             }
-
         }
-
-
-        private void btnClear_Click(object sender, EventArgs e)
+        //
+        //CRUD
+        //
+        //Add account
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            tbID.Text = null;
-            tbUsername.Text = null;
-            tbPassword.Text = null;
-            tbName.Text = null;
-            tbTel.Text = null;
-            tbAddress.Text = null;
-            rbMale.Checked = false;rbFemale.Checked = false;
+            int count = QLNS.Instance.Accounts.Count() + 1;
+            tbID.Text = "0"+count.ToString();
+            tbID.Enabled = false;
+            tbUsername.Text = "";
+            tbUsername.Enabled = true;
+            tbPassword.Text = "";
+            tbPassword.Enabled = true;
+            tbName.Text = "";
+            tbName.Enabled = true;
+            tbTel.Text = "";
+            tbTel.Enabled = true;
+            tbAddress.Text = "";
+            tbAddress.Enabled = true;
+            rbFemale.Checked = false;rbMale.Checked = false;
             cbbRole.Text = null;
-            tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
-            tbPassword.IconRightSize = new System.Drawing.Size(0, 0);
-            tbName.IconRightSize = new System.Drawing.Size(0, 0);
-            tbTel.IconRightSize = new System.Drawing.Size(0, 0);
-            tbAddress.IconRightSize = new System.Drawing.Size(0, 0);
-        }
-        private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tbSearch.Text = null;
-            string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            dgvAccount.DataSource = BLLAccountManagement.Instance.SortAcount(sortCategory, sortOrder);
-        }        
-        private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tbSearch.Text = null;
-            string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            dgvAccount.DataSource = BLLAccountManagement.Instance.SortAcount(sortCategory, sortOrder);
-        }
-        private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbbFilterValue.Text = null;
-            cbbFilterValue.Items.Clear();
-            string filterCategory = cbbFilterCategory.SelectedItem.ToString();
-            if (filterCategory == "Role")
-            {
-                foreach (string i in BLLAccountManagement.Instance.GetAllRole().Distinct())
-                {
-                    cbbFilterValue.Items.Add(i);
-                }
-            }
-            if (filterCategory == "Address")
-            {
-                foreach (string i in BLLAccountManagement.Instance.GetAllAddress().Distinct())
-                {
-                    cbbFilterValue.Items.Add(i);
-                }
-            }
+            cbbRole.Enabled = true;
+            btnSave.Visible = true;
+            btnClear.Visible = true;
         }
 
-        private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dgvAccount.DataSource = BLLAccountManagement.Instance.Fitler_Account(cbbFilterValue.SelectedItem.ToString());
-        }
-
-        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (tbSearch != null)
-            {
-                dgvAccount.DataSource = BLLAccountManagement.Instance.SearchAccount(tbSearch.Text);
-
-            }
-        }
-
+        //Edit account
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (dgvAccount.SelectedRows.Count == 1)
@@ -229,13 +189,34 @@ namespace PBL3.View.AdminChildForms
                 tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             }
         }
-        public string SetID(string role)
+
+        //Delete account(s)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (role == "Admin") tbID.Text = "ad" + tbID.Text;
-            if (role == "Stockkeeper") tbID.Text = "sk" + tbID.Text;
-            if(role == "Salesman") tbID.Text = "sm" + tbID.Text;
-            return tbID.Text;
+            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to delete this account(s)?", "Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                List<string> del = new List<string>();
+                if (dgvAccount.SelectedRows.Count > 0)
+                {
+                    foreach (DataGridViewRow i in dgvAccount.SelectedRows)
+                    {
+                        del.Add(i.Cells[0].Value.ToString());
+                    }
+                    BLLAccountManagement.Instance.DelAccount(del);
+                    tbID.Text = null;
+                    tbUsername.Text = null;
+                    tbPassword.Text = null;
+                    tbName.Text = null;
+                    tbTel.Text = null;
+                    tbAddress.Text = null;
+                    cbbRole.Text = null;
+                    Reload();
+                }
+            }
         }
+
+        //Save account addition/edit
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -293,7 +274,108 @@ namespace PBL3.View.AdminChildForms
                 CustomMessageBox.MessageBox.Show(ex.Message, "Invalid input", MessageBoxIcon.Error);
             }
         }
-       
+
+        //Clear textboxes
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            tbID.Text = null;
+            tbUsername.Text = null;
+            tbPassword.Text = null;
+            tbName.Text = null;
+            tbTel.Text = null;
+            tbAddress.Text = null;
+            rbMale.Checked = false;rbFemale.Checked = false;
+            cbbRole.Text = null;
+            tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
+            tbPassword.IconRightSize = new System.Drawing.Size(0, 0);
+            tbName.IconRightSize = new System.Drawing.Size(0, 0);
+            tbTel.IconRightSize = new System.Drawing.Size(0, 0);
+            tbAddress.IconRightSize = new System.Drawing.Size(0, 0);
+        }
+
+        //
+        //SEARCH SORT FILTER
+        //
+        //Search account
+        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                if (string.IsNullOrWhiteSpace(tbSearch.Text))
+                {
+                    dgvAccount.DataSource = BLLAccountManagement.Instance.SearchAccount(tbSearch.Text);
+                }
+                else
+                {
+                    Reload();
+                }
+            }
+        }
+        private void tbSearch_IconRightClick(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                dgvAccount.DataSource = BLLAccountManagement.Instance.SearchAccount(tbSearch.Text);
+            }
+            else
+            {
+                Reload();
+            }
+        }
+
+        //Sort account
+        private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbSearch.Text = null;
+            string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            dgvAccount.DataSource = BLLAccountManagement.Instance.SortAcount(sortCategory, sortOrder);
+        }        
+        private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbSearch.Text = null;
+            string sortCategory = cbbSortCategory.SelectedItem.ToString();
+            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
+            dgvAccount.DataSource = BLLAccountManagement.Instance.SortAcount(sortCategory, sortOrder);
+        }
+
+        //Filter account
+        private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbFilterValue.Text = null;
+            cbbFilterValue.Items.Clear();
+            string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if (filterCategory == "Role")
+            {
+                foreach (string i in BLLAccountManagement.Instance.GetAllRole().Distinct())
+                {
+                    cbbFilterValue.Items.Add(i);
+                }
+            }
+            if (filterCategory == "Address")
+            {
+                foreach (string i in BLLAccountManagement.Instance.GetAllAddress().Distinct())
+                {
+                    cbbFilterValue.Items.Add(i);
+                }
+            }
+        }
+        private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvAccount.DataSource = BLLAccountManagement.Instance.Fitler_Account(cbbFilterValue.SelectedItem.ToString());
+        }
+
+
+        //
+        //Components
+        //
+        public string SetID(string role)
+        {
+            if (role == "Admin") tbID.Text = "ad" + tbID.Text;
+            if (role == "Stockkeeper") tbID.Text = "sk" + tbID.Text;
+            if(role == "Salesman") tbID.Text = "sm" + tbID.Text;
+            return tbID.Text;
+        }       
         private void tb_TextChanged(object sender, EventArgs e)
         {
             if (tbTel.Text == ""||tbTel.Text.Length != 10||DataCheck.IsNumber(tbTel.Text)!= true|| tbTel.Text[0] != '0') tbTel.IconRightSize = new System.Drawing.Size(7,7);
