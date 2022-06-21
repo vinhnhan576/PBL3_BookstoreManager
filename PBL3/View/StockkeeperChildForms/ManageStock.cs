@@ -66,18 +66,62 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void tbYear_IconLeftClick(object sender, EventArgs e)
         {
-            string day = tbDay.Text;
-            string month = tbMonth.Text;
-            string year = tbYear.Text;
-            dgvStock.DataSource = BLLRestockManagement.Instance.FilterRestockByDate(day, month, year);
+            try
+            {
+                if (!isTimeInputValid()) throw new Exception("Please re-enter the date");
+                string day = tbDay.Text;
+                string month = tbMonth.Text;
+                string year = tbYear.Text;
+                dgvStock.DataSource = BLLRestockManagement.Instance.FilterRestockByDate(day, month, year);
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MessageBox.Show(ex.Message, "Invalid time input", MessageBoxIcon.Error);
+                tbDay.Text = null;
+                tbMonth.Text = null;
+                tbYear.Text = null;
+            }
         }
 
         private void tbYear_IconRightClick(object sender, EventArgs e)
         {
-            string day = tbDay.Text;
-            string month = tbMonth.Text;
-            string year = tbYear.Text;
-            dgvStock.DataSource = BLLRestockManagement.Instance.FilterRestockByDate(day, month, year);
+            try
+            {
+                if (!isTimeInputValid()) throw new Exception("Please re-enter the date");
+                string day = tbDay.Text;
+                string month = tbMonth.Text;
+                string year = tbYear.Text;
+                dgvStock.DataSource = BLLRestockManagement.Instance.FilterRestockByDate(day, month, year);
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MessageBox.Show(ex.Message, "Invalid time input", MessageBoxIcon.Error);
+                tbDay.Text = null;
+                tbMonth.Text = null;
+                tbYear.Text = null;
+            }
+        }
+        private bool isTimeInputValid()
+        {
+            if (!string.IsNullOrWhiteSpace(tbDay.Text))
+            {
+                if (Convert.ToInt32(tbDay.Text) > 0 && Convert.ToInt32(tbDay.Text) <= 31)
+                    return true;
+                else return false;
+            }
+            if (!string.IsNullOrWhiteSpace(tbMonth.Text))
+            {
+                if (Convert.ToInt32(tbMonth.Text) > 0 && Convert.ToInt32(tbMonth.Text) <= 12)
+                    return true;
+                else return false;
+            }
+            if (!string.IsNullOrWhiteSpace(tbYear.Text))
+            {
+                if (Convert.ToInt32(tbYear.Text) > 0 && Convert.ToInt32(tbYear.Text) <= DateTime.Now.Year)
+                    return true;
+                else return false;
+            }
+            return true;
         }
     }
 }

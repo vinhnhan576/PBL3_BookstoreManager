@@ -101,7 +101,7 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void cbbFilterValue_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            dgvProducts.DataSource = BLLProductManagement.Instance.SearchProduct_Restock(cbbFilterValue.SelectedItem.ToString());
+            dgvProducts.DataSource = BLLProductManagement.Instance.FilterProduct_Import(cbbFilterCategory.SelectedItem.ToString(), cbbFilterValue.SelectedItem.ToString());
         }
 
         private void cbbFilterCategory_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -126,6 +126,14 @@ namespace PBL3.View.StockkeeperChildForms
                 {
                     cbbFilterValue.Items.Add(i);
                 }
+            }
+        }
+
+        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                dgvProducts.DataSource = BLLProductManagement.Instance.SearchProduct_Import(tbSearch.Text);
             }
         }
     }

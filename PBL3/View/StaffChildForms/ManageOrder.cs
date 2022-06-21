@@ -109,10 +109,46 @@ namespace PBL3.View.StaffChildForms
         {
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.FilterReceipt(cbbFilterValue.SelectedItem.ToString());
         }
+        private bool isTimeInputValid()
+        {
+            if (!string.IsNullOrWhiteSpace(tbDay.Text))
+            {
+                if (Convert.ToInt32(tbDay.Text) > 0 && Convert.ToInt32(tbDay.Text) <= 31)
+                    return true;
+                else return false;
+            }
+            if (!string.IsNullOrWhiteSpace(tbMonth.Text))
+            {
+                if (Convert.ToInt32(tbMonth.Text) > 0 && Convert.ToInt32(tbMonth.Text) <= 12)
+                    return true;
+                else return false;
+            }
+            if (!string.IsNullOrWhiteSpace(tbYear.Text))
+            {
+                if (Convert.ToInt32(tbYear.Text) > 0 && Convert.ToInt32(tbYear.Text) <= DateTime.Now.Year)
+                    return true;
+                else return false;
+            }
+            return true;
+        }
 
         private void tbYear_IconRightClick_1(object sender, EventArgs e)
         {
-            Receiptdgv.DataSource = BLLReceiptManagement.Instance.FilterReceiptByDate(tbMonth.Text, tbDay.Text, tbYear.Text);
+            try
+            {
+                if (!isTimeInputValid()) throw new Exception("Please re-enter the date");
+                string day = tbDay.Text;
+                string month = tbMonth.Text;
+                string year = tbYear.Text;
+                Receiptdgv.DataSource = BLLReceiptManagement.Instance.FilterReceiptByDate(tbDay.Text, tbMonth.Text, tbYear.Text);
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MessageBox.Show(ex.Message, "Invalid time input", MessageBoxIcon.Error);
+                tbDay.Text = null;
+                tbMonth.Text = null;
+                tbYear.Text = null;
+            }
         }
     }
 }

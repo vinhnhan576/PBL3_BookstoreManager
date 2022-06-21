@@ -141,7 +141,7 @@ namespace PBL3.View.StockkeeperChildForms
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
             if (filterCategory == "All")
             {
-                dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_View();
+                dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Restock_View();
             }
             if (filterCategory == "Category")
             {
@@ -161,7 +161,7 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvProducts.DataSource = BLLProductManagement.Instance.SearchProduct_Restock(cbbFilterValue.SelectedItem.ToString());
+            dgvProducts.DataSource = BLLProductManagement.Instance.FilterProduct_Restock(cbbFilterCategory.SelectedItem.ToString(), cbbFilterValue.SelectedItem.ToString());
         }
 
         private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)

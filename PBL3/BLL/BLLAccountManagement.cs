@@ -136,7 +136,8 @@ namespace PBL3.BLL
             if (sortCategory == "ID")
             {
                 if (ascending)
-                    data = SortByPersonID();
+                    data = qLSPEntities.Accounts.OrderBy(p => p.PersonID).ToList();
+                //data = SortByPersonID();
                 else
                     data = qLSPEntities.Accounts.OrderByDescending(p => p.PersonID).ToList();
             }
