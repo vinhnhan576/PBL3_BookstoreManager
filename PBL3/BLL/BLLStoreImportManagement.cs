@@ -47,7 +47,8 @@ namespace PBL3.BLL
                     data.Add(i);
                 }
             }
-            var storeImportList = data.Select(p => new { p.StoreImport.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
+            var storeImportList = data.OrderBy(s => s.StoreImportDetailID.Length).ThenBy(s => s.StoreImportDetailID)
+                                    .Select(p => new { p.StoreImport.ImportDate, p.ImportQuantity, p.Product.StoreQuantity });
             return storeImportList.ToList();
         }
 

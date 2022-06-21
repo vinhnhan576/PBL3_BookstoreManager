@@ -51,7 +51,7 @@ namespace PBL3.BLL
         }
         public dynamic GetAllRank_View()
         {
-            var discountList = QLNS.Instance.Ranks.Select(p => new {p.RankID,p.RankName,p.Requirement,p.CustomerDiscount});
+            var discountList = QLNS.Instance.Ranks.OrderBy(r => r.RankID.Length).ThenBy(r => r.RankID).Select(p => new {p.RankID,p.RankName,p.Requirement,p.CustomerDiscount});
             return discountList.ToList();
         }
         public void AddNewRank(Rank rank)
@@ -107,7 +107,7 @@ namespace PBL3.BLL
         public dynamic SearchRank(string searchValue)
         {
             List<Rank> data = new List<Rank>();
-            foreach (Rank i in QLNS.Instance.Ranks.Select(p => p).ToList())
+            foreach (Rank i in GetAllRank_View())
             {
                 bool containName = i.RankName.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool containId = i.RankID.IndexOf(searchValue, StringComparison.OrdinalIgnoreCase) >= 0;
@@ -116,7 +116,7 @@ namespace PBL3.BLL
                     data.Add(i);
                 }
             }
-            return data.Select(p => new {p.RankID,p.RankName,p.Requirement,p.CustomerDiscount}).ToList();
+            return data;
         }
         public dynamic SortRank(string sortCategory, bool ascending)
         {
@@ -125,9 +125,13 @@ namespace PBL3.BLL
             if (sortCategory == "Rank ID")
             {
                 if (ascending)
-                    data = db.Ranks.OrderBy(p => p.RankID).ToList();
+                {
+                    data = db.Ranks.OrderBy(r => r.RankID.Length).ThenBy(r => r.RankID).ToList();
+                }
                 else
-                    data = db.Ranks.OrderByDescending(p => p.RankID).ToList();
+                {
+                    data = db.Ranks.OrderByDescending(r => r.RankID.Length).ThenByDescending(r => r.RankID).ToList();
+                }
             }
             if (sortCategory == "Rank Name")
             {
@@ -150,7 +154,7 @@ namespace PBL3.BLL
                 else
                     data = db.Ranks.OrderByDescending(p => p.CustomerDiscount).ToList();
             }
-            var sortedList = data.Select(p => p).ToList();
+            var sortedList = data.ToList();
             return sortedList;
         }
         public void UpdateAllCustomerRank()

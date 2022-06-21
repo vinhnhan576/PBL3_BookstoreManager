@@ -40,7 +40,7 @@ namespace PBL3.BLL
 
         public dynamic GetAllRevenue_View()
         {
-            var revenues = QLNS.Instance.Revenues.Select(p => new {
+            var revenues = QLNS.Instance.Revenues.OrderBy(r => r.RevenueID.Length).ThenBy(r => r.RevenueID).Select(p => new {
                 p.ReceiptDetail.Receipt.Date, p.ReceiptDetail.Receipt.Person.PersonName, p.Expenses, p.GrossRevenue, p.Profit });
             return revenues.ToList();
         }
