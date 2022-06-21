@@ -153,7 +153,7 @@ namespace PBL3.BLL
                 r.Status = i.Status;
                 list.Add(r);
             }
-            return list;
+            return list.OrderBy(r => r.ReceiptID.Length).ThenBy(r => r.ReceiptID).ToList();
         }
         public dynamic SortReceipt(string sortCategory, bool ascending)
         {
