@@ -13,7 +13,7 @@ namespace PBL3.Model
     {
         public ReceiptDetail()
         {
-            Revenues = new HashSet<Revenue>();
+            //Revenues = new HashSet<Revenue>();
         }
         [Column("ID")][Key]
         public string ReceiptDetailID { get; set; }
@@ -27,7 +27,7 @@ namespace PBL3.Model
 
         [ForeignKey("ReceiptID")]
         public virtual Receipt Receipt { get; set; }
-        public virtual ICollection<Revenue> Revenues { get; set; }
+        public virtual Revenue Revenue { get; set; }
         [ForeignKey("ProductID")]
         public virtual Product Product { get; set; }
     }

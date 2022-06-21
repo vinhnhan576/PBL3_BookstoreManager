@@ -200,6 +200,7 @@ namespace PBL3.BLL
                 }
                 foreach (ReceiptDetail i in getReceiptDetailByReceiptID(r.ReceiptID))
                 {
+                    BLLRevenueManagement.Instance.RemoveRevenue(i.Revenue);
                     Product p = QLNS.Instance.Products.Find(i.ProductID);
                     p.StoreQuantity += i.SellingQuantity;
                 }

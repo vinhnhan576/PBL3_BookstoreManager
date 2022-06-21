@@ -45,12 +45,17 @@ namespace PBL3.BLL
             return revenues.ToList();
         }
 
-        public void AddRevenue(string recieptDetailID, double expenses, double grossrevenue, double profit)
+        public void AddRevenue(string receiptDetailID, double expenses, double grossrevenue, double profit)
         {
             int count = QLNS.Instance.Revenues.Count() + 1;
-            string revenueID = (count < 100 ? (count < 10 ? "00" + count.ToString() : "0" + count.ToString()) : count.ToString());
-            Revenue revenue = new Revenue { RevenueID = count.ToString(), ReceiptDetailID = recieptDetailID, Expenses = expenses, GrossRevenue = grossrevenue, Profit = profit };
+            Revenue revenue = new Revenue { RevenueID = receiptDetailID, Expenses = expenses, GrossRevenue = grossrevenue, Profit = profit };
             QLNS.Instance.Revenues.Add(revenue);
+            QLNS.Instance.SaveChanges();
+        }
+        
+        public void RemoveRevenue(Revenue i)
+        {
+            QLNS.Instance.Revenues.Remove(i);
             QLNS.Instance.SaveChanges();
         }
 
