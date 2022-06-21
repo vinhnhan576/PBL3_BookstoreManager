@@ -71,7 +71,10 @@ namespace PBL3.View.LoginForms
                     usernameExist = true;
                     if(tbPassword.Text == i.Password.Trim())
                     {
-                        if(i.Person.Role.Trim() == "Admin")
+                        Properties.Settings.Default.username = tbUsername.Text;
+                        Properties.Settings.Default.userPass = tbPassword.Text;
+                        Properties.Settings.Default.Save();
+                        if (i.Person.Role.Trim() == "Admin")
                         {
                             this.Visible = false;
                             new AdminForm(i).ShowDialog();

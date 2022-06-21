@@ -134,12 +134,12 @@
             this.tbConfirmPassword.Location = new System.Drawing.Point(259, 186);
             this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
-            this.tbConfirmPassword.PasswordChar = '\0';
+            this.tbConfirmPassword.PasswordChar = '*';
             this.tbConfirmPassword.PlaceholderText = "";
-            this.tbConfirmPassword.ReadOnly = true;
             this.tbConfirmPassword.SelectedText = "";
             this.tbConfirmPassword.Size = new System.Drawing.Size(245, 30);
             this.tbConfirmPassword.TabIndex = 71;
+            this.tbConfirmPassword.TextOffset = new System.Drawing.Point(8, 0);
             // 
             // tbNewPassword
             // 
@@ -164,12 +164,12 @@
             this.tbNewPassword.Location = new System.Drawing.Point(257, 112);
             this.tbNewPassword.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbNewPassword.Name = "tbNewPassword";
-            this.tbNewPassword.PasswordChar = '\0';
+            this.tbNewPassword.PasswordChar = '*';
             this.tbNewPassword.PlaceholderText = "";
-            this.tbNewPassword.ReadOnly = true;
             this.tbNewPassword.SelectedText = "";
             this.tbNewPassword.Size = new System.Drawing.Size(245, 30);
             this.tbNewPassword.TabIndex = 70;
+            this.tbNewPassword.TextOffset = new System.Drawing.Point(8, 0);
             // 
             // tbCurrentPassword
             // 
@@ -194,12 +194,12 @@
             this.tbCurrentPassword.Location = new System.Drawing.Point(259, 43);
             this.tbCurrentPassword.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.tbCurrentPassword.Name = "tbCurrentPassword";
-            this.tbCurrentPassword.PasswordChar = '\0';
+            this.tbCurrentPassword.PasswordChar = '*';
             this.tbCurrentPassword.PlaceholderText = "";
-            this.tbCurrentPassword.ReadOnly = true;
             this.tbCurrentPassword.SelectedText = "";
             this.tbCurrentPassword.Size = new System.Drawing.Size(245, 30);
             this.tbCurrentPassword.TabIndex = 69;
+            this.tbCurrentPassword.TextOffset = new System.Drawing.Point(8, 0);
             // 
             // ChangePasswordForm
             // 
