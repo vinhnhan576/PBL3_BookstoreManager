@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbbFilterValue = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.tbSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.butDelete = new Guna.UI2.WinForms.Guna2Button();
             this.butClear = new Guna.UI2.WinForms.Guna2Button();
             this.butAdd = new Guna.UI2.WinForms.Guna2Button();
@@ -58,6 +57,7 @@
             this.dgvImport = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tbSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -572,6 +572,35 @@
             this.guna2Panel5.Padding = new System.Windows.Forms.Padding(20, 18, 20, 18);
             this.guna2Panel5.Size = new System.Drawing.Size(393, 580);
             this.guna2Panel5.TabIndex = 52;
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.tbSearch.BorderRadius = 9;
+            this.tbSearch.BorderThickness = 0;
+            this.tbSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbSearch.DefaultText = "";
+            this.tbSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
+            this.tbSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbSearch.IconLeft = global::PBL3.Properties.Resources.produtIcon;
+            this.tbSearch.IconLeftSize = new System.Drawing.Size(0, 0);
+            this.tbSearch.IconRight = global::PBL3.Properties.Resources.icons8_search_60;
+            this.tbSearch.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.tbSearch.IconRightSize = new System.Drawing.Size(23, 23);
+            this.tbSearch.Location = new System.Drawing.Point(18, 25);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.PasswordChar = '\0';
+            this.tbSearch.PlaceholderText = "";
+            this.tbSearch.SelectedText = "";
+            this.tbSearch.Size = new System.Drawing.Size(229, 29);
+            this.tbSearch.TabIndex = 29;
             // 
             // ImportStore
             // 

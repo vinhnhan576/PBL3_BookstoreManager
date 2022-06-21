@@ -136,6 +136,9 @@
   <data name="iconRefresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconRefresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="tel icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tel icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="manageOrder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\manageOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,6 +172,9 @@
   <data name="discount" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\discount.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-plus-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-plus-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo ver 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo ver 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -192,6 +198,12 @@
   </data>
   <data name="newOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\newOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="address icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\address icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pass icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pass icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconBlueOverview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconBlueOverview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,6 +229,9 @@
   <data name="upIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\upIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="errorVector" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\errorVector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-add.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -235,6 +250,9 @@
   <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="role icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\role icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bookIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bookIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -246,6 +264,9 @@
   </data>
   <data name="Reading book-rafiki" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reading book-rafiki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="role icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\role icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconWhiteOverview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconWhiteOverview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,8 +322,8 @@
   <data name="infoIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\infoIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="errorVector" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\errorVector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="email icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\email icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bookIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bookIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -312,6 +333,9 @@
   </data>
   <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="name icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\name icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="salesmanVector1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\salesmanVector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -331,7 +355,7 @@
   <data name="filterIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\filterIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-plus-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-plus-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pass icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pass icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
