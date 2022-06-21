@@ -231,6 +231,7 @@
             this.tbEmail.SelectedText = "";
             this.tbEmail.Size = new System.Drawing.Size(245, 30);
             this.tbEmail.TabIndex = 90;
+            this.tbEmail.TextOffset = new System.Drawing.Point(6, 0);
             // 
             // tbTel
             // 
@@ -261,6 +262,7 @@
             this.tbTel.SelectedText = "";
             this.tbTel.Size = new System.Drawing.Size(245, 30);
             this.tbTel.TabIndex = 89;
+            this.tbTel.TextOffset = new System.Drawing.Point(6, 0);
             // 
             // tbRole
             // 
@@ -291,6 +293,7 @@
             this.tbRole.SelectedText = "";
             this.tbRole.Size = new System.Drawing.Size(245, 30);
             this.tbRole.TabIndex = 88;
+            this.tbRole.TextOffset = new System.Drawing.Point(6, 0);
             // 
             // tbAddress
             // 
@@ -321,6 +324,7 @@
             this.tbAddress.SelectedText = "";
             this.tbAddress.Size = new System.Drawing.Size(245, 30);
             this.tbAddress.TabIndex = 87;
+            this.tbAddress.TextOffset = new System.Drawing.Point(6, 0);
             // 
             // tbName
             // 
@@ -351,6 +355,7 @@
             this.tbName.SelectedText = "";
             this.tbName.Size = new System.Drawing.Size(245, 30);
             this.tbName.TabIndex = 68;
+            this.tbName.TextOffset = new System.Drawing.Point(6, 0);
             // 
             // EditProfileForm
             // 

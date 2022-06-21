@@ -31,47 +31,55 @@ namespace PBL3.View.SettingsForms
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if(tbCurrentPassword.Text == currentPassword)
+            try
             {
-                if (CheckValidation(tbNewPassword.Text))
+                if (tbCurrentPassword.Text == currentPassword)
                 {
-                    if(tbConfirmPassword.Text == tbNewPassword.Text)
+                    if (CheckValidation(tbNewPassword.Text))
                     {
-                        
-                        DialogResult result = MessageBox.Show("Do you want to change your password?", "Warning", MessageBoxButtons.YesNoCancel);
-                        if (result == DialogResult.Yes)
+                        if (tbConfirmPassword.Text == tbNewPassword.Text)
                         {
-                            BLL.BLLAccountManagement.Instance.ChangePassword(username, tbNewPassword.Text);
-                            this.Close();
+
+                            DialogResult result = CustomMessageBox.MessageBox.Show("Do you want to change your password?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                BLL.BLLAccountManagement.Instance.ChangePassword(username, tbNewPassword.Text);
+                                CustomMessageBox.MessageBox.Show("Password changed successfully", "Congratulations", MessageBoxIcon.Information);
+                                Properties.Settings.Default.userPass = tbNewPassword.Text;
+                                Properties.Settings.Default.Save();
+                                ClearTextboxes();
+                            }
+                            else if (result == DialogResult.No)
+                            {
+                                ClearTextboxes();
+                            }
                         }
-                        else if (result == DialogResult.No)
+                        else
                         {
-                            this.Close();
+                            throw new Exception("Wrong password confirmation!");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Different password confirmation");
-                        ClearTextboxes();
+                        throw new Exception("New password has to be longer than 6 characters");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("New password has to be longer than 6 characters");
-                    ClearTextboxes();
+                    throw new Exception("The current password you entered is wrong");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("The current password you entered is wrong");
-                ClearTextboxes();   
+                CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxIcon.Error);
+                ClearTextboxes();
             }
         }
         
         private void ClearTextboxes()
         {
-            tbCurrentPassword.Text = "";
-            tbNewPassword.Text = "";
+            tbCurrentPassword.Clear();
+            tbNewPassword.Clear();
             tbConfirmPassword.Clear();
         }
 

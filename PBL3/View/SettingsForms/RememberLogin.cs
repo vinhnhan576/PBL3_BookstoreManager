@@ -20,15 +20,11 @@ namespace PBL3.View.SettingsForms
             account = acc;
             if (Properties.Settings.Default.rememberLogin)
             {
-                Properties.Settings.Default.username = account.Username;
-                Properties.Settings.Default.userPass = account.Password;
                 btnSave.FillColor = Color.FromArgb(2, 62, 138);
                 btnSave.ImageAlign = HorizontalAlignment.Right;
             }
             else
             {
-                Properties.Settings.Default.username = null;
-                Properties.Settings.Default.userPass = null;
                 btnSave.FillColor = Color.Gray;
                 btnSave.ImageAlign = HorizontalAlignment.Left;
             }
