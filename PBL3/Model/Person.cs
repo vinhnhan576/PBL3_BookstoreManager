@@ -25,7 +25,6 @@ namespace PBL3.Model
         public bool Gender { get; set; }
         public string Email { get; set; }
 
-        [ForeignKey("PersonID")]
         public virtual Account Account { get; set; }
         public virtual ICollection<Receipt> Receipts { get; set; }
         public virtual ICollection<Restock> Restocks { get; set; }
