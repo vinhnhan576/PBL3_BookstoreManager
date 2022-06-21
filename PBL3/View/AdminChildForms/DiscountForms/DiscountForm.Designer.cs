@@ -608,6 +608,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             this.cbbFilterCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbFilterCategory.ItemHeight = 23;
             this.cbbFilterCategory.Items.AddRange(new object[] {
+            "All",
             "DiscountType"});
             this.cbbFilterCategory.Location = new System.Drawing.Point(499, 31);
             this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(2);

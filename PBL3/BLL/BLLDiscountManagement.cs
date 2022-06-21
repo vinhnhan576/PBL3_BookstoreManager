@@ -44,46 +44,44 @@ namespace PBL3.BLL
             var discountList = QLNS.Instance.Discounts.OrderBy(d => d.DiscountID.Length).ThenBy(d => d.DiscountID).Select(p => new {p.DiscountID, p.DiscountName, p.DiscountType, p.AmmountApply,p.DiscountApply, p.StartingDate, p.ExpirationDate });
             return discountList.ToList();
         }
-        public dynamic SortDiscount(string sortCategory, bool ascending)
+        public dynamic SortDiscount(List<Discount> data,string sortCategory, bool ascending)
         {
-            QLNS db = new QLNS();
-            List<Discount> data = new List<Discount>();
             if (sortCategory == "DiscountName")
             {
                 if (ascending)
-                    data = db.Discounts.OrderBy(p => p.DiscountName).ToList();
+                    data=data.OrderBy(p => p.DiscountName).ToList();
                 else
-                    data = db.Discounts.OrderByDescending(p => p.DiscountName).ToList();
+                    data = data.OrderByDescending(p => p.DiscountName).ToList();
             }
             if (sortCategory == "DiscountType")
             {
                 if (ascending)
-                    data = db.Discounts.OrderBy(p => p.DiscountType).ToList();
+                    data = data.OrderBy(p => p.DiscountType).ToList();
                 else
-                    data = db.Discounts.OrderByDescending(p => p.DiscountType).ToList();
+                    data = data.OrderByDescending(p => p.DiscountType).ToList();
             }
             if (sortCategory == "StartingDate")
             {
                 if (ascending)
-                    data = db.Discounts.OrderBy(p => p.StartingDate).ToList();
+                    data = data.OrderBy(p => p.StartingDate).ToList();
                 else
-                    data = db.Discounts.OrderByDescending(p => p.StartingDate).ToList();
+                    data = data.OrderByDescending(p => p.StartingDate).ToList();
             }
             if (sortCategory == "ExpirationDate")
             {
                 if (ascending)
-                    data = db.Discounts.OrderBy(p => p.ExpirationDate).ToList();
+                    data = data.OrderBy(p => p.ExpirationDate).ToList();
                 else
-                    data = db.Discounts.OrderByDescending(p => p.ExpirationDate).ToList();
+                    data = data.OrderByDescending(p => p.ExpirationDate).ToList();
             }
             if (sortCategory == "Amount")
             {
                 if (ascending)
-                    data = db.Discounts.OrderBy(p => p.Amount).ToList();
+                    data = data.OrderBy(p => p.Amount).ToList();
                 else
-                    data = db.Discounts.OrderByDescending(p => p.Amount).ToList();
+                    data = data.OrderByDescending(p => p.Amount).ToList();
             }
-            var sortedList = data.Select(p => new { p.DiscountName, p.DiscountType, p.Amount, p.StartingDate, p.ExpirationDate }).ToList();
+            var sortedList = data.Select(p => new { p.DiscountID,p.DiscountName,p.DiscountApply, p.DiscountType, p.AmmountApply, p.StartingDate, p.ExpirationDate }).ToList();
             return sortedList;
         }
 
@@ -99,17 +97,44 @@ namespace PBL3.BLL
 
         public dynamic FilterDiscount(string filterValue)
         {
-            List<Discount> data = new List<Discount>();
-            foreach (Discount i in QLNS.Instance.Discounts.Select(p => p).ToList())
+            if (filterValue == "All")
             {
-                bool containType = i.DiscountType.IndexOf(filterValue, StringComparison.OrdinalIgnoreCase) >= 0;
-                if (containType)
-                {
-                    data.Add(i);
-                }
+                return GetAllDiscount_View();
             }
-            var prodList = data.Select(p => new { p.DiscountID, p.DiscountName, p.AmmountApply, p.DiscountApply, p.StartingDate, p.ExpirationDate });
-            return prodList.ToList();
+            else
+            {
+                List<Discount> data = new List<Discount>();
+                foreach (Discount i in QLNS.Instance.Discounts.Select(p => p).ToList())
+                {
+                    bool containType = i.DiscountType.IndexOf(filterValue, StringComparison.OrdinalIgnoreCase) >= 0;
+                    if (containType)
+                    {
+                        data.Add(i);
+                    }
+                }
+                var prodList = data.Select(p => new { p.DiscountID, p.DiscountName, p.DiscountType, p.AmmountApply, p.DiscountApply, p.StartingDate, p.ExpirationDate });
+                return prodList.ToList();
+            }   
+        }
+        public List<Discount> GetAllDiscountByDiscountType(string discounttype)
+        {
+            if (discounttype == "All")
+            {
+                return GetAllDiscount();
+            }
+            else
+            {
+                List<Discount> data = new List<Discount>();
+                foreach (Discount discount in GetAllDiscount())
+                {
+                    if (discount.DiscountType == discounttype)
+                    {
+                        data.Add(discount);
+                    }
+                }
+                return data;
+            }
+            
         }
         public void AddNewDiscount(Discount discount)
         {
@@ -212,7 +237,7 @@ namespace PBL3.BLL
                     data.Add(i);
                 }
             }
-            var prodList = data.Select(p => new { p.DiscountID, p.DiscountName, p.AmmountApply, p.DiscountApply, p.StartingDate, p.ExpirationDate });
+            var prodList = data.Select(p => new { p.DiscountID, p.DiscountName,p.DiscountType, p.AmmountApply, p.DiscountApply, p.StartingDate, p.ExpirationDate });
             return prodList.ToList();
         }
         public dynamic ShowAppliedProducts(string discountid)

@@ -32,7 +32,8 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             cbbSortOrder.SelectedIndex = 0;
             cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;
-            cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
+            cbbFilterCategory.SelectedIndex = 0;
+            //cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
             IDtxt.Text = BLLDiscountManagement.Instance.GenerateID();
             Typecbb.SelectedIndex = 1;
             Savebutton.Visible = false;
@@ -72,19 +73,19 @@ namespace PBL3.View.AdminChildForms.DiscountForms
         }
 
         // Sort discount
-        private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tbSearch.Text = "";
-            string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            dgvDiscount.DataSource = BLLDiscountManagement.Instance.SortDiscount(sortCategory, sortOrder);
-        }
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tbSearch.Text = "";
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            dgvDiscount.DataSource = BLLDiscountManagement.Instance.SortDiscount(sortCategory, sortOrder);
+            if (cbbFilterCategory.SelectedItem.ToString() == "All")
+            {
+                dgvDiscount.DataSource = BLLDiscountManagement.Instance.SortDiscount(BLLDiscountManagement.Instance.GetAllDiscountByDiscountType("All"), sortCategory, sortOrder);
+            }
+            else
+            {
+                string filterValue = cbbFilterValue.SelectedItem.ToString();
+                dgvDiscount.DataSource = BLLDiscountManagement.Instance.SortDiscount(BLLDiscountManagement.Instance.GetAllDiscountByDiscountType(filterValue), sortCategory, sortOrder);
+            }
         }
 
         //Filter discount
@@ -93,6 +94,10 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             cbbFilterValue.Text = "";
             cbbFilterValue.Items.Clear();
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if (filterCategory == "All")
+            {
+                dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
+            }
             if (filterCategory == "DiscountType")
             {
                 foreach (string i in BLLDiscountManagement.Instance.GetAllDiscountType().Distinct())
