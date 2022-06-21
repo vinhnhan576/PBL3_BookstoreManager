@@ -80,18 +80,11 @@ namespace PBL3.View.AdminChildForms
         {
             Receiptdgv.DataSource = BLLReceiptManagement.Instance.FilterReceipt(cbbFilterValue.SelectedItem.ToString());
         }
-
-        private void cbbSortOrder_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(sortCategory, sortOrder);
-        }
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(sortCategory, sortOrder);
+            Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(BLLReceiptManagement.Instance.FilterReceipt(cbbFilterCategory.SelectedItem.ToString()),sortCategory, sortOrder);
         }
 
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
