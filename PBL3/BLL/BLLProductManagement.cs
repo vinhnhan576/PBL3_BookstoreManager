@@ -118,9 +118,6 @@ namespace PBL3.BLL
             p.SellingPrice = newPrice;
             db.SaveChanges();
         }
-
-
-
         public dynamic SearchProduct(string searchValue)
         {
             List<Product> data = new List<Product>();
@@ -136,9 +133,23 @@ namespace PBL3.BLL
             var prodList = data.Select(p => new { p.ProductID, p.ProductName, p.Category, p.StoreQuantity, p.SellingPrice, p.Status });
             return prodList.ToList();
         }
-
-
-
+        public dynamic FilterProduct(string filterValue)
+        {
+            List<Product> data = new List<Product>();
+            foreach (Product i in GetAllProduct())
+            {
+                if (i.Category == filterValue)
+                {
+                    data.Add(i);
+                }
+                if (i.Status == filterValue)
+                {
+                    data.Add(i);
+                }
+            }
+            var prodList = data.Select(p => new { p.ProductName,p.StoreQuantity});
+            return prodList.ToList();
+        }
         public dynamic SearchProductPriceView(string searchValue)
         {
             List<Product_Price_View> data = new List<Product_Price_View>();
