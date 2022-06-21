@@ -11,14 +11,13 @@ namespace PBL3.Model
     [Table("Revenue")]
     public partial class Revenue
     {
-        [Column("ID")][Key][Required][StringLength(10)]
+        [Key, ForeignKey("ReceiptDetail")]
         public string RevenueID { get; set; }
-        public string ReceiptDetailID { get; set; }
+        //public string ReceiptDetailID { get; set; }
         public double Expenses { get; set; }
         public double GrossRevenue { get; set; }
         public double Profit { get; set; }
 
-        [ForeignKey("ReceiptDetailID")]
         public virtual ReceiptDetail ReceiptDetail { get; set; }
     }
 }

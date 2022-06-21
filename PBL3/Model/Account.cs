@@ -11,11 +11,11 @@ namespace PBL3.Model
     [Table("Account")]
     public partial class Account
     {
-        [Key]
+        [Key, ForeignKey("Person")]
         public string PersonID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        [ForeignKey("PersonID")][Required]
+
         public virtual Person Person { get; set; }
     }
 }

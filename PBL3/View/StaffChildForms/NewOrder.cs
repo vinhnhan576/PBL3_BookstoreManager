@@ -78,10 +78,10 @@ namespace PBL3.View.StaffChildForms
             {
                 CustomMessageBox.MessageBox.Show("Please re-enter phone number", "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
-            {
-                CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //catch (Exception ex)
+            //{
+            //    CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
             //rd_list.Clear();
             //rdDataGridView.DataSource = rd_list.ToList();
             //OrderIDtxt.Text = "";
