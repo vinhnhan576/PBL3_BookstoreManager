@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using PBL3.Model;
+using PBL3.View;
 
 namespace PBL3.BLL
 {
@@ -49,7 +52,6 @@ namespace PBL3.BLL
             foreach (string i in ID)
             {
                 Account ac = qLSPEntities.Accounts.Find(i);
-                qLSPEntities.People.Remove(ac.Person);
                 qLSPEntities.Accounts.Remove(ac);
                 qLSPEntities.SaveChanges();
             }
@@ -134,7 +136,7 @@ namespace PBL3.BLL
             if (sortCategory == "ID")
             {
                 if (ascending)
-                    data = qLSPEntities.Accounts.OrderBy(p => p.PersonID).ToList();
+                    data = SortByPersonID();
                 else
                     data = qLSPEntities.Accounts.OrderByDescending(p => p.PersonID).ToList();
             }
@@ -206,7 +208,40 @@ namespace PBL3.BLL
             }
             return check;
         }
-
+        public List<Account> SortByPersonID()
+        {
+            List<double> list1 = new List<double>();
+            List<Account> data = new List<Account>();
+            foreach (Account account in QLNS.Instance.Accounts.Select(p => p).ToList())
+            {
+                string resultString = Regex.Match(account.PersonID, @"[0-9]\d*\.?[0]*$").Value;
+                double x = Double.Parse(resultString);
+                list1.Add(x);
+            }
+            for (int i = 0; i < list1.Count - 1; i++)
+            {
+                for (int j = i + 1; j < list1.Count; j++)
+                {
+                    if (list1[j] < list1[i])
+                    {
+                        double tmp = list1[i];
+                        list1[i] = list1[j];
+                        list1[j] = tmp;
+                    }
+                }
+            }
+            for (int i = 0; i < list1.Count; i++)
+            {
+                foreach (Account account in QLNS.Instance.Accounts.Select(p => p).ToList())
+                {
+                    string resultString = Regex.Match(account.PersonID, @"[0-9]\d*\.?[0]*$").Value;
+                    int x = Int32.Parse(resultString);
+                    if (x == list1[i])
+                        data.Add(account);
+                }
+            }
+            return data;
+        }
     }
  }
 

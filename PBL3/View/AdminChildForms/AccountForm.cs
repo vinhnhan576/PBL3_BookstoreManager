@@ -52,6 +52,12 @@ namespace PBL3.View.AdminChildForms
             cbbRole.Enabled = true;
             btnSave.Visible = true;
             btnClear.Visible = true;
+            tbID.ReadOnly = false;
+            tbUsername.ReadOnly = false;
+            tbPassword.ReadOnly = false;
+            tbName.ReadOnly = false;
+            tbTel.ReadOnly = false;
+            tbAddress.ReadOnly = false;
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -218,6 +224,8 @@ namespace PBL3.View.AdminChildForms
                 cbbRole.Enabled = false;
                 btnSave.Visible = true;
                 btnClear.Visible = true;
+                tbUsername.ReadOnly = false;
+                tbPassword.ReadOnly = false;
                 tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             }
         }
