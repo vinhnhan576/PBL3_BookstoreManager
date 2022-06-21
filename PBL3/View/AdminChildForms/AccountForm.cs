@@ -33,58 +33,6 @@ namespace PBL3.View.AdminChildForms
         {
             dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
         }
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            int count = QLNS.Instance.Accounts.Count() + 1;
-            tbID.Text = "0"+count.ToString();
-            tbID.Enabled = false;
-            tbUsername.Text = "";
-            tbUsername.Enabled = true;
-            tbPassword.Text = "";
-            tbPassword.Enabled = true;
-            tbName.Text = "";
-            tbName.Enabled = true;
-            tbTel.Text = "";
-            tbTel.Enabled = true;
-            tbAddress.Text = "";
-            tbAddress.Enabled = true;
-            rbFemale.Checked = false;
-            cbbRole.Text = null;
-            cbbRole.Enabled = true;
-            btnSave.Visible = true;
-            btnClear.Visible = true;
-            tbID.ReadOnly = false;
-            tbUsername.ReadOnly = false;
-            tbPassword.ReadOnly = false;
-            tbName.ReadOnly = false;
-            tbTel.ReadOnly = false;
-            tbAddress.ReadOnly = false;
-        }
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to delete this account?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                List<string> del = new List<string>();
-                if (dgvAccount.SelectedRows.Count > 0)
-                {
-                    foreach (DataGridViewRow i in dgvAccount.SelectedRows)
-                    {
-                        del.Add(i.Cells[0].Value.ToString());
-                    }
-                    BLLAccountManagement.Instance.DelAccount(del);
-                    tbID.Text = null;
-                    tbUsername.Text = null;
-                    tbPassword.Text = null;
-                    tbName.Text = null;
-                    tbTel.Text = null;
-                    tbAddress.Text = null;
-                    cbbRole.Text = null;
-                    Reload();
-                }
-            }
-        }
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvAccount.SelectedRows.Count == 1)
@@ -151,6 +99,12 @@ namespace PBL3.View.AdminChildForms
             cbbRole.Enabled = true;
             btnSave.Visible = true;
             btnClear.Visible = true;
+            tbID.ReadOnly = false;
+            tbUsername.ReadOnly = false;
+            tbPassword.ReadOnly = false;
+            tbName.ReadOnly = false;
+            tbTel.ReadOnly = false;
+            tbAddress.ReadOnly = false;
         }
 
         //Edit account
