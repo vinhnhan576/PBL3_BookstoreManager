@@ -211,15 +211,6 @@ namespace PBL3.BLL
             }
             return data.Select(p => new { p.CustomerName, p.PhoneNumber, p.Rank.RankName, p.TotalSpending }).ToList();
         }
-        public List<string> GetAllCustomerRank()
-        {
-            List<string> RankList = new List<string>();
-            foreach (Rank i in QLNS.Instance.Ranks.Select(p=>p).ToList())
-            {
-                RankList.Add(i.RankName);
-            }
-            return RankList;
-        }
         public void ReNewUsedCustomer()
         {
             DateTime now = DateTime.Now;

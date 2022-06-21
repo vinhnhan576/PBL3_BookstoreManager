@@ -23,6 +23,7 @@ namespace PBL3.View.StaffChildForms
             salesmannametxt.ReadOnly = true;
             statustxt.ReadOnly = true;
             totaltxt.ReadOnly = true;
+            cbbFilterCategory.SelectedIndex=0;
             Receiptdgv_CellClick(this, new DataGridViewCellEventArgs(0, 0));
         }
         private void Receiptdgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -68,14 +69,26 @@ namespace PBL3.View.StaffChildForms
         {
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(sortCategory, sortOrder);
+            if (cbbFilterCategory.SelectedItem.ToString() == "All")
+            {
+                Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(BLLReceiptManagement.Instance.FilterReceipt("All"), sortCategory, sortOrder);
+            }
+            else
+            {
+                string filterValue = cbbFilterValue.SelectedItem.ToString();
+                Receiptdgv.DataSource = BLLReceiptManagement.Instance.SortReceipt(BLLReceiptManagement.Instance.FilterReceipt(filterValue), sortCategory, sortOrder);
+            }
+            
         }
-
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbbFilterValue.Text = "";
             cbbFilterValue.Items.Clear();
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if (filterCategory == "All")
+            {
+                Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+            }
             if (filterCategory == "Status")
             {
                 foreach (string i in BLLReceiptManagement.Instance.GetAllReceiptStatus().Distinct())

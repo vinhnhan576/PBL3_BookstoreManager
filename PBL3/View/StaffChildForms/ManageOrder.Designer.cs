@@ -78,7 +78,6 @@
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(57, 21);
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Search";
-            //this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
             // 
             // label8
             // 
@@ -499,7 +498,6 @@
             this.cbbSortCategory.Name = "cbbSortCategory";
             this.cbbSortCategory.Size = new System.Drawing.Size(107, 29);
             this.cbbSortCategory.TabIndex = 59;
-            //this.cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
             // 
             // guna2HtmlLabel3
             // 
@@ -565,6 +563,7 @@
             this.cbbFilterCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbFilterCategory.ItemHeight = 23;
             this.cbbFilterCategory.Items.AddRange(new object[] {
+            "All",
             "Status",
             "Salesman Name"});
             this.cbbFilterCategory.Location = new System.Drawing.Point(560, 22);
@@ -654,7 +653,6 @@
             this.tbMonth.SelectedText = "";
             this.tbMonth.Size = new System.Drawing.Size(80, 29);
             this.tbMonth.TabIndex = 65;
-            //this.tbMonth.TextChanged += new System.EventHandler(this.tbMonth_TextChanged);
             // 
             // tbDay
             // 
@@ -686,7 +684,6 @@
             this.tbDay.SelectedText = "";
             this.tbDay.Size = new System.Drawing.Size(80, 29);
             this.tbDay.TabIndex = 64;
-            //this.tbDay.TextChanged += new System.EventHandler(this.tbDay_TextChanged);
             // 
             // statusbtn
             // 
@@ -728,7 +725,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageOrder";
             this.Text = "Product";
-            //this.Load += new System.EventHandler(this.ManageOrder_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Productdgv)).EndInit();

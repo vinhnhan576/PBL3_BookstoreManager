@@ -104,23 +104,30 @@ namespace PBL3.BLL
         }
         public List<ReceiptView> FilterReceipt(string filterValue)
         {
-            List<ReceiptView> data = new List<ReceiptView>();
-            foreach (ReceiptView i in GetAllReceipt_View())
-            { 
-                if (filterValue=="Valid")
-                {
-                    data = FilterReceiptStatus(true);
-                }
-                if (filterValue == "Invalid")
-                {
-                    data = FilterReceiptStatus(false);
-                }
-                if (i.Salesman == filterValue)
-                {
-                    data.Add(i);
-                }
+            if (filterValue == "All")
+            {
+                return GetAllReceipt_View();
             }
-            return data;
+            else
+            {
+                List<ReceiptView> data = new List<ReceiptView>();
+                foreach (ReceiptView i in GetAllReceipt_View())
+                {
+                    if (filterValue == "Valid")
+                    {
+                        data = FilterReceiptStatus(true);
+                    }
+                    if (filterValue == "Invalid")
+                    {
+                        data = FilterReceiptStatus(false);
+                    }
+                    if (i.Salesman == filterValue)
+                    {
+                        data.Add(i);
+                    }
+                }
+                return data;
+            }     
         }
         public List<ReceiptView> FilterReceiptStatus(bool filterValue)
         {
@@ -155,29 +162,28 @@ namespace PBL3.BLL
             }
             return list;
         }
-        public dynamic SortReceipt(string sortCategory, bool ascending)
-        {
-            List<ReceiptView> data = GetAllReceipt_View();
+        public dynamic SortReceipt(List<ReceiptView> data,string sortCategory, bool ascending)
+        { 
             if (sortCategory == "Receipt ID")
             {
                 if (ascending)
-                    data = data.OrderBy(p => p.ReceiptID).ToList();
+                    return data.OrderBy(p => p.ReceiptID).ToList();
                 else
-                    data.OrderByDescending(p => p.ReceiptID).ToList();
+                    return data.OrderByDescending(p => p.ReceiptID).ToList();
             }
             if (sortCategory == "Date")
             {
                 if (ascending)
-                    data = data.OrderBy(p => p.Date).ToList();
+                    return data.OrderBy(p => p.Date).ToList();
                 else
-                    data = data.OrderByDescending(p => p.Date).ToList();
+                    return data.OrderByDescending(p => p.Date).ToList();
             }
             if (sortCategory == "Total")
             {
                 if (ascending)
-                    data = data.OrderBy(p => p.Total).ToList();
+                    return data.OrderBy(p => p.Total).ToList();
                 else
-                    data = data.OrderByDescending(p => p.Total).ToList();
+                    return data.OrderByDescending(p => p.Total).ToList();
             }
             return data;
         }
