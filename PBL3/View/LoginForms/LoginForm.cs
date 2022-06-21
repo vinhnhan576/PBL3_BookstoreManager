@@ -19,6 +19,29 @@ namespace PBL3.View.LoginForms
         {
             QLNS ins = new QLNS();
             InitializeComponent();
+            StayLoggedIn();
+            RememberLogin();
+        }
+
+        private void RememberLogin()
+        {
+            if (Properties.Settings.Default.rememberLogin)
+            {
+                tbUsername.Text = Properties.Settings.Default.username;
+                tbPassword.Text = Properties.Settings.Default.userPass;
+                btnSignIn.Focus();
+            }
+        }
+
+        private void StayLoggedIn()
+        {
+            if (Properties.Settings.Default.stayLoggedIn)
+            {
+                this.Visible = false;
+                tbUsername.Text = Properties.Settings.Default.username;
+                tbPassword.Text = Properties.Settings.Default.userPass;
+                btnSignIn_Click(this, new EventArgs());
+            }
         }
 
         private void pbShowPass_Click(object sender, EventArgs e)
@@ -55,6 +78,7 @@ namespace PBL3.View.LoginForms
                             ClearTextboxes();
                             this.Visible = true;
                             tbUsername.Focus();
+                            RememberLogin();
                             break;
                         }
                         if (i.Person.Role.Trim() == "Salesman")
@@ -64,6 +88,7 @@ namespace PBL3.View.LoginForms
                             ClearTextboxes();
                             this.Visible = true;
                             tbUsername.Focus();
+                            RememberLogin();
                             break;
                         }
                         if (i.Person.Role.Trim() == "Stockkeeper")
@@ -73,6 +98,7 @@ namespace PBL3.View.LoginForms
                             ClearTextboxes();
                             this.Visible = true;
                             tbUsername.Focus();
+                            RememberLogin();
                             break;
                         }
                     }
