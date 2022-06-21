@@ -21,6 +21,12 @@ namespace PBL3
                 new Person { PersonID = "sk01", PersonName = "Trần Thanh Bình", Address = "Quảng Trị", Gender = true, PhoneNumber = "0987654321", Role = "Stockkeeper" },
             });
 
+            context.Accounts.AddRange(new Account[]
+            {
+                new Account { PersonID = "ad01", Username = "ad01", Password = "123456" },
+                new Account { PersonID = "sm01", Username = "sm01", Password = "123456" },
+                new Account { PersonID = "sk01", Username = "sk01", Password = "123456" },
+            });
 
             context.Products.AddRange(new Product[]
             {
