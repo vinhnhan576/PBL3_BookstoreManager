@@ -126,7 +126,7 @@ namespace PBL3.View
 
         private void btnViewOrders_Click(object sender, EventArgs e)
         {
-            openChildForm(new ManageOrder(account), sender);
+            openChildForm(new ManageOrder(), sender);
         }
         /// <summary>
         /// RELOAD DISCOUNTS

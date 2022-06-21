@@ -99,15 +99,34 @@ namespace PBL3.View.StockkeeperChildForms
             dtpRestock.Value = DateTime.Now;
         }
 
-        private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbbFilterValue_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             dgvProducts.DataSource = BLLProductManagement.Instance.SearchProduct_Restock(cbbFilterValue.SelectedItem.ToString());
+        }
 
+        private void cbbFilterCategory_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            cbbFilterValue.Text = "";
+            cbbFilterValue.Items.Clear();
+            string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if (filterCategory == "All")
+            {
+                dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_View();
+            }
+            if (filterCategory == "Category")
+            {
+                foreach (string i in BLLProductManagement.Instance.GetAllProductCategory().Distinct())
+                {
+                    cbbFilterValue.Items.Add(i);
+                }
+            }
+            if (filterCategory == "Author")
+            {
+                foreach (string i in BLLProductManagement.Instance.GetAllProductAuthor().Distinct())
+                {
+                    cbbFilterValue.Items.Add(i);
+                }
+            }
         }
     }
 }

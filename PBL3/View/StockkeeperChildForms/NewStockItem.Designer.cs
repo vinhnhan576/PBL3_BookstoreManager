@@ -216,6 +216,7 @@
             this.cbbFilterCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbFilterCategory.ItemHeight = 23;
             this.cbbFilterCategory.Items.AddRange(new object[] {
+            "All",
             "Category",
             "Author"});
             this.cbbFilterCategory.Location = new System.Drawing.Point(13, 76);
