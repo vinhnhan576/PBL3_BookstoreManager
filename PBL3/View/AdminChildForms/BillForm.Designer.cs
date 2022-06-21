@@ -503,7 +503,7 @@
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(579, 8);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(559, 8);
             this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(38, 21);
@@ -565,10 +565,10 @@
             "All",
             "Status",
             "Salesman Name"});
-            this.cbbFilterCategory.Location = new System.Drawing.Point(560, 31);
+            this.cbbFilterCategory.Location = new System.Drawing.Point(547, 31);
             this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterCategory.Name = "cbbFilterCategory";
-            this.cbbFilterCategory.Size = new System.Drawing.Size(97, 29);
+            this.cbbFilterCategory.Size = new System.Drawing.Size(103, 29);
             this.cbbFilterCategory.TabIndex = 61;
             this.cbbFilterCategory.SelectedIndexChanged += new System.EventHandler(this.cbbFilterCategory_SelectedIndexChanged);
             // 
@@ -586,10 +586,10 @@
             this.cbbFilterValue.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbFilterValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbFilterValue.ItemHeight = 23;
-            this.cbbFilterValue.Location = new System.Drawing.Point(653, 31);
+            this.cbbFilterValue.Location = new System.Drawing.Point(643, 31);
             this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterValue.Name = "cbbFilterValue";
-            this.cbbFilterValue.Size = new System.Drawing.Size(80, 29);
+            this.cbbFilterValue.Size = new System.Drawing.Size(90, 29);
             this.cbbFilterValue.TabIndex = 62;
             this.cbbFilterValue.SelectedIndexChanged += new System.EventHandler(this.cbbFilterValue_SelectedIndexChanged);
             // 

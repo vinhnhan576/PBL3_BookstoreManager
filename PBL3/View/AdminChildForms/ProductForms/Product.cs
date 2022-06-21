@@ -29,13 +29,13 @@ namespace PBL3.View.AdminChildForms.ProductForms
             cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
         }
 
-        private void btnUpdatePrice_Click(object sender, EventArgs e)
-        {
-            UpdatePrice updatePrice = new UpdatePrice();
-            updatePrice.myDelegate = new UpdatePrice.MyDelegate(InitializeData);
-            updatePrice.Show();
-        }
 
+        /// <summary>
+        /// SEARCH SORT FILTER
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        // Search
         private void tbSearch_IconLeftClick(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbSearch.Text))
@@ -47,7 +47,22 @@ namespace PBL3.View.AdminChildForms.ProductForms
                 dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct(tbSearch.Text);
             }
         }
+        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                if (string.IsNullOrWhiteSpace(tbSearch.Text))
+                {
+                    dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
+                }
+                else
+                {
+                    dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct(tbSearch.Text);
+                }
+            }
+        }
 
+        //Sort
         private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             tbSearch.Text = "";
@@ -55,7 +70,6 @@ namespace PBL3.View.AdminChildForms.ProductForms
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
             dgvProduct.DataSource = BLLProductManagement.Instance.SortProduct(sortCategory, sortOrder);
         }
-
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             tbSearch.Text = "";
@@ -64,13 +78,7 @@ namespace PBL3.View.AdminChildForms.ProductForms
             dgvProduct.DataSource = BLLProductManagement.Instance.SortProduct(sortCategory, sortOrder);
         }
 
-        private void btnShowHistory_Click(object sender, EventArgs e)
-        {
-            string productID = dgvProduct.SelectedRows[0].Cells["ProductID"].Value.ToString();
-            ImportHistory importHistory = new ImportHistory(productID);
-            importHistory.Show();
-        }
-
+        //Filter
         private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbbFilterValue.Text = "";
@@ -91,25 +99,30 @@ namespace PBL3.View.AdminChildForms.ProductForms
                 }
             }
         }
-
         private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvProduct.DataSource = BLLProductManagement.Instance.FilterProduct(cbbFilterCategory.SelectedItem.ToString(), cbbFilterValue.SelectedItem.ToString());
         }
 
-        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
+
+        /// <summary>
+        /// NEW FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        // Store import history form
+        private void btnShowHistory_Click(object sender, EventArgs e)
         {
-            if (e.KeyChar == (char)13)
-            {
-                if (string.IsNullOrWhiteSpace(tbSearch.Text))
-                {
-                    dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
-                }
-                else
-                {
-                    dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct(tbSearch.Text);
-                }
-            }
+            string productID = dgvProduct.SelectedRows[0].Cells["ProductID"].Value.ToString();
+            ImportHistory importHistory = new ImportHistory(productID);
+            importHistory.Show();
+        }
+        // Update price form
+        private void btnUpdatePrice_Click(object sender, EventArgs e)
+        {
+            UpdatePrice updatePrice = new UpdatePrice();
+            updatePrice.myDelegate = new UpdatePrice.MyDelegate(InitializeData);
+            updatePrice.Show();
         }
     }
 }

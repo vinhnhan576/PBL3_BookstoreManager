@@ -61,6 +61,10 @@ namespace PBL3.View.AdminChildForms
             cbbFilterValue.Text = "";
             cbbFilterValue.Items.Clear();
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if(filterCategory == "All")
+            {
+                Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
+            }
             if (filterCategory == "Status")
             {
                 foreach (string i in BLLReceiptManagement.Instance.GetAllReceiptStatus().Distinct())

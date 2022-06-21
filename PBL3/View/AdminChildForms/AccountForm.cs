@@ -20,7 +20,7 @@ namespace PBL3.View.AdminChildForms
         public AccountForm()
         {
             InitializeComponent();
-            dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
+            Reload();
             cbbSortOrder.SelectedIndex = 0;
             cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;
@@ -75,6 +75,7 @@ namespace PBL3.View.AdminChildForms
                 tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             }
         }
+
         //
         //CRUD
         //
@@ -299,6 +300,10 @@ namespace PBL3.View.AdminChildForms
             cbbFilterValue.Text = null;
             cbbFilterValue.Items.Clear();
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if(filterCategory == "All")
+            {
+                Reload();
+            }
             if (filterCategory == "Role")
             {
                 foreach (string i in BLLAccountManagement.Instance.GetAllRole().Distinct())
