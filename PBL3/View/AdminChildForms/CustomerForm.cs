@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
-
+using PBL3.DTO;
+using PBL3.Model;
 namespace PBL3.View.AdminChildForms
 {
     public partial class CustomerForm : Form
@@ -19,9 +20,12 @@ namespace PBL3.View.AdminChildForms
             InitializeGUI();
             dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
             cbbSortOrder.SelectedIndex = 0;
+            cbbSortCategory.Items.AddRange(BLLCustomerManagement.Instance.getAllSortCategory().ToArray());
+            cbbFilterValue.Items.Add( new CBBItem { Text="",Value="All"});
+            cbbFilterCategory.Items.AddRange(BLLCustomerManagement.Instance.getAllFilterCategory().ToArray());
             this.cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;
-            this.cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
+            //this.cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
             CustomerNametxt.ReadOnly = true;
             Ranktxt.ReadOnly = true;
             Teltxt.ReadOnly = true;
@@ -83,23 +87,22 @@ namespace PBL3.View.AdminChildForms
                 dgvCustomer.DataSource = BLLCustomerManagement.Instance.SearchCustomer(Searchtxt.Text);
             }
         }
-
         //Sort customer
-        private void cbbSortCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Searchtxt.Text = null;
-            cbbFilterValue.SelectedItem = null;
-            cbbFilterCategory.SelectedItem = null;
-            string sortCategory = cbbSortCategory.SelectedItem.ToString();
-            bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            dgvCustomer.DataSource = BLLCustomerManagement.Instance.SortCustomer(sortCategory, sortOrder);
-        }
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             Searchtxt.Text = null;
             string sortCategory = cbbSortCategory.SelectedItem.ToString();
             bool sortOrder = (cbbSortOrder.SelectedItem.ToString() == "Ascending" ? true : false);
-            dgvCustomer.DataSource = BLLCustomerManagement.Instance.SortCustomer(sortCategory, sortOrder);
+            List<Customer> customers = new List<Customer>();
+            if (cbbFilterCategory.SelectedItem.ToString() == "All")
+            {
+                customers = BLLCustomerManagement.Instance.GetAllCustomerByRankID("All");
+            }
+            else
+            {
+                customers = BLLCustomerManagement.Instance.GetAllCustomerByRankID(((CBBItem)cbbFilterValue.SelectedItem).Value);
+            }
+            dgvCustomer.DataSource = BLLCustomerManagement.Instance.SortCustomer(customers,sortCategory,sortOrder);
         }
 
         //Filter customer
@@ -107,21 +110,22 @@ namespace PBL3.View.AdminChildForms
         {
             cbbFilterValue.Items.Clear();
             string filterCategory = cbbFilterCategory.SelectedItem.ToString();
-            if (filterCategory == "Rank")
+            switch (filterCategory)
             {
-                foreach (string i in BLLCustomerManagement.Instance.GetAllCustomerRank())
-                {
-                    cbbFilterValue.Items.Add(i);
-                }
+                case "All":
+                    this.dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
+                    break;
+                case "Rank":
+                    cbbFilterValue.Items.AddRange(BLLCustomerManagement.Instance.getAllCBBRank().Distinct().ToArray());
+                    break;
             }
         }
-
         private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
         {
             Searchtxt.Text = null;
             cbbSortCategory.SelectedItem = 0;
             cbbSortOrder.SelectedItem = 0;
-            dgvCustomer.DataSource = BLLCustomerManagement.Instance.FilterCustomer(cbbFilterValue.SelectedItem.ToString());
+            dgvCustomer.DataSource = BLLCustomerManagement.Instance.FilterCustomerByRank(((CBBItem)cbbFilterValue.SelectedItem).Value);
         }
     }
 }

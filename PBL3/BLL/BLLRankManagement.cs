@@ -31,24 +31,6 @@ namespace PBL3.BLL
             }
             return rank;
         }
-        public double GetDiscountByReQuirement(double total)
-        {
-            double discount = 0;
-            foreach (var i in QLNS.Instance.Ranks.Select(p => p).ToList())
-            {
-                if (total >= i.Requirement)
-                {
-                    discount = i.CustomerDiscount;
-                }
-            }
-            return discount;
-        }
-        public double GetTotalAfterDisount(string Rankid,double TotalBefore)
-        {
-            Rank rank = QLNS.Instance.Ranks.Find(Rankid);
-            double TotalAfter = Convert.ToDouble(rank.CustomerDiscount)/100 * TotalBefore;
-            return TotalAfter;
-        }
         public dynamic GetAllRank_View()
         {
             var discountList = QLNS.Instance.Ranks.OrderBy(r => r.RankID.Length).ThenBy(r => r.RankID).Select(p => new {p.RankID,p.RankName,p.Requirement,p.CustomerDiscount});

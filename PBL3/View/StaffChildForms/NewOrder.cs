@@ -135,6 +135,7 @@ namespace PBL3.View.StaffChildForms
                     OrderIDtxt.Text = "";
                     SalesmanIDtxt.Text = "";
                     TotalOrdertxt.Text = "";
+                    discountxt.Text = "";
                     dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
                     LoadNewOrder();
               }
@@ -216,35 +217,6 @@ namespace PBL3.View.StaffChildForms
             form.d = new NewCustomerForm.Mydel(GetCustomerTel);
             form.ShowDialog();
         }
-
-        private void cbbFilterCategory_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            cbbFilterValue.Text = "";
-            cbbFilterValue.Items.Clear();
-            string filterCategory = cbbFilterCategory.SelectedItem.ToString();
-            if (filterCategory == "Category")
-            {
-                foreach (string i in BLLProductManagement.Instance.GetAllProductCategory().Distinct())
-                {
-                    cbbFilterValue.Items.Add(i);
-                    //MessageBox.Show("i");
-                }
-            }
-            if (filterCategory == "Author")
-            {
-                foreach (string i in BLLProductManagement.Instance.GetAllProductAuthor().Distinct())
-                {
-                    cbbFilterValue.Items.Add(i);
-                }
-            }
-        }
-
-        private void cbbFilterValue_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            dgvProduct.DataSource = BLLProductManagement.Instance.SearchProduct(cbbFilterValue.SelectedItem.ToString());
-
-        }
-
          private void CustomerTeltxt_KeyPress(object sender, KeyPressEventArgs e)
          {
             if (e.KeyChar == (char)13)
@@ -287,5 +259,33 @@ namespace PBL3.View.StaffChildForms
             if (CustomerTeltxt.Text == "" || CustomerTeltxt.Text.Length != 10 || DataCheck.IsNumber(CustomerTeltxt.Text) != true || CustomerTeltxt.Text[0] != '0') CustomerTeltxt.IconRightSize = new System.Drawing.Size(7, 7);
             else CustomerTeltxt.IconRightSize = new System.Drawing.Size(0, 0);
          }
+
+        private void cbbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbFilterValue.Text = "";
+            cbbFilterValue.Items.Clear();
+            string filterCategory = cbbFilterCategory.SelectedItem.ToString();
+            if (filterCategory == "Category")
+            {
+                foreach (string i in BLLProductManagement.Instance.GetAllProductCategory().Distinct())
+                {
+                    cbbFilterValue.Items.Add(i);
+                    //MessageBox.Show("i");
+                }
+            }
+            if (filterCategory == "Status")
+            {
+                foreach (string i in BLLProductManagement.Instance.GetAllProductAuthor().Distinct())
+                {
+                    if(i!=null)
+                    cbbFilterValue.Items.Add(i);
+                }
+            }
+        }
+
+        private void cbbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvProduct.DataSource = BLLProductManagement.Instance.FilterProduct(cbbFilterValue.SelectedItem.ToString());
+        }
     }
 }
