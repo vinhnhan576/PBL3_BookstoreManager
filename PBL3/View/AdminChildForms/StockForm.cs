@@ -39,6 +39,9 @@ namespace PBL3.View.AdminChildForms
                 dtpImport.Value = Convert.ToDateTime(dgvStock.SelectedRows[0].Cells[2].Value);
                 tbTotal.Text = dgvStock.SelectedRows[0].Cells[3].Value.ToString();
                 dgvProduct.DataSource = BLLRestockManagement.Instance.GetProductInRestockByRestockID(tbID.Text);
+                tbID.ReadOnly = true;
+                tbStockkeeperID.ReadOnly = true;
+                tbTotal.ReadOnly = true;
             }
         }
 

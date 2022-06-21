@@ -100,47 +100,48 @@ namespace PBL3.View.AdminChildForms
             cbbRole.Enabled = true;
             btnSave.Visible = true;
             btnClear.Visible = true;
+            tbID.ReadOnly = false;
+            tbUsername.ReadOnly = false;
+            tbPassword.ReadOnly = false;
+            tbName.ReadOnly = false;
+            tbTel.ReadOnly = false;
+            tbAddress.ReadOnly = false;
         }
 
         //Edit account
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            try
+            if (dgvAccount.SelectedRows.Count == 1)
             {
-                if (dgvAccount.SelectedRows.Count == 1)
+                string ID = dgvAccount.SelectedRows[0].Cells[0].Value.ToString();
+                Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
+                tbID.Text = ac.PersonID;
+                tbID.Enabled = false;
+                tbUsername.Text = ac.Username;
+                tbUsername.Enabled = true;
+                tbPassword.Text = ac.Password;
+                tbPassword.Enabled = true;
+                if (ac.Person.Gender == true)
                 {
-                    string ID = dgvAccount.SelectedRows[0].Cells[0].Value.ToString();
-                    Account ac = BLLAccountManagement.Instance.GetAccountByPersonID(ID);
-                    tbID.Text = ac.PersonID;
-                    tbID.Enabled = false;
-                    tbUsername.Text = ac.Username;
-                    tbUsername.Enabled = true;
-                    tbPassword.Text = ac.Password;
-                    tbPassword.Enabled = true;
-                    if (ac.Person.Gender == true)
-                    {
-                        rbMale.Checked = true;
-                    }
-                    else
-                    {
-                        rbFemale.Checked = true;
-                    }
-                    tbName.Text = ac.Person.PersonName;
-                    tbName.Enabled = false;
-                    tbTel.Text = ac.Person.PhoneNumber;
-                    tbTel.Enabled = false;
-                    tbAddress.Text = ac.Person.Address;
-                    tbAddress.Enabled = false;
-                    cbbRole.SelectedItem = ac.Person.Role;
-                    cbbRole.Enabled = false;
-                    btnSave.Visible = true;
-                    btnClear.Visible = true;
+                    rbMale.Checked = true;
                 }
-                else throw new Exception("Please choose only 1 account to edit");
-            }
-            catch (Exception ex)
-            {
-                CustomMessageBox.MessageBox.Show(ex.Message, "Error", MessageBoxIcon.Error);
+                else
+                {
+                    rbFemale.Checked = true;
+                }
+                tbName.Text = ac.Person.PersonName;
+                tbName.Enabled = false;
+                tbTel.Text = ac.Person.PhoneNumber;
+                tbTel.Enabled = false;
+                tbAddress.Text = ac.Person.Address;
+                tbAddress.Enabled = false;
+                cbbRole.SelectedItem = ac.Person.Role;
+                cbbRole.Enabled = false;
+                btnSave.Visible = true;
+                btnClear.Visible = true;
+                tbUsername.ReadOnly = false;
+                tbPassword.ReadOnly = false;
+                tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             }
         }
 
