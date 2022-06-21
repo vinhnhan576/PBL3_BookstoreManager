@@ -559,6 +559,24 @@
     <None Include="Resources\icons8-plus-math-100.png" />
     <None Include="Resources\icons8-plus-48.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\name icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\address icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tel icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pass icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
 using PBL3.Model;
+using Guna.UI2.WinForms;
 
 namespace PBL3.View.SettingsForms
 {
     public partial class SettingsForm : Form
     {
+        private Form activeForm;
         Account account;
+        private Label currentLabel;
         public SettingsForm(Account acc)
         {
             InitializeComponent();
@@ -24,34 +27,71 @@ namespace PBL3.View.SettingsForms
 
         private void InitializeGUI()
         {
-            Person person = BLLPersonManagement.Instance.GetPersonByPersonID(account.PersonID);
-            tbStaffID.Text = person.PersonID;
-            tbStaffName.Text = person.PersonName;
-            if(person.Gender)
-                rbMale.Checked = true;
-            else
-                rbFemale.Checked = true;
-            tbRole.Text = person.Role;
-            tbAddress.Text = person.Address;
-            tbTel.Text = person.PhoneNumber;
-            tbEmail.Text = person.Email;
-            tbPassword.Text = account.Password;
+            currentLabel = lbPassword;
+            openChildForm(new EditProfileForm(account.Person), lbProfile);
         }
 
-        private void btnChangePassword_Click(object sender, EventArgs e)
+        private void lbPassword_Click(object sender, EventArgs e)
         {
             ChangePasswordForm changePasswordForm = new ChangePasswordForm(account);
-            changePasswordForm.Show();
-            tbPassword.Text = account.Password;
+            openChildForm(changePasswordForm, lbPassword);
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void lbProfile_Click(object sender, EventArgs e)
         {
             Person person = BLLPersonManagement.Instance.GetPersonByPersonID(account.PersonID);
             EditProfileForm editProfileForm = new EditProfileForm(person);
-            editProfileForm.myDelegate = InitializeGUI;
-            editProfileForm.Show();
-            
+            openChildForm(editProfileForm, lbProfile);
+        }
+
+        private void openChildForm(Form childForm, object lbSender)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activateLabel(lbSender);
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.pn.Controls.Add(childForm);
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
+        private void activateLabel(object sender)
+        {
+            if (sender != null)
+            {
+                if (currentLabel != (Label)sender)
+                {
+                    disableLabel();
+                    currentLabel = (Label)sender;
+                    currentLabel.Font = new System.Drawing.Font("Century Gothic", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    currentLabel.ForeColor = Color.FromArgb(2, 62, 138);
+                    if(currentLabel.Text == "Profile")
+                        pnProfile.FillColor = Color.FromArgb(2, 62, 138);
+                    else
+                        pnPassword.FillColor = Color.FromArgb(2, 62, 138);
+                }
+            }
+        }
+
+        private void disableLabel()
+        {
+            foreach (Control otherLabel in pnMenuBar.Controls)
+            {
+                if (otherLabel.GetType() == typeof(Label))
+                {
+                    otherLabel.ForeColor = Color.FromArgb(174, 177, 182);
+                    otherLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    if(otherLabel.Text == "Profile")
+                        pnProfile.FillColor = Color.FromArgb(223, 216, 232);
+                    else
+                        pnPassword.FillColor = Color.FromArgb(223, 216, 232);
+                }
+            }
         }
     }
 }

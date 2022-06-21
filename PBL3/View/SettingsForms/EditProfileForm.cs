@@ -14,8 +14,8 @@ namespace PBL3.View.SettingsForms
 {
     public partial class EditProfileForm : Form
     {
-        public delegate void MyDelegate();
-        public MyDelegate myDelegate;
+        //public delegate void MyDelegate();
+        //public MyDelegate myDelegate;
         Person person;
         public EditProfileForm(Person p)
         {
@@ -34,11 +34,27 @@ namespace PBL3.View.SettingsForms
                 rbMale.Checked = true;
             else
                 rbFemale.Checked = true;
+            tbRole.Text = person.Role;
+            tbRole.ReadOnly = true;
+            EnableDisableComponents(false);
+            btnEdit.Visible = true;
+            btnOK.Visible = false;
+            btnCancel.Visible = false;
+        }
+
+        private void EnableDisableComponents(bool enable)
+        {
+            tbName.ReadOnly = !enable;
+            tbEmail.ReadOnly = !enable;
+            tbAddress.ReadOnly = !enable;
+            tbTel.ReadOnly = !enable;
+            rbMale.Enabled = enable;
+            rbFemale.Enabled = enable;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            InitializeGUI();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -50,8 +66,15 @@ namespace PBL3.View.SettingsForms
             p.Email = tbEmail.Text;
             p.Gender = (rbMale.Checked ? true : false);
             BLLPersonManagement.Instance.UpdatePeronalInfo(person.PersonID, p);
-            myDelegate();
-            this.Close();
+            InitializeGUI();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            EnableDisableComponents(true);
+            btnEdit.Visible = false;
+            btnOK.Visible = true;
+            btnCancel.Visible = true;
         }
     }
 }

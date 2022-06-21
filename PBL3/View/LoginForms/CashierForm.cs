@@ -58,6 +58,7 @@ namespace PBL3.View
             if (sender != null)
             {
                 btnSettings.Visible = true;
+                pnRight.BackColor = Color.FromArgb(198, 232, 229);
                 if (currentButton != (Guna.UI2.WinForms.Guna2Button)sender)
                 {
                     disableButton();
@@ -72,6 +73,7 @@ namespace PBL3.View
         private void btnSettings_Click(object sender, EventArgs e)
         {
             btnSettings.Visible = false;
+            pnRight.BackColor = Color.FromArgb(228, 241, 239);
             SettingsForms.SettingsForm childForm = new SettingsForms.SettingsForm(account);
             if (activeForm != null)
             {

@@ -30,13 +30,13 @@ namespace PBL3
 
             context.Products.AddRange(new Product[]
             {
-                new Product { ProductID = "p001", ProductName = "Diary of a wimpy kid", Category = "Realistic Fiction" , SellingPrice = 45000},
-                new Product { ProductID = "p002", ProductName = "Diary of a wimpy kid: Hard Luck", Category = "Realistic Fiction" , SellingPrice = 50000},
-                new Product { ProductID = "p003", ProductName = "Percy Jackson and the Olympians: The Lightning Thief", Category = "Mythological Adventure Fiction" , SellingPrice = 180000},
-                new Product { ProductID = "p004", ProductName = "Percy Jackson and the Olympians: The Sea of Monsters", Category = "Mythological Adventure Fiction" , SellingPrice = 133000},
-                new Product { ProductID = "p005", ProductName = "Percy Jackson and the Olympians: The Titan's Curse", Category = "Mythological Adventure Fiction" , SellingPrice = 139000},
-                new Product { ProductID = "p006", ProductName = "Percy Jackson and the Olympians: The Battle of the Labyrinth", Category = "Mythological Adventure Fiction" , SellingPrice = 175000},
-                new Product { ProductID = "p007", ProductName = "Percy Jackson and the Olympians: The Last Olympian", Category = "Mythological Adventure Fiction" , SellingPrice = 161000},
+                new Product { ProductID = "p1", ProductName = "Diary of a wimpy kid", Category = "Realistic Fiction" , SellingPrice = 45000},
+                new Product { ProductID = "p2", ProductName = "Diary of a wimpy kid: Hard Luck", Category = "Realistic Fiction" , SellingPrice = 50000},
+                new Product { ProductID = "p3", ProductName = "Percy Jackson and the Olympians: The Lightning Thief", Category = "Mythological Adventure Fiction" , SellingPrice = 180000},
+                new Product { ProductID = "p4", ProductName = "Percy Jackson and the Olympians: The Sea of Monsters", Category = "Mythological Adventure Fiction" , SellingPrice = 133000},
+                new Product { ProductID = "p5", ProductName = "Percy Jackson and the Olympians: The Titan's Curse", Category = "Mythological Adventure Fiction" , SellingPrice = 139000},
+                new Product { ProductID = "p6", ProductName = "Percy Jackson and the Olympians: The Battle of the Labyrinth", Category = "Mythological Adventure Fiction" , SellingPrice = 175000},
+                new Product { ProductID = "p7", ProductName = "Percy Jackson and the Olympians: The Last Olympian", Category = "Mythological Adventure Fiction" , SellingPrice = 161000},
             });
 
 
