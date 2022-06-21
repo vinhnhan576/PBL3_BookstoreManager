@@ -35,6 +35,8 @@
             this.pnPassword = new Guna.UI2.WinForms.Guna2Panel();
             this.pn = new Guna.UI2.WinForms.Guna2Panel();
             this.pnMenuBar = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnRememberLogin = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbRememberLogin = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnMenuBar.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -45,10 +47,9 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(33, 24);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(25, 20);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(142, 40);
+            this.label8.Size = new System.Drawing.Size(113, 32);
             this.label8.TabIndex = 48;
             this.label8.Text = "Settings";
             // 
@@ -58,10 +59,9 @@
             this.lbProfile.AutoSize = true;
             this.lbProfile.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(177)))), ((int)(((byte)(182)))));
-            this.lbProfile.Location = new System.Drawing.Point(56, 6);
-            this.lbProfile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbProfile.Location = new System.Drawing.Point(42, 5);
             this.lbProfile.Name = "lbProfile";
-            this.lbProfile.Size = new System.Drawing.Size(59, 19);
+            this.lbProfile.Size = new System.Drawing.Size(47, 16);
             this.lbProfile.TabIndex = 68;
             this.lbProfile.Text = "Profile";
             this.lbProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -73,10 +73,9 @@
             this.lbPassword.AutoSize = true;
             this.lbPassword.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(177)))), ((int)(((byte)(182)))));
-            this.lbPassword.Location = new System.Drawing.Point(140, 6);
-            this.lbPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPassword.Location = new System.Drawing.Point(105, 5);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(75, 18);
+            this.lbPassword.Size = new System.Drawing.Size(62, 16);
             this.lbPassword.TabIndex = 69;
             this.lbPassword.Text = "Password";
             this.lbPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -86,64 +85,83 @@
             // 
             this.pnProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnProfile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(216)))), ((int)(((byte)(232)))));
-            this.pnProfile.Location = new System.Drawing.Point(55, 34);
-            this.pnProfile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnProfile.Location = new System.Drawing.Point(41, 28);
             this.pnProfile.Name = "pnProfile";
-            this.pnProfile.Size = new System.Drawing.Size(88, 5);
+            this.pnProfile.Size = new System.Drawing.Size(66, 4);
             this.pnProfile.TabIndex = 70;
             // 
             // pnPassword
             // 
             this.pnPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnPassword.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(216)))), ((int)(((byte)(232)))));
-            this.pnPassword.Location = new System.Drawing.Point(143, 34);
-            this.pnPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnPassword.Location = new System.Drawing.Point(107, 28);
             this.pnPassword.Name = "pnPassword";
-            this.pnPassword.Size = new System.Drawing.Size(120, 5);
+            this.pnPassword.Size = new System.Drawing.Size(82, 4);
             this.pnPassword.TabIndex = 71;
             // 
             // pn
             // 
             this.pn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn.Location = new System.Drawing.Point(0, 122);
-            this.pn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pn.Location = new System.Drawing.Point(0, 99);
             this.pn.Name = "pn";
-            this.pn.Size = new System.Drawing.Size(1032, 466);
+            this.pn.Size = new System.Drawing.Size(774, 379);
             this.pn.TabIndex = 72;
             // 
             // pnMenuBar
             // 
+            this.pnMenuBar.Controls.Add(this.pnRememberLogin);
+            this.pnMenuBar.Controls.Add(this.lbRememberLogin);
             this.pnMenuBar.Controls.Add(this.pnProfile);
             this.pnMenuBar.Controls.Add(this.lbProfile);
             this.pnMenuBar.Controls.Add(this.pnPassword);
             this.pnMenuBar.Controls.Add(this.lbPassword);
             this.pnMenuBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnMenuBar.Location = new System.Drawing.Point(0, 74);
-            this.pnMenuBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnMenuBar.Location = new System.Drawing.Point(0, 60);
             this.pnMenuBar.Name = "pnMenuBar";
-            this.pnMenuBar.Size = new System.Drawing.Size(1032, 48);
+            this.pnMenuBar.Size = new System.Drawing.Size(774, 39);
             this.pnMenuBar.TabIndex = 73;
+            // 
+            // pnRememberLogin
+            // 
+            this.pnRememberLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnRememberLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(216)))), ((int)(((byte)(232)))));
+            this.pnRememberLogin.Location = new System.Drawing.Point(190, 28);
+            this.pnRememberLogin.Name = "pnRememberLogin";
+            this.pnRememberLogin.Size = new System.Drawing.Size(125, 4);
+            this.pnRememberLogin.TabIndex = 73;
+            // 
+            // lbRememberLogin
+            // 
+            this.lbRememberLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbRememberLogin.AutoSize = true;
+            this.lbRememberLogin.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRememberLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(177)))), ((int)(((byte)(182)))));
+            this.lbRememberLogin.Location = new System.Drawing.Point(188, 5);
+            this.lbRememberLogin.Name = "lbRememberLogin";
+            this.lbRememberLogin.Size = new System.Drawing.Size(93, 16);
+            this.lbRememberLogin.TabIndex = 72;
+            this.lbRememberLogin.Text = "Remeber login";
+            this.lbRememberLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbRememberLogin.Click += new System.EventHandler(this.lbRememberLogin_Click);
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.Controls.Add(this.label8);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1032, 74);
+            this.guna2Panel1.Size = new System.Drawing.Size(774, 60);
             this.guna2Panel1.TabIndex = 74;
             // 
             // SettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
-            this.ClientSize = new System.Drawing.Size(1032, 588);
+            this.ClientSize = new System.Drawing.Size(774, 478);
             this.Controls.Add(this.pn);
             this.Controls.Add(this.pnMenuBar);
             this.Controls.Add(this.guna2Panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SettingsForm";
             this.Text = "SettingsForm";
             this.pnMenuBar.ResumeLayout(false);
@@ -163,5 +181,7 @@
         private Guna.UI2.WinForms.Guna2Panel pn;
         private Guna.UI2.WinForms.Guna2Panel pnMenuBar;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel pnRememberLogin;
+        private System.Windows.Forms.Label lbRememberLogin;
     }
 }

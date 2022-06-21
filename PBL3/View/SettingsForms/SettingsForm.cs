@@ -44,6 +44,12 @@ namespace PBL3.View.SettingsForms
             openChildForm(editProfileForm, lbProfile);
         }
 
+        private void lbRememberLogin_Click(object sender, EventArgs e)
+        {
+            RememberLogin rememberLoginForm = new RememberLogin(account);
+            openChildForm(rememberLoginForm, lbRememberLogin);
+        }
+
         private void openChildForm(Form childForm, object lbSender)
         {
             if (activeForm != null)
@@ -72,8 +78,10 @@ namespace PBL3.View.SettingsForms
                     currentLabel.ForeColor = Color.FromArgb(2, 62, 138);
                     if(currentLabel.Text == "Profile")
                         pnProfile.FillColor = Color.FromArgb(2, 62, 138);
-                    else
+                    else if(currentLabel.Text == "Password")
                         pnPassword.FillColor = Color.FromArgb(2, 62, 138);
+                    else
+                        pnRememberLogin.FillColor = Color.FromArgb(2, 62, 138);
                 }
             }
         }
@@ -88,8 +96,10 @@ namespace PBL3.View.SettingsForms
                     otherLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     if(otherLabel.Text == "Profile")
                         pnProfile.FillColor = Color.FromArgb(223, 216, 232);
-                    else
+                    else if(otherLabel.Text == "Password")
                         pnPassword.FillColor = Color.FromArgb(223, 216, 232);
+                    else
+                        pnRememberLogin.FillColor = Color.FromArgb(223, 216, 232);
                 }
             }
         }
