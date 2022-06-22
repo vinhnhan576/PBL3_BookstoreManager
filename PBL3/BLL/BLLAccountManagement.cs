@@ -211,7 +211,7 @@ namespace PBL3.BLL
         }
         public int GenerateID()
         {
-            Account ac = QLNS.Instance.Accounts.OrderByDescending(p => p.PersonID.Length).ThenByDescending(p => p.PersonID).First();
+            Account ac = (QLNS.Instance.Accounts.Any() ? QLNS.Instance.Accounts.OrderByDescending(p => p.PersonID.Length).ThenByDescending(p => p.PersonID).First() : "0");
             return Convert.ToInt32(ac.PersonID.Remove(0, 2)) + 1;
         }
     }
