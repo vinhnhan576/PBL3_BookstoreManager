@@ -67,12 +67,12 @@ namespace PBL3.BLL
             if (Check(r.RankID) == true)
             {
                 EditRank(r);
-                return "Rank is added successfully";
+                return "Rank is updated successfully";
             }
             else
             {
                 AddNewRank(r);
-                return "Rank is updated successfully";
+                return "Rank is added successfully";
             }
         }
 
@@ -157,6 +157,12 @@ namespace PBL3.BLL
             {
                 i.Used = 0;
             }
+        }
+
+        public int GenerateID()
+        {
+            Rank rank = QLNS.Instance.Ranks.OrderByDescending(p => p.RankID.Length).ThenByDescending(p => p.RankID).First();
+            return Convert.ToInt32(rank.RankID.Trim('r')) + 1;
         }
     }
 

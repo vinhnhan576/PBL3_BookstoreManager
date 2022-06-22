@@ -42,8 +42,8 @@ namespace PBL3.View.AdminChildForms
         //Add rank
         private void Addbutton_Click(object sender, EventArgs e)
         {
-            string idtemp = (QLNS.Instance.Ranks.Count()).ToString();
-            IDtxt.Text = "r" + idtemp;
+            string id = "r" + BLLRankManagement.Instance.GenerateID().ToString();
+            IDtxt.Text = id;
             Nametxt.Text = "";
             Requirementtxt.Text = "";
             applytxt.Text = "";

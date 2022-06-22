@@ -76,6 +76,7 @@
             this.label3.Size = new System.Drawing.Size(298, 42);
             this.label3.TabIndex = 84;
             this.label3.Text = "You won\'t need to log in again when\r\nre-opening this application";
+            this.label3.Visible = false;
             // 
             // label4
             // 
@@ -88,6 +89,7 @@
             this.label4.Size = new System.Drawing.Size(144, 23);
             this.label4.TabIndex = 83;
             this.label4.Text = "Stay logged in";
+            this.label4.Visible = false;
             // 
             // guna2PictureBox2
             // 
@@ -99,6 +101,7 @@
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox2.TabIndex = 86;
             this.guna2PictureBox2.TabStop = false;
+            this.guna2PictureBox2.Visible = false;
             // 
             // btnLoggedIn
             // 
@@ -118,7 +121,7 @@
             this.btnLoggedIn.Name = "btnLoggedIn";
             this.btnLoggedIn.Size = new System.Drawing.Size(75, 33);
             this.btnLoggedIn.TabIndex = 85;
-            this.btnLoggedIn.Click += new System.EventHandler(this.btnLoggedIn_Click);
+            this.btnLoggedIn.Visible = false;
             // 
             // guna2PictureBox1
             // 
