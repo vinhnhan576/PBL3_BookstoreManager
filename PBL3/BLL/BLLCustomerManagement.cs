@@ -122,10 +122,7 @@ namespace PBL3.BLL
         }
         public dynamic GetReceiptByCustomerTel(string tel)
         {
-            if (tel == "")
-                 return QLNS.Instance.Receipts.Select(p => p).ToList();
-            else
-                return QLNS.Instance.Receipts.Where(p => p.PhoneNumber == tel).Select(p => new {p.ReceiptID,p.Date,p.Total}).ToList();
+            return QLNS.Instance.Receipts.Where(p => p.PhoneNumber == tel && p.Status == true).Select(p => new {p.ReceiptID,p.Date,p.Total}).ToList();
         }
         //public dynamic GetProductByListReceipt(List<Receipt> receiptlist)
         //{

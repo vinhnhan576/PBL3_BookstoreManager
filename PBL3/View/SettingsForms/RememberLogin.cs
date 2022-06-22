@@ -29,16 +29,16 @@ namespace PBL3.View.SettingsForms
                 btnSave.ImageAlign = HorizontalAlignment.Left;
             }
 
-            if(Properties.Settings.Default.stayLoggedIn)
-            {
-                btnLoggedIn.FillColor = Color.FromArgb(2, 62, 138);
-                btnLoggedIn.ImageAlign = HorizontalAlignment.Right;
-            }
-            else
-            {
-                btnLoggedIn.FillColor = Color.Gray;
-                btnLoggedIn.ImageAlign = HorizontalAlignment.Left;
-            }
+            //if(Properties.Settings.Default.stayLoggedIn)
+            //{
+            //    btnLoggedIn.FillColor = Color.FromArgb(2, 62, 138);
+            //    btnLoggedIn.ImageAlign = HorizontalAlignment.Right;
+            //}
+            //else
+            //{
+            //    btnLoggedIn.FillColor = Color.Gray;
+            //    btnLoggedIn.ImageAlign = HorizontalAlignment.Left;
+            //}
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -65,24 +65,24 @@ namespace PBL3.View.SettingsForms
             }
         }
 
-        private void btnLoggedIn_Click(object sender, EventArgs e)
-        {
-            // tick
-            if (Properties.Settings.Default.stayLoggedIn)
-            {
-                Properties.Settings.Default.stayLoggedIn = false;
-                Properties.Settings.Default.Save();
-                btnLoggedIn.FillColor = Color.Gray;
-                btnLoggedIn.ImageAlign = HorizontalAlignment.Left;
-            }
-            // untick
-            else
-            {
-                Properties.Settings.Default.stayLoggedIn = true;
-                Properties.Settings.Default.Save();
-                btnLoggedIn.FillColor = Color.FromArgb(2, 62, 138);
-                btnLoggedIn.ImageAlign = HorizontalAlignment.Right;
-            }
-        }
+        //private void btnLoggedIn_Click(object sender, EventArgs e)
+        //{
+        //    // tick
+        //    if (Properties.Settings.Default.stayLoggedIn)
+        //    {
+        //        Properties.Settings.Default.stayLoggedIn = false;
+        //        Properties.Settings.Default.Save();
+        //        btnLoggedIn.FillColor = Color.Gray;
+        //        btnLoggedIn.ImageAlign = HorizontalAlignment.Left;
+        //    }
+        //    // untick
+        //    else
+        //    {
+        //        Properties.Settings.Default.stayLoggedIn = true;
+        //        Properties.Settings.Default.Save();
+        //        btnLoggedIn.FillColor = Color.FromArgb(2, 62, 138);
+        //        btnLoggedIn.ImageAlign = HorizontalAlignment.Right;
+        //    }
+        //}
     }
 }

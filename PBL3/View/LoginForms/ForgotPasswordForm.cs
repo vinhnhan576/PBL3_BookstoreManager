@@ -88,7 +88,7 @@ namespace PBL3.View.LoginForms
         {
             btnVerify.Text = "Send verification code (" + (60 - count) + ")";
             if (count++ >= 60 || (DateTime.Now - start).TotalSeconds > 60)
-            {
+            {   
                 timer.Stop();
                 btnVerify.Text = "Send verification code";
                 btnVerify.Click += new EventHandler(btnVerify_Click);

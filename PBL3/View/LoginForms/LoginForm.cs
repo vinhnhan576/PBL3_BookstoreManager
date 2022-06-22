@@ -19,7 +19,6 @@ namespace PBL3.View.LoginForms
         {
             QLNS ins = new QLNS();
             InitializeComponent();
-            StayLoggedIn();
             RememberLogin();
         }
 
@@ -29,18 +28,8 @@ namespace PBL3.View.LoginForms
             {
                 tbUsername.Text = Properties.Settings.Default.username;
                 tbPassword.Text = Properties.Settings.Default.userPass;
+                Properties.Settings.Default.Save();
                 btnSignIn.Focus();
-            }
-        }
-
-        private void StayLoggedIn()
-        {
-            if (Properties.Settings.Default.stayLoggedIn)
-            {
-                this.Visible = false;
-                tbUsername.Text = Properties.Settings.Default.username;
-                tbPassword.Text = Properties.Settings.Default.userPass;
-                btnSignIn_Click(this, new EventArgs());
             }
         }
 

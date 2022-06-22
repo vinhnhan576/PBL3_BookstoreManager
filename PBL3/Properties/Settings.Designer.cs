@@ -58,17 +58,5 @@ namespace PBL3.Properties {
                 this["rememberLogin"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool stayLoggedIn {
-            get {
-                return ((bool)(this["stayLoggedIn"]));
-            }
-            set {
-                this["stayLoggedIn"] = value;
-            }
-        }
     }
 }

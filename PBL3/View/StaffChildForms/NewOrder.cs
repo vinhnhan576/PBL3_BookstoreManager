@@ -196,7 +196,9 @@ namespace PBL3.View.StaffChildForms
         // Check phone number
         private void tb_TextChanged(object sender, EventArgs e)
         {
-            if (CustomerTeltxt.Text.Length != 10 || DataCheck.IsNumber(CustomerTeltxt.Text) != true || CustomerTeltxt.Text[0] != '0')
+            if(string.IsNullOrWhiteSpace(CustomerTeltxt.Text))
+                CustomerTeltxt.IconRightSize = new System.Drawing.Size(0, 0);
+            else if (CustomerTeltxt.Text.Trim().Length != 10 || DataCheck.IsNumber(CustomerTeltxt.Text.Trim()) != true || CustomerTeltxt.Text[0] != '0')
                 CustomerTeltxt.IconRightSize = new System.Drawing.Size(7, 7);
             else
                 CustomerTeltxt.IconRightSize = new System.Drawing.Size(0, 0);
