@@ -190,13 +190,13 @@ namespace PBL3.BLL
 
         public string GenerateStoreImportID()
         {
-            string ID = QLNS.Instance.StoreImports.OrderByDescending(p => p.StoreImportID.Length).ThenByDescending(p => p.StoreImportID).First().StoreImportID;
+            string ID = (QLNS.Instance.StoreImports.Any() ? QLNS.Instance.StoreImports.OrderByDescending(p => p.StoreImportID.Length).ThenByDescending(p => p.StoreImportID).First().StoreImportID : "0");
             return "si" + (Convert.ToInt32(ID.Remove(0, 2)) + 1).ToString();
         }
 
         public string GenerateStoreImportDetailID()
         {
-            string ID = QLNS.Instance.StoreImportDetails.OrderByDescending(p => p.StoreImportDetailID.Length).ThenByDescending(p => p.StoreImportDetailID).First().StoreImportDetailID;
+            string ID = (QLNS.Instance.StoreImportDetails.Any() ? QLNS.Instance.StoreImportDetails.OrderByDescending(p => p.StoreImportDetailID.Length).ThenByDescending(p => p.StoreImportDetailID).First().StoreImportDetailID : "0");
             return "sidt" + (Convert.ToInt32(ID.Remove(0, 4)) + 1).ToString();
         }
 

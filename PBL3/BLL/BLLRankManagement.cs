@@ -161,8 +161,8 @@ namespace PBL3.BLL
 
         public int GenerateID()
         {
-            Rank rank = QLNS.Instance.Ranks.OrderByDescending(p => p.RankID.Length).ThenByDescending(p => p.RankID).First();
-            return Convert.ToInt32(rank.RankID.Trim('r')) + 1;
+            string rank = (QLNS.Instance.Ranks.Any() ? QLNS.Instance.Ranks.OrderByDescending(p => p.RankID.Length).ThenByDescending(p => p.RankID).First().RankID : "0");
+            return Convert.ToInt32(rank.Trim('r')) + 1;
         }
     }
 

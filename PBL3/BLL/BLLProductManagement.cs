@@ -383,7 +383,7 @@ namespace PBL3.BLL
 
         public int GenerateID()
         {
-            Product product = QLNS.Instance.Products.OrderByDescending(p => p.ProductID.Length).ThenByDescending(p => p.ProductID).First();
+            Product product = (QLNS.Instance.Products.Any() ? QLNS.Instance.Products.OrderByDescending(p => p.ProductID.Length).ThenByDescending(p => p.ProductID).First() : "0");
             return Convert.ToInt32(product.ProductID.Trim('p')) + 1;
         }
 

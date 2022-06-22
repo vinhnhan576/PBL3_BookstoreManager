@@ -269,13 +269,13 @@ namespace PBL3.BLL
 
         public string GenerateRestockID()
         {
-            string ID = QLNS.Instance.Restocks.OrderByDescending(p => p.RestockID.Length).ThenByDescending(p => p.RestockID).First().RestockID;
+            string ID = (QLNS.Instance.Restocks.Any() ? QLNS.Instance.Restocks.OrderByDescending(p => p.RestockID.Length).ThenByDescending(p => p.RestockID).First().RestockID : "0");
             return "rs" + (Convert.ToInt32(ID.Remove(0, 2)) + 1).ToString();
         }
 
         public string GenerateRestockDetailID()
         {
-            string ID = QLNS.Instance.RestockDetails.OrderByDescending(p => p.RestockDetailID.Length).ThenByDescending(p => p.RestockDetailID).First().RestockDetailID;
+            string ID = (QLNS.Instance.RestockDetails.Any() ? QLNS.Instance.RestockDetails.OrderByDescending(p => p.RestockDetailID.Length).ThenByDescending(p => p.RestockDetailID).First().RestockDetailID : "0");
             return "rsdt" + (Convert.ToInt32(ID.Remove(0, 4)) + 1).ToString();
         }
     }

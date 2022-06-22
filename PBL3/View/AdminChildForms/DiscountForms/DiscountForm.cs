@@ -224,30 +224,35 @@ namespace PBL3.View.AdminChildForms.DiscountForms
         {
             try
             {
-                    Discount discount = new Discount();
-                    discount.DiscountID = IDtxt.Text;
-                    discount.DiscountName = Nametxt.Text;
-                    if (Typecbb.SelectedIndex == 1)
-                    {
-                        discount.AmmountApply = Convert.ToInt32(AmountApplytxt.Text);
-                    }
-                    discount.DiscountType = Typecbb.SelectedItem.ToString();
-                    discount.StartingDate = dgvFrom.Value;
-                    discount.ExpirationDate = dgvTo.Value;
-                    discount.DiscountApply = Convert.ToDouble(DiscountApplytxt.Text);
-                    BLLDiscountManagement.Instance.Execute(discount);
-                    Savebutton.Visible = false;
-                    ClearButton.Visible = false;
-                    IDtxt.ReadOnly = true;
-                    Nametxt.ReadOnly = true;
-                    AmountApplytxt.ReadOnly = true;
-                    DiscountApplytxt.ReadOnly = true;
-                    dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
-               
+                Discount discount = new Discount();
+                discount.DiscountID = IDtxt.Text;
+                discount.DiscountName = Nametxt.Text;
+                if (Typecbb.SelectedIndex == 1)
+                {
+                    discount.AmmountApply = Convert.ToInt32(AmountApplytxt.Text);
+                }
+                discount.DiscountType = Typecbb.SelectedItem.ToString();
+                discount.StartingDate = dgvFrom.Value;
+                discount.ExpirationDate = dgvTo.Value;
+                if (discount.StartingDate >= discount.ExpirationDate) throw new Exception();
+                discount.DiscountApply = Convert.ToDouble(DiscountApplytxt.Text);
+                BLLDiscountManagement.Instance.Execute(discount);
+                Savebutton.Visible = false;
+                ClearButton.Visible = false;
+                IDtxt.ReadOnly = true;
+                Nametxt.ReadOnly = true;
+                AmountApplytxt.ReadOnly = true;
+                DiscountApplytxt.ReadOnly = true;
+                dgvDiscount.DataSource = BLLDiscountManagement.Instance.GetAllDiscount_View();
+
             }
-            catch
+            catch (FormatException ex)
             {
                 View.CustomMessageBox.MessageBox.Show("Enter missing information \n or information is not in the right format ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                View.CustomMessageBox.MessageBox.Show("Expiration date must be greater than starting date. Please try again!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
