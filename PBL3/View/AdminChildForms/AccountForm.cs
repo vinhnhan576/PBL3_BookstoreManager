@@ -82,7 +82,7 @@ namespace PBL3.View.AdminChildForms
         //Add account
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            int count = QLNS.Instance.Accounts.Count() + 1;
+            int count = BLLAccountManagement.Instance.GenerateID();
             tbID.Text = "0"+count.ToString();
             tbID.Enabled = false;
             tbUsername.Text = "";

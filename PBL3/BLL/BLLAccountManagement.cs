@@ -209,39 +209,10 @@ namespace PBL3.BLL
             }
             return check;
         }
-        public List<Account> SortByPersonID()
+        public int GenerateID()
         {
-            List<double> list1 = new List<double>();
-            List<Account> data = new List<Account>();
-            foreach (Account account in QLNS.Instance.Accounts.Select(p => p).ToList())
-            {
-                string resultString = Regex.Match(account.PersonID, @"[0-9]\d*\.?[0]*$").Value;
-                double x = Double.Parse(resultString);
-                list1.Add(x);
-            }
-            for (int i = 0; i < list1.Count - 1; i++)
-            {
-                for (int j = i + 1; j < list1.Count; j++)
-                {
-                    if (list1[j] < list1[i])
-                    {
-                        double tmp = list1[i];
-                        list1[i] = list1[j];
-                        list1[j] = tmp;
-                    }
-                }
-            }
-            for (int i = 0; i < list1.Count; i++)
-            {
-                foreach (Account account in QLNS.Instance.Accounts.Select(p => p).ToList())
-                {
-                    string resultString = Regex.Match(account.PersonID, @"[0-9]\d*\.?[0]*$").Value;
-                    int x = Int32.Parse(resultString);
-                    if (x == list1[i])
-                        data.Add(account);
-                }
-            }
-            return data;
+            Account ac = QLNS.Instance.Accounts.OrderByDescending(p => p.PersonID.Length).ThenByDescending(p => p.PersonID).First();
+            return Convert.ToInt32(ac.PersonID.Remove(2)) + 1;
         }
     }
  }

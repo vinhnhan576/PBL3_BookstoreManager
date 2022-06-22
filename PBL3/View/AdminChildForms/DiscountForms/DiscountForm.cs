@@ -34,7 +34,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
             cbbSortCategory.SelectedIndex = 0;
             cbbFilterCategory.SelectedIndex = 0;
             //cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
-            IDtxt.Text = BLLDiscountManagement.Instance.GenerateID();
+            IDtxt.Text = "d" + BLLDiscountManagement.Instance.GenerateID().ToString();
             Typecbb.SelectedIndex = 1;
             Savebutton.Visible = false;
             ClearButton.Visible = false;
