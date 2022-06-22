@@ -159,7 +159,6 @@ namespace PBL3.BLL
 
         public void AddNewStoreImport(StoreImport r)
         {
-
             QLNS.Instance.StoreImports.Add(r);
             QLNS.Instance.SaveChanges();
         }
@@ -179,7 +178,7 @@ namespace PBL3.BLL
             else
             {
                 StoreImportDetailView temp = new StoreImportDetailView();
-                temp.StoreImportDetailID = "sidt00" + (QLNS.Instance.StoreImportDetails.Count() + 1 + list.Count()).ToString();
+                temp.StoreImportDetailID = GenerateStoreImportDetailID();
                 Product product = QLNS.Instance.Products.Find(productid);
                 temp.ProductID = productid;
                 temp.ProductName = product.ProductName;
@@ -188,6 +187,19 @@ namespace PBL3.BLL
             }
             return list;
         }
+
+        public string GenerateStoreImportID()
+        {
+            string ID = QLNS.Instance.StoreImports.OrderByDescending(p => p.StoreImportID.Length).ThenByDescending(p => p.StoreImportID).First().StoreImportID;
+            return "si" + (Convert.ToInt32(ID.Remove(0, 2)) + 1).ToString();
+        }
+
+        public string GenerateStoreImportDetailID()
+        {
+            string ID = QLNS.Instance.StoreImportDetails.OrderByDescending(p => p.StoreImportDetailID.Length).ThenByDescending(p => p.StoreImportDetailID).First().StoreImportDetailID;
+            return "sidt" + (Convert.ToInt32(ID.Remove(0, 4)) + 1).ToString();
+        }
+
         public int Check(List<StoreImportDetailView> list, string product_id)
         {
             for (int i = 0; i < list.Count; i++)

@@ -47,7 +47,6 @@ namespace PBL3.BLL
 
         public void AddRevenue(string receiptDetailID, double expenses, double grossrevenue, double profit)
         {
-            int count = QLNS.Instance.Revenues.Count() + 1;
             Revenue revenue = new Revenue { RevenueID = receiptDetailID, Expenses = expenses, GrossRevenue = grossrevenue, Profit = profit };
             QLNS.Instance.Revenues.Add(revenue);
             QLNS.Instance.SaveChanges();

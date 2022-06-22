@@ -266,5 +266,17 @@ namespace PBL3.BLL
             var filteredList = data.Select(p => new { p.RestockID, p.Person.PersonName, p.ImportDate, p.TotalExpense });
             return filteredList.ToList();
         }
+
+        public string GenerateRestockID()
+        {
+            string ID = QLNS.Instance.Restocks.OrderByDescending(p => p.RestockID.Length).ThenByDescending(p => p.RestockID).First().RestockID;
+            return "rs" + (Convert.ToInt32(ID.Remove(0, 2)) + 1).ToString();
+        }
+
+        public string GenerateRestockDetailID()
+        {
+            string ID = QLNS.Instance.RestockDetails.OrderByDescending(p => p.RestockDetailID.Length).ThenByDescending(p => p.RestockDetailID).First().RestockDetailID;
+            return "rsdt" + (Convert.ToInt32(ID.Remove(0, 4)) + 1).ToString();
+        }
     }
 }

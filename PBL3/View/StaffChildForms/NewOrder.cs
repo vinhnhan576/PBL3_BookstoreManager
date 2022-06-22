@@ -148,7 +148,7 @@ namespace PBL3.View.StaffChildForms
         }
         private void LoadNewOrder()
         {
-            OrderIDtxt.Text = "rpt" + (QLNS.Instance.Receipts.Count() + 1).ToString();
+            OrderIDtxt.Text = BLLReceiptManagement.Instance.GenerateReceiptID();
             SalesmanIDtxt.Text = account.PersonID.Trim();
             CustomerTeltxt.Text = null;
             TotalOrdertxt.Text = null;
