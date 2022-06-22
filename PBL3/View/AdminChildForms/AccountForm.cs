@@ -72,6 +72,12 @@ namespace PBL3.View.AdminChildForms
                 tbTel.ReadOnly = true;
                 tbAddress.ReadOnly = true;
                 cbbRole.Enabled = true;
+                tbAddress.Enabled = true;
+                tbTel.Enabled = true;
+                tbName.Enabled = true;
+                tbUsername.Enabled = true;
+                tbPassword.Enabled = true;
+                
                 tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
             }
         }
@@ -82,8 +88,7 @@ namespace PBL3.View.AdminChildForms
         //Add account
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            int count = BLLAccountManagement.Instance.GenerateID();
-            tbID.Text = "0"+count.ToString();
+            tbID.Text = "";
             tbID.Enabled = false;
             tbUsername.Text = "";
             tbUsername.Enabled = true;
@@ -201,13 +206,15 @@ namespace PBL3.View.AdminChildForms
                         }
                     }
                     if (checkID) a.PersonID = p.PersonID = tbID.Text;
-                    else a.PersonID = p.PersonID = SetID(cbbRole.SelectedItem.ToString());
+                    else a.PersonID = p.PersonID = tbID.Text;
                     a.Username = tbUsername.Text;
                     a.Password = tbPassword.Text;
                     a.Person = p;
                     BLLAccountManagement.Instance.Execute(a);
                     CustomMessageBox.MessageBox.Show("", "Success", MessageBoxIcon.Information);
                     dgvAccount.DataSource = BLLAccountManagement.Instance.GetAllAccount_View();
+                    btnSave.Visible = false;
+                    btnClear.Visible = false;
                     tbID.Text = ""; tbID.Enabled = true;
                     tbUsername.Text = ""; tbUsername.Enabled = true;
                     tbPassword.Text = ""; tbPassword.Enabled = true;
@@ -215,8 +222,6 @@ namespace PBL3.View.AdminChildForms
                     tbTel.Text = ""; tbTel.Enabled = true;
                     tbAddress.Text = ""; tbAddress.Enabled = true;
                     cbbRole.Text = null; cbbRole.Enabled = true;
-                    btnSave.Visible = false;
-                    btnClear.Visible = false;
                     tbUsername.IconRightSize = new System.Drawing.Size(0, 0);
                     tbPassword.IconRightSize = new System.Drawing.Size(0, 0);
                     tbName.IconRightSize = new System.Drawing.Size(0, 0);
@@ -328,12 +333,11 @@ namespace PBL3.View.AdminChildForms
         //
         //Components
         //
-        public string SetID(string role)
+        public void SetID(string role)
         {
-            if (role == "Admin") tbID.Text = "ad" + tbID.Text;
-            if (role == "Stockkeeper") tbID.Text = "sk" + tbID.Text;
-            if(role == "Salesman") tbID.Text = "sm" + tbID.Text;
-            return tbID.Text;
+            if (role == "Admin") tbID.Text = "ad0" + BLLAccountManagement.Instance.GenerateID(role);
+            if (role == "Stockkeeper") tbID.Text = "sk0" + BLLAccountManagement.Instance.GenerateID(role);
+            if(role == "Salesman") tbID.Text = "sm0" + BLLAccountManagement.Instance.GenerateID(role);
         }       
         private void tb_TextChanged(object sender, EventArgs e)
         {
@@ -347,6 +351,14 @@ namespace PBL3.View.AdminChildForms
             else tbAddress.IconRightSize = new System.Drawing.Size(0, 0);
             if (tbPassword.Text == "" || tbPassword.Text.Length < 6) tbPassword.IconRightSize = new System.Drawing.Size(7, 7);
             else tbPassword.IconRightSize = new System.Drawing.Size(0, 0);
+        }
+
+        private void cbbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!BLLAccountManagement.Instance.Check(tbID.Text) && btnSave.Visible)
+            {
+                SetID(cbbRole.SelectedItem.ToString());
+            }
         }
     }
 }
