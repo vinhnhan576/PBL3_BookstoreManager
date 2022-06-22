@@ -24,7 +24,7 @@ namespace PBL3.View.StockkeeperChildForms
             InitializeComponent();
             account = acc;
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_Views();
-            tbRestockID.Text = "rs00" + (QLNS.Instance.Restocks.Count()+1).ToString();
+            tbRestockID.Text = BLLRestockManagement.Instance.GenerateRestockID();
             tbRestockID.Enabled = false;
             tbStockkeperID.Text = account.PersonID;
             tbStockkeperID.Enabled = false;
@@ -63,7 +63,7 @@ namespace PBL3.View.StockkeeperChildForms
                 ImportPrice = importPrice,
                 ImportQuantity = p.StockQuantity,
                 Total = importPrice * p.StockQuantity,
-                RestockDetailID = "rs00"+(QLNS.Instance.RestockDetails.Count()+list.Count()+1).ToString(), 
+                RestockDetailID = BLLRestockManagement.Instance.GenerateRestockDetailID(), 
             };
             list.Add(restockDetailView);
             dgvRestock.DataSource = this.list.ToList();
@@ -121,8 +121,7 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void NewStock()
         {
-            int count = (QLNS.Instance.Restocks.Count() + 1);
-            tbRestockID.Text = "rs"+count.ToString();
+            tbRestockID.Text = BLLRestockManagement.Instance.GenerateRestockID();
             tbStockkeperID.Text = account.PersonID;
             dtpRestock.Value = DateTime.Now;
         }

@@ -212,7 +212,7 @@ namespace PBL3.BLL
         public int GenerateID()
         {
             Account ac = QLNS.Instance.Accounts.OrderByDescending(p => p.PersonID.Length).ThenByDescending(p => p.PersonID).First();
-            return Convert.ToInt32(ac.PersonID.Remove(2)) + 1;
+            return Convert.ToInt32(ac.PersonID.Remove(0, 2)) + 1;
         }
     }
  }

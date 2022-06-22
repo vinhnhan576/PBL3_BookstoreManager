@@ -91,8 +91,7 @@ namespace PBL3.View.StockkeeperChildForms
 
         private void NewImport()
         {
-            int count = (QLNS.Instance.StoreImports.Count() + 1);
-            tbStoreImportID.Text = "si" + count.ToString();
+            tbStoreImportID.Text = BLLStoreImportManagement.Instance.GenerateStoreImportID();
             tbStoreImportID.Enabled = false;
             tbStockkeperID.Text = account.PersonID;
             tbStockkeperID.Enabled = false;
