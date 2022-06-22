@@ -143,8 +143,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
         // Add discount
         private void Addbutton_Click(object sender, EventArgs e)
         {
-            string idtemp = (QLNS.Instance.Discounts.Count() + 1).ToString();
-            IDtxt.Text = "d" + idtemp;
+            IDtxt.Text = "d" + BLLDiscountManagement.Instance.GenerateID();
             Nametxt.Text = "";
             AmountApplytxt.Text = "";
             DiscountApplytxt.Text = "";

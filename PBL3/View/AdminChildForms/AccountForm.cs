@@ -95,7 +95,7 @@ namespace PBL3.View.AdminChildForms
             tbTel.Enabled = true;
             tbAddress.Text = "";
             tbAddress.Enabled = true;
-            rbFemale.Checked = false;rbMale.Checked = false;
+            rbFemale.Checked = false;
             cbbRole.Text = null;
             cbbRole.Enabled = true;
             btnSave.Visible = true;

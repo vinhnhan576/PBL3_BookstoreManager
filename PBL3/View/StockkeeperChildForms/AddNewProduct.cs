@@ -55,7 +55,7 @@ namespace PBL3.View.StockkeeperChildForms
                 var random = new RandomGenerator();
                 Product p = new Product
                 {
-                    ProductID = "p00" + BLL.BLLProductManagement.Instance.GenerateID().ToString(),
+                    ProductID = "p" + BLL.BLLProductManagement.Instance.GenerateID().ToString(),
                     ProductName = tbName.Text,
                     Author = tbAuthor.Text,
                     Category = (tbCategory.Visible == false ? cbbCatogory.SelectedItem.ToString() : tbCategory.Text),
