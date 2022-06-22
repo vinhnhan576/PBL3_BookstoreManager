@@ -234,7 +234,7 @@ namespace PBL3.View.AdminChildForms.DiscountForms
                 discount.DiscountType = Typecbb.SelectedItem.ToString();
                 discount.StartingDate = dgvFrom.Value;
                 discount.ExpirationDate = dgvTo.Value;
-                if (discount.StartingDate >= discount.ExpirationDate) throw new Exception();
+                if (discount.StartingDate > discount.ExpirationDate) throw new Exception();
                 discount.DiscountApply = Convert.ToDouble(DiscountApplytxt.Text);
                 BLLDiscountManagement.Instance.Execute(discount);
                 Savebutton.Visible = false;

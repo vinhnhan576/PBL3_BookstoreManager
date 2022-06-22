@@ -68,7 +68,7 @@ namespace PBL3.BLL
 
         public string GenerateReceiptID()
         {
-            string ID = (QLNS.Instance.Receipts.Any() ? QLNS.Instance.Receipts.OrderByDescending(p => p.ReceiptID.Length).ThenByDescending(p => p.ReceiptID).First().ReceiptID : "0";
+            string ID = (QLNS.Instance.Receipts.Any() ? QLNS.Instance.Receipts.OrderByDescending(p => p.ReceiptID.Length).ThenByDescending(p => p.ReceiptID).First().ReceiptID : "0");
             return "rpt" + (Convert.ToInt32(ID.Remove(0, 3)) + 1).ToString();
         }
 
