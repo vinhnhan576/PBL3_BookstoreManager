@@ -381,9 +381,10 @@ namespace PBL3.BLL
             return prodPublisherList;
         }
 
-        public int CountProduct()
+        public int GenerateID()
         {
-            return GetAllProduct().Count()+1;
+            Product product = QLNS.Instance.Products.OrderByDescending(p => p.ProductID.Length).ThenByDescending(p => p.ProductID).First();
+            return Convert.ToInt32(product.ProductID.Trim('p')) + 1;
         }
 
         public Product_Price_View GetProduct_PriceViewByProductID(string productID)
