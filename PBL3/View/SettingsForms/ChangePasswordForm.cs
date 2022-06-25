@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.Model;
+using PBL3.DTO;
 
 namespace PBL3.View.SettingsForms
 {
@@ -33,7 +34,7 @@ namespace PBL3.View.SettingsForms
         {
             try
             {
-                if (tbCurrentPassword.Text == currentPassword)
+                if (Hash.ConvertToHashCode(tbCurrentPassword.Text) == currentPassword)
                 {
                     if (CheckValidation(tbNewPassword.Text))
                     {
@@ -43,7 +44,7 @@ namespace PBL3.View.SettingsForms
                             DialogResult result = CustomMessageBox.MessageBox.Show("Do you want to change your password?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (result == DialogResult.Yes)
                             {
-                                BLL.BLLAccountManagement.Instance.ChangePassword(username, tbNewPassword.Text);
+                                BLL.BLLAccountManagement.Instance.ChangePassword(username,Hash.ConvertToHashCode(tbNewPassword.Text));
                                 CustomMessageBox.MessageBox.Show("Password changed successfully", "Congratulations", MessageBoxIcon.Information);
                                 Properties.Settings.Default.userPass = tbNewPassword.Text;
                                 Properties.Settings.Default.Save();

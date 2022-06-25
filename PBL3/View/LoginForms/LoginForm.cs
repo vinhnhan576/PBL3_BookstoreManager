@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
 using PBL3.Model;
-
+using PBL3.DTO;
 namespace PBL3.View.LoginForms
 {
     public partial class LoginForm : Form
@@ -54,10 +54,11 @@ namespace PBL3.View.LoginForms
             bool usernameExist = false;
             foreach(Account i in BLLAccountManagement.Instance.GetAllAccount())
             {
+                string hashcode = Hash.ConvertToHashCode(tbPassword.Text); 
                 if (tbUsername.Text == i.Username.Trim())
                 {
                     usernameExist = true;
-                    if(tbPassword.Text == i.Password.Trim())
+                    if(hashcode == i.Password.Trim())
                     {
                         Properties.Settings.Default.username = tbUsername.Text;
                         Properties.Settings.Default.userPass = tbPassword.Text;

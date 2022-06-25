@@ -67,6 +67,7 @@
     <Compile Include="DTO\DataCheck.cs" />
     <Compile Include="DTO\Charts\TopProductChartView.cs" />
     <Compile Include="DTO\Charts\TopStaffsChartView.cs" />
+    <Compile Include="DTO\Hash.cs" />
     <Compile Include="DTO\Order.cs" />
     <Compile Include="DTO\Product_Discount_View.cs" />
     <Compile Include="DTO\IDiscountStrategy.cs" />

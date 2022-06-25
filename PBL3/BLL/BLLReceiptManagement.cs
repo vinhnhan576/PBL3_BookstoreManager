@@ -62,17 +62,18 @@ namespace PBL3.BLL
         }
         public void CreateReceiptDetailView(Order order, Product p, int quantity)
         {
-            string receiptDetailID = "rd" + GenerateReceiptID().Remove(0, 3) + Convert.ToString(order.Rdv_List.Count() + 1);
+            string receiptDetailID = "rd" + GenerateReceiptID().Remove(0,3) + Convert.ToString(order.Rdv_List.Count() + 1);
             order.CreateReceiptDetailView(p, quantity, receiptDetailID);
         }
 
         public string GenerateReceiptID()
         {
-            string ID = (QLNS.Instance.Receipts.Any() ? QLNS.Instance.Receipts.OrderByDescending(p => p.ReceiptID.Length).ThenByDescending(p => p.ReceiptID).First().ReceiptID : "0");
+            string ID = (QLNS.Instance.Receipts.Any() ? QLNS.Instance.Receipts.OrderByDescending(p => p.ReceiptID.Length).ThenByDescending(p => p.ReceiptID).First().ReceiptID : "rpt0");
             return "rpt" + (Convert.ToInt32(ID.Remove(0, 3)) + 1).ToString();
         }
 
         public void AddNewReceiptDetail(Order order, string receipt_id)
+
         {
             for (int i = 0; i < order.Rdv_List.Count; i++)
             {
