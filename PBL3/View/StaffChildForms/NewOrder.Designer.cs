@@ -29,12 +29,12 @@ namespace PBL3.View.StaffChildForms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewOrder));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OrderIDtxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.SalesmanIDtxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.SaveButton = new Guna.UI2.WinForms.Guna2Button();
@@ -46,7 +46,6 @@ namespace PBL3.View.StaffChildForms
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
@@ -67,12 +66,13 @@ namespace PBL3.View.StaffChildForms
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.discountxt = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.guna2Panel5.SuspendLayout();
+            this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // OrderIDtxt
@@ -161,7 +161,7 @@ namespace PBL3.View.StaffChildForms
             this.guna2Panel1.Controls.Add(this.SaveButton);
             this.guna2Panel1.Controls.Add(this.SalesmanIDtxt);
             this.guna2Panel1.Controls.Add(this.OrderIDtxt);
-            this.guna2Panel1.Location = new System.Drawing.Point(14, 14);
+            this.guna2Panel1.Location = new System.Drawing.Point(11, 15);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(429, 167);
@@ -274,20 +274,12 @@ namespace PBL3.View.StaffChildForms
             this.label1.TabIndex = 24;
             this.label1.Text = "Order ID";
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Controls.Add(this.label8);
-            this.guna2Panel2.Location = new System.Drawing.Point(42, -4);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(105, 37);
-            this.guna2Panel2.TabIndex = 16;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(7, 10);
+            this.label8.Location = new System.Drawing.Point(35, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 19);
             this.label8.TabIndex = 29;
@@ -321,14 +313,14 @@ namespace PBL3.View.StaffChildForms
             this.guna2Panel4.Location = new System.Drawing.Point(15, 15);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(265, 426);
+            this.guna2Panel4.Size = new System.Drawing.Size(266, 426);
             this.guna2Panel4.TabIndex = 20;
             // 
             // dgvProduct
             // 
             this.dgvProduct.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -337,26 +329,26 @@ namespace PBL3.View.StaffChildForms
             this.dgvProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvProduct.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProduct.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProduct.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvProduct.EnableHeadersVisualStyles = false;
             this.dgvProduct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvProduct.Location = new System.Drawing.Point(24, 125);
+            this.dgvProduct.Location = new System.Drawing.Point(19, 125);
             this.dgvProduct.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.ReadOnly = true;
@@ -365,7 +357,7 @@ namespace PBL3.View.StaffChildForms
             this.dgvProduct.RowTemplate.Height = 28;
             this.dgvProduct.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduct.Size = new System.Drawing.Size(228, 206);
+            this.dgvProduct.Size = new System.Drawing.Size(229, 206);
             this.dgvProduct.TabIndex = 33;
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -391,11 +383,10 @@ namespace PBL3.View.StaffChildForms
             // 
             // guna2HtmlLabel3
             // 
-            this.guna2HtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(35, 58);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(30, 56);
             this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(38, 21);
@@ -404,7 +395,6 @@ namespace PBL3.View.StaffChildForms
             // 
             // cbbFilterCategory
             // 
-            this.cbbFilterCategory.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbbFilterCategory.BackColor = System.Drawing.Color.Transparent;
             this.cbbFilterCategory.BorderRadius = 10;
             this.cbbFilterCategory.BorderThickness = 0;
@@ -421,7 +411,7 @@ namespace PBL3.View.StaffChildForms
             "All",
             "Category",
             "Status"});
-            this.cbbFilterCategory.Location = new System.Drawing.Point(22, 81);
+            this.cbbFilterCategory.Location = new System.Drawing.Point(18, 81);
             this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterCategory.Name = "cbbFilterCategory";
             this.cbbFilterCategory.Size = new System.Drawing.Size(111, 29);
@@ -430,7 +420,6 @@ namespace PBL3.View.StaffChildForms
             // 
             // cbbFilterValue
             // 
-            this.cbbFilterValue.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbbFilterValue.BackColor = System.Drawing.Color.Transparent;
             this.cbbFilterValue.BorderRadius = 10;
             this.cbbFilterValue.BorderThickness = 0;
@@ -443,10 +432,10 @@ namespace PBL3.View.StaffChildForms
             this.cbbFilterValue.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbFilterValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbFilterValue.ItemHeight = 23;
-            this.cbbFilterValue.Location = new System.Drawing.Point(127, 81);
+            this.cbbFilterValue.Location = new System.Drawing.Point(123, 81);
             this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterValue.Name = "cbbFilterValue";
-            this.cbbFilterValue.Size = new System.Drawing.Size(116, 29);
+            this.cbbFilterValue.Size = new System.Drawing.Size(125, 29);
             this.cbbFilterValue.TabIndex = 32;
             this.cbbFilterValue.SelectedIndexChanged += new System.EventHandler(this.cbbFilterValue_SelectedIndexChanged);
             // 
@@ -456,7 +445,7 @@ namespace PBL3.View.StaffChildForms
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label6.Location = new System.Drawing.Point(27, 346);
+            this.label6.Location = new System.Drawing.Point(23, 346);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 19);
             this.label6.TabIndex = 29;
@@ -464,7 +453,6 @@ namespace PBL3.View.StaffChildForms
             // 
             // productSearchtxt
             // 
-            this.productSearchtxt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.productSearchtxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
             this.productSearchtxt.BorderRadius = 9;
             this.productSearchtxt.BorderThickness = 0;
@@ -483,13 +471,13 @@ namespace PBL3.View.StaffChildForms
             this.productSearchtxt.IconRight = global::PBL3.Properties.Resources.icons8_search_60;
             this.productSearchtxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.productSearchtxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.productSearchtxt.Location = new System.Drawing.Point(25, 24);
+            this.productSearchtxt.Location = new System.Drawing.Point(21, 24);
             this.productSearchtxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.productSearchtxt.Name = "productSearchtxt";
             this.productSearchtxt.PasswordChar = '\0';
             this.productSearchtxt.PlaceholderText = "";
             this.productSearchtxt.SelectedText = "";
-            this.productSearchtxt.Size = new System.Drawing.Size(215, 26);
+            this.productSearchtxt.Size = new System.Drawing.Size(227, 28);
             this.productSearchtxt.TabIndex = 29;
             this.productSearchtxt.IconRightClick += new System.EventHandler(this.productSearchtxt_IconRightClick);
             this.productSearchtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productSearchtxt_KeyPress);
@@ -505,7 +493,7 @@ namespace PBL3.View.StaffChildForms
             this.AddButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.AddButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.White;
-            this.AddButton.Location = new System.Drawing.Point(80, 376);
+            this.AddButton.Location = new System.Drawing.Point(76, 376);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(111, 32);
             this.AddButton.TabIndex = 22;
@@ -531,7 +519,7 @@ namespace PBL3.View.StaffChildForms
             this.Quantitytxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.Quantitytxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.Quantitytxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.Quantitytxt.Location = new System.Drawing.Point(107, 344);
+            this.Quantitytxt.Location = new System.Drawing.Point(103, 344);
             this.Quantitytxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Quantitytxt.Name = "Quantitytxt";
             this.Quantitytxt.PasswordChar = '\0';
@@ -554,8 +542,8 @@ namespace PBL3.View.StaffChildForms
             // dgvOrder
             // 
             this.dgvOrder.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dgvOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -564,26 +552,26 @@ namespace PBL3.View.StaffChildForms
             this.dgvOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvOrder.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(161)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvOrder.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrder.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(134)))), ((int)(((byte)(183)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrder.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvOrder.EnableHeadersVisualStyles = false;
             this.dgvOrder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvOrder.Location = new System.Drawing.Point(15, 194);
+            this.dgvOrder.Location = new System.Drawing.Point(13, 194);
             this.dgvOrder.Margin = new System.Windows.Forms.Padding(2);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.ReadOnly = true;
@@ -635,7 +623,7 @@ namespace PBL3.View.StaffChildForms
             this.TotalOrdertxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.TotalOrdertxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.TotalOrdertxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.TotalOrdertxt.Location = new System.Drawing.Point(354, 419);
+            this.TotalOrdertxt.Location = new System.Drawing.Point(353, 418);
             this.TotalOrdertxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TotalOrdertxt.Name = "TotalOrdertxt";
             this.TotalOrdertxt.PasswordChar = '\0';
@@ -650,7 +638,7 @@ namespace PBL3.View.StaffChildForms
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label10.Location = new System.Drawing.Point(303, 422);
+            this.label10.Location = new System.Drawing.Point(302, 421);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 19);
             this.label10.TabIndex = 31;
@@ -667,7 +655,7 @@ namespace PBL3.View.StaffChildForms
             this.Deletebtn.FillColor = System.Drawing.Color.White;
             this.Deletebtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.Deletebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.Deletebtn.Location = new System.Drawing.Point(14, 415);
+            this.Deletebtn.Location = new System.Drawing.Point(13, 414);
             this.Deletebtn.Name = "Deletebtn";
             this.Deletebtn.Size = new System.Drawing.Size(99, 31);
             this.Deletebtn.TabIndex = 35;
@@ -685,7 +673,7 @@ namespace PBL3.View.StaffChildForms
             this.Clearbtn.FillColor = System.Drawing.Color.White;
             this.Clearbtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.Clearbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.Clearbtn.Location = new System.Drawing.Point(124, 415);
+            this.Clearbtn.Location = new System.Drawing.Point(123, 414);
             this.Clearbtn.Name = "Clearbtn";
             this.Clearbtn.Size = new System.Drawing.Size(99, 31);
             this.Clearbtn.TabIndex = 34;
@@ -696,11 +684,11 @@ namespace PBL3.View.StaffChildForms
             // 
             this.guna2Panel5.Controls.Add(this.label9);
             this.guna2Panel5.Controls.Add(this.guna2Panel4);
-            this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2Panel5.Location = new System.Drawing.Point(449, 0);
+            this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel5.Location = new System.Drawing.Point(448, 0);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Padding = new System.Windows.Forms.Padding(15);
-            this.guna2Panel5.Size = new System.Drawing.Size(295, 456);
+            this.guna2Panel5.Size = new System.Drawing.Size(296, 456);
             this.guna2Panel5.TabIndex = 36;
             // 
             // label11
@@ -709,7 +697,7 @@ namespace PBL3.View.StaffChildForms
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.label11.Location = new System.Drawing.Point(274, 391);
+            this.label11.Location = new System.Drawing.Point(273, 390);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(74, 19);
             this.label11.TabIndex = 37;
@@ -734,7 +722,7 @@ namespace PBL3.View.StaffChildForms
             this.discountxt.IconLeftSize = new System.Drawing.Size(0, 0);
             this.discountxt.IconRightOffset = new System.Drawing.Point(10, 0);
             this.discountxt.IconRightSize = new System.Drawing.Size(23, 23);
-            this.discountxt.Location = new System.Drawing.Point(354, 389);
+            this.discountxt.Location = new System.Drawing.Point(353, 388);
             this.discountxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.discountxt.Name = "discountxt";
             this.discountxt.PasswordChar = '\0';
@@ -743,35 +731,44 @@ namespace PBL3.View.StaffChildForms
             this.discountxt.Size = new System.Drawing.Size(89, 22);
             this.discountxt.TabIndex = 38;
             // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.Controls.Add(this.discountxt);
+            this.guna2Panel3.Controls.Add(this.label8);
+            this.guna2Panel3.Controls.Add(this.label11);
+            this.guna2Panel3.Controls.Add(this.guna2Panel1);
+            this.guna2Panel3.Controls.Add(this.dgvOrder);
+            this.guna2Panel3.Controls.Add(this.Deletebtn);
+            this.guna2Panel3.Controls.Add(this.Clearbtn);
+            this.guna2Panel3.Controls.Add(this.TotalOrdertxt);
+            this.guna2Panel3.Controls.Add(this.label10);
+            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel3.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(448, 456);
+            this.guna2Panel3.TabIndex = 39;
+            // 
             // NewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(744, 456);
-            this.Controls.Add(this.discountxt);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.guna2Panel5);
-            this.Controls.Add(this.Deletebtn);
-            this.Controls.Add(this.Clearbtn);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.TotalOrdertxt);
-            this.Controls.Add(this.dgvOrder);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.guna2Panel2);
-            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.guna2Panel3);
             this.Name = "NewOrder";
             this.Text = "NewOrder";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel2.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel5.PerformLayout();
+            this.guna2Panel3.ResumeLayout(false);
+            this.guna2Panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -782,7 +779,6 @@ namespace PBL3.View.StaffChildForms
         private Guna.UI2.WinForms.Guna2TextBox SalesmanIDtxt;
         private Guna.UI2.WinForms.Guna2Button SaveButton;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2Button AddButton;
         private Guna.UI2.WinForms.Guna2TextBox Quantitytxt;
@@ -811,5 +807,6 @@ namespace PBL3.View.StaffChildForms
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2TextBox discountxt;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
     }
 }
