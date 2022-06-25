@@ -160,7 +160,8 @@ namespace PBL3.BLL
             List<Restock> data = new List<Restock>();
             foreach (Restock s in qLSPEntities.Restocks.Select(p => p).ToList())
             {
-                if (s.Person.PersonName.Contains(value) == true)
+                bool containName = s.Person.PersonName.IndexOf(value, StringComparison.OrdinalIgnoreCase) >= 0;
+                if (containName)
                 {
                     data.Add(s);
                 }
@@ -269,13 +270,13 @@ namespace PBL3.BLL
 
         public string GenerateRestockID()
         {
-            string ID = (QLNS.Instance.Restocks.Any() ? QLNS.Instance.Restocks.OrderByDescending(p => p.RestockID.Length).ThenByDescending(p => p.RestockID).First().RestockID : "0");
+            string ID = (QLNS.Instance.Restocks.Any() ? QLNS.Instance.Restocks.OrderByDescending(p => p.RestockID.Length).ThenByDescending(p => p.RestockID).First().RestockID : "rs0");
             return "rs" + (Convert.ToInt32(ID.Remove(0, 2)) + 1).ToString();
         }
 
         public string GenerateRestockDetailID()
         {
-            string ID = (QLNS.Instance.RestockDetails.Any() ? QLNS.Instance.RestockDetails.OrderByDescending(p => p.RestockDetailID.Length).ThenByDescending(p => p.RestockDetailID).First().RestockDetailID : "0");
+            string ID = (QLNS.Instance.RestockDetails.Any() ? QLNS.Instance.RestockDetails.OrderByDescending(p => p.RestockDetailID.Length).ThenByDescending(p => p.RestockDetailID).First().RestockDetailID : "rsdt0");
             return "rsdt" + (Convert.ToInt32(ID.Remove(0, 4)) + 1).ToString();
         }
     }

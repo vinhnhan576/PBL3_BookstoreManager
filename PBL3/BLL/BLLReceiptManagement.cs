@@ -204,6 +204,7 @@ namespace PBL3.BLL
                 {
                     Customer c = QLNS.Instance.Customers.Find(r.PhoneNumber);
                     c.TotalSpending = c.TotalSpending - r.Total;
+                    BLLCustomerManagement.Instance.UpdateRankCustomer(c.PhoneNumber,c.RankID);
                 }
                 foreach (ReceiptDetail i in getReceiptDetailByReceiptID(r.ReceiptID))
                 {

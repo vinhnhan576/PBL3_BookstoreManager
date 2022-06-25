@@ -62,9 +62,8 @@ namespace PBL3.View
             this.pnTop.Controls.Add(this.guna2PictureBox1);
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTop.Location = new System.Drawing.Point(0, 0);
-            this.pnTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(1371, 92);
+            this.pnTop.Size = new System.Drawing.Size(914, 60);
             this.pnTop.TabIndex = 0;
             // 
             // lbDate
@@ -75,10 +74,9 @@ namespace PBL3.View
             this.lbDate.BackColor = System.Drawing.Color.Transparent;
             this.lbDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.lbDate.Location = new System.Drawing.Point(258, 52);
-            this.lbDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lbDate.Location = new System.Drawing.Point(172, 34);
             this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(101, 31);
+            this.lbDate.Size = new System.Drawing.Size(67, 22);
             this.lbDate.TabIndex = 9;
             this.lbDate.Text = "03/31/2022";
             // 
@@ -92,8 +90,7 @@ namespace PBL3.View
             this.btnLogout.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnLogout.ImageRotate = 0F;
             this.btnLogout.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnLogout.Location = new System.Drawing.Point(1287, 18);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogout.Location = new System.Drawing.Point(858, 12);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.PressedState.Image = global::PBL3.Properties.Resources.logout;
             this.btnLogout.PressedState.ImageSize = new System.Drawing.Size(18, 18);
@@ -101,7 +98,7 @@ namespace PBL3.View
             this.btnLogout.ShadowDecoration.Depth = 6;
             this.btnLogout.ShadowDecoration.Enabled = true;
             this.btnLogout.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 6, 6);
-            this.btnLogout.Size = new System.Drawing.Size(45, 46);
+            this.btnLogout.Size = new System.Drawing.Size(30, 30);
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
@@ -113,10 +110,9 @@ namespace PBL3.View
             this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
             this.lbWelcome.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
-            this.lbWelcome.Location = new System.Drawing.Point(255, 12);
-            this.lbWelcome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lbWelcome.Location = new System.Drawing.Point(170, 8);
             this.lbWelcome.Name = "lbWelcome";
-            this.lbWelcome.Size = new System.Drawing.Size(198, 47);
+            this.lbWelcome.Size = new System.Drawing.Size(134, 32);
             this.lbWelcome.TabIndex = 8;
             this.lbWelcome.Text = "Welcome, Y/N";
             // 
@@ -131,8 +127,7 @@ namespace PBL3.View
             this.btnSettings.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnSettings.ImageRotate = 0F;
             this.btnSettings.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnSettings.Location = new System.Drawing.Point(1209, 18);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSettings.Location = new System.Drawing.Point(806, 12);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.PressedState.Image = global::PBL3.Properties.Resources.settingsIcon;
             this.btnSettings.PressedState.ImageSize = new System.Drawing.Size(23, 23);
@@ -140,7 +135,7 @@ namespace PBL3.View
             this.btnSettings.ShadowDecoration.Depth = 6;
             this.btnSettings.ShadowDecoration.Enabled = true;
             this.btnSettings.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 6, 6);
-            this.btnSettings.Size = new System.Drawing.Size(45, 46);
+            this.btnSettings.Size = new System.Drawing.Size(30, 30);
             this.btnSettings.TabIndex = 4;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
@@ -149,10 +144,9 @@ namespace PBL3.View
             this.guna2PictureBox1.Image = global::PBL3.Properties.Resources.logo_ver_2;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(4, 9);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 6);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(172, 86);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(115, 56);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
@@ -163,12 +157,10 @@ namespace PBL3.View
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));
-            this.pnRight.Location = new System.Drawing.Point(210, 92);
-            this.pnRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnRight.Location = new System.Drawing.Point(140, 60);
             this.pnRight.Name = "pnRight";
-            this.pnRight.Size = new System.Drawing.Size(1161, 725);
+            this.pnRight.Size = new System.Drawing.Size(774, 471);
             this.pnRight.TabIndex = 2;
-            //this.pnRight.Paint += new System.Windows.Forms.PaintEventHandler(this.pnRight_Paint);
             // 
             // pnMenu
             // 
@@ -190,11 +182,10 @@ namespace PBL3.View
             this.pnMenu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(224)))), ((int)(((byte)(239)))));
             this.pnMenu.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
             this.pnMenu.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.pnMenu.Location = new System.Drawing.Point(0, 92);
-            this.pnMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnMenu.Location = new System.Drawing.Point(0, 60);
             this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Padding = new System.Windows.Forms.Padding(15, 31, 15, 0);
-            this.pnMenu.Size = new System.Drawing.Size(210, 725);
+            this.pnMenu.Padding = new System.Windows.Forms.Padding(10, 20, 10, 0);
+            this.pnMenu.Size = new System.Drawing.Size(140, 471);
             this.pnMenu.TabIndex = 1;
             // 
             // Rankbutton
@@ -210,16 +201,15 @@ namespace PBL3.View
             this.Rankbutton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rankbutton.ForeColor = System.Drawing.Color.White;
             this.Rankbutton.Image = global::PBL3.Properties.Resources.revenue;
-            this.Rankbutton.ImageOffset = new System.Drawing.Point(-4, 0);
-            this.Rankbutton.Location = new System.Drawing.Point(-3, 634);
-            this.Rankbutton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Rankbutton.ImageOffset = new System.Drawing.Point(-11, 0);
+            this.Rankbutton.Location = new System.Drawing.Point(9, 412);
             this.Rankbutton.Name = "Rankbutton";
             this.Rankbutton.PressedColor = System.Drawing.Color.White;
             this.Rankbutton.PressedDepth = 20;
-            this.Rankbutton.Size = new System.Drawing.Size(180, 49);
+            this.Rankbutton.Size = new System.Drawing.Size(120, 32);
             this.Rankbutton.TabIndex = 8;
             this.Rankbutton.Text = "Rank";
-            this.Rankbutton.TextOffset = new System.Drawing.Point(-2, 0);
+            this.Rankbutton.TextOffset = new System.Drawing.Point(-9, 0);
             this.Rankbutton.Click += new System.EventHandler(this.Rankbutton_Click);
             // 
             // btnRevenue
@@ -236,12 +226,11 @@ namespace PBL3.View
             this.btnRevenue.ForeColor = System.Drawing.Color.White;
             this.btnRevenue.Image = global::PBL3.Properties.Resources.revenue;
             this.btnRevenue.ImageOffset = new System.Drawing.Point(-4, 0);
-            this.btnRevenue.Location = new System.Drawing.Point(15, 558);
-            this.btnRevenue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRevenue.Location = new System.Drawing.Point(10, 363);
             this.btnRevenue.Name = "btnRevenue";
             this.btnRevenue.PressedColor = System.Drawing.Color.White;
             this.btnRevenue.PressedDepth = 20;
-            this.btnRevenue.Size = new System.Drawing.Size(180, 49);
+            this.btnRevenue.Size = new System.Drawing.Size(120, 32);
             this.btnRevenue.TabIndex = 7;
             this.btnRevenue.Text = "Revenue";
             this.btnRevenue.TextOffset = new System.Drawing.Point(-2, 0);
@@ -261,12 +250,11 @@ namespace PBL3.View
             this.btnAccount.ForeColor = System.Drawing.Color.White;
             this.btnAccount.Image = global::PBL3.Properties.Resources.account;
             this.btnAccount.ImageOffset = new System.Drawing.Point(-5, 0);
-            this.btnAccount.Location = new System.Drawing.Point(15, 483);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAccount.Location = new System.Drawing.Point(10, 314);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.PressedColor = System.Drawing.Color.White;
             this.btnAccount.PressedDepth = 20;
-            this.btnAccount.Size = new System.Drawing.Size(180, 49);
+            this.btnAccount.Size = new System.Drawing.Size(120, 32);
             this.btnAccount.TabIndex = 6;
             this.btnAccount.Text = "Account";
             this.btnAccount.TextOffset = new System.Drawing.Point(-2, 0);
@@ -286,12 +274,11 @@ namespace PBL3.View
             this.btnDiscount.ForeColor = System.Drawing.Color.White;
             this.btnDiscount.Image = global::PBL3.Properties.Resources.iconWhiteDiscount;
             this.btnDiscount.ImageOffset = new System.Drawing.Point(-5, 0);
-            this.btnDiscount.Location = new System.Drawing.Point(15, 408);
-            this.btnDiscount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDiscount.Location = new System.Drawing.Point(10, 265);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.PressedColor = System.Drawing.Color.White;
             this.btnDiscount.PressedDepth = 20;
-            this.btnDiscount.Size = new System.Drawing.Size(180, 49);
+            this.btnDiscount.Size = new System.Drawing.Size(120, 32);
             this.btnDiscount.TabIndex = 5;
             this.btnDiscount.Text = "Discount";
             this.btnDiscount.TextOffset = new System.Drawing.Point(-2, 0);
@@ -311,12 +298,11 @@ namespace PBL3.View
             this.btnStock.ForeColor = System.Drawing.Color.White;
             this.btnStock.Image = global::PBL3.Properties.Resources.stock;
             this.btnStock.ImageOffset = new System.Drawing.Point(-10, 0);
-            this.btnStock.Location = new System.Drawing.Point(15, 332);
-            this.btnStock.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnStock.Location = new System.Drawing.Point(10, 216);
             this.btnStock.Name = "btnStock";
             this.btnStock.PressedColor = System.Drawing.Color.White;
             this.btnStock.PressedDepth = 20;
-            this.btnStock.Size = new System.Drawing.Size(180, 49);
+            this.btnStock.Size = new System.Drawing.Size(120, 32);
             this.btnStock.TabIndex = 4;
             this.btnStock.Text = "Stock";
             this.btnStock.TextOffset = new System.Drawing.Point(-8, 0);
@@ -336,12 +322,11 @@ namespace PBL3.View
             this.btnBill.ForeColor = System.Drawing.Color.White;
             this.btnBill.Image = global::PBL3.Properties.Resources.bill;
             this.btnBill.ImageOffset = new System.Drawing.Point(-6, 0);
-            this.btnBill.Location = new System.Drawing.Point(15, 257);
-            this.btnBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBill.Location = new System.Drawing.Point(10, 167);
             this.btnBill.Name = "btnBill";
             this.btnBill.PressedColor = System.Drawing.Color.White;
             this.btnBill.PressedDepth = 20;
-            this.btnBill.Size = new System.Drawing.Size(180, 49);
+            this.btnBill.Size = new System.Drawing.Size(120, 32);
             this.btnBill.TabIndex = 3;
             this.btnBill.Text = "Receipt";
             this.btnBill.TextOffset = new System.Drawing.Point(-3, 0);
@@ -361,12 +346,11 @@ namespace PBL3.View
             this.btnCustomer.ForeColor = System.Drawing.Color.White;
             this.btnCustomer.Image = global::PBL3.Properties.Resources.iconWhiteCustomer;
             this.btnCustomer.ImageOffset = new System.Drawing.Point(-2, 0);
-            this.btnCustomer.Location = new System.Drawing.Point(15, 182);
-            this.btnCustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCustomer.Location = new System.Drawing.Point(10, 118);
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.PressedColor = System.Drawing.Color.White;
             this.btnCustomer.PressedDepth = 20;
-            this.btnCustomer.Size = new System.Drawing.Size(180, 49);
+            this.btnCustomer.Size = new System.Drawing.Size(120, 32);
             this.btnCustomer.TabIndex = 2;
             this.btnCustomer.Text = "Customer";
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
@@ -385,12 +369,11 @@ namespace PBL3.View
             this.btnProduct.ForeColor = System.Drawing.Color.White;
             this.btnProduct.Image = global::PBL3.Properties.Resources.iconWhiteBook;
             this.btnProduct.ImageOffset = new System.Drawing.Point(-5, 0);
-            this.btnProduct.Location = new System.Drawing.Point(15, 106);
-            this.btnProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnProduct.Location = new System.Drawing.Point(10, 69);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.PressedColor = System.Drawing.Color.White;
             this.btnProduct.PressedDepth = 20;
-            this.btnProduct.Size = new System.Drawing.Size(180, 49);
+            this.btnProduct.Size = new System.Drawing.Size(120, 32);
             this.btnProduct.TabIndex = 1;
             this.btnProduct.Text = "Product";
             this.btnProduct.TextOffset = new System.Drawing.Point(-3, 0);
@@ -410,28 +393,26 @@ namespace PBL3.View
             this.btnOverview.ForeColor = System.Drawing.Color.White;
             this.btnOverview.Image = global::PBL3.Properties.Resources.iconWhiteOverview;
             this.btnOverview.ImageOffset = new System.Drawing.Point(-2, 0);
-            this.btnOverview.Location = new System.Drawing.Point(15, 31);
-            this.btnOverview.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOverview.Location = new System.Drawing.Point(10, 20);
             this.btnOverview.Name = "btnOverview";
             this.btnOverview.PressedColor = System.Drawing.Color.White;
             this.btnOverview.PressedDepth = 20;
-            this.btnOverview.Size = new System.Drawing.Size(180, 49);
+            this.btnOverview.Size = new System.Drawing.Size(120, 32);
             this.btnOverview.TabIndex = 0;
             this.btnOverview.Text = "Overview";
             this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
             // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1371, 817);
+            this.ClientSize = new System.Drawing.Size(914, 531);
             this.Controls.Add(this.pnRight);
             this.Controls.Add(this.pnMenu);
             this.Controls.Add(this.pnTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AdminForm";
             this.Text = "Admin";
             this.pnTop.ResumeLayout(false);

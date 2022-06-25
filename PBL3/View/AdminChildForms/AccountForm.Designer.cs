@@ -117,7 +117,7 @@
             "Salesman",
             "Stockkeeper"});
             this.cbbRole.Location = new System.Drawing.Point(117, 89);
-            this.cbbRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbRole.Margin = new System.Windows.Forms.Padding(2);
             this.cbbRole.Name = "cbbRole";
             this.cbbRole.Size = new System.Drawing.Size(167, 23);
             this.cbbRole.TabIndex = 53;
@@ -129,7 +129,7 @@
             this.rbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFemale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.rbFemale.Location = new System.Drawing.Point(478, 53);
-            this.rbFemale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbFemale.Margin = new System.Windows.Forms.Padding(2);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(80, 24);
             this.rbFemale.TabIndex = 62;
@@ -143,7 +143,7 @@
             this.rbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
             this.rbMale.Location = new System.Drawing.Point(387, 53);
-            this.rbMale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbMale.Margin = new System.Windows.Forms.Padding(2);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(61, 24);
             this.rbMale.TabIndex = 61;
@@ -476,8 +476,8 @@
             this.dgvAccount.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvAccount.EnableHeadersVisualStyles = false;
             this.dgvAccount.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvAccount.Location = new System.Drawing.Point(18, 322);
-            this.dgvAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvAccount.Location = new System.Drawing.Point(18, 309);
+            this.dgvAccount.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.ReadOnly = true;
             this.dgvAccount.RowHeadersVisible = false;
@@ -619,7 +619,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
-            this.label11.Location = new System.Drawing.Point(21, 291);
+            this.label11.Location = new System.Drawing.Point(21, 287);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 19);
             this.label11.TabIndex = 51;
@@ -645,7 +645,7 @@
             "Address",
             "Role"});
             this.cbbSortCategory.Location = new System.Drawing.Point(313, 32);
-            this.cbbSortCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbSortCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbbSortCategory.Name = "cbbSortCategory";
             this.cbbSortCategory.Size = new System.Drawing.Size(102, 29);
             this.cbbSortCategory.TabIndex = 6;
@@ -663,7 +663,7 @@
             this.cbbFilterValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(79)))), ((int)(((byte)(134)))));
             this.cbbFilterValue.ItemHeight = 23;
             this.cbbFilterValue.Location = new System.Drawing.Point(634, 32);
-            this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbFilterValue.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterValue.Name = "cbbFilterValue";
             this.cbbFilterValue.Size = new System.Drawing.Size(132, 29);
             this.cbbFilterValue.TabIndex = 7;
@@ -689,7 +689,7 @@
             "Role",
             "Address"});
             this.cbbFilterCategory.Location = new System.Drawing.Point(542, 32);
-            this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbFilterCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterCategory.Name = "cbbFilterCategory";
             this.cbbFilterCategory.Size = new System.Drawing.Size(116, 29);
             this.cbbFilterCategory.TabIndex = 11;
@@ -711,7 +711,7 @@
             "Ascending",
             "Descending"});
             this.cbbSortOrder.Location = new System.Drawing.Point(400, 32);
-            this.cbbSortOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbSortOrder.Margin = new System.Windows.Forms.Padding(2);
             this.cbbSortOrder.Name = "cbbSortOrder";
             this.cbbSortOrder.Size = new System.Drawing.Size(122, 29);
             this.cbbSortOrder.TabIndex = 12;
@@ -760,7 +760,7 @@
             this.Controls.Add(this.cbbFilterCategory);
             this.Controls.Add(this.cbbFilterValue);
             this.Controls.Add(this.tbSearch);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AccountForm";
             this.Text = "Account";
             this.guna2Panel1.ResumeLayout(false);

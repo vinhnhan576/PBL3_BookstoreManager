@@ -78,7 +78,7 @@ namespace PBL3.View.StockkeeperChildForms
         {
             if (dgvImport.SelectedRows.Count == 1)
             { 
-                list.RemoveAt(dgvImport.SelectedRows.Count);
+                list.RemoveAt(dgvImport.SelectedRows.Count - 1);
             }
             dgvImport.DataSource = list.ToList();
         }

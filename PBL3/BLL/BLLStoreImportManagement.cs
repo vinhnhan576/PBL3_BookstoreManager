@@ -178,7 +178,7 @@ namespace PBL3.BLL
             else
             {
                 StoreImportDetailView temp = new StoreImportDetailView();
-                temp.StoreImportDetailID = GenerateStoreImportDetailID();
+                temp.StoreImportDetailID = GenerateStoreImportDetailID(list);
                 Product product = QLNS.Instance.Products.Find(productid);
                 temp.ProductID = productid;
                 temp.ProductName = product.ProductName;
@@ -190,14 +190,14 @@ namespace PBL3.BLL
 
         public string GenerateStoreImportID()
         {
-            string ID = (QLNS.Instance.StoreImports.Any() ? QLNS.Instance.StoreImports.OrderByDescending(p => p.StoreImportID.Length).ThenByDescending(p => p.StoreImportID).First().StoreImportID : "0");
+            string ID = (QLNS.Instance.StoreImports.Any() ? QLNS.Instance.StoreImports.OrderByDescending(p => p.StoreImportID.Length).ThenByDescending(p => p.StoreImportID).First().StoreImportID : "si0");
             return "si" + (Convert.ToInt32(ID.Remove(0, 2)) + 1).ToString();
         }
 
-        public string GenerateStoreImportDetailID()
+        public string GenerateStoreImportDetailID(List<StoreImportDetailView> list)
         {
-            string ID = (QLNS.Instance.StoreImportDetails.Any() ? QLNS.Instance.StoreImportDetails.OrderByDescending(p => p.StoreImportDetailID.Length).ThenByDescending(p => p.StoreImportDetailID).First().StoreImportDetailID : "0");
-            return "sidt" + (Convert.ToInt32(ID.Remove(0, 4)) + 1).ToString();
+            string ID = (QLNS.Instance.StoreImportDetails.Any() ? QLNS.Instance.StoreImportDetails.OrderByDescending(p => p.StoreImportDetailID.Length).ThenByDescending(p => p.StoreImportDetailID).First().StoreImportDetailID : "sidt0");
+            return "sidt" + (Convert.ToInt32(ID.Remove(0, 4)) + list.Count + 1).ToString();
         }
 
         public int Check(List<StoreImportDetailView> list, string product_id)

@@ -17,7 +17,6 @@ namespace PBL3.Model
         public double Expenses { get; set; }
         public double GrossRevenue { get; set; }
         public double Profit { get; set; }
-
         public virtual ReceiptDetail ReceiptDetail { get; set; }
     }
 }
