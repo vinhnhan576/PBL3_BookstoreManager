@@ -57,10 +57,13 @@ namespace PBL3.View.StockkeeperChildForms
         }
         private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (tbSearch != null)
+            if (string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                dgvStock.DataSource = BLLRestockManagement.Instance.GetAllRestock_View();
+            }
+            else
             {
                 dgvStock.DataSource = BLLRestockManagement.Instance.SearchRestock(tbSearch.Text);
-
             }
         }
 

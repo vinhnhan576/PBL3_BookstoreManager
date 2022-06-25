@@ -39,8 +39,8 @@ namespace PBL3.View.SettingsForms
 
         private void lbProfile_Click(object sender, EventArgs e)
         {
-            Person person = BLLPersonManagement.Instance.GetPersonByPersonID(account.PersonID);
-            EditProfileForm editProfileForm = new EditProfileForm(person);
+            //Person person = BLLPersonManagement.Instance.GetPersonByPersonID(account.PersonID);
+            EditProfileForm editProfileForm = new EditProfileForm(account.Person);
             openChildForm(editProfileForm, lbProfile);
         }
 

@@ -28,7 +28,6 @@ namespace PBL3.View.LoginForms
             {
                 tbUsername.Text = Properties.Settings.Default.username;
                 tbPassword.Text = Properties.Settings.Default.userPass;
-                Properties.Settings.Default.Save();
                 btnSignIn.Focus();
             }
         }
