@@ -23,6 +23,11 @@ namespace PBL3.View.AdminChildForms.ProductForms
         public void InitializeData()
         {
             dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_View();
+            dgvProduct.Columns[0].HeaderText = "ID";
+            dgvProduct.Columns[1].HeaderText = "Product Name";
+            dgvProduct.Columns[3].HeaderText = "Store Quantity";
+            dgvProduct.Columns[4].HeaderText = "Selling Price";
+            dgvProduct.AutoResizeColumn(0);
             cbbSortOrder.SelectedIndex = 0;
             cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;

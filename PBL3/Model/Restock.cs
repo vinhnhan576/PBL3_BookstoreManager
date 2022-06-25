@@ -15,7 +15,7 @@ namespace PBL3.Model
         {
             RestockDetails = new HashSet<RestockDetail>();
         }
-        [Column("ID")][Key][Required]
+        [Key][Required]
         public string RestockID { get; set; }
         public System.DateTime ImportDate { get; set; }
         public double TotalExpense { get; set; }

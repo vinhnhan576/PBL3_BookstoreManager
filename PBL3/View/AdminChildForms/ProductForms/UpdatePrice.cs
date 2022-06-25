@@ -31,6 +31,10 @@ namespace PBL3.View.AdminChildForms.ProductForms
         public void InitializeProductPrice()
         {
             dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_Price_View();
+            dgvProduct.Columns[0].HeaderText = "ID";
+            dgvProduct.Columns[1].HeaderText = "Product name";
+            dgvProduct.Columns[2].HeaderText = "Selling price";
+            dgvProduct.AutoResizeColumns();
             dgvProduct.ClearSelection();
         }
 

@@ -22,6 +22,11 @@ namespace PBL3.View.StockkeeperChildForms
         {
             InitializeComponent();
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_View();
+            dgvProducts.Columns[0].HeaderText = "ID";
+            dgvProducts.Columns[1].HeaderText = "Name";
+            dgvProducts.Columns[2].HeaderText = "Store quantity";
+            dgvProducts.Columns[3].HeaderText = "Stock quantity";
+            dgvProducts.AutoResizeColumns();
             account = acc;
             NewImport();
         }
@@ -53,7 +58,7 @@ namespace PBL3.View.StockkeeperChildForms
         {
             StoreImport s = new StoreImport();
             s.StoreImportID = tbStoreImportID.Text;
-            //s.PersonID = tbStockkeperID.Text;
+            s.PersonID = tbStockkeperID.Text;
             s.ImportDate = DateTime.Now;
             BLLStoreImportManagement.Instance.AddNewStoreImport(s);
             BLLStoreImportManagement.Instance.AddNewStoreImportDetail(list, tbStoreImportID.Text);

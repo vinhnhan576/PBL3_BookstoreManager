@@ -15,7 +15,7 @@ namespace PBL3.Model
         {
             //Revenues = new HashSet<Revenue>();
         }
-        [Column("ID")][Key]
+        [Key]
         public string ReceiptDetailID { get; set; }
         [Required]
         public string ProductID { get; set; }

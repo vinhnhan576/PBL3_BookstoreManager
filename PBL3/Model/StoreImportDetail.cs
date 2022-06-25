@@ -11,11 +11,12 @@ namespace PBL3.Model
     [Table("StoreImportDetail")]
     public partial class StoreImportDetail
     {
-        [Column("ID")][Key][Required][StringLength(10)]
+        [Key][Required][StringLength(10)]
         public string StoreImportDetailID { get; set; }
         public string StoreImportID { get; set; }
-        public string ProductID { get; set; }
         public int ImportQuantity { get; set; }
+        public string ProductID { get; set; }
+
         [ForeignKey("StoreImportID")]
         public virtual StoreImport StoreImport { get; set; }
         [ForeignKey("ProductID")]

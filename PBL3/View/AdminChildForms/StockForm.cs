@@ -22,11 +22,20 @@ namespace PBL3.View.AdminChildForms
         private void InitializeGUI()
         {
             dgvStock.DataSource = BLLRestockManagement.Instance.GetAllRestock_View();
+            dgvStock.Columns[1].HeaderText = "Stockkeeper";
+            dgvStock.Columns[2].HeaderText = "Import date";
+            dgvStock.Columns[3].HeaderText = "Total expense";
+            dgvStock.AutoResizeColumns();
             cbbSortOrder.SelectedIndex = 0;
             cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;
             cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);
             dgvStock_CellClick(this, new DataGridViewCellEventArgs(0, 0));
+            dgvProduct.Columns[0].HeaderText = "ID";
+            dgvProduct.Columns[1].HeaderText = "Name";
+            dgvProduct.Columns[2].HeaderText = "Import";
+            dgvProduct.Columns[3].HeaderText = "Price";
+            dgvProduct.AutoResizeColumns();
         }
 
         //Show stock info

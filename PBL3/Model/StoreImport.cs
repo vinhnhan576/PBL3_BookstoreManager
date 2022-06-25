@@ -15,10 +15,13 @@ namespace PBL3.Model
         {
             StoreImportDetails = new HashSet<StoreImportDetail>();
         }
-        [Column("ID")][Key][Required][StringLength(10)]
+        [Key][Required][StringLength(10)]
         public string StoreImportID { get; set; }
-        public System.DateTime ImportDate { get; set; }
+        public DateTime ImportDate { get; set; }
+        public string PersonID { get; set; }
 
+        [ForeignKey("PersonID")]
+        public virtual Person Person { get; set; }
         public virtual ICollection<StoreImportDetail> StoreImportDetails { get; set; }
     }
 }

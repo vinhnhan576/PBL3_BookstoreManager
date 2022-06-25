@@ -18,9 +18,9 @@ namespace PBL3.Model
             RestockDetails = new HashSet<RestockDetail>();
         }
 
-        [Column("ID")][Key]
+        [Key]
         public string ProductID { get; set; }
-        [Column("Name")][Required]
+        [Required]
         public string ProductName { get; set; }
         public string Category { get; set; }
         public string Author { get; set; }

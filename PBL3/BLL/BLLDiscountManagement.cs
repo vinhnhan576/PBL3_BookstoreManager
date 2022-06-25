@@ -28,7 +28,7 @@ namespace PBL3.BLL
         }
         public int GenerateID()
         {
-            string discount = (QLNS.Instance.Discounts.Any() ? QLNS.Instance.Discounts.OrderByDescending(p => p.DiscountID.Length).ThenByDescending(p => p.DiscountID).First().DiscountID : "0");
+            string discount = (QLNS.Instance.Discounts.Any() ? QLNS.Instance.Discounts.OrderByDescending(p => p.DiscountID.Length).ThenByDescending(p => p.DiscountID).First().DiscountID : "d0");
             return Convert.ToInt32(discount.Trim('d')) + 1;
         }
         public List<Discount> GetAllDiscount()

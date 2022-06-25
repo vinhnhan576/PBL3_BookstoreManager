@@ -18,6 +18,11 @@ namespace PBL3.View.AdminChildForms
         {
             InitializeComponent();
             dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
+            dgvRank.Columns[0].HeaderText = "ID";
+            dgvRank.Columns[1].HeaderText = "Name";
+            dgvRank.Columns[3].HeaderText = "Customer discount";
+            dgvRank.AutoResizeColumns();
+
             Savebutton.Visible = false;
             ClearButton.Visible = false;
             IDtxt.ReadOnly=true;
@@ -85,28 +90,32 @@ namespace PBL3.View.AdminChildForms
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             List<string> del = new List<string>();
-            if (dgvRank.SelectedRows.Count > 0)
+            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to delete this rank(s)?", "Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                foreach (DataGridViewRow i in dgvRank.SelectedRows)
+                if (dgvRank.SelectedRows.Count > 0)
                 {
-                    del.Add(i.Cells[0].Value.ToString());
+                    foreach (DataGridViewRow i in dgvRank.SelectedRows)
+                    {
+                        del.Add(i.Cells[0].Value.ToString());
+                    }
+                    BLLRankManagement.Instance.DelRank(del);
+                    //cbLopSH.SelectedIndex = 0;
+                    dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
                 }
-                BLLRankManagement.Instance.DelRank(del);
-                //cbLopSH.SelectedIndex = 0;
-                dgvRank.DataSource = BLLRankManagement.Instance.GetAllRank_View();
-            }
-            if (dgvRank.SelectedRows.Count == 1)
-            {
-                IDtxt.Text = dgvRank.SelectedRows[0].Cells["RankID"].Value.ToString();
-                Nametxt.Text = dgvRank.SelectedRows[0].Cells["RankName"].Value.ToString();
-                Requirementtxt.Text = dgvRank.SelectedRows[0].Cells["Requirement"].Value.ToString();
-                applytxt.Text = dgvRank.SelectedRows[0].Cells[3].Value.ToString();
-                Savebutton.Visible = false;
-                ClearButton.Visible = false;
-                IDtxt.ReadOnly = false;
-                Nametxt.ReadOnly = false;
-                Requirementtxt.ReadOnly = false;
-                applytxt.ReadOnly = false;
+                if (dgvRank.SelectedRows.Count == 1)
+                {
+                    IDtxt.Text = dgvRank.SelectedRows[0].Cells["RankID"].Value.ToString();
+                    Nametxt.Text = dgvRank.SelectedRows[0].Cells["RankName"].Value.ToString();
+                    Requirementtxt.Text = dgvRank.SelectedRows[0].Cells["Requirement"].Value.ToString();
+                    applytxt.Text = dgvRank.SelectedRows[0].Cells[3].Value.ToString();
+                    Savebutton.Visible = false;
+                    ClearButton.Visible = false;
+                    IDtxt.ReadOnly = false;
+                    Nametxt.ReadOnly = false;
+                    Requirementtxt.ReadOnly = false;
+                    applytxt.ReadOnly = false;
+                }
             }
         }
 

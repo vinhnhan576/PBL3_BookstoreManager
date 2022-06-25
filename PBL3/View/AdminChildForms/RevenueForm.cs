@@ -22,6 +22,10 @@ namespace PBL3.View.AdminChildForms
         private void InitializeGUI()
         {
             dgvRevenue.DataSource = BLLRevenueManagement.Instance.GetAllRevenue_View();
+            dgvRevenue.Columns[1].HeaderText = "Salesman";
+            dgvRevenue.Columns[3].HeaderText = "Gross Revenue";
+            dgvRevenue.Columns[4].HeaderText = "Profit(%)";
+            dgvRevenue.AutoResizeColumns();
             cbbSortOrder.SelectedIndex = 0;
             cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;

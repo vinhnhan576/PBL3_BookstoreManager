@@ -62,7 +62,7 @@ namespace PBL3.BLL
         }
         public void CreateReceiptDetailView(Order order, Product p, int quantity)
         {
-            string receiptDetailID = "rd" + GenerateReceiptID().Remove(0,3) + Convert.ToString(order.Rdv_List.Count() + 1);
+            string receiptDetailID = "rd" + GenerateReceiptID().Remove(0,3) + "." + Convert.ToString(order.Rdv_List.Count() + 1);
             order.CreateReceiptDetailView(p, quantity, receiptDetailID);
         }
 

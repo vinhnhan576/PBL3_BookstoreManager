@@ -76,7 +76,7 @@
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel6);
             this.guna2Panel1.Location = new System.Drawing.Point(28, 76);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(611, 148);
+            this.guna2Panel1.Size = new System.Drawing.Size(611, 139);
             this.guna2Panel1.TabIndex = 15;
             // 
             // applytxt
@@ -114,7 +114,7 @@
             this.Savebutton.FillColor = System.Drawing.Color.White;
             this.Savebutton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.Savebutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.Savebutton.Location = new System.Drawing.Point(369, 98);
+            this.Savebutton.Location = new System.Drawing.Point(365, 92);
             this.Savebutton.Name = "Savebutton";
             this.Savebutton.Size = new System.Drawing.Size(99, 31);
             this.Savebutton.TabIndex = 33;
@@ -131,7 +131,7 @@
             this.ClearButton.FillColor = System.Drawing.Color.White;
             this.ClearButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.ClearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(125)))), ((int)(((byte)(160)))));
-            this.ClearButton.Location = new System.Drawing.Point(480, 98);
+            this.ClearButton.Location = new System.Drawing.Point(488, 92);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(99, 31);
             this.ClearButton.TabIndex = 28;
@@ -468,7 +468,7 @@
             this.dgvRank.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRank.EnableHeadersVisualStyles = false;
             this.dgvRank.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvRank.Location = new System.Drawing.Point(28, 239);
+            this.dgvRank.Location = new System.Drawing.Point(28, 228);
             this.dgvRank.Margin = new System.Windows.Forms.Padding(2);
             this.dgvRank.Name = "dgvRank";
             this.dgvRank.ReadOnly = true;
@@ -477,7 +477,7 @@
             this.dgvRank.RowTemplate.Height = 28;
             this.dgvRank.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvRank.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRank.Size = new System.Drawing.Size(732, 206);
+            this.dgvRank.Size = new System.Drawing.Size(732, 213);
             this.dgvRank.TabIndex = 25;
             this.dgvRank.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvRank.ThemeStyle.AlternatingRowsStyle.Font = null;

@@ -21,6 +21,11 @@ namespace PBL3.View.AdminChildForms
         {
             InitializeComponent();
             Reload();
+            dgvAccount.Columns[0].HeaderText = "ID";
+            dgvAccount.Columns[1].HeaderText = "Name";
+            //dgvAccount.Columns[2].HeaderText = "Import date";
+            //dgvAccount.Columns[3].HeaderText = "Total expense";
+            dgvAccount.AutoResizeColumns();
             cbbSortOrder.SelectedIndex = 0;
             cbbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbbSortOrder_SelectedIndexChanged);
             cbbSortCategory.SelectedIndex = 0;
@@ -208,7 +213,7 @@ namespace PBL3.View.AdminChildForms
                     if (checkID) a.PersonID = p.PersonID = tbID.Text;
                     else a.PersonID = p.PersonID = tbID.Text;
                     a.Username = tbUsername.Text;
-                    a.Password = tbPassword.Text;
+                    a.Password = Hash.ConvertToHashCode(tbPassword.Text);
                     a.Person = p;
                     BLLAccountManagement.Instance.Execute(a);
                     CustomMessageBox.MessageBox.Show("", "Success", MessageBoxIcon.Information);

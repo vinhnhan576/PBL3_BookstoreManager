@@ -15,9 +15,8 @@ namespace PBL3.Model
         {
             Products = new HashSet<Product>();
         }
-        [Key][StringLength(10)][Required][Column("ID")]
+        [Key][StringLength(10)][Required]
         public string DiscountID { get; set; }
-        [Column("Discount Name")]
         public string DiscountName { get; set; }
         public int Amount { get; set; }
         public string DiscountType { get; set; }

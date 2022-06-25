@@ -11,7 +11,7 @@ using PBL3.DTO;
 
 namespace PBL3
 {
-    internal class CreateDB :DropCreateDatabaseIfModelChanges<QLNS>
+    internal class CreateDB : DropCreateDatabaseIfModelChanges<QLNS>
     {
         protected override void Seed(QLNS context)
         {
@@ -24,9 +24,9 @@ namespace PBL3
 
             context.Accounts.AddRange(new Account[]
             {
-                new Account { PersonID = "ad01", Username = "ad01", Password =Hash.ConvertToHashCode("123456")},
-                new Account { PersonID = "sm01", Username = "sm01", Password =Hash.ConvertToHashCode("123456")},
-                new Account { PersonID = "sk01", Username = "sk01", Password =Hash.ConvertToHashCode("123456")},
+                new Account { PersonID = "ad01", Username = "ad01", Password = Hash.ConvertToHashCode("123456")},
+                new Account { PersonID = "sm01", Username = "sm01", Password = Hash.ConvertToHashCode("123456")},
+                new Account { PersonID = "sk01", Username = "sk01", Password = Hash.ConvertToHashCode("123456")},
             });
 
             context.Products.AddRange(new Product[]

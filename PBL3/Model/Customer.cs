@@ -16,13 +16,11 @@ namespace PBL3.Model
         {
             Receipts = new HashSet<Receipt>();
         }
-        [Column("Phone Number")][Key][StringLength(11)][Required]
+        [Key][StringLength(11)][Required]
         public string PhoneNumber { get; set; }
-        [Column("Customer Name")]
         [Required]
         public string CustomerName { get; set; }
         public string RankID { get; set; }
-        [Column("Total Spending")]
         public double TotalSpending { get; set; }
         public int Used { get; set; }
         [ForeignKey("RankID")]
