@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.DTO;
 
 namespace PBL3.View.LoginForms
 {
@@ -29,7 +30,7 @@ namespace PBL3.View.LoginForms
                 if (tbNewPassword.Text != tbConfirmPassword.Text) throw new Exception("Wrong confirmation");
                 else
                 {
-                    BLL.BLLAccountManagement.Instance.ChangePassword(account.Username, tbNewPassword.Text);
+                    BLL.BLLAccountManagement.Instance.ChangePassword(account.Username, Hash.ConvertToHashCode(tbNewPassword.Text));
                     DialogResult result = CustomMessageBox.MessageBox.Show("Reset password successfully", "Congratulations", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     myDelegate();
                     //this.Close();

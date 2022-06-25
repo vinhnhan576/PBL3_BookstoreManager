@@ -219,6 +219,7 @@ namespace PBL3.View
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CashierForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Salesman";
             this.pnTop.ResumeLayout(false);
             this.pnTop.PerformLayout();

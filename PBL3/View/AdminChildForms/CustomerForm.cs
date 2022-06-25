@@ -35,7 +35,16 @@ namespace PBL3.View.AdminChildForms
         private void InitializeGUI()
         {
             dgvCustomer.DataSource = BLLCustomerManagement.Instance.GetAllCustomer_View();
+            dgvCustomer.Columns[0].HeaderText = "Tel";
+            dgvCustomer.Columns[1].HeaderText = "Name";
+            dgvCustomer.Columns[2].HeaderText = "Rank";
+            dgvCustomer.Columns[3].HeaderText = "Total spending";
+            //dgvCustomer.AutoResizeColumn(1);
             dgvCustomer_CellClick(this, new DataGridViewCellEventArgs(0, 0));
+            Productdgv.Columns[0].HeaderText = "ID";
+            Productdgv.Columns[1].HeaderText = "Date";
+            Productdgv.Columns[2].HeaderText = "Total";
+            //Productdgv.AutoResizeColumns();
         }
 
         //Show customer info

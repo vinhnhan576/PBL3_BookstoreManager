@@ -18,13 +18,10 @@ namespace PBL3.Model
         [Key]
         [StringLength(10)]
         [Required]
-        [Column("ID")]
         public string ReceiptID { get; set; }
         public System.DateTime Date { get; set; }
         public double Total { get; set; }
-        [Column("Staff ID")]
         public string PersonID { get; set; }
-        [Column("Customer number")]
         [StringLength(11)]
         public string PhoneNumber { get; set; }
         public bool Status { get; set; }

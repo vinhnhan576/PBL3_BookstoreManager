@@ -16,7 +16,7 @@ namespace PBL3.Model
             this.Receipts = new HashSet<Receipt>();
             this.Restocks = new HashSet<Restock>();
         }
-        [Column("ID")][Key][Required][StringLength(10)]
+        [Key][Required][StringLength(10)]
         public string PersonID { get; set; }
         public string PersonName { get; set; }
         public string Address { get; set; }

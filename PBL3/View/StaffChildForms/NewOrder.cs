@@ -26,6 +26,8 @@ namespace PBL3.View.StaffChildForms
         private void InitializeGUI()
         {
             dgvProduct.DataSource = BLLProductManagement.Instance.GetAllProduct_OrderView();
+            dgvProduct.Columns[1].HeaderText = "Store";
+            dgvProduct.AutoResizeColumns();
             //rd_list = new List<ReceiptDetailView>();
             var random = new RandomGenerator();
             OrderIDtxt.ReadOnly = true;

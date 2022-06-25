@@ -11,13 +11,11 @@ namespace PBL3.Model
     [Table("RestockDetail")]
     public partial class RestockDetail
     {
-        [Column("ID")][Key][Required][StringLength(10)]
+        [Key][Required][StringLength(10)]
         public string RestockDetailID { get; set; }
         public string RestockID { get; set; }
         public string ProductID { get; set; }
-        [Column("Import Quantity")]
         public int ImportQuantity { get; set; }
-        [Column("Import Price")]
         public double ImportPrice { get; set; }
         public double Total { get; set; }
         [ForeignKey("ProductID")]

@@ -54,15 +54,19 @@ namespace PBL3.View.StaffChildForms
         private void statusbtn_Click(object sender, EventArgs e)
         {
             List<string> del = new List<string>();
-            if (Receiptdgv.SelectedRows.Count > 0)
+            DialogResult result = CustomMessageBox.MessageBox.Show("Are you sure you want to delete this account(s)?", "Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                foreach (DataGridViewRow i in Receiptdgv.SelectedRows)
+                if (Receiptdgv.SelectedRows.Count > 0)
                 {
-                    del.Add(i.Cells[0].Value.ToString());
+                    foreach (DataGridViewRow i in Receiptdgv.SelectedRows)
+                    {
+                        del.Add(i.Cells[0].Value.ToString());
+                    }
+                    BLLReceiptManagement.Instance.ChangeStatusReceipt(del);
+                    //cbLopSH.SelectedIndex = 0;
+                    Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
                 }
-                BLLReceiptManagement.Instance.ChangeStatusReceipt(del);
-                //cbLopSH.SelectedIndex = 0;
-                Receiptdgv.DataSource = BLLReceiptManagement.Instance.GetAllReceipt_View();
             }
         }
         private void cbbSortOrder_SelectedIndexChanged(object sender, EventArgs e)

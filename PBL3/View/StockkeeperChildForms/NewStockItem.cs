@@ -24,6 +24,12 @@ namespace PBL3.View.StockkeeperChildForms
             InitializeComponent();
             account = acc;
             dgvProducts.DataSource = BLLProductManagement.Instance.GetAllProduct_Import_Views();
+            dgvProducts.Columns[0].HeaderText = "ID";
+            dgvProducts.Columns[2].HeaderText = "Stock quantity";
+            dgvProducts.Columns[1].HeaderText = "Name";
+            dgvProducts.AutoResizeColumn(0);
+
+            //dgvProducts.AutoResizeColumns();
             tbRestockID.Text = BLLRestockManagement.Instance.GenerateRestockID();
             tbRestockID.Enabled = false;
             tbStockkeperID.Text = account.PersonID;

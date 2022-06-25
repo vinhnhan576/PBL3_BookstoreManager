@@ -24,6 +24,11 @@ namespace PBL3.View.AdminChildForms.ProductForms
         public void InitializeData()
         {
             dgvProduct.DataSource = BLLStoreImportManagement.Instance.GetStoreImportDetail_ViewByProductID(productID);
+            dgvProduct.Columns[0].HeaderText = "Import date";
+            dgvProduct.Columns[1].HeaderText = "Import quantity";
+            dgvProduct.Columns[2].HeaderText = "Store quantity";
+            dgvProduct.Columns[3].HeaderText = "Stockkeeper";
+            dgvProduct.AutoResizeColumns();
             tbProduct.Text = BLLProductManagement.Instance.GetProductByID(productID).ProductName;
             cbbSortCategory.SelectedIndex = 0;
             cbbSortCategory.SelectedIndexChanged += new System.EventHandler(this.cbbSortCategory_SelectedIndexChanged);

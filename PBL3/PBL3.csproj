@@ -233,12 +233,6 @@
     <Compile Include="View\AdminChildForms\StockForm.Designer.cs">
       <DependentUpon>StockForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\StaffChildForms\Overview.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\StaffChildForms\Overview.Designer.cs">
-      <DependentUpon>Overview.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\StaffChildForms\ManageOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,12 +265,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\StockkeeperChildForms\AddNewItem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\StockkeeperChildForms\AddNewItem.Designer.cs">
-      <DependentUpon>AddNewItem.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\StockkeeperChildForms\AddNewProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,12 +288,6 @@
     </Compile>
     <Compile Include="View\StockkeeperChildForms\NewStockItem.Designer.cs">
       <DependentUpon>NewStockItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\StockkeeperChildForms\Overview.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\StockkeeperChildForms\Overview.Designer.cs">
-      <DependentUpon>Overview.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LoginForms\StockkeeperForm.cs">
       <SubType>Form</SubType>
@@ -401,12 +383,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\StaffChildForms\Overview.resx">
-      <DependentUpon>Overview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\StockkeeperChildForms\AddNewItem.resx">
-      <DependentUpon>AddNewItem.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\StockkeeperChildForms\AddNewProduct.resx">
       <DependentUpon>AddNewProduct.cs</DependentUpon>
     </EmbeddedResource>
@@ -418,9 +394,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StockkeeperChildForms\NewStockItem.resx">
       <DependentUpon>NewStockItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\StockkeeperChildForms\Overview.resx">
-      <DependentUpon>Overview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForms\StockkeeperForm.resx">
       <DependentUpon>StockkeeperForm.cs</DependentUpon>

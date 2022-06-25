@@ -209,10 +209,11 @@ namespace PBL3.BLL
             }
             return check;
         }
-        public int GenerateID(string role)
+        public string GenerateID(string role)
         {
-            string acc = (QLNS.Instance.Accounts.Any() ? QLNS.Instance.Accounts.Where(p => p.Person.Role == role).OrderByDescending(p => p.PersonID.Length).ThenByDescending(p => p.PersonID).First().PersonID : "0");
-            return Convert.ToInt32(acc.Remove(0, 2)) + 1;
+            string acc = QLNS.Instance.Accounts.Where(p => p.Person.Role == role).OrderByDescending(p => p.PersonID.Length).ThenByDescending(p => p.PersonID).First().PersonID;
+            int count = Convert.ToInt32(acc.Remove(0, 2));
+            return (count < 10 ? "0" + count : count.ToString());
         }
     }
  }
